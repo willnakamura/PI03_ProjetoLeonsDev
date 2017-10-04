@@ -14,12 +14,47 @@ import java.util.Date;
 public class Cliente {
 
     //
+    private int id;
     private String nome, endereco;
     private String telefone, email, genero;
     private Long cpf;
     private Date dataNascimento;
-    
-    
+
+    public Cliente() {
+
+    }
+
+    public Cliente(int id, String nome, String endereco, String telefone, String email,
+            String genero, Long cpf, Date dataNascimento) {
+        this.id = id;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.email = email;
+        this.genero = genero;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+    }
+
+    public Cliente(String nome, String endereco, String telefone, String email,
+            String genero, Long cpf, Date dataNascimento) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.email = email;
+        this.genero = genero;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     // Getters e Setters
     public String getGenero() {
         return genero;
