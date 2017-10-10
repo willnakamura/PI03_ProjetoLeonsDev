@@ -7,8 +7,6 @@ package br.senac.tads3.pi3b.leonsdev.cliente.servlet;
 
 import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Date;
 import javax.servlet.RequestDispatcher;
