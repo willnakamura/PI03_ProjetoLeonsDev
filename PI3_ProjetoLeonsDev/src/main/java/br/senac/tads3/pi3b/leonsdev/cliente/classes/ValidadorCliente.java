@@ -5,7 +5,6 @@
  */
 package br.senac.tads3.pi3b.leonsdev.cliente.classes;
 
-import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.exceptions.ClienteException;
 
 import java.util.Calendar;
@@ -28,15 +27,23 @@ public class ValidadorCliente {
         if (cliente.getNome() == null || "".equals(cliente.getNome())) {
             throw new ClienteException("Favor informar o nome do cliente.");
         }
-        if (cliente.getNome().length() > 100) {
+        if (cliente.getNome().length() > 20) {
             throw new ClienteException("Nome inválido.");
         }
-
+        
+        //sobrenome
+        if (cliente.getSobrenome()== null || "".equals(cliente.getSobrenome())) {
+            throw new ClienteException("Favor informar um sobrenome do cliente.");
+        }
+        if (cliente.getSobrenome().length() > 20) {
+            throw new ClienteException("Nome inválido.");
+        }
+        
         // Genero
         if (cliente.getGenero().equals("Selecione")) {
             throw new ClienteException("Favor selecione o sexo do cliente.");
         }
-
+        
         //Data Nasc.
         if (cliente.getDataNascimento() == null || calendario.before(cliente.getDataNascimento())) {
             throw new ClienteException("Favor informar uma data válida.");
