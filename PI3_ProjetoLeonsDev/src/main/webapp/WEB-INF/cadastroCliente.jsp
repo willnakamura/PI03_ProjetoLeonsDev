@@ -18,6 +18,7 @@
                 <h3>Cadastro de clientes</h3>
 
                 <label for="nome"  class="label cadastro nome">Nome Completo</label>
+                <label for="nome"  class="label cadastro nome">Nome Completo</label>
                 <input type="text" name="nome" value="nome" class="input cadastro name"/>               
                 </br></br>
                 <label for="cpf" class="label cadastro cpf">CPF</label>
