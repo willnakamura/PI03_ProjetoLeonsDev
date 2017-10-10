@@ -15,17 +15,18 @@ public class Cliente {
 
     //
     private int id;
-    private String nome, endereco;
+    private String nome, sobrenome, endereco;
     private String telefone, email, genero;
     private Long cpf;
     private Date dataNascimento;
-
+    private boolean enable;
+    
     public Cliente() {
 
     }
 
-    public Cliente(int id, String nome, String endereco, String telefone, String email,
-            String genero, Long cpf, Date dataNascimento) {
+    public Cliente(int id, String nome, String sobrenome, String endereco, String telefone, String email,
+            String genero, Long cpf, Date dataNascimento, boolean enable) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
@@ -71,6 +72,14 @@ public class Cliente {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
+     public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
 
     public String getEndereco() {
         return endereco;
@@ -110,6 +119,14 @@ public class Cliente {
 
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+    
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 
 }
