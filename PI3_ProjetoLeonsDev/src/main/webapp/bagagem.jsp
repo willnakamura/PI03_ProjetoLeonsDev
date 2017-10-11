@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 10/10/2017, 17:35:20
-    Author     : Nakamura-PC
+    Document   : bagagem
+    Created on : 10/10/2017, 21:25:12
+    Author     : mariana.protiroti
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,10 +34,28 @@
                 <!-- header -->
                 <header>
                     <div class="row">
-                          <!-- INICIO PARTE DO LOGO -->
-                        <h1><a href="index.html" id="logo">Around the World</a></h1>
-                         <!-- FINAL PARTE DO LOGO -->
                         
+                        <h1><a href="index.html" id="logo">Around the World</a></h1>
+                        
+                        <div class="right">
+                            <div class="wrapper">
+                                <form id="search" action="" method="post">
+                                    <div class="bg">
+                                        <input type="submit" class="submit" value="">
+                                        <input type="text" class="input">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="wrapper">
+                                <nav>
+                                    <ul id="top_nav">
+                                        <li><a href="#">Register</a></li>
+                                        <li><a href="#">Log In</a></li>
+                                        <li><a href="#">Help</a></li>
+                                    </ul>
+                                </nav>
+                            </div>	
+                        </div>
                     </div>
                     <nav class="row">
                         <ul id="menu">
@@ -49,9 +67,21 @@
                            
                         </ul>
                     </nav>
+                    <h3><div class="titulos"><label>Excesso de Bagagem</label></div></h3>
                     
-                    
-                    
+                    <label for="peso">Peso: </label>
+                    <input type="number" name="peso" value=""/>
+                    </br></br>
+                    <label for="preco">Preço: </label>
+                    <input type="text" name="preco" value=""/>
+                    </br></br>
+                    <label for="qtdepax">Quantidade por pax: </label>
+                    <input type="text" name="qtdepax" value=""/>
+                    </br></br>
+                    <button for="submit">Enviar</button>
+                    <button for="back">Voltar</button>
+                        
+                   
                 </header>
              
             </div>
