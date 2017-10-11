@@ -148,7 +148,7 @@ header {
 }
 
 #logo {
-	background: url(../images/logo.jpg) no-repeat;
+	background: url(../images/logo1.png) no-repeat;
 	display: block;
 	width: 354px;
 	height: 101px;
@@ -274,7 +274,8 @@ header {
 
 .tabs li {
 	float: left;
-	padding-right: 1px
+	padding-right:1px
+            
 }
 
 .tabs .end {

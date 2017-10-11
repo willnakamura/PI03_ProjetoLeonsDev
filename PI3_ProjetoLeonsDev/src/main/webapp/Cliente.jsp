@@ -34,28 +34,10 @@
                 <!-- header -->
                 <header>
                     <div class="row">
-                        
+                          <!-- INICIO PARTE DO LOGO -->
                         <h1><a href="index.html" id="logo">Around the World</a></h1>
+                         <!-- FINAL PARTE DO LOGO -->
                         
-                        <div class="right">
-                            <div class="wrapper">
-                                <form id="search" action="" method="post">
-                                    <div class="bg">
-                                        <input type="submit" class="submit" value="">
-                                        <input type="text" class="input">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="wrapper">
-                                <nav>
-                                    <ul id="top_nav">
-                                        <li><a href="#">Register</a></li>
-                                        <li><a href="#">Log In</a></li>
-                                        <li><a href="#">Help</a></li>
-                                    </ul>
-                                </nav>
-                            </div>	
-                        </div>
                     </div>
                     <nav class="row">
                         <ul id="menu">
@@ -67,6 +49,36 @@
                            
                         </ul>
                     </nav>
+                    
+                    
+                    <form action="${pageContext.request.contextPath}/cadastro-cliente" method="post">
+                <h5>Cadastro de clientes</h5>
+
+                <label for="nome"  class="label cadastro nome">Nome Completo</label>
+                <input type="text" name="nome" value="nome" class="input cadastro name"/>               
+                </br></br>
+                <label for="cpf" class="label cadastro cpf">CPF</label>
+                <input type="text" name="cpf" value="cpf" class="input-cpf"/>
+                </br></br>
+                <label for="dtnascimento" class="label cadastro DataNasci">Data de Nascimento</label>
+                <input type="date" name="dataNascimento" class="input cadastro dtnascimento"/>
+                </br></br>
+                <label for="endereco" class="label cadastro endereco">Endereço</label>
+                <input type="text" name="endereco" value="endereco" class="input cadastro endereco"/>
+                </br></br>
+                <label for="telefone" class="label cadastro telefone">Telefone</label>
+                <input type="text" name="telefone" value="telefone" class="input cadastro telefone"/>
+                </br></br>
+                <label for="email" class="label cadastro email">E-mail</label>
+                <input type="text" name="email" value="email" class="input cadastro email"/>
+                </br></br>
+
+                </br></br>
+                <div>
+                    <button> Voltar </button>
+                    <button> Cadastrar </button>
+                </div>
+            </form>
                     
                     
                 </header>
