@@ -37,9 +37,7 @@ public class ValidadorUsuario {
             throw new ExceptionUsuario("Favor informar uma data válida!");
         }
         //
-        if (usuario.getTelefone() == null || "".equals(usuario.getTelefone())) {
-            throw new ExceptionUsuario("Favor informar um telefone válido!");
-        }
+       
         //
         if (usuario.getEmail().length() > 40) {
             throw new ExceptionUsuario("Ultrapassou o limite de 40 caracteres no campo email.");
@@ -65,9 +63,7 @@ public class ValidadorUsuario {
         if (usuario.getSenha().length() > 50) {
             throw new ExceptionUsuario("Ultrapassou o limite de 50 caracteres no campo senha.");
         }
-        if (usuario.getEndereço()== null || "".equals(usuario.getEndereço())) {
-            throw new ExceptionUsuario("Favor informar o endereço válido!");
-        }
+       
         if (usuario.getNome().length() > 50) {
             throw new ExceptionUsuario("Ultrapassou o limite de 70 caracteres no campo endereço.");
         }

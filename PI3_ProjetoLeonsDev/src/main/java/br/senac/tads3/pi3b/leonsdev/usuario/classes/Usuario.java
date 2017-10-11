@@ -12,9 +12,26 @@ import java.util.Date;
  * @author Rafael Rodrigues
  */
 public class Usuario {
-    private String nome, endereço, email, cargo, login, senha, telefone;
+    private String nome, sobrenome, email, cargo, login, senha;
     private Long cpf;
     private Date dataNasc;
+    boolean enable;
+
+    public Usuario () {
+        
+    }
+
+    public Usuario(String nome, String sobrenome, String email, String cargo, String login, String senha, Long cpf, Date dataNasc, boolean enable) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.email = email;
+        this.cargo = cargo;
+        this.login = login;
+        this.senha = senha;
+        this.cpf = cpf;
+        this.dataNasc = dataNasc;
+        this.enable = enable;
+    }
 
     public String getNome() {
         return nome;
@@ -24,12 +41,12 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public String getEndereço() {
-        return endereço;
+    public String getSobrenome() {
+        return sobrenome;
     }
 
-    public void setEndereço(String endereço) {
-        this.endereço = endereço;
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 
     public String getEmail() {
@@ -64,14 +81,6 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
     public Long getCpf() {
         return cpf;
     }
@@ -87,4 +96,15 @@ public class Usuario {
     public void setDataNasc(Date dataNasc) {
         this.dataNasc = dataNasc;
     }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
+    }
+    
+    
+   
 }
