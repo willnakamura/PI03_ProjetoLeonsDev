@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 10/10/2017, 17:35:20
-    Author     : Nakamura-PC
+    Document   : Produto1
+    Created on : 10/10/2017, 21:21:03
+    Author     : mariana.protiroti
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -67,7 +67,30 @@
                            
                         </ul>
                     </nav>
+                    <h3><label>Cadastro de Produto e Serviços de Bordo</label></h3>
+                    <h1><div class="titulos"><label>Serviço de Bordo</label></div></h1>
+                    </br></br></br>
+                    <label for="produto">Nome do produto: </label>
+                    <input type="text" name="produto" value=""/>
+                    </br></br>
+                    <label for="preco">Preço: </label>
+                    <input type="number" name="preco" value=""/>
+                    </br></br>
+                    <label for="qtde">Quantidade: </label>
+                    <input type="text" name="qtde" value=""/>
+                    </br></br>
+                    <label for="voo">Número do Voo: </label>
+                    <input type="number" name="voo" value=""/>
+                    </br></br> 
+                    <label for="origem">Origem: </label>
+                    <input type="text" name="origem" value=""/>
+                    </br></br>
+                    <label for="destino">Destino: </label>
+                    <input for="text" name="destino" value=""/>
+                    </br></br></br>
                     
+                    <button for="back">Voltar</button>
+                    <button for="submit">Cadastrar</button>
                     
                     
                 </header>
