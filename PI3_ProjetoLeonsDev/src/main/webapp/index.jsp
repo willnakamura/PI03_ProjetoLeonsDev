@@ -10,10 +10,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="css/login.css" type="text/css" media="all"> 
+        <script type="text/javascript" src="js/login.js" ></script>
+
+        <title>Login</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <h1>Hello World!</h1>
+        <div class="container">
+            <div class="login-container">
+                <div id="output"></div>
+                <div class="avatar">
+                    
+                </div>
+                <div class="form-box">
+                    <form action="${pageContext.request.contextPath}/login" method="post">
+                        <input name="user" type="text" placeholder="username">
+                        <input type="password" placeholder="password" name="password">
+                        <button class="btn btn-info btn-block login" type="submit" value="Enviar">Login</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
     </body>
 </html>

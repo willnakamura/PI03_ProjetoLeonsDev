@@ -15,16 +15,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
-        <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-        <link rel="stylesheet" href="css/zerogrid.css" type="text/css" media="all">
-        <link rel="stylesheet" href="css/responsive.css" type="text/css" media="all"> 
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reset.css" type="text/css" media="all">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css" media="all">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/zerogrid.css" type="text/css" media="all">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/responsive.css" type="text/css" media="all"> 
 
-        <script type="text/javascript" src="js/jquery-1.4.2.js" ></script>
-        <script type="text/javascript" src="js/cufon-yui.js"></script>
-        <script type="text/javascript" src="js/cufon-replace.js"></script>  
-        <script type="text/javascript" src="js/Myriad_Pro_600.font.js"></script>
-        <script type="text/javascript" src="js/css3-mediaqueries.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.4.2.js" ></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/cufon-yui.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/cufon-replace.js"></script>  
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/Myriad_Pro_600.font.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/css3-mediaqueries.js"></script>
 
     </head>
 
@@ -33,6 +33,7 @@
             <div class="main zerogrid">
                 <!-- header -->
                 <header>
+                    
                     <div class="row">
                         <h1><a href="index.html" id="logo">Around the World</a></h1>
                         <div class="right">
@@ -67,13 +68,13 @@
                     <div class="row headerextra">
                         <article class="col-1-3"><div class="wrap-col">
                                 <div class="text">
-                                    <img src="images/text1.jpg" alt="">
+                                    <img src="${pageContext.request.contextPath}/images/text1.jpg" alt="">
                                     <h2>The Best Offers</h2>
                                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.</p>
                                     <a href="#" class="button">Read More</a>
                                 </div>
                             </div></article>
-                        <div class="col-1-3 col-extra"><div class="wrap-col"><img src="images/img.jpg" alt=""></div></div>
+                        <div class="col-1-3 col-extra"><div class="wrap-col"><img src="${pageContext.request.contextPath}/images/img.jpg" alt=""></div></div>
                         <article class="col-1-3" ><div class="wrap-col">
                                 <ul class="tabs">
                                     <li><a href="#" class="active">Flight</a></li>
@@ -121,19 +122,19 @@
                             <h3>Hot Travel</h3>
                             <div class="pad">
                                 <div class="wrapper under">
-                                    <figure class="left marg_right1"><img src="images/page1_img1.jpg" alt=""></figure>
+                                    <figure class="left marg_right1"><img src="${pageContext.request.contextPath}/images/page1_img1.jpg" alt=""></figure>
                                     <p class="pad_bot2"><strong>Italy<br>Holidays</strong></p>
                                     <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
                                     <a href="#" class="marker_1"></a>
                                 </div>
                                 <div class="wrapper under">
-                                    <figure class="left marg_right1"><img src="images/page1_img2.jpg" alt=""></figure>
+                                    <figure class="left marg_right1"><img src="${pageContext.request.contextPath}/images/page1_img2.jpg" alt=""></figure>
                                     <p class="pad_bot2"><strong>Philippines<br>Travel</strong></p>
                                     <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
                                     <a href="#" class="marker_1"></a>
                                 </div>
                                 <div class="wrapper">
-                                    <figure class="left marg_right1"><img src="images/page1_img3.jpg" alt=""></figure>
+                                    <figure class="left marg_right1"><img src="${pageContext.request.contextPath}/images/page1_img3.jpg" alt=""></figure>
                                     <p class="pad_bot2"><strong>Cruise<br>Holidays</strong></p>
                                     <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
                                     <a href="#" class="marker_1"></a>
@@ -144,7 +145,7 @@
                             <h2>Popular Places</h2>
                             <div class="row under">
                                 <div class="col-1-3"><div class="wrap-col">
-                                        <figure class="left marg_right1"><img src="images/page1_img4.jpg" alt=""></figure>
+                                        <figure class="left marg_right1"><img src="${pageContext.request.contextPath}/images/page1_img4.jpg" alt=""></figure>
                                     </div></div>
                                 <div class="col-2-3"><div class="wrap-col">
                                         <p class="pad_bot2"><strong>Hotel du Havre</strong></p>
@@ -154,7 +155,7 @@
                                     </div></div>
                             </div>
                             <div class="row under">
-                                <div class="col-1-3"><div class="wrap-col"><figure class="left marg_right1"><img src="images/page1_img5.jpg" alt=""></figure></div></div>
+                                <div class="col-1-3"><div class="wrap-col"><figure class="left marg_right1"><img src="${pageContext.request.contextPath}/images/page1_img5.jpg" alt=""></figure></div></div>
                                 <div class="col-2-3"><div class="wrap-col">
                                         <p class="pad_bot2"><strong>Hotel Vacance</strong></p>
                                         <p class="pad_bot2">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</p>
@@ -164,7 +165,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-1-3"><div class="wrap-col">
-                                        <figure class="left marg_right1"><img src="images/page1_img4.jpg" alt=""></figure>
+                                        <figure class="left marg_right1"><img src="${pageContext.request.contextPath}/images/page1_img4.jpg" alt=""></figure>
                                     </div></div>
                                 <div class="col-2-3"><div class="wrap-col">
                                         <p class="pad_bot2"><strong>Hotel du Havre</strong></p>
