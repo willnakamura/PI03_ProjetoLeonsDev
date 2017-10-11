@@ -15,54 +15,55 @@ public class Cliente {
 
     //
     private int id;
-    private String nome, sobrenome, endereco;
-    private String telefone, email, genero;
-    private Long cpf;
+    private String nome, sobrenome, cpf, email, celular, estado, genero, cidade, endereco, cep;
     private Date dataNascimento;
-    private boolean enable;
+    private boolean ativo;
     
     public Cliente() {
 
     }
 
-    public Cliente(int id, String nome, String sobrenome, String endereco, String telefone, String email,
-            String genero, Long cpf, Date dataNascimento, boolean enable) {
+    public Cliente(int id, String nome, String sobrenome, String cpf, String email, String celular, String estado, String genero, String cidade, String endereco, String cep, Date dataNascimento, boolean ativo) {
         this.id = id;
         this.nome = nome;
-        this.endereco = endereco;
-        this.telefone = telefone;
-        this.email = email;
-        this.genero = genero;
+        this.sobrenome = sobrenome;
         this.cpf = cpf;
+        this.email = email;
+        this.celular = celular;
+        this.estado = estado;
+        this.genero = genero;
+        this.cidade = cidade;
+        this.endereco = endereco;
+        this.cep = cep;
         this.dataNascimento = dataNascimento;
+        this.ativo = ativo;
     }
 
-    public Cliente(String nome, String endereco, String telefone, String email,
-            String genero, Long cpf, Date dataNascimento) {
+    public Cliente(String nome, String sobrenome, String cpf, String email, String celular, String estado, String genero, String cidade, String endereco, String cep, Date dataNascimento, boolean ativo) {
         this.nome = nome;
-        this.endereco = endereco;
-        this.telefone = telefone;
-        this.email = email;
-        this.genero = genero;
+        this.sobrenome = sobrenome;
         this.cpf = cpf;
+        this.email = email;
+        this.celular = celular;
+        this.estado = estado;
+        this.genero = genero;
+        this.cidade = cidade;
+        this.endereco = endereco;
+        this.cep = cep;
+        this.dataNascimento = dataNascimento;
+        this.ativo = ativo;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    // Getters e Setters
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
     }
 
     public String getNome() {
@@ -72,8 +73,8 @@ public class Cliente {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-     public String getSobrenome() {
+
+    public String getSobrenome() {
         return sobrenome;
     }
 
@@ -81,20 +82,12 @@ public class Cliente {
         this.sobrenome = sobrenome;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getEmail() {
@@ -105,28 +98,60 @@ public class Cliente {
         this.email = email;
     }
 
-    public Long getCpf() {
-        return cpf;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setCpf(Long cpf) {
-        this.cpf = cpf;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
-    public Date getDataNascimento() {
-        return dataNascimento;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-    
-    public boolean isEnable() {
-        return enable;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public void setEnable(boolean enable) {
-        this.enable = enable;
+    public String getGenero() {
+        return genero;
     }
 
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+   
 }

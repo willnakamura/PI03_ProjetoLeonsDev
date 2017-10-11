@@ -14,7 +14,7 @@ import java.util.Date;
 public class ClientePombo extends Cliente {
     private String nivel;
 
-    public ClientePombo (){
+    public ClientePombo(){
         
     }
     
@@ -22,13 +22,13 @@ public class ClientePombo extends Cliente {
         this.nivel = nivel;
     }
 
-    public ClientePombo(String nivel, int id, String nome, String sobrenome, String endereco, String telefone, String email, String genero, Long cpf, Date dataNascimento, boolean enable) {
-        super(id, nome, sobrenome, endereco, telefone, email, genero, cpf, dataNascimento, enable);
+    public ClientePombo(String nivel, int id, String nome, String sobrenome, String cpf, String email, String celular, String estado, String genero, String cidade, String endereco, String cep, Date dataNascimento, boolean ativo) {
+        super(id, nome, sobrenome, cpf, email, celular, estado, genero, cidade, endereco, cep, dataNascimento, ativo);
         this.nivel = nivel;
     }
 
-    public ClientePombo(String nivel, String nome, String endereco, String telefone, String email, String genero, Long cpf, Date dataNascimento) {
-        super(nome, endereco, telefone, email, genero, cpf, dataNascimento);
+    public ClientePombo(String nivel, String nome, String sobrenome, String cpf, String email, String celular, String estado, String genero, String cidade, String endereco, String cep, Date dataNascimento, boolean ativo) {
+        super(nome, sobrenome, cpf, email, celular, estado, genero, cidade, endereco, cep, dataNascimento, ativo);
         this.nivel = nivel;
     }
 
@@ -36,6 +36,5 @@ public class ClientePombo extends Cliente {
         return nivel;
     }
 
-    
 
 }

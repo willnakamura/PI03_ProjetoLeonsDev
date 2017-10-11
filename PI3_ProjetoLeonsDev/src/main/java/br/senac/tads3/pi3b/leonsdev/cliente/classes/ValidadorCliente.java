@@ -27,7 +27,7 @@ public class ValidadorCliente {
         if (cliente.getNome() == null || "".equals(cliente.getNome())) {
             throw new ClienteException("Favor informar o nome do cliente.");
         }
-        if (cliente.getNome().length() > 20) {
+        if (cliente.getNome().length() > 45) {
             throw new ClienteException("Nome inválido.");
         }
         
@@ -35,7 +35,7 @@ public class ValidadorCliente {
         if (cliente.getSobrenome()== null || "".equals(cliente.getSobrenome())) {
             throw new ClienteException("Favor informar um sobrenome do cliente.");
         }
-        if (cliente.getSobrenome().length() > 20) {
+        if (cliente.getSobrenome().length() > 45) {
             throw new ClienteException("Nome inválido.");
         }
         
@@ -53,18 +53,45 @@ public class ValidadorCliente {
         if ("".equals(cliente.getCpf()) || cliente.getCpf() == null) {
             throw new ClienteException("Favor informar um CPF válido.");
         }
+        if(cliente.getCpf().length() > 11){
+            throw new ClienteException("CPF inválido.");
+        }
 
         // Endereço
         if (cliente.getEndereco() == null || "".equals(cliente.getEndereco())) {
             throw new ClienteException("Favor informar o endereço do cliente.");
         }
-        if (cliente.getEndereco().length() > 100) {
+        if (cliente.getEndereco().length() > 50) {
             throw new ClienteException("Endereço inválido.");
+        }
+        
+        //Estado
+        if(cliente.getEstado().equals("Selecione")){
+            throw new ClienteException("Favor informe um estado válido.");
+        }
+        
+        //Cidade
+        if(cliente.getCidade() == null || cliente.equals("")){
+            throw new ClienteException("Favor informe uma cidade válida.");
+        }
+        if(cliente.getCidade().length() > 25){
+            throw new ClienteException("Cidade inválida.");
+        }
+        
+        //CEP
+        if(cliente.getCep() == null || cliente.getCep().equals("")){
+            throw new ClienteException("Favor informe um CEP válido.");
+        }
+        if(cliente.getCep().toString().length() > 15){
+            throw new ClienteException("CEP inválido.");
         }
 
         // Telefone
-        if (cliente.getTelefone() == null || "".equals(cliente.getTelefone())) {
+        if (cliente.getCelular()== null || "".equals(cliente.getCelular())) {
             throw new ClienteException("Favor informar um telefone válido.");
+        }
+        if(cliente.getCelular().length() > 15){
+            throw new ClienteException("O número informado é inválido.");
         }
 
         //Email

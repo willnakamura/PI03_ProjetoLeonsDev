@@ -29,8 +29,8 @@ public class ClienteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Cliente c1 = new Cliente("John", "Rua X", "11111",
-                "john@x.com", "Masculino", null, new Date());
+        Cliente c1 = new Cliente(1, "John","Smith","11111111","john@gmail.com", "1199999", 
+                "SP", "Masc", "SP", "Rua X", "11111", new Date(), true);
 
         List<Cliente> lista = new ArrayList<Cliente>();
         lista.add(c1);

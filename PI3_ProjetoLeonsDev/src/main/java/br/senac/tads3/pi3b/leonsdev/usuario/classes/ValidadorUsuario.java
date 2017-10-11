@@ -5,69 +5,74 @@
  */
 package br.senac.tads3.pi3b.leonsdev.usuario.classes;
 
-import br.senac.tads3.pi3b.leonsdev.usuario.classes.Usuario;
 import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionUsuario;
-import java.util.Calendar;
 
 /**
  *
  * @author Rafael Rodrigues
  */
 public class ValidadorUsuario {
-    public static void validarCampos (Usuario usuario) throws ExceptionUsuario {
-        Calendar calendario = Calendar.getInstance();
-
-        //Realização de validações de negócio
-        if (usuario == null) {
-            throw new ExceptionUsuario("Não foi informado um Usuário do sistema válido!");
+    public void Validar (Usuario usuario) throws ExceptionUsuario{
+        
+        if(usuario == null){
+            throw new ExceptionUsuario("Dados inválidos.");
         }
-        //
-        if (usuario.getNome() == null || "".equals(usuario.getNome())) {
-            throw new ExceptionUsuario("Favor informar o nome Válido!");
+        
+        
+        if(usuario.getNome() == null || usuario.getNome().equals("")){
+            throw new ExceptionUsuario("Favor, informe um nome valido.");
         }
-        if (usuario.getNome().length() > 50) {
-            throw new ExceptionUsuario("Ultrapassou o limite de 50 caracteres no campo nome.");
+        if(usuario.getNome().length() > 10){
+            throw new ExceptionUsuario("Nome inválido.");
         }
-        //
-        if ("".equals(usuario.getCpf()) || usuario.getCpf() == null) {
-            throw new ExceptionUsuario("Favor informar um CPF válido!");
+        
+        
+        if(usuario.getSobrenome()== null || usuario.getSobrenome().equals("")){
+            throw new ExceptionUsuario("Favor, informe um sobrenome valido.");
         }
-        //
-        if (usuario.getDataNasc()== null || calendario.before(usuario.getDataNasc())) {
-            throw new ExceptionUsuario("Favor informar uma data válida!");
+        if(usuario.getSobrenome().length() > 10){
+            throw new ExceptionUsuario("sobrenome inválido.");
         }
-        //
-       
-        //
-        if (usuario.getEmail().length() > 40) {
-            throw new ExceptionUsuario("Ultrapassou o limite de 40 caracteres no campo email.");
+        
+        
+        if(usuario.getEmail() == null || usuario.getEmail().equals("")){
+            throw new ExceptionUsuario("Favor, informe um email válido.");
         }
-        //
-        if (usuario.getCargo() == null || "".equals(usuario.getCargo())) {
-            throw new ExceptionUsuario("Favor informe o cargo do Usuário!");
+        if(usuario.getEmail().length() > 25){
+            throw new ExceptionUsuario("Email inválido.");
         }
-        if (usuario.getCargo().length() > 20) {
-            throw new ExceptionUsuario("Ultrapassou o limite de 20 caracteres no campo cargo;");
+        
+        
+        if(usuario.getCpf() == null || usuario.getCpf().equals("")){
+            throw new ExceptionUsuario("Favor, informe um CPF válido.");
         }
-        //
-        if (usuario.getLogin() == null || "".equals(usuario.getLogin())) {
-            throw new ExceptionUsuario("Favor informar o login do Usuário!");
+        if(usuario.getCpf().length() > 11){
+            throw new ExceptionUsuario("CPF inválido.");
         }
-        if (usuario.getLogin().length() > 10) {
-            throw new ExceptionUsuario("Ultrapassou o limite de 10 caracteres no campo login.");
+        
+        
+        if(usuario.getCargo() == null || usuario.getCargo().equals("")){
+            throw new ExceptionUsuario("Favor, informe um cargo válido.");
         }
-        //
-        if (usuario.getSenha() == null || "".equals(usuario.getSenha())) {
-            throw new ExceptionUsuario("Favor informar a senha do Usuário!");
+        if(usuario.getCargo().length() > 20){
+            throw new ExceptionUsuario("Cargo inválido.");
         }
-        if (usuario.getSenha().length() > 50) {
-            throw new ExceptionUsuario("Ultrapassou o limite de 50 caracteres no campo senha.");
+        
+        
+        if(usuario.getLogin() == null || usuario.getLogin().equals("")){
+            throw new ExceptionUsuario("Favor, informe um login válido.");
         }
-       
-        if (usuario.getNome().length() > 50) {
-            throw new ExceptionUsuario("Ultrapassou o limite de 70 caracteres no campo endereço.");
+        if(usuario.getLogin().length() > 15){
+            throw new ExceptionUsuario("Login inválido.");
         }
-        //
+        
+        
+        if(usuario.getSenha() == null || usuario.getSenha().equals("")){
+            throw new ExceptionUsuario("Favor, informe uma senha válida.");
+        }
+        if(usuario.getSenha().length() > 8){
+            throw new ExceptionUsuario("Senha inválida.");
+        }
     }
 }
 

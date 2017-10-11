@@ -13,27 +13,28 @@ import java.util.Date;
  */
 public class ClientePelicano extends Cliente{
     private String nivel;
-
     
-    public ClientePelicano (){
+    public ClientePelicano(){
         
+    }
+
+    public String getNivel() {
+        return nivel;
     }
 
     public ClientePelicano(String nivel) {
         this.nivel = nivel;
     }
 
-    public ClientePelicano(String nivel, int id, String nome, String sobrenome, String endereco, String telefone, String email, String genero, Long cpf, Date dataNascimento, boolean enable) {
-        super(id, nome, sobrenome, endereco, telefone, email, genero, cpf, dataNascimento, enable);
+    public ClientePelicano(String nivel, int id, String nome, String sobrenome, String cpf, String email, String celular, String estado, String genero, String cidade, String endereco, String cep, Date dataNascimento, boolean ativo) {
+        super(id, nome, sobrenome, cpf, email, celular, estado, genero, cidade, endereco, cep, dataNascimento, ativo);
         this.nivel = nivel;
     }
 
-    public ClientePelicano(String nivel, String nome, String endereco, String telefone, String email, String genero, Long cpf, Date dataNascimento) {
-        super(nome, endereco, telefone, email, genero, cpf, dataNascimento);
+    public ClientePelicano(String nivel, String nome, String sobrenome, String cpf, String email, String celular, String estado, String genero, String cidade, String endereco, String cep, Date dataNascimento, boolean ativo) {
+        super(nome, sobrenome, cpf, email, celular, estado, genero, cidade, endereco, cep, dataNascimento, ativo);
         this.nivel = nivel;
     }
-    
-   public String getNivel() {
-        return nivel;
-    }
+
+
 }

@@ -13,22 +13,12 @@ import java.util.Date;
  */
 public class ClienteAguia extends Cliente {
     private String nivel;
-    
+
     public ClienteAguia (){
         
     }
-
+    
     public ClienteAguia(String nivel) {
-        this.nivel = nivel;
-    }
-
-    public ClienteAguia(String nivel, int id, String nome, String sobrenome, String endereco, String telefone, String email, String genero, Long cpf, Date dataNascimento, boolean enable) {
-        super(id, nome, sobrenome, endereco, telefone, email, genero, cpf, dataNascimento, enable);
-        this.nivel = nivel;
-    }
-
-    public ClienteAguia(String nivel, String nome, String endereco, String telefone, String email, String genero, Long cpf, Date dataNascimento) {
-        super(nome, endereco, telefone, email, genero, cpf, dataNascimento);
         this.nivel = nivel;
     }
 
@@ -36,6 +26,15 @@ public class ClienteAguia extends Cliente {
         return nivel;
     }
 
-  
-    
+    public ClienteAguia(String nivel, int id, String nome, String sobrenome, String cpf, String email, String celular, String estado, String genero, String cidade, String endereco, String cep, Date dataNascimento, boolean ativo) {
+        super(id, nome, sobrenome, cpf, email, celular, estado, genero, cidade, endereco, cep, dataNascimento, ativo);
+        this.nivel = nivel;
+    }
+
+    public ClienteAguia(String nivel, String nome, String sobrenome, String cpf, String email, String celular, String estado, String genero, String cidade, String endereco, String cep, Date dataNascimento, boolean ativo) {
+        super(nome, sobrenome, cpf, email, celular, estado, genero, cidade, endereco, cep, dataNascimento, ativo);
+        this.nivel = nivel;
+    }
+
+
 }

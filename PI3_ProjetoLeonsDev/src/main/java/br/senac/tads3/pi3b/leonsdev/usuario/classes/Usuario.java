@@ -5,34 +5,46 @@
  */
 package br.senac.tads3.pi3b.leonsdev.usuario.classes;
 
-import java.util.Date;
-
 /**
  *
  * @author Rafael Rodrigues
  */
 public class Usuario {
-    private String nome, sobrenome, email, cargo, login, senha;
-    private Long cpf;
-    private Date dataNasc;
+    private int id;
+    private String nome, sobrenome,cpf, email, cargo, login, senha;
     boolean enable;
-
-    public Usuario () {
-        
-    }
-
-    public Usuario(String nome, String sobrenome, String email, String cargo, String login, String senha, Long cpf, Date dataNasc, boolean enable) {
+    
+    public Usuario(int id, String nome, String sobrenome, String cpf, String email, String cargo, String login, String senha, boolean enable) {
+        this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
+        this.cpf = cpf;
         this.email = email;
         this.cargo = cargo;
         this.login = login;
         this.senha = senha;
+        this.enable = enable;
+    }
+    
+
+    public Usuario() {
+    }
+
+    public Usuario(String nome, String sobrenome, String cpf, String email, String cargo, String login, String senha, boolean enable) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
         this.cpf = cpf;
-        this.dataNasc = dataNasc;
+        this.email = email;
+        this.cargo = cargo;
+        this.login = login;
+        this.senha = senha;
         this.enable = enable;
     }
 
+    public int getId() {
+    return id;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -47,6 +59,14 @@ public class Usuario {
 
     public void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getEmail() {
@@ -81,22 +101,6 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Long getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(Long cpf) {
-        this.cpf = cpf;
-    }
-
-    public Date getDataNasc() {
-        return dataNasc;
-    }
-
-    public void setDataNasc(Date dataNasc) {
-        this.dataNasc = dataNasc;
-    }
-
     public boolean isEnable() {
         return enable;
     }
@@ -104,7 +108,6 @@ public class Usuario {
     public void setEnable(boolean enable) {
         this.enable = enable;
     }
+
     
-    
-   
 }

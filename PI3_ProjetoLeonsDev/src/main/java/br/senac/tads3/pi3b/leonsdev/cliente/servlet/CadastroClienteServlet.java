@@ -73,12 +73,12 @@ public class CadastroClienteServlet extends HttpServlet {
         String telefone = request.getParameter("telefone");
         String email = request.getParameter("email");
         String[] genero = request.getParameterValues("genero");
-        Long cpf = Long.parseLong(request.getParameter("cpf"));
+        String cpf = request.getParameter("cpf");
 
         Cliente c = new Cliente();
         c.setNome(nome);
         c.setEndereco(endereco);
-        c.setTelefone(telefone);
+        c.setCelular(telefone);
         c.setEmail(email);
         c.setGenero(Arrays.toString(genero));
         c.setCpf(cpf);
