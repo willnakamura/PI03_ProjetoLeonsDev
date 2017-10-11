@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 10/10/2017, 17:35:20
-    Author     : Nakamura-PC
+    Document   : Produto
+    Created on : 10/10/2017, 21:16:58
+    Author     : mariana.protiroti
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -67,7 +67,17 @@
                            
                         </ul>
                     </nav>
-                    
+                    <h3><label>Cadastro de Produto e Serviços de Bordo</label></h3>
+                    </br></br></br> 
+                    <label for ="product">Selecione se é produto ou serviço de bordo</label></br>
+                    <select name ="select">
+                        <option value="">--</option>
+                        <option value="produto">Produto</option>
+                        <option value="servico">Serviço de Bordo</option>
+                    </select>
+                    <button for="submit">OK</button>
+                    <button for="back">Voltar</button>
+                    </br></br></br>
                     
                     
                 </header>
@@ -87,3 +97,4 @@
         <script type="text/javascript"> Cufon.now();</script>
     </body>
 </html>
+

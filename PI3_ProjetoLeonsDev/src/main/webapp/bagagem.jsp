@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 10/10/2017, 17:35:20
-    Author     : Nakamura-PC
+    Document   : bagagem
+    Created on : 10/10/2017, 21:25:12
+    Author     : mariana.protiroti
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -67,9 +67,21 @@
                            
                         </ul>
                     </nav>
+                    <h3><div class="titulos"><label>Excesso de Bagagem</label></div></h3>
                     
-                    
-                    
+                    <label for="peso">Peso: </label>
+                    <input type="number" name="peso" value=""/>
+                    </br></br>
+                    <label for="preco">Preço: </label>
+                    <input type="text" name="preco" value=""/>
+                    </br></br>
+                    <label for="qtdepax">Quantidade por pax: </label>
+                    <input type="text" name="qtdepax" value=""/>
+                    </br></br>
+                    <button for="submit">Enviar</button>
+                    <button for="back">Voltar</button>
+                        
+                   
                 </header>
              
             </div>

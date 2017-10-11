@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 10/10/2017, 17:35:20
-    Author     : Nakamura-PC
+    Document   : AssentoEspecial
+    Created on : 10/10/2017, 21:39:02
+    Author     : mariana.protiroti
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -67,8 +67,25 @@
                            
                         </ul>
                     </nav>
+                    <h3><div class="titulos"><label>Assento Especial</label></div></h3>    
                     
-                    
+                    <label class="fileira">Fileiras: </label>
+                    <input type="text" name="fileira" value=""/>
+                    </br></br>
+                    <label for="preco">Preço: </label>
+                    <input type="text" name="preco" value=""/>
+                    </br></br>
+                    <label for="voo">Número do Voo: </label>
+                    <input type="text" name="voo" value=""/>
+                    </br></br>
+                    <label for="origem">Origem: </label>
+                    <input type="text" name="origem" value=""/>
+                    </br></br>
+                    <label for="destino">Destino: </label>
+                    <input type="text" name="destino" value=""/>
+                    </br></br>
+                    <button for="submit">Enviar</button>
+                    <button for="back">Voltar</button>
                     
                 </header>
              
