@@ -67,26 +67,27 @@
                            
                         </ul>
                     </nav>
-                    <h3><div class="titulos"><label>Assento Especial</label></div></h3>    
+                <div class="AssentoEspecial">    
+                    <h3><div class="titulos"><label>Cadastrar Assento Especial</label></div></h3>    
                     
-                    <label class="fileira">Fileiras: </label>
-                    <input type="text" name="fileira" value=""/>
+                    <label class="fileira">Fileira: </label>
+                    <input type="text" name="fileira" value="q_fileira"/>
                     </br></br>
-                    <label for="preco">Preço: </label>
-                    <input type="text" name="preco" value=""/>
+                    <label for="Preco">Preço: </label>
+                    <input type="text" name="Preco" value="q_Preco"/>
                     </br></br>
-                    <label for="voo">Número do Voo: </label>
-                    <input type="text" name="voo" value=""/>
+                    <label for="Nr_voo">Número do Voo: </label>
+                    <input type="text" name="Nr_voo" value="q_Nr_voo"/>
                     </br></br>
-                    <label for="origem">Origem: </label>
-                    <input type="text" name="origem" value=""/>
+                    <label for="Aeroporto_Partida">Aeroporto de Origem: </label>
+                    <input type="text" name="Aeroporto_Partida" value="q_Aeroporto_Partida"/>
                     </br></br>
-                    <label for="destino">Destino: </label>
-                    <input type="text" name="destino" value=""/>
+                    <label for="Aeroporto_Chegada">Aeroporto de Destino: </label>
+                    <input type="text" name="Aeroporto_Chegada" value="q_Aeroporto_Chegada"/>
                     </br></br>
-                    <button for="submit">Enviar</button>
+                    <button for="submit">Cadastrar</button>
                     <button for="back">Voltar</button>
-                    
+                </div>    
                 </header>
              
             </div>

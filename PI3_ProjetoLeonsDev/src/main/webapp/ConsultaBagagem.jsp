@@ -1,7 +1,7 @@
 <%-- 
-    Document   : Produto1
-    Created on : 10/10/2017, 21:21:03
-    Author     : mariana.protiroti
+    Document   : ConsultaBagagem
+    Created on : Oct 12, 2017, 2:13:06 PM
+    Author     : mahperola
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,28 +34,10 @@
                 <!-- header -->
                 <header>
                     <div class="row">
-                        
+                          <!-- INICIO PARTE DO LOGO -->
                         <h1><a href="index.html" id="logo">Around the World</a></h1>
+                         <!-- FINAL PARTE DO LOGO -->
                         
-                        <div class="right">
-                            <div class="wrapper">
-                                <form id="search" action="" method="post">
-                                    <div class="bg">
-                                        <input type="submit" class="submit" value="">
-                                        <input type="text" class="input">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="wrapper">
-                                <nav>
-                                    <ul id="top_nav">
-                                        <li><a href="#">Register</a></li>
-                                        <li><a href="#">Log In</a></li>
-                                        <li><a href="#">Help</a></li>
-                                    </ul>
-                                </nav>
-                            </div>	
-                        </div>
                     </div>
                     <nav class="row">
                         <ul id="menu">
@@ -67,30 +49,16 @@
                            
                         </ul>
                     </nav>
-                    <h3><label>Cadastro de Produto e Serviços de Bordo</label></h3>
-                    <h1><div class="titulos"><label>Serviço de Bordo</label></div></h1>
-                    </br></br></br>
-                    <label for="produto">Nome do produto: </label>
-                    <input type="text" name="produto" value=""/>
-                    </br></br>
-                    <label for="preco">Preço: </label>
-                    <input type="number" name="preco" value=""/>
-                    </br></br>
-                    <label for="qtde">Quantidade: </label>
-                    <input type="text" name="qtde" value=""/>
-                    </br></br>
-                    <label for="voo">Número do Voo: </label>
-                    <input type="number" name="voo" value=""/>
-                    </br></br> 
-                    <label for="origem">Origem: </label>
-                    <input type="text" name="origem" value=""/>
-                    </br></br>
-                    <label for="destino">Destino: </label>
-                    <input for="text" name="destino" value=""/>
-                    </br></br></br>
-                    
-                    <button for="back">Voltar</button>
-                    <button for="submit">Cadastrar</button>
+                    <div class="ConsultaBag">
+                        <h3><label>Consulta de Excesso de Bagagens</label></h3>
+                        
+                        <label for="peso">Peso da Bagagem: </label>
+                        <input type="text" name="ExtraBag1" value="q_ExtraBag1"/>
+                        </br></br></br>
+                        <button for="sources">Buscar</button>
+                        <button for="back">Voltar</button>
+                        
+                    </div>    
                     
                     
                 </header>
@@ -110,3 +78,4 @@
         <script type="text/javascript"> Cufon.now();</script>
     </body>
 </html>
+

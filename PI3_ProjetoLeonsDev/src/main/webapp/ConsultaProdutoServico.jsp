@@ -1,7 +1,7 @@
 <%-- 
-    Document   : bagagem
-    Created on : 10/10/2017, 21:25:12
-    Author     : mariana.protiroti
+    Document   : ConsultaProdutoServico
+    Created on : Oct 12, 2017, 1:31:12 PM
+    Author     : mahperola
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,28 +34,10 @@
                 <!-- header -->
                 <header>
                     <div class="row">
-                        
+                          <!-- INICIO PARTE DO LOGO -->
                         <h1><a href="index.html" id="logo">Around the World</a></h1>
+                         <!-- FINAL PARTE DO LOGO -->
                         
-                        <div class="right">
-                            <div class="wrapper">
-                                <form id="search" action="" method="post">
-                                    <div class="bg">
-                                        <input type="submit" class="submit" value="">
-                                        <input type="text" class="input">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="wrapper">
-                                <nav>
-                                    <ul id="top_nav">
-                                        <li><a href="#">Register</a></li>
-                                        <li><a href="#">Log In</a></li>
-                                        <li><a href="#">Help</a></li>
-                                    </ul>
-                                </nav>
-                            </div>	
-                        </div>
                     </div>
                     <nav class="row">
                         <ul id="menu">
@@ -67,29 +49,25 @@
                            
                         </ul>
                     </nav>
-                <div class="Bagagem">
-                    <h3><div class="titulos"><label>Cadastrar Excesso de Bagagem</label></div></h3>
+                    <div class="ConsultaProdServico">
+                        <h3><label>Consultar Produtos e Serviços</label></h3>
                     
-                    <label for="ExtraBag1">Peso de extra de bagagem 1: </label>
-                    <input type="text" name="ExtraBag1" value="q_ExtraBag1"/>
-                    </br></br>
-                    <label for="ExtraBag2">Peso de extra de bagagem 2: </label>
-                    <input type="text" name="ExtraBag2" value="q_ExtraBag2"/>
-                    </br></br>
-                    <label for="ExtraBag3">Peso de extra de bagagem 3: </label>
-                    <input type="text" name="ExtraBag3" value="q_ExtraBag3"/>
-                    </br></br>
-                    <label for="Preco">Preço: </label>
-                    <input type="text" name="Preco" value="q_Preco"/>
-                    </br></br>
-                    <label for="qtdepax">Quantidade por pax: </label>
-                    <input type="text" name="qtdepax" value="q_qtdepax"/>
-                    </br></br>
-                    <button for="submit">Cadastrar</button>
-                    <button for="back">Voltar</button>
-                </div>    
-                   
-                </header>
+                        <label for ="product">Selecione: </label></br>
+                        <select name ="select">
+                            <option value="">--</option>
+                            <option value="servico">Serviços de Bordo</option>
+                            <option value="ExtraBag1">Excesso de Bagagem</option>
+                            <option value="Assento">Assento Especial</option>
+                        </select>
+                        <button for="sources">Buscar</button>
+                        <button for="back">Voltar</button>
+                        
+                    </div> 
+                    </header>
+                    </div>        
+                    
+                    
+                
              
             </div>
             <div class="block"></div>

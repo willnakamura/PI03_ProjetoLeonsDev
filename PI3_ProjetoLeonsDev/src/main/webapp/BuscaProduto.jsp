@@ -1,6 +1,6 @@
 <%-- 
-    Document   : bagagem
-    Created on : 10/10/2017, 21:25:12
+    Document   : Produto
+    Created on : 10/10/2017, 21:16:58
     Author     : mariana.protiroti
 --%>
 
@@ -67,28 +67,21 @@
                            
                         </ul>
                     </nav>
-                <div class="Bagagem">
-                    <h3><div class="titulos"><label>Cadastrar Excesso de Bagagem</label></div></h3>
-                    
-                    <label for="ExtraBag1">Peso de extra de bagagem 1: </label>
-                    <input type="text" name="ExtraBag1" value="q_ExtraBag1"/>
-                    </br></br>
-                    <label for="ExtraBag2">Peso de extra de bagagem 2: </label>
-                    <input type="text" name="ExtraBag2" value="q_ExtraBag2"/>
-                    </br></br>
-                    <label for="ExtraBag3">Peso de extra de bagagem 3: </label>
-                    <input type="text" name="ExtraBag3" value="q_ExtraBag3"/>
-                    </br></br>
-                    <label for="Preco">Preço: </label>
-                    <input type="text" name="Preco" value="q_Preco"/>
-                    </br></br>
-                    <label for="qtdepax">Quantidade por pax: </label>
-                    <input type="text" name="qtdepax" value="q_qtdepax"/>
-                    </br></br>
-                    <button for="submit">Cadastrar</button>
+                <div class="prod_servico">
+                    <h3><label>Cadastro de Produto e Serviços de Bordo</label></h3>
+                    </br></br></br> 
+                    <label for ="product">Selecione se é produto ou serviço de bordo</label></br>
+                    <select name ="select">
+                        <option value="">--</option>
+                        <option value="produto">Produto</option>
+                        <option value="servico">Serviço de Bordo</option>
+                    </select>
+                    <button for="sources">Buscar</button>
                     <button for="back">Voltar</button>
+                    </br></br></br>
                 </div>    
-                   
+                    
+                    
                 </header>
              
             </div>
@@ -106,3 +99,4 @@
         <script type="text/javascript"> Cufon.now();</script>
     </body>
 </html>
+

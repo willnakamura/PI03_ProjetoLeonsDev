@@ -1,7 +1,7 @@
 <%-- 
-    Document   : Produto1
-    Created on : 10/10/2017, 21:21:03
-    Author     : mariana.protiroti
+    Document   : FazerReserva
+    Created on : Oct 12, 2017, 2:30:02 PM
+    Author     : mahperola
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,28 +34,10 @@
                 <!-- header -->
                 <header>
                     <div class="row">
-                        
+                          <!-- INICIO PARTE DO LOGO -->
                         <h1><a href="index.html" id="logo">Around the World</a></h1>
+                         <!-- FINAL PARTE DO LOGO -->
                         
-                        <div class="right">
-                            <div class="wrapper">
-                                <form id="search" action="" method="post">
-                                    <div class="bg">
-                                        <input type="submit" class="submit" value="">
-                                        <input type="text" class="input">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="wrapper">
-                                <nav>
-                                    <ul id="top_nav">
-                                        <li><a href="#">Register</a></li>
-                                        <li><a href="#">Log In</a></li>
-                                        <li><a href="#">Help</a></li>
-                                    </ul>
-                                </nav>
-                            </div>	
-                        </div>
                     </div>
                     <nav class="row">
                         <ul id="menu">
@@ -67,33 +49,44 @@
                            
                         </ul>
                     </nav>
+                    <div class="FazerReserva">
+                        <h3><label>Fazer Reservas</label></h3>
+                        
+                        <label for="Aeroporto_Partida">Aeroporto de Origem: </label>
+                        <input type="text" name="Aeroporto_Partida" value="q_Aeroporto_Partida"/>
+                        <label for="Aeroporto_Chegada">Aeroporto de Destino: </label>
+                        <input type="text" name="Aeroporto_Chegada" value="q_Aeroporto_Chegada"/>
+                        </br></br></br>
+                        <input id="iv" type="radio" value="q_destino" name="destino"/>
+                        <label for="iv">Ida e Volta</label>
+                        <input id="vi" type="radio" value="q_origem" name="origem"/>
+                        <label for="vi">Só Ida ou Volta</label>
+                        </br></br></br>
+                        <label for="Data_Criado">Data Ida: </label>
+                        <input type="date" name="Data_Criado" value="q_Data_Criado"/>
+                        <label for="Data_Alterado">Data Volta: </label>
+                        <input type="date" name="Data_Alterado" value="q_Data_Alterado"/>
+                        </br></br></br>
+                        <label for="passageiro">Quantidade de Passageiros: </label>
+                        <input type="number" name="passageiro" value="q_passageiro"/>
+                        </br></br></br>
+                        <label>Formas de Pagamento: </label>
+                        <input id="credito" type="radio" value="q_Forma_Pgto" name="Forma_Pgto"/>
+                        <label for="credito">Cartão de Crédito</label>
+                        <input id="debito" type="radio" value="q_Forma_Pgto" name="Forma_Pgto"/>
+                        <label for="debito">Cartão de Débito</label>
+                        <input id="dinheiro" type="radio" value="q_Forma_Pgto" name="Forma_Pgto"/>
+                        <label for="dinheiro">Dinheiro</label>
+                        </br></br></br>
+                        <label for="Custo_Total">Valor Total: </label>
+                        <input type="text" name="Custo_Total" value="q_Custo_Total"/>
+                        </br></br></br>
+                        <button for="save">Salvar</button>
+                        <button for="back">Voltar</button>
+                               
+                        
+                    </div>    
                     
-                <div class="servico">    
-                    <h3><label>Cadastro de Produto e Serviços de Bordo</label></h3>
-                    <h1><div class="titulos"><label>cadastrar Serviço de Bordo</label></div></h1>
-                    </br></br></br>
-                    <label for="produto">Nome do produto: </label>
-                    <input type="text" name="produto" value="q_produto"/>
-                    </br></br>
-                    <label for="Preco">Preço: </label>
-                    <input type="number" name="Preco" value="q_Preco"/>
-                    </br></br>
-                    <label for="qtde">Quantidade: </label>
-                    <input type="text" name="qtde" value="q_qtde"/>
-                    </br></br>
-                    <label for="Nr_voo">Número do Voo: </label>
-                    <input type="number" name="Nr_voo" value="q_Nr_voo"/>
-                    </br></br> 
-                    <label for="Aeroporto_Partida">Aeroporto de Origem: </label>
-                    <input type="text" name="Aeroporto_Partida" value="q_Aeroporto_Partida"/>
-                    </br></br>
-                    <label for="Aeroporto_Chegada">Aeroporto de Destino: </label>
-                    <input for="text" name="Aeroporto_Chegada" value="q_Aeroporto_Chegada"/>
-                    </br></br></br>
-                    
-                    <button for="back">Voltar</button>
-                    <button for="submit">Cadastrar</button>
-                </div>    
                     
                 </header>
              
@@ -112,3 +105,4 @@
         <script type="text/javascript"> Cufon.now();</script>
     </body>
 </html>
+

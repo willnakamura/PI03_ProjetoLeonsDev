@@ -1,7 +1,7 @@
 <%-- 
-    Document   : bagagem
-    Created on : 10/10/2017, 21:25:12
-    Author     : mariana.protiroti
+    Document   : ConsultaAssentoEspecial
+    Created on : Oct 12, 2017, 11:15:07 AM
+    Author     : mahperola
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,28 +34,10 @@
                 <!-- header -->
                 <header>
                     <div class="row">
-                        
+                          <!-- INICIO PARTE DO LOGO -->
                         <h1><a href="index.html" id="logo">Around the World</a></h1>
+                         <!-- FINAL PARTE DO LOGO -->
                         
-                        <div class="right">
-                            <div class="wrapper">
-                                <form id="search" action="" method="post">
-                                    <div class="bg">
-                                        <input type="submit" class="submit" value="">
-                                        <input type="text" class="input">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="wrapper">
-                                <nav>
-                                    <ul id="top_nav">
-                                        <li><a href="#">Register</a></li>
-                                        <li><a href="#">Log In</a></li>
-                                        <li><a href="#">Help</a></li>
-                                    </ul>
-                                </nav>
-                            </div>	
-                        </div>
                     </div>
                     <nav class="row">
                         <ul id="menu">
@@ -67,28 +49,29 @@
                            
                         </ul>
                     </nav>
-                <div class="Bagagem">
-                    <h3><div class="titulos"><label>Cadastrar Excesso de Bagagem</label></div></h3>
+                <div class="ConsultaAssentoEspecial">    
+                    <h3><div class="titulos"><label>Consultar Assento Especial</label></div></h3>    
                     
-                    <label for="ExtraBag1">Peso de extra de bagagem 1: </label>
-                    <input type="text" name="ExtraBag1" value="q_ExtraBag1"/>
-                    </br></br>
-                    <label for="ExtraBag2">Peso de extra de bagagem 2: </label>
-                    <input type="text" name="ExtraBag2" value="q_ExtraBag2"/>
-                    </br></br>
-                    <label for="ExtraBag3">Peso de extra de bagagem 3: </label>
-                    <input type="text" name="ExtraBag3" value="q_ExtraBag3"/>
+                    <label class="fileira">Fileira: </label>
+                    <input type="text" name="fileira" value="q_fileira"/>
                     </br></br>
                     <label for="Preco">Preço: </label>
                     <input type="text" name="Preco" value="q_Preco"/>
                     </br></br>
-                    <label for="qtdepax">Quantidade por pax: </label>
-                    <input type="text" name="qtdepax" value="q_qtdepax"/>
+                    <label for="Nr_voo">Número do Voo: </label>
+                    <input type="text" name="Nr_voo" value="q_Nr_voo"/>
                     </br></br>
-                    <button for="submit">Cadastrar</button>
+                    <label for="Aeroporto_Partida">Aeroporto de Origem: </label>
+                    <input type="text" name="Aeroporto_Partida" value="q_Aeroporto_Partida"/>
+                    </br></br>
+                    <label for="Aeroporto_Chegada">Aeroporto de Destino: </label>
+                    <input type="text" name="Aeroporto_Chegada" value="q_Aeroporto_Chegada"/>
+                    </br></br>
+                    <button for="sources">Buscar</button>
                     <button for="back">Voltar</button>
-                </div>    
-                   
+                </div>        
+                    
+                    
                 </header>
              
             </div>
@@ -106,3 +89,4 @@
         <script type="text/javascript"> Cufon.now();</script>
     </body>
 </html>
+
