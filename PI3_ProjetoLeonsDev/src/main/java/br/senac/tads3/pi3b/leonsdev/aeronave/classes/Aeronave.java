@@ -13,15 +13,9 @@ public class Aeronave {
     private int id;
     private String fabricante, modelo;
     private Integer totalAssentos;
+    boolean Ativo;
 
     public Aeronave() {
-    }
-
-    public Aeronave(int id, String fabricante, String modelo, Integer totalAssentos) {
-        this.id = id;
-        this.fabricante = fabricante;
-        this.modelo = modelo;
-        this.totalAssentos = totalAssentos;
     }
 
     public Aeronave(String fabricante, String modelo, Integer totalAssentos) {
@@ -34,8 +28,12 @@ public class Aeronave {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public boolean isAtivo() {
+        return Ativo;
+    }
+
+    public void setAtivo(boolean Ativo) {
+        this.Ativo = Ativo;
     }
 
     public String getFabricante() {
