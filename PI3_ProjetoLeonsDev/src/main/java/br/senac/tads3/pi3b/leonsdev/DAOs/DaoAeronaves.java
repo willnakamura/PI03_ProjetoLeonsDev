@@ -60,7 +60,7 @@ public class DaoAeronaves {
     public static void atualizar(Aeronave aeronave)
             throws SQLException, Exception {
         String sql = "UPDATE Aeronaves SET Fabricante=?, Modelo=?, Total_Assentos, Ativo"
-                + "WHERE (Aeronave_id=?)";
+                + "WHERE (Aeronave_ID=?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -94,7 +94,7 @@ public class DaoAeronaves {
     public static void excluir(Integer id) throws SQLException, Exception {
         //Monta a string de atualização do aeronave no BD, utilizando
         //prepared statement
-        String sql = "UPDATE aeronave SET enabled=? WHERE (aeronave_id=?)";
+        String sql = "UPDATE Aeronaves SET Ativo=? WHERE (Aeronave_ID=?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -126,7 +126,7 @@ public class DaoAeronaves {
  
     public static List<Aeronave> listar()
             throws SQLException, Exception {
-        String sql = "SELECT * FROM aeronave WHERE (enabled=?)";
+        String sql = "SELECT * FROM Aeronaves WHERE (Ativo=?)";
  
         List<Aeronave> listaAeronaves = null;
         //Conexão para abertura e fechamento
@@ -154,18 +154,10 @@ public class DaoAeronaves {
                 }
                 
                 Aeronave aeronave = new Aeronave();
-                aeronave.setId(result.getInt("aeronave_id"));
-                aeronave.setNome(result.getString("nome"));
-                aeronave.setCpf(Long.toString(result.getLong("cpf")));
-                aeronave.setCep(Integer.toString(result.getInt("cep")));
-                aeronave.setEndereco(result.getString("endereco"));
-                aeronave.setCidade(result.getString("cidade"));
-                aeronave.setGenero(result.getString("sexo"));
-                aeronave.setEstado(result.getString("estado"));
-                aeronave.setTelefone(result.getString("telefone"));
-                aeronave.setEmail(result.getString("email"));
-                Date d = new Date(result.getTimestamp("data_nasc").getTime());
-                aeronave.setDataNascimento(d);
+                aeronave.setId(result.getInt("Aeronave_ID"));
+                aeronave.setFabricante(result.getString("Fabricante"));
+                aeronave.setModelo(result.getString("Modelo"));
+
                 //Adiciona a instância na lista
                 listaAeronaves.add(aeronave);
             }
@@ -191,7 +183,7 @@ public class DaoAeronaves {
     public static List<Aeronave> procurar(String valor)
             throws SQLException, Exception {
     
-        String sql = "SELECT * FROM aeronave WHERE cpf=? AND enabled=?";
+        String sql = "SELECT * FROM Aeronaves WHERE Modelo=? AND Ativo=?";
     
         List<Aeronave> listaAeronaves = null;
         //Conexão para abertura e fechamento
@@ -207,7 +199,7 @@ public class DaoAeronaves {
             //Cria um statement para execução de instruções SQL
             preparedStatement = connection.prepareStatement(sql);
             //Configura os parâmetros do "PreparedStatement"
-            preparedStatement.setLong(1, Long.parseLong(valor));
+            preparedStatement.setString(1, valor);
             preparedStatement.setBoolean(2, true);
 
             //Executa a consulta SQL no banco de dados
@@ -221,18 +213,9 @@ public class DaoAeronaves {
                 }
     
                 Aeronave aeronave = new Aeronave();
-                aeronave.setId(result.getInt("aeronave_id"));
-                aeronave.setNome(result.getString("nome"));
-                aeronave.setCpf(Long.toString(result.getLong("cpf")));
-                aeronave.setCep(Integer.toString(result.getInt("cep")));
-                aeronave.setEndereco(result.getString("endereco"));
-                aeronave.setCidade(result.getString("cidade"));
-                aeronave.setGenero(result.getString("sexo"));
-                aeronave.setEstado(result.getString("estado"));
-                aeronave.setTelefone(result.getString("telefone"));
-                aeronave.setEmail(result.getString("email"));
-                Date d = new Date(result.getTimestamp("data_nasc").getTime());
-                aeronave.setDataNascimento(d);
+                aeronave.setId(result.getInt("Aeronave_ID"));
+                aeronave.setFabricante(result.getString("Fabricante"));
+                aeronave.setModelo(result.getString("Modelo"));
                 //Adiciona a instância na lista
                 listaAeronaves.add(aeronave);
             }
@@ -255,10 +238,10 @@ public class DaoAeronaves {
     }
     
     
-    public static List<Aeronave> procurarNome(String valor)
+    public static List<Aeronave> procurarModelo(String valor)
             throws SQLException, Exception {
         //Monta a string de consulta de aeronaves no banco
-        String sql = "SELECT * FROM aeronave WHERE nome LIKE ? AND enabled=?";
+        String sql = "SELECT * FROM Aeronaves WHERE Modelo LIKE ? AND Ativo=?";
     
         List<Aeronave> listaAeronaves = null;
         //Conexão para abertura e fechamento
@@ -289,18 +272,9 @@ public class DaoAeronaves {
                 }
     
                 Aeronave aeronave = new Aeronave();
-                aeronave.setId(result.getInt("aeronave_id"));
-                aeronave.setNome(result.getString("nome"));
-                aeronave.setCpf(Long.toString(result.getLong("cpf")));
-                aeronave.setCep(Integer.toString(result.getInt("cep")));
-                aeronave.setEndereco(result.getString("endereco"));
-                aeronave.setCidade(result.getString("cidade"));
-                aeronave.setGenero(result.getString("sexo"));
-                aeronave.setEstado(result.getString("estado"));
-                aeronave.setTelefone(result.getString("telefone"));
-                aeronave.setEmail(result.getString("email"));
-                Date d = new Date(result.getTimestamp("data_nasc").getTime());
-                aeronave.setDataNascimento(d);
+                aeronave.setId(result.getInt("Aeronave_ID"));
+                aeronave.setFabricante(result.getString("Fabricante"));
+                aeronave.setModelo(result.getString("Modelo"));
                 //Adiciona a instância na lista
                 listaAeronaves.add(aeronave);
             }
@@ -326,7 +300,7 @@ public class DaoAeronaves {
     public static Aeronave obter(Integer id)
             throws SQLException, Exception {
         
-        String sql = "SELECT * FROM aeronave WHERE (aeronave_id=? AND enabled=?)";
+        String sql = "SELECT * FROM Aeronaves WHERE (Aeronave_ID=? AND Ativo=?)";
 
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -351,18 +325,9 @@ public class DaoAeronaves {
             if (result.next()) {
         
                 Aeronave aeronave = new Aeronave();
-                aeronave.setId(result.getInt("aeronave_id"));
-                aeronave.setNome(result.getString("nome"));
-                aeronave.setCpf(Long.toString(result.getLong("cpf")));
-                aeronave.setCep(Integer.toString(result.getInt("cep")));
-                aeronave.setEndereco(result.getString("endereco"));
-                aeronave.setCidade(result.getString("cidade"));
-                aeronave.setGenero(result.getString("sexo"));
-                aeronave.setEstado(result.getString("estado"));
-                aeronave.setTelefone(result.getString("telefone"));
-                aeronave.setEmail(result.getString("email"));
-                Date d = new Date(result.getTimestamp("data_nasc").getTime());
-                aeronave.setDataNascimento(d);
+                aeronave.setId(result.getInt("Aeronave_ID"));
+                aeronave.setFabricante(result.getString("Fabricante"));
+                aeronave.setModelo(result.getString("Modelo"));
                 //Retorna o resultado
                 return aeronave;
             }
