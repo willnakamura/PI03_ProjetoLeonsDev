@@ -5,6 +5,7 @@
  */
 package br.senac.tads3.pi3b.leonsdev.passageiros.classes;
 
+import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,11 +14,27 @@ import java.util.Date;
  * @author Rafael Rodrigues
  */
 public class Passageiros {
-    private int id;
+    private int id, Reserva_ID;
     private String nome, sobrenome, cpf, email;
     private Date dataNascimento;
     private ArrayList<PassageirosVoos> voos = new ArrayList<PassageirosVoos>();
+    private Reserva reserva;
 
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
+
+    public int getReserva_ID() {
+        return Reserva_ID;
+    }
+
+    public void setReserva_ID(int Reserva_ID) {
+        this.Reserva_ID = Reserva_ID;
+    }
     
     public Passageiros() {
     }
