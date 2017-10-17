@@ -43,6 +43,17 @@ public class Reserva {
         this.idCliente = idCliente;
     }
 
+    public Reserva (){
+        
+    }
+
+    public void setIdReserva(Integer idReserva) {
+        this.idReserva = idReserva;
+    }
+
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
+    }
     public Integer getIdReserva() {
         return idReserva;
     }
