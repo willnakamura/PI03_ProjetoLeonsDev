@@ -5,8 +5,6 @@
  */
 package br.senac.tads3.pi3b.leonsdev.voos.classes;
 
-import br.senac.tads3.pi3b.leonsdev.passageiros.classes.PassageirosVoos;
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -18,7 +16,6 @@ public class Voos {
     private Integer nrVoo;
     private String aeroportoPartida, aeroportoChegada, Operadora, horaPartida, horaChegada;
     private Date DataVoo;
-    private ArrayList<PassageirosVoos> listaPassageiros = new ArrayList<PassageirosVoos>();
     
     public Voos (){
         
@@ -67,15 +64,6 @@ public class Voos {
     
     public Integer getNrVoo() {
         return nrVoo;
-    }
-
-    
-    public ArrayList<PassageirosVoos> getListaPassageiros() {
-        return listaPassageiros;
-    }
-
-    public void setListaPassageiros(ArrayList<PassageirosVoos> listaPassageiros) {
-        this.listaPassageiros = listaPassageiros;
     }
 
     public int getDistanciaMilhas() {

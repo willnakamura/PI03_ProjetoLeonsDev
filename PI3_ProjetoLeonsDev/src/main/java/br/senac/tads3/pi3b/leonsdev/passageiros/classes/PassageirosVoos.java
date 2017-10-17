@@ -5,27 +5,36 @@
  */
 package br.senac.tads3.pi3b.leonsdev.passageiros.classes;
 
+import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
+
 /**
  *
  * @author Rafael Rodrigues
  */
 public class PassageirosVoos {
-    private Passageiros passageiro;
+    private Voos voo;
     private String status;
+    private String assento;
 
-    public PassageirosVoos(Passageiros passageiro, String status) {
-        this.passageiro = passageiro;
+    public PassageirosVoos(Voos voo, String status, String assento) {
+        this.voo = voo;
         this.status = status;
+        this.assento = assento;
     }
-
+    
     public PassageirosVoos() {
     }
 
-    public Passageiros getPassageiro() {
-        return passageiro;
+    public String getAssento() {
+        return assento;
+    }
+
+    public Voos getVoo() {
+        return voo;
     }
 
     public String getStatus() {
         return status;
     }
+
 }
