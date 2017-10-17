@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -42,8 +43,8 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                <li><a href="index.html">HOME</a></li>
-                                <li class="current"><a href="index-1.html">Cliente</a></li>
+                                <li><a href="${pageContext.request.contextPath}/index.html">HOME</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/cliente.jsp">Cliente</a></li>
                                 <li><a href="index-2.html">SPECIAL OFFERS</a></li>
                                 <li><a href="index-3.html">BLOG</a></li>
                                 <li><a href="index-4.html">CONTACTS</a></li>
@@ -59,10 +60,29 @@
                         </a>
                     </h1>
                 </div>
+
             </div>
         </header>
         <!--==============================Content=================================-->
-        <div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+        <div class="content"><div class="ic"></div>
+
+            <div class="container_12">
+                <div class="grid_8">
+
+                </div>
+                <div class="grid_3 prefix_1">
+                    
+                    <h5>CHOOse the country</h5>
+                    <ul class="list">
+                        <li><a href="#">Albania</a></li>
+                        <li><a href="#">American Samoa</a></li>
+                        <li><a href="#">Antarctica</a></li>
+                        <li><a href="#">Argentina</a></li>
+                        <li><a href="#">Armenia</a></li>
+                        <li><a href="#">Australia</a></li>
+                    </ul>
+                </div>
+            </div>
 
         </div>
         <!--==============================footer=================================-->

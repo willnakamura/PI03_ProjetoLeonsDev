@@ -71,8 +71,8 @@
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
                                 
-                                <li class="current"><a href="home.jsp">HOME</a></li>                                
-                                <li><a href="cliente.jsp">Cliente</a></li>                                
+                                <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cliente.jsp">Cliente</a></li>                                
                                 <li><a href="index-2.html">SPECIAL OFFERS</a></li>
                                 <li><a href="index-3.html">BLOG</a></li>
                                 <li><a href="index-4.html">CONTACTS</a></li>
