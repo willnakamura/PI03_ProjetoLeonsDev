@@ -5,6 +5,7 @@
  */
 package br.senac.tads3.pi3b.leonsdev.passageiros.classes;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -15,6 +16,11 @@ public class Passageiros {
     private int id;
     private String nome, sobrenome, cpf, email;
     private Date dataNascimento;
+    private ArrayList<PassageirosVoos> voos = new ArrayList<PassageirosVoos>();
+
+    
+    public Passageiros() {
+    }
 
     public Passageiros(int id, String nome, String sobrenome, String cpf, String email, Date dataNascimento) {
         this.id = id;
@@ -25,9 +31,6 @@ public class Passageiros {
         this.dataNascimento = dataNascimento;
     }
 
-    public Passageiros() {
-    }
-
     public Passageiros(String nome, String sobrenome, String cpf, String email, Date dataNascimento) {
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -35,7 +38,7 @@ public class Passageiros {
         this.email = email;
         this.dataNascimento = dataNascimento;
     }
-
+    
     public int getId() {
         return id;
     }
@@ -83,4 +86,14 @@ public class Passageiros {
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
+    
+        public ArrayList<PassageirosVoos> getVoos() {
+        return voos;
+    }
+
+    public void setVoos(ArrayList<PassageirosVoos> voos) {
+        this.voos = voos;
+    }
+
+    
 }
