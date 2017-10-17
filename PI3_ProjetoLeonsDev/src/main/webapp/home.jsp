@@ -35,8 +35,26 @@
                 <header>
                         <!--espaço em cima do Menu-->
                     <div class="row">
-                        <h1><a href="#" id="logo">Around the World</a></h1>
-                        
+                        <h1><a href="index.html" id="logo">Around the World</a></h1>
+                        <div class="right">
+                            <div class="wrapper">
+                                <form id="search" action="" method="post">
+                                    <div class="bg">
+                                        <input type="submit" class="submit" value="">
+                                        <input type="text" class="input">-->
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="wrapper">
+                                <nav>
+                                    <ul id="top_nav">
+                                        <li><a href="#">Register</a></li>
+                                        <li><a href="#">Log In</a></li>
+                                        <li><a href="#">Help</a></li>
+                                    </ul>
+                                </nav>
+                            </div>	
+                        </div>
                     </div>
                     <!--termina o espaço----->
                     
