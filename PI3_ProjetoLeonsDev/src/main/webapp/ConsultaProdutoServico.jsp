@@ -51,7 +51,7 @@
                     </nav>
                     <div class="ConsultaProdServico">
                         <h3><label>Consultar Produtos e Serviços</label></h3>
-                    
+                        
                         <label for ="product">Selecione: </label></br>
                         <select name ="select">
                             <option value="">--</option>
