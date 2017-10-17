@@ -15,57 +15,79 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
-        <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-        <link rel="stylesheet" href="css/zerogrid.css" type="text/css" media="all">
-        <link rel="stylesheet" href="css/responsive.css" type="text/css" media="all"> 
+        <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 
-        <script type="text/javascript" src="js/jquery-1.4.2.js" ></script>
-        <script type="text/javascript" src="js/cufon-yui.js"></script>
-        <script type="text/javascript" src="js/cufon-replace.js"></script>  
-        <script type="text/javascript" src="js/Myriad_Pro_600.font.js"></script>
-        <script type="text/javascript" src="js/css3-mediaqueries.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery-migrate-1.2.1.js"></script>
+        <script src="${pageContext.request.contextPath}/js/script.js"></script>
+        <script src="${pageContext.request.contextPath}/js/superfish.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery.ui.totop.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery.equalheights.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $().UItoTop({easingType: 'easeOutQuart'});
+            });
+        </script>
 
     </head>
-
-    <body id="page1">
-        <div class="extra">
-            <div class="main zerogrid">
-                <!-- header -->
-                <header>
-                    <div class="row">
-                          <!-- INICIO PARTE DO LOGO -->
-                        <h1><a href="index.html" id="logo">Around the World</a></h1>
-                         <!-- FINAL PARTE DO LOGO -->
-                        
+    <body>
+        <!--==============================header=================================-->
+        <header>
+            <div class="container_12">
+                <div class="grid_12">
+                    <div class="menu_block">
+                        <nav class="horizontal-nav full-width horizontalNav-notprocessed">
+                            <ul class="sf-menu">
+                                <li><a href="index.html">ABOUT</a></li>
+                                <li class="current"><a href="index-1.html">HOT TOURS</a></li>
+                                <li><a href="index-2.html">SPECIAL OFFERS</a></li>
+                                <li><a href="index-3.html">BLOG</a></li>
+                                <li><a href="index-4.html">CONTACTS</a></li>
+                            </ul>
+                        </nav>
+                        <div class="clear"></div>
                     </div>
-                    <nav class="row">
-                        <ul id="menu">
-                            <li><a href="index.html" class="nav1">Home</a></li>
-                            <li><a href="About.html" class="nav2">About Us </a></li>
-                            <li><a href="Tours.html" class="nav3">Our Tours</a></li>
-                            <li><a href="Destinations.html" class="nav4">Destinations</a></li>
-                            <li class="end"><a href="contact.html" class="nav5">Contacts</a></li>
-                           
-                        </ul>
-                    </nav>
-                    
-                    
-                    
-                </header>
-             
+                </div>
+                <div class="grid_12">
+                    <h1>
+                        <a href="index.html">
+                            <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
+                        </a>
+                    </h1>
+                </div>
             </div>
-            <div class="block"></div>
+        </header>
+        <!--==============================Content=================================-->
+        <div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+            
         </div>
-        <div class="body1">
-            <div class="main">
-                <!-- footer -->
-                <footer>
-                    Designed by <a rel="nofollow" href="http://www.abc.com/" target="_blank">TemplateMonster</a> & <a href="https://www.zerotheme.com/" title="free website templates">ZEROTHEME</a>
-                </footer>
-                <!-- / footer -->
+        <!--==============================footer=================================-->
+        <footer>
+            <div class="container_12">
+                <div class="grid_12">
+                    <div class="socials">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-google-plus"></a>
+                    </div>
+                    <div class="copy">
+                        Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by TemplateMonster.com
+                    </div>
+                </div>
             </div>
-        </div>
-        <script type="text/javascript"> Cufon.now();</script>
+        </footer>
+        <script>
+            $(function () {
+                $('#bookingForm').bookingForm({
+                    ownerEmail: '#'
+                });
+            })
+        </script>
     </body>
+
 </html>
