@@ -12,7 +12,7 @@ package br.senac.tads3.pi3b.leonsdev.usuario.classes;
 public class Usuario {
     private int id;
     private String nome, sobrenome,cpf, email, cargo, login, senha;
-    boolean enable;
+    private boolean enable;
     
     public Usuario(int id, String nome, String sobrenome, String cpf, String email, String cargo, String login, String senha, boolean enable) {
         this.id = id;
@@ -101,7 +101,7 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public boolean isEnable() {
+    public boolean getEnable() {
         return enable;
     }
 

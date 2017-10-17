@@ -5,6 +5,8 @@
  */
 package br.senac.tads3.pi3b.leonsdev.voos.classes;
 
+import br.senac.tads3.pi3b.leonsdev.aeronave.classes.Aeronave;
+import java.sql.Time;
 import java.util.Date;
 
 /**
@@ -12,16 +14,43 @@ import java.util.Date;
  * @author Rafael Rodrigues
  */
 public class Voos {
-    private int id, distanciaMilhas;
+    private int id, distanciaMilhas, Aeronave_ID;
+
+    public int getAeronave_ID() {
+        return Aeronave_ID;
+    }
+
+    public void setAeronave_ID(int Aeronave_ID) {
+        this.Aeronave_ID = Aeronave_ID;
+    }
     private Integer nrVoo;
-    private String aeroportoPartida, aeroportoChegada, Operadora, horaPartida, horaChegada;
+    private String aeroportoPartida, aeroportoChegada, Operadora;
+    private Time horaPartida, horaChegada;
     private Date DataVoo;
+    private Aeronave aeronave;
+    private Boolean ativo;
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public Aeronave getAeronave() {
+        return aeronave;
+    }
+
+    public void setAeronave(Aeronave aeronave) {
+        this.aeronave = aeronave;
+    }
     
     public Voos (){
         
     }
 
-    public Voos(int id, int distanciaMilhas, Integer nrVoo, String aeroportoPartida, String aeroportoChegada, String Operadora, String horaPartida, String horaChegada, Date DataVoo) {
+    public Voos(int id, int distanciaMilhas, Integer nrVoo, String aeroportoPartida, String aeroportoChegada, String Operadora, Time horaPartida, Time horaChegada, Date DataVoo) {
         this.id = id;
         this.distanciaMilhas = distanciaMilhas;
         this.nrVoo = nrVoo;
@@ -33,7 +62,7 @@ public class Voos {
         this.DataVoo = DataVoo;
     }
 
-    public Voos(int distanciaMilhas, Integer nrVoo, String aeroportoPartida, String aeroportoChegada, String Operadora, String horaPartida, String horaChegada, Date DataVoo) {
+    public Voos(int distanciaMilhas, Integer nrVoo, String aeroportoPartida, String aeroportoChegada, String Operadora, Time horaPartida, Time horaChegada, Date DataVoo) {
         this.distanciaMilhas = distanciaMilhas;
         this.nrVoo = nrVoo;
         this.aeroportoPartida = aeroportoPartida;
@@ -98,19 +127,19 @@ public class Voos {
         this.Operadora = Operadora;
     }
 
-    public String getHoraPartida() {
+    public Time getHoraPartida() {
         return horaPartida;
     }
 
-    public void setHoraPartida(String horaPartida) {
+    public void setHoraPartida(Time horaPartida) {
         this.horaPartida = horaPartida;
     }
 
-    public String getHoraChegada() {
+    public Time getHoraChegada() {
         return horaChegada;
     }
 
-    public void setHoraChegada(String horaChegada) {
+    public void setHoraChegada(Time horaChegada) {
         this.horaChegada = horaChegada;
     }
 
