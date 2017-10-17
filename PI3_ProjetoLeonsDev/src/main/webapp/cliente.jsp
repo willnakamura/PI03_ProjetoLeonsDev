@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 10/10/2017, 17:35:20
+    Document   : cliente
+    Created on : 17/10/2017, 20:46:33
     Author     : Nakamura-PC
 --%>
 
@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Home</title>
+        <title>Cliente</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -43,8 +43,8 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                <li><a href="index.html">HOME</a></li>
-                                <li class="current"><a href="index-1.html">Cliente</a></li>
+                                <li><a href="${pageContext.request.contextPath}/index.html">HOME</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/cliente.jsp">Cliente</a></li>
                                 <li><a href="index-2.html">SPECIAL OFFERS</a></li>
                                 <li><a href="index-3.html">BLOG</a></li>
                                 <li><a href="index-4.html">CONTACTS</a></li>
@@ -60,11 +60,30 @@
                         </a>
                     </h1>
                 </div>
+
             </div>
         </header>
         <!--==============================Content=================================-->
-        <div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
-            
+        <div class="content"><div class="ic"></div>
+
+            <div class="container_12">
+                <div class="grid_8">
+
+                </div>
+                <div class="grid_3 prefix_1">
+                    
+                    <h5>CHOOse the country</h5>
+                    <ul class="list">
+                        <li><a href="#">Albania</a></li>
+                        <li><a href="#">American Samoa</a></li>
+                        <li><a href="#">Antarctica</a></li>
+                        <li><a href="#">Argentina</a></li>
+                        <li><a href="#">Armenia</a></li>
+                        <li><a href="#">Australia</a></li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
         <!--==============================footer=================================-->
         <footer>
@@ -72,11 +91,10 @@
                 <div class="grid_12">
                     <div class="socials">
                         <a href="#" class="fa fa-facebook"></a>
-                        <a href="#" class="fa fa-twitter"></a>
                         <a href="#" class="fa fa-google-plus"></a>
                     </div>
                     <div class="copy">
-                        Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by TemplateMonster.com
+                        Your Trip (c) 2017 | <a href="#">Privacy Policy</a>
                     </div>
                 </div>
             </div>
@@ -89,5 +107,4 @@
             })
         </script>
     </body>
-
 </html>
