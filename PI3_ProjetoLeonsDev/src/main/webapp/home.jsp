@@ -41,7 +41,7 @@
                                 <form id="search" action="" method="post">
                                     <div class="bg">
                                         <input type="submit" class="submit" value="">
-                                        <input type="text" class="input">
+                                        <input type="text" class="input">-->
                                     </div>
                                 </form>
                             </div>
