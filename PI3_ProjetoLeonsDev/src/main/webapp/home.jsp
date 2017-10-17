@@ -33,7 +33,7 @@
             <div class="main zerogrid">
                 <!-- header -->
                 <header>
-                    
+                        <!--espaço em cima do Menu-->
                     <div class="row">
                         <h1><a href="index.html" id="logo">Around the World</a></h1>
                         <div class="right">
@@ -56,126 +56,82 @@
                             </div>	
                         </div>
                     </div>
+                    <!--termina o espaço----->
+                    
                     <nav class="row">
-                        <ul id="menu">
-                            <li><a href="index.html" class="nav1">Home</a></li>
-                            <li><a href="About.html" class="nav2">About Us </a></li>
-                            <li><a href="Tours.html" class="nav3">Our Tours</a></li>
-                            <li><a href="Destinations.html" class="nav4">Destinations</a></li>
-                            <li class="end"><a href="contact.html" class="nav5">Contacts</a></li>
-                        </ul>
+                        <nav id="menu">
+                            <ul>
+                                <li><a href="home.jsp" class="nav1">Home</a></li>
+                                <li><a href="#" class="nav2">Clientes </a>
+                                    <ul>
+                                        <li><a href="CadastrarCliente.jsp" class="nav22" id="submenu-clientes-cadastrar">Cadastrar </a></li>
+                                        <li><a href="ConsultarCliente.jsp" class="nav22" id="submenu-clientes-consulta">Consulta </a></li>
+                                    </ul>
+                                </li>
+                                
+                                <li><a href="#" class="nav3">Usuarios</a>
+                                    <ul>
+                                        <li><a href="CadastrarUsuario.jsp" class="nav33" id="submenu-usuarios-cadastrar">Cadastrar  </a></li>
+                                        <li><a href="ConsultarUsuario.jsp" class="nav33" id="submenu-usuarios-consulta">Consultar  </a></li>
+                                    </ul>
+                                </li>                                
+                                
+                                <li><a href="#" class="nav4">Serv. Bordo</a>
+                                    <ul>
+                                                <li><a href="ServBordo.jsp" class="nav44" id="submenu-servBordo-cadastrar">Cadastrar</a></li>
+                                                <li><a href="ConsultarServicoBordo.jsp" class="nav44" id="submenu-servBordo-consulta">Consultar</a></li>
+                                            </ul>
+                                </li>
+                                    <li><a href="#" class="nav5">Excesso de Bag</a>
+                                    <ul>
+                                                <li><a href="#" class="nav55" id="submenu-excessoBag-cadastrar">Cadastrar</a></li>
+                                                <li><a href="#" class="nav55" id="submenu-excessoBag-cadastrar">Consultar</a></li>
+                                            </ul>
+                                    </li>
+                                        <li><a href="#" class="nav6">Assentos</a>
+                                        <ul>
+                                                <li><a href="#" class="nav66" id="submenu-Assentos-cadastrar">Cadastrar</a></li>
+                                                <li><a href="#" class="nav66" id="submenu-Assentos-consultar">Consultar</a></li>
+                                            </ul>
+                                        </li>
+                                   
+                                </li>
+                                
+                                <li ><a href="#" class="nav7">Reserva</a>
+                                    <ul>
+                                       <li><a href="#" class="nav77" id="subdosubmenu-Reserva-Consultar" >Cadastrar Reservas </a></li>
+                                        <li><a href="#" class="nav77" id="subdosubmenu-FazerReserva-Consultar" >Consultar Reservas </a></li>
+                                    </ul>
+                                </li>
+                                
+                                 <li ><a href="#" class="nav8" >Voos e tarifas</a>
+                                    <ul>
+                                      <li><a href="#" class="nav88" id="subdosubmenu-VooETarifas-Consultar">Consultar Voos e Tarifas </a></li>
+                                    </ul>
+                                </li>
+                                
+                                  <li><a href="#" class="nav8" >Relatorio</a></li>
+                                
+                                
+                            </ul>
+                        </nav>
                     </nav>
-                    <div class="row headerextra">
-                        <article class="col-1-3"><div class="wrap-col">
-                                <div class="text">
-                                    <img src="${pageContext.request.contextPath}/images/text1.jpg" alt="">
-                                    <h2>The Best Offers</h2>
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.</p>
-                                    <a href="#" class="button">Read More</a>
-                                </div>
-                            </div></article>
-                        <div class="col-1-3 col-extra"><div class="wrap-col"><img src="${pageContext.request.contextPath}/images/img.jpg" alt=""></div></div>
-                        <article class="col-1-3" ><div class="wrap-col">
-                                <ul class="tabs">
-                                    <li><a href="#" class="active">Flight</a></li>
-                                    <li><a href="#">Hotel</a></li>
-                                    <li><a href="#">Car</a></li>
-                                    <li class="end"><a href="#">Cruise</a></li>
-                                </ul>
-                                <div class="tabs_cont">
-                                    <form id="form_1" action="" method="post">
-                                        <div class="bg">
-                                            <div class="wrapper">
-                                                <div class="radio">
-                                                    <input type="radio" name="name1" checked>Round trip
-                                                </div>
-                                                <div class="radio"><input type="radio" name="name1">One way</div>
-                                            </div>
-                                            <a href="#">Multiple destinations</a>
-                                            <div class="wrapper"><input type="text" class="input">From</div>
-                                            <div class="wrapper"><input type="text" class="input">To</div>	
-                                            <div class="wrapper check_box"><input type="checkbox" checked ><a href="#">Search nearby airports</a></div>	
-                                            <div class="wrapper"><input type="text" class="input input2" value="04/11/2010"  onblur="if (this.value == '')
-                                                        this.value = '04/11/2010'" onfocus="if (this.value == '04/11/2010')
-                                                                    this.value = ''">Depart (mm/dd/yy)</div>
-                                            <div class="wrapper pad_bot1"><input type="text" class="input input2" value="04/11/2010"  onblur="if (this.value == '')
-                                                        this.value = '04/11/2010'" onfocus="if (this.value == '04/11/2010')
-                                                                    this.value = ''">Return  (mm/dd/yy)</div>
-                                            <div class="wrapper">
-                                                <div class="radio"><input type="radio" name="name2" checked>Economy cabin</div>
-                                                <div class="radio end"><input type="radio" name="name2">Business</div>
-                                            </div>
-                                            <div class="wrapper pad_bot1">
-                                                <a href="#" class="button" onclick="document.getElementById('form_1').submit()">Search</a>
-                                                Audlts <select><option>1</option></select>
-                                            </div>
-                                        </div>							
-                                    </form>
-                                </div>
-                            </div></article>
-                    </div>
+                   
+                        
+                        <div class="imagem-globo"><img src="${pageContext.request.contextPath}/images/img.jpg" alt=""></div>
+                      
+                        <section class="galeria">
+                            <img id ="foto1" class="foto" src="${pageContext.request.contextPath}/images/viagem1.jpg"/>
+                             <img id ="foto2" class="foto" src="${pageContext.request.contextPath}/images/viagem2.jpg"/>
+                              <img id ="foto3" class="foto" src="${pageContext.request.contextPath}/images/viagem3.jpg"/>
+                               <img id ="foto4" class="foto" src="${pageContext.request.contextPath}/images/viagem4.jpg"/>
+                        </section>
+                        
+                        
                 </header>
                 <!-- / header -->
                 <!-- content -->
-                <section id="content">
-                    <article class="col-1-3"><div class="wrap-col">
-                            <h3>Hot Travel</h3>
-                            <div class="pad">
-                                <div class="wrapper under">
-                                    <figure class="left marg_right1"><img src="${pageContext.request.contextPath}/images/page1_img1.jpg" alt=""></figure>
-                                    <p class="pad_bot2"><strong>Italy<br>Holidays</strong></p>
-                                    <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
-                                    <a href="#" class="marker_1"></a>
-                                </div>
-                                <div class="wrapper under">
-                                    <figure class="left marg_right1"><img src="${pageContext.request.contextPath}/images/page1_img2.jpg" alt=""></figure>
-                                    <p class="pad_bot2"><strong>Philippines<br>Travel</strong></p>
-                                    <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
-                                    <a href="#" class="marker_1"></a>
-                                </div>
-                                <div class="wrapper">
-                                    <figure class="left marg_right1"><img src="${pageContext.request.contextPath}/images/page1_img3.jpg" alt=""></figure>
-                                    <p class="pad_bot2"><strong>Cruise<br>Holidays</strong></p>
-                                    <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
-                                    <a href="#" class="marker_1"></a>
-                                </div>
-                            </div>
-                        </div></article>
-                    <article class="col-2-3"><div class="wrap-col">
-                            <h2>Popular Places</h2>
-                            <div class="row under">
-                                <div class="col-1-3"><div class="wrap-col">
-                                        <figure class="left marg_right1"><img src="${pageContext.request.contextPath}/images/page1_img4.jpg" alt=""></figure>
-                                    </div></div>
-                                <div class="col-2-3"><div class="wrap-col">
-                                        <p class="pad_bot2"><strong>Hotel du Havre</strong></p>
-                                        <p class="pad_bot2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                                        <p class="pad_bot2"><strong>Nemo enim ipsam voluptatem</strong> quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                                        <a href="#" class="marker_2"></a>
-                                    </div></div>
-                            </div>
-                            <div class="row under">
-                                <div class="col-1-3"><div class="wrap-col"><figure class="left marg_right1"><img src="${pageContext.request.contextPath}/images/page1_img5.jpg" alt=""></figure></div></div>
-                                <div class="col-2-3"><div class="wrap-col">
-                                        <p class="pad_bot2"><strong>Hotel Vacance</strong></p>
-                                        <p class="pad_bot2">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</p>
-                                        <p class="pad_bot2">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque.</p>
-                                        <a href="#" class="marker_2"></a>
-                                    </div></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-1-3"><div class="wrap-col">
-                                        <figure class="left marg_right1"><img src="${pageContext.request.contextPath}/images/page1_img4.jpg" alt=""></figure>
-                                    </div></div>
-                                <div class="col-2-3"><div class="wrap-col">
-                                        <p class="pad_bot2"><strong>Hotel du Havre</strong></p>
-                                        <p class="pad_bot2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                                        <p class="pad_bot2"><strong>Nemo enim ipsam voluptatem</strong> quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                                        <a href="#" class="marker_2"></a>
-                                    </div></div>
-                            </div>
-                        </div></article>
-                </section>
+               
                 <!-- / content -->
             </div>
             <div class="block"></div>
