@@ -39,11 +39,12 @@ and open the template in the editor.
 #page1 #menu {
     margin-top:32px;
     margin-bottom:35px;
+    
 }
 
 #page1 .img {
     right:-13px;
-    top:236px;
+    top:36px;
 }
 
 #page1 .text {

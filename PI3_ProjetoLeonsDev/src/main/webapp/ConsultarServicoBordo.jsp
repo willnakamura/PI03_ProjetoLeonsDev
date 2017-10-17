@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 10/10/2017, 17:35:20
-    Author     : Nakamura-PC
+    Document   : ConsultaServicoBordo
+    Created on : Oct 12, 2017, 2:21:06 PM
+    Author     : mahperola
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,16 +15,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reset.css" type="text/css" media="all">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css" media="all">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/zerogrid.css" type="text/css" media="all">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/responsive.css" type="text/css" media="all"> 
+        <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+        <link rel="stylesheet" href="css/zerogrid.css" type="text/css" media="all">
+        <link rel="stylesheet" href="css/responsive.css" type="text/css" media="all"> 
 
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.4.2.js" ></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/cufon-yui.js"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/cufon-replace.js"></script>  
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/Myriad_Pro_600.font.js"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/css3-mediaqueries.js"></script>
+        <script type="text/javascript" src="js/jquery-1.4.2.js" ></script>
+        <script type="text/javascript" src="js/cufon-yui.js"></script>
+        <script type="text/javascript" src="js/cufon-replace.js"></script>  
+        <script type="text/javascript" src="js/Myriad_Pro_600.font.js"></script>
+        <script type="text/javascript" src="js/css3-mediaqueries.js"></script>
 
     </head>
 
@@ -33,7 +33,7 @@
             <div class="main zerogrid">
                 <!-- header -->
                 <header>
-                        <!--espaço em cima do Menu-->
+                    <!--espaço em cima do Menu-->
                     <div class="row">
                         <h1><a href="#" id="logo">Around the World</a></h1>
                         
@@ -61,7 +61,7 @@
                                 <li><a href="#" class="nav4">Serv. Bordo</a>
                                     <ul>
                                                 <li><a href="ServBordo.jsp" class="nav44" id="submenu-servBordo-cadastrar">Cadastrar</a></li>
-                                                <li><a href="ConsultarServicoBordo.jsp" class="nav44" id="submenu-servBordo-consulta">Consultar</a></li>
+                                               
                                             </ul>
                                 </li>
                                     <li><a href="#" class="nav5">Excesso de Bag</a>
@@ -98,23 +98,68 @@
                             </ul>
                         </nav>
                     </nav>
-                   
+                    
+                    
+                    <div class="conteudo">
+                        <h5><label>Consultar Serviço de Bordo</label></h5>
                         
-                        <div class="imagem-globo"><img src="${pageContext.request.contextPath}/images/img.jpg" alt=""></div>
-                      
-                        <section class="galeria">
-                            <img id ="foto1" class="foto" src="${pageContext.request.contextPath}/images/viagem1.jpg"/>
-                             <img id ="foto2" class="foto" src="${pageContext.request.contextPath}/images/viagem2.jpg"/>
-                              <img id ="foto3" class="foto" src="${pageContext.request.contextPath}/images/viagem3.jpg"/>
-                               <img id ="foto4" class="foto" src="${pageContext.request.contextPath}/images/viagem4.jpg"/>
-                        </section>
+                        <label for="product">Produto: </label>
+                        <input type="text" name="produtoConsultarServBordo" value="q_product"/>
                         
+                            <button for="sources">Buscar</button>
                         
+                       
+                       
+                        
+                        <table>
+  <tr>
+    <th>Nome </th>
+    <th>CPF &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+    <th>Data de Nascimento</th>
+    <th>Endereço</th>
+    <th>Telefone</th>
+    <th>E-mail</th>
+  </tr>
+  <tr>
+    <td>Fernando Jorge Lucas Santos Ferreira do Prado </td>
+    <td> 444.802.701-41 </td>
+    <td>01/03/1995</td>
+    <td>Rua Santana Moises, 303, São Paulo</td>
+    <td>5517-3816</td>
+    <td>PeterJoLuc@hotmail.com</td>
+  </tr>
+  <tr>
+    <td>Luiz Moises Pereira Lima Santana junior</td>
+    <td>789.123.654-32</td>
+    <td>05/02/1990</td>
+    <td>Rua Bonita Serafim, 02, Osasco</td>
+    <td>2883-5456</td>
+    <td>LoisMoises@gmail.com</td>
+  </tr>
+  <tr>
+    <td>Marcos Satana Ganso Pereira Juvenal Amaro </td>
+     <td>189.153.674-02</td>
+    <td>07/04/1985</td>
+     <td>Av Rio Bonito, 400, São Paulo</td>
+      <td>5612-7879</td>
+       <td>Joesat@ig.com.br</td>
+  </tr>
+  <tr>
+    <td>Mario Frodo Bolseiro Golum Gandalf dos Santos</td>
+    <td>555.987.369-12</td>
+    <td>08/09/1970</td>
+    <td>Praça Joaquim Barbosa, 500</td>
+    <td>7865-1234</td>
+    <td>Cleveland@terra.com.br</td>
+</tr>
+</table> 
+         
+                        
+                        </div>    
+                    
+                    
                 </header>
-                <!-- / header -->
-                <!-- content -->
-               
-                <!-- / content -->
+             
             </div>
             <div class="block"></div>
         </div>
@@ -130,3 +175,4 @@
         <script type="text/javascript"> Cufon.now();</script>
     </body>
 </html>
+

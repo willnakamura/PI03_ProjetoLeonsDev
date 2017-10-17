@@ -15,16 +15,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reset.css" type="text/css" media="all">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css" media="all">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/zerogrid.css" type="text/css" media="all">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/responsive.css" type="text/css" media="all"> 
+        <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+        <link rel="stylesheet" href="css/zerogrid.css" type="text/css" media="all">
+        <link rel="stylesheet" href="css/responsive.css" type="text/css" media="all"> 
 
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.4.2.js" ></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/cufon-yui.js"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/cufon-replace.js"></script>  
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/Myriad_Pro_600.font.js"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/css3-mediaqueries.js"></script>
+        <script type="text/javascript" src="js/jquery-1.4.2.js" ></script>
+        <script type="text/javascript" src="js/cufon-yui.js"></script>
+        <script type="text/javascript" src="js/cufon-replace.js"></script>  
+        <script type="text/javascript" src="js/Myriad_Pro_600.font.js"></script>
+        <script type="text/javascript" src="js/css3-mediaqueries.js"></script>
 
     </head>
 
@@ -33,20 +33,19 @@
             <div class="main zerogrid">
                 <!-- header -->
                 <header>
-                        <!--espaço em cima do Menu-->
                     <div class="row">
-                        <h1><a href="#" id="logo">Around the World</a></h1>
+                          <!-- INICIO PARTE DO LOGO -->
+                        <h1><a href="index.html" id="logo">Around the World</a></h1>
+                         <!-- FINAL PARTE DO LOGO -->
                         
                     </div>
-                    <!--termina o espaço----->
-                    
-                    <nav class="row">
+                      <nav class="row">
                         <nav id="menu">
                             <ul>
                                 <li><a href="home.jsp" class="nav1">Home</a></li>
                                 <li><a href="#" class="nav2">Clientes </a>
                                     <ul>
-                                        <li><a href="CadastrarCliente.jsp" class="nav22" id="submenu-clientes-cadastrar">Cadastrar </a></li>
+                                      
                                         <li><a href="ConsultarCliente.jsp" class="nav22" id="submenu-clientes-consulta">Consulta </a></li>
                                     </ul>
                                 </li>
@@ -60,7 +59,7 @@
                                 
                                 <li><a href="#" class="nav4">Serv. Bordo</a>
                                     <ul>
-                                                <li><a href="ServBordo.jsp" class="nav44" id="submenu-servBordo-cadastrar">Cadastrar</a></li>
+                                                  <li><a href="ServBordo.jsp" class="nav44" id="submenu-servBordo-cadastrar">Cadastrar</a></li>
                                                 <li><a href="ConsultarServicoBordo.jsp" class="nav44" id="submenu-servBordo-consulta">Consultar</a></li>
                                             </ul>
                                 </li>
@@ -99,21 +98,42 @@
                         </nav>
                     </nav>
                    
-                        
-                        <div class="imagem-globo"><img src="${pageContext.request.contextPath}/images/img.jpg" alt=""></div>
-                      
-                        <section class="galeria">
-                            <img id ="foto1" class="foto" src="${pageContext.request.contextPath}/images/viagem1.jpg"/>
-                             <img id ="foto2" class="foto" src="${pageContext.request.contextPath}/images/viagem2.jpg"/>
-                              <img id ="foto3" class="foto" src="${pageContext.request.contextPath}/images/viagem3.jpg"/>
-                               <img id ="foto4" class="foto" src="${pageContext.request.contextPath}/images/viagem4.jpg"/>
-                        </section>
-                        
-                        
+                   <div class="conteudo"> 
+                    <form action="${pageContext.request.contextPath}/cadastro-cliente" method="post">
+                <h5>Cadastro de clientes</h5>
+
+                <label for="nome"  class="label-cadastro-nome">Nome Completo</label>
+                <input type="text"  name="nome" value="nomeCliente" class="input-cadastro-name"/>               
+                </br></br>
+                <label for="cpf" class="label cadastro cpf">CPF</label>
+                <input type="text" name="cpf" value="cpfCliente" class="input-cpf"/>
+                </br></br>
+                <label for="dtnascimento" class="label-cadastro-DataNasci">Data de Nascimento</label>
+                <input type="date" name="dataNascimentoCliente" class="input-cadastro-dtnascimento"/>
+                </br></br>
+                <label for="endereco" class="label-cadastro-endereco">Endereço</label>
+                <input type="text" name="enderecoCliente" value="endereco" class="input-cadastro-endereco"/>
+                </br></br>
+                <label for="telefone" class="label-cadastro-telefone">Telefone</label>
+                <input type="text" name="telefoneCliente" value="telefone" class="input-cadastro-telefone"/>
+                </br></br>
+                <label for="email" class="label-cadastro-email">E-mail</label>
+                <input type="text" name="emailCliente" value="email" class="input-cadastro-email"/>
+                </br></br>
+
+                </br></br>
+                <div>
+                    <button> Voltar </button>
+                    <button> Cadastrar </button>
+                </div>
+                
+            </form>
+                </div>    
+                    
                 </header>
                 <!-- / header -->
                 <!-- content -->
-               
+                
                 <!-- / content -->
             </div>
             <div class="block"></div>

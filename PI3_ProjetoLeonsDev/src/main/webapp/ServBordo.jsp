@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 10/10/2017, 17:35:20
-    Author     : Nakamura-PC
+    Document   : Produto1
+    Created on : 10/10/2017, 21:21:03
+    Author     : mariana.protiroti
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,16 +15,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reset.css" type="text/css" media="all">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css" media="all">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/zerogrid.css" type="text/css" media="all">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/responsive.css" type="text/css" media="all"> 
+        <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+        <link rel="stylesheet" href="css/zerogrid.css" type="text/css" media="all">
+        <link rel="stylesheet" href="css/responsive.css" type="text/css" media="all"> 
 
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.4.2.js" ></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/cufon-yui.js"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/cufon-replace.js"></script>  
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/Myriad_Pro_600.font.js"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/css3-mediaqueries.js"></script>
+        <script type="text/javascript" src="js/jquery-1.4.2.js" ></script>
+        <script type="text/javascript" src="js/cufon-yui.js"></script>
+        <script type="text/javascript" src="js/cufon-replace.js"></script>  
+        <script type="text/javascript" src="js/Myriad_Pro_600.font.js"></script>
+        <script type="text/javascript" src="js/css3-mediaqueries.js"></script>
 
     </head>
 
@@ -33,7 +33,7 @@
             <div class="main zerogrid">
                 <!-- header -->
                 <header>
-                        <!--espaço em cima do Menu-->
+                    <!--espaço em cima do Menu-->
                     <div class="row">
                         <h1><a href="#" id="logo">Around the World</a></h1>
                         
@@ -60,7 +60,7 @@
                                 
                                 <li><a href="#" class="nav4">Serv. Bordo</a>
                                     <ul>
-                                                <li><a href="ServBordo.jsp" class="nav44" id="submenu-servBordo-cadastrar">Cadastrar</a></li>
+                                                
                                                 <li><a href="ConsultarServicoBordo.jsp" class="nav44" id="submenu-servBordo-consulta">Consultar</a></li>
                                             </ul>
                                 </li>
@@ -98,23 +98,36 @@
                             </ul>
                         </nav>
                     </nav>
+                    
+                <div class="conteudo">    
+                    <h5><label>Cadastro Serviços de Bordo</label></h5>
                    
-                        
-                        <div class="imagem-globo"><img src="${pageContext.request.contextPath}/images/img.jpg" alt=""></div>
-                      
-                        <section class="galeria">
-                            <img id ="foto1" class="foto" src="${pageContext.request.contextPath}/images/viagem1.jpg"/>
-                             <img id ="foto2" class="foto" src="${pageContext.request.contextPath}/images/viagem2.jpg"/>
-                              <img id ="foto3" class="foto" src="${pageContext.request.contextPath}/images/viagem3.jpg"/>
-                               <img id ="foto4" class="foto" src="${pageContext.request.contextPath}/images/viagem4.jpg"/>
-                        </section>
-                        
-                        
+                    </br></br></br>
+                    <label for="produto">Nome do Serviço: </label>
+                    <input type="text" name="nomeServBordo" value="Nome_produto"/>
+                    </br></br>
+                    <label for="Preco">Preço: </label>
+                    <input type="number" name="precoServBordo" value="Preco"/>
+                    </br></br>
+                    <label for="qtde">Quantidade: </label>
+                    <input type="text" name="quantidadeServBordo" value="qtde"/>
+                    </br></br>
+                    <label for="Nr_voo">Número do Voo: </label>
+                    <input type="number" name="NrvooServBordo" value="Nvoo"/>
+                    </br></br> 
+                    <label for="Aeroporto_Partida"> Origem: </label>
+                    <input type="text" name="origemServBordo" value="Origem"/>
+                    </br></br>
+                    <label for="Aeroporto_Chegada"> Destino: </label>
+                    <input for="text" name="destinoServBordo" value="Destino"/>
+                    </br></br></br>
+                    
+                    <button for="back">Voltar</button>
+                    <button for="submit">Cadastrar</button>
+                </div>    
+                    
                 </header>
-                <!-- / header -->
-                <!-- content -->
-               
-                <!-- / content -->
+             
             </div>
             <div class="block"></div>
         </div>
