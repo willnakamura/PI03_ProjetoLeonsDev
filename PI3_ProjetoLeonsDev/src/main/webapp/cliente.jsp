@@ -1,16 +1,15 @@
 <%-- 
-    Document   : index
-    Created on : 10/10/2017, 17:35:20
+    Document   : cliente
+    Created on : 17/10/2017, 20:46:33
     Author     : Nakamura-PC
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
 
-        <title>Home</title>
+        <title>Cliente</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -64,7 +63,7 @@
         </header>
         <!--==============================Content=================================-->
         <div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
-            
+
         </div>
         <!--==============================footer=================================-->
         <footer>
@@ -72,11 +71,10 @@
                 <div class="grid_12">
                     <div class="socials">
                         <a href="#" class="fa fa-facebook"></a>
-                        <a href="#" class="fa fa-twitter"></a>
                         <a href="#" class="fa fa-google-plus"></a>
                     </div>
                     <div class="copy">
-                        Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by TemplateMonster.com
+                        Your Trip (c) 2017 | <a href="#">Privacy Policy</a>
                     </div>
                 </div>
             </div>
@@ -89,5 +87,4 @@
             })
         </script>
     </body>
-
 </html>
