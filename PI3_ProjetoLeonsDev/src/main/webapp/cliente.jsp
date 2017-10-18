@@ -72,14 +72,12 @@
                 </div>
                 <div class="grid_3 prefix_1">
                     
-                    <h5>CHOOse the country</h5>
+                    <h5 class="opcao">Opção </h5>
                     <ul class="list">
-                        <li><a href="#">Albania</a></li>
-                        <li><a href="#">American Samoa</a></li>
-                        <li><a href="#">Antarctica</a></li>
-                        <li><a href="#">Argentina</a></li>
-                        <li><a href="#">Armenia</a></li>
-                        <li><a href="#">Australia</a></li>
+                        <li><a href="#">Cadastrar</a></li>
+                        <li><a href="#">Consultar</a></li>
+                                                  
+                       
                     </ul>
                 </div>
             </div>
