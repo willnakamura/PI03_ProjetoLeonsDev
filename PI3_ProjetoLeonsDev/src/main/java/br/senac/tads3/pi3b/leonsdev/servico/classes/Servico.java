@@ -5,29 +5,56 @@
  */
 package br.senac.tads3.pi3b.leonsdev.servico.classes;
 
+import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
+
 /**
  *
  * @author Nakamura-PC
  */
 public class Servico {
 
-    private Integer idServico;
-    private String extraBag1, extraBag2, extraBag3;
+    private Integer idServico, Reserva_ID;
+
+    public Integer getReserva_ID() {
+        return Reserva_ID;
+    }
+
+    public void setReserva_ID(Integer Reserva_ID) {
+        this.Reserva_ID = Reserva_ID;
+    }
+    private String extraBag;
     private Double preco;
+    private Reserva reserva;
+    private Boolean ativo;
     //private Integer idReserva;
 
-    public Servico(Integer idServico, String extraBag1, String extraBag2, String extraBag3, Double preco) {
+    public Servico (){
+        
+    }
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
+
+    public Servico(Integer idServico, String extraBag, Double preco) {
         this.idServico = idServico;
-        this.extraBag1 = extraBag1;
-        this.extraBag2 = extraBag2;
-        this.extraBag3 = extraBag3;
+        this.extraBag = extraBag;
         this.preco = preco;
     }
 
-    public Servico(String extraBag1, String extraBag2, String extraBag3, Double preco) {
-        this.extraBag1 = extraBag1;
-        this.extraBag2 = extraBag2;
-        this.extraBag3 = extraBag3;
+    public Servico(String extraBag, Double preco) {
+        this.extraBag = extraBag;
         this.preco = preco;
     }
 
@@ -35,28 +62,12 @@ public class Servico {
         return idServico;
     }
 
-    public String getExtraBag1() {
-        return extraBag1;
+    public String getExtraBag() {
+        return extraBag;
     }
 
-    public void setExtraBag1(String extraBag1) {
-        this.extraBag1 = extraBag1;
-    }
-
-    public String getExtraBag2() {
-        return extraBag2;
-    }
-
-    public void setExtraBag2(String extraBag2) {
-        this.extraBag2 = extraBag2;
-    }
-
-    public String getExtraBag3() {
-        return extraBag3;
-    }
-
-    public void setExtraBag3(String extraBag3) {
-        this.extraBag3 = extraBag3;
+    public void setExtraBag(String extraBag) {
+        this.extraBag = extraBag;
     }
 
     public Double getPreco() {

@@ -5,6 +5,7 @@
  */
 package br.senac.tads3.pi3b.leonsdev.reserva.classes;
 
+import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.usuario.classes.Usuario;
 import java.util.Date;
 
@@ -15,27 +16,61 @@ import java.util.Date;
 public class Reserva {
 
     private Integer idReserva;
-    private Date dataReserva, dataAlteracao;
-    private String status, formaPgto;
+    private String ticket;
+
+    public String getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(String ticket) {
+        this.ticket = ticket;
+    }
+
+    private Date dataReserva;
+    private String status, formaPgto, vendedor;
+    private Cliente cliente;
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public String getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(String vendedor) {
+        this.vendedor = vendedor;
+    }
     //Duvida sobre usuário na classe reserva.
     private Usuario usuario;
     private Double custoTotal;
     private Integer idCliente;
+    private Boolean Ativo;
 
-    public Reserva(Integer idReserva, Date dataReserva, Date dataAlteracao, String status, String formaPgto, Usuario usuario, Double custoTotal) {
+    public Boolean getAtivo() {
+        return Ativo;
+    }
+
+    public void setAtivo(Boolean Ativo) {
+        this.Ativo = Ativo;
+    }
+
+    public Reserva(Integer idReserva, Date dataReserva, String status, String formaPgto, Usuario usuario, Double custoTotal) {
         this.idReserva = idReserva;
         this.dataReserva = dataReserva;
-        this.dataAlteracao = dataAlteracao;
         this.status = status;
         this.formaPgto = formaPgto;
         this.usuario = usuario;
         this.custoTotal = custoTotal;
     }
 
-    public Reserva(Date dataReserva, Date dataAlteracao, String status,
+    public Reserva(Date dataReserva, String status,
             String formaPgto, Usuario usuario, Double custoTotal, Integer idCliente) {
         this.dataReserva = dataReserva;
-        this.dataAlteracao = dataAlteracao;
         this.status = status;
         this.formaPgto = formaPgto;
         this.usuario = usuario;
@@ -64,14 +99,6 @@ public class Reserva {
 
     public void setDataReserva(Date dataReserva) {
         this.dataReserva = dataReserva;
-    }
-
-    public Date getDataAlteracao() {
-        return dataAlteracao;
-    }
-
-    public void setDataAlteracao(Date dataAlteracao) {
-        this.dataAlteracao = dataAlteracao;
     }
 
     public String getStatus() {

@@ -5,25 +5,63 @@
  */
 package br.senac.tads3.pi3b.leonsdev.produtos.classes;
 
+import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
+
 /**
  *
  * @author Rafael Rodrigues
  */
 public class Produtos {
-    int id;
-    String combo1, combo2, combo3;
+    int id, Reserva_ID;
+
+    public int getReserva_ID() {
+        return Reserva_ID;
+    }
+
+    public void setReserva_ID(int Reserva_ID) {
+        this.Reserva_ID = Reserva_ID;
+    }
+    String combo;
     double preco;
+    boolean ativo;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCombo(String combo) {
+        this.combo = combo;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+    Reserva reserva;
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
     
     //construtores
     public Produtos (){
         
     }
     
-    public Produtos(int id, String combo1, String combo2, String combo3, double preco) {
+    public Produtos(int id, String combo, double preco) {
         this.id = id;
-        this.combo1 = combo1;
-        this.combo2 = combo2;
-        this.combo3 = combo3;
+        this.combo = combo;
         this.preco = preco;
     }
     //
@@ -33,16 +71,8 @@ public class Produtos {
         return id;
     }
 
-    public String getCombo1() {
-        return combo1;
-    }
-
-    public String getCombo2() {
-        return combo2;
-    }
-
-    public String getCombo3() {
-        return combo3;
+    public String getCombo() {
+        return combo;
     }
 
     public double getPreco() {
