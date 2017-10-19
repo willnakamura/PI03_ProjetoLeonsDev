@@ -14,6 +14,24 @@ import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
 public class Produtos {
     int id, Reserva_ID;
 
+    String combo;
+    double preco;
+    boolean ativo;
+    
+    public Produtos (){
+        
+    }
+
+    public Produtos(int id, int Reserva_ID, String combo, double preco, boolean ativo, Reserva reserva) {
+        this.id = id;
+        this.Reserva_ID = Reserva_ID;
+        this.combo = combo;
+        this.preco = preco;
+        this.ativo = ativo;
+        this.reserva = reserva;
+    }
+    
+    
     public int getReserva_ID() {
         return Reserva_ID;
     }
@@ -21,9 +39,6 @@ public class Produtos {
     public void setReserva_ID(int Reserva_ID) {
         this.Reserva_ID = Reserva_ID;
     }
-    String combo;
-    double preco;
-    boolean ativo;
 
     public void setId(int id) {
         this.id = id;
@@ -54,19 +69,6 @@ public class Produtos {
         this.reserva = reserva;
     }
     
-    //construtores
-    public Produtos (){
-        
-    }
-    
-    public Produtos(int id, String combo, double preco) {
-        this.id = id;
-        this.combo = combo;
-        this.preco = preco;
-    }
-    //
-    
-    //metodos
     public int getId() {
         return id;
     }
