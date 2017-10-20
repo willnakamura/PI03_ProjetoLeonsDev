@@ -39,7 +39,7 @@ public class DaoProdutos {
             preparedStatement.setDouble(1, produtos.getPreco());
             preparedStatement.setInt(2, produtos.getReserva().getIdReserva());
             preparedStatement.setString(3, produtos.getCombo());
-            preparedStatement.setBoolean(4, produtos.isAtivo());
+            preparedStatement.setBoolean(4, produtos.getAtivo());
 
             //Executa o comando no banco de dados
             preparedStatement.execute();
@@ -74,7 +74,7 @@ public class DaoProdutos {
             preparedStatement.setDouble(1, produtos.getPreco());
             preparedStatement.setInt(2, produtos.getReserva().getIdReserva());
             preparedStatement.setString(3, produtos.getCombo());
-            preparedStatement.setBoolean(4, produtos.isAtivo());
+            preparedStatement.setBoolean(4, produtos.getAtivo());
             //Executa o comando no banco de dados
             preparedStatement.execute();
         } finally {

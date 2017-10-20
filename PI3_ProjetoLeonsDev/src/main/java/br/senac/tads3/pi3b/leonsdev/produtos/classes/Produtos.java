@@ -15,14 +15,15 @@ public class Produtos {
     int id, Reserva_ID;
 
     String combo;
-    double preco;
+    Double preco;
     boolean ativo;
+     Reserva reserva;
     
     public Produtos (){
         
     }
 
-    public Produtos(int id, int Reserva_ID, String combo, double preco, boolean ativo, Reserva reserva) {
+    public Produtos(int id, int Reserva_ID, String combo, Double preco, boolean ativo, Reserva reserva) {
         this.id = id;
         this.Reserva_ID = Reserva_ID;
         this.combo = combo;
@@ -48,18 +49,18 @@ public class Produtos {
         this.combo = combo;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 
-    public boolean isAtivo() {
+    public boolean getAtivo() {
         return ativo;
     }
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
-    Reserva reserva;
+   
 
     public Reserva getReserva() {
         return reserva;
@@ -77,7 +78,7 @@ public class Produtos {
         return combo;
     }
 
-    public double getPreco() {
+    public Double getPreco() {
         return preco;
     }
     //
