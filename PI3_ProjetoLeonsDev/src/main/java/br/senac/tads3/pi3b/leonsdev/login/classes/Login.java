@@ -10,12 +10,45 @@ package br.senac.tads3.pi3b.leonsdev.login.classes;
  * @author Rafael Rodrigues
  */
 public class Login {
-    private String userName, senha;
+    private String userName, senha, cargo, nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    private int funcID;
+
+    public int getFuncID() {
+        return funcID;
+    }
+
+    public void setFuncID(int funcID) {
+        this.funcID = funcID;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
     
 
     //construtores
     public Login(String userName, String senha) {
         this.userName = userName;
+        this.senha = senha;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setSenha(String senha) {
         this.senha = senha;
     }
     
