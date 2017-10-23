@@ -15,15 +15,13 @@ public class ValidadorServico {
 
     public static void validar(Servico servico) throws ServicoException {
 
-        String extraBag1 = servico.getExtraBag1();
-        String extraBag2 = servico.getExtraBag2();
-        String extraBag3 = servico.getExtraBag3();
+        String extraBag = servico.getExtraBag();
         
         if (servico == null) {
             throw new ServicoException("Reserva inválida");
         }
         
-        if(extraBag1 == null && extraBag2 == null && extraBag3 == null){
+        if(extraBag == null){
             throw new ServicoException("Favor selecione um serviço");
         }
     }

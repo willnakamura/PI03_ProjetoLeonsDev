@@ -14,6 +14,25 @@ import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
 public class Produtos {
     int id, Reserva_ID;
 
+    String combo;
+    Double preco;
+    boolean ativo;
+     Reserva reserva;
+    
+    public Produtos (){
+        
+    }
+
+    public Produtos(int id, int Reserva_ID, String combo, Double preco, boolean ativo, Reserva reserva) {
+        this.id = id;
+        this.Reserva_ID = Reserva_ID;
+        this.combo = combo;
+        this.preco = preco;
+        this.ativo = ativo;
+        this.reserva = reserva;
+    }
+    
+    
     public int getReserva_ID() {
         return Reserva_ID;
     }
@@ -21,9 +40,6 @@ public class Produtos {
     public void setReserva_ID(int Reserva_ID) {
         this.Reserva_ID = Reserva_ID;
     }
-    String combo;
-    double preco;
-    boolean ativo;
 
     public void setId(int id) {
         this.id = id;
@@ -33,18 +49,18 @@ public class Produtos {
         this.combo = combo;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 
-    public boolean isAtivo() {
+    public boolean getAtivo() {
         return ativo;
     }
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
-    Reserva reserva;
+   
 
     public Reserva getReserva() {
         return reserva;
@@ -54,19 +70,6 @@ public class Produtos {
         this.reserva = reserva;
     }
     
-    //construtores
-    public Produtos (){
-        
-    }
-    
-    public Produtos(int id, String combo, double preco) {
-        this.id = id;
-        this.combo = combo;
-        this.preco = preco;
-    }
-    //
-    
-    //metodos
     public int getId() {
         return id;
     }
@@ -75,7 +78,7 @@ public class Produtos {
         return combo;
     }
 
-    public double getPreco() {
+    public Double getPreco() {
         return preco;
     }
     //

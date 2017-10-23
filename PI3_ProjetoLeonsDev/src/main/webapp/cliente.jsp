@@ -18,6 +18,14 @@
         <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/camera.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/form.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
+     
+
+
 
         <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery-migrate-1.2.1.js"></script>
@@ -69,20 +77,78 @@
             <div class="container_12">
                 <div class="grid_8">
 
+                 <div class="formulario_Cadastrar">
+                
+                <form action="${pageContext.request.contextPath}/cadastro-cliente" method="post" class="form_cadastrar">
+                <h5>Cadastro de clientes</h5>
+
+                <label for="nome"  class="label-cadastro-nome">Nome</label>                 
+                <input type="text" id="regula-generated-96048"  name="nome" value="nomeCliente" class="input-cadastro-name"/> 
+                <label for="sobreNome"  class="label-cadastro-sobreNome">Sobre nome</label>
+                <input type="text"  name="sobreNome" value="sobreNome" class="input-cadastro-sobreName"/> 
+                
+                </br></br>
+                <label for="cpf" class="label cadastro cpf">CPF</label>
+                <input type="text" name="cpf" value="cpfCliente" class="input-cpf"/>
+                <br>
+                <br>
+                     <label for="email" class="label-cadastro-email">E-mail</label>
+                <input type="text" name="emailCliente" value="email" class="input-cadastro-email"/>
+                <br><br>
+                 <label for="cliente" class="label-cadastro-telefone">celular</label>
+                <input type="text" name="celular" value="celular" class="input-cadastro-celular"/>
+                <br><br>
+                <label for="dtnascimento" class="label-cadastro-DataNasci">Data de Nascimento</label>
+                <input type="date" id="dp1508535680021" name="dataNascimentoCliente" class="input-cadastro-dtnascimento"/>
+                </br></br>
+               
+               <label for="sexo" class="label-cadastro-sexo">Sexo</label>
+                <input type="text" name="sexo" value="sexo" class="input-cadastro-sexo"/>
+              <br><br>
+              <label for="estado" class="label-cadastro-estado">Estado</label>
+                <input type="text" name="estadoCliente" value="estado" class="input-cadastro-endereco"/>
+                <br><br>
+                <label for="cidade" class="label-cadastro-cidade">Cidade</label>
+                <input type="text" name="cidadeCliente" value="cidade" class="input-cadastro-cidade"/>
+                <br><br>
+                   <label for="cep" class="label-cadastro-cep">CEP</label>
+                <input type="number" name="cep" value="cep" class="input-cadastro-cep"/>
+                <br><br>
+                <label for="endereco" class="label-cadastro-endereco">Endereço</label>
+                <input type="text" name="enderecoCliente" value="endereco" class="input-cadastro-endereco"/>
+                
+                </br></br>
+
+                </br></br>
+                <div>
+                  
+                    <button> Cadastrar </button>
                 </div>
+                
+            </form>
+                <div class="formulario_consulta">
+                    </div>
+                
+                     
+            </div>
+                                    
+               </div>
+                
+                
+                
                 <div class="grid_3 prefix_1">
                     
-                    <h5>CHOOse the country</h5>
+                    <h5 class="opcao">Opção </h5>
                     <ul class="list">
-                        <li><a href="#">Albania</a></li>
-                        <li><a href="#">American Samoa</a></li>
-                        <li><a href="#">Antarctica</a></li>
-                        <li><a href="#">Argentina</a></li>
-                        <li><a href="#">Armenia</a></li>
-                        <li><a href="#">Australia</a></li>
+                        <li><a href="#">Cadastrar</a></li>
+                        <li><a href="#">Consultar</a></li>
+                                                  
+                       
                     </ul>
                 </div>
-            </div>
+                
+                </div>
+               
 
         </div>
         <!--==============================footer=================================-->

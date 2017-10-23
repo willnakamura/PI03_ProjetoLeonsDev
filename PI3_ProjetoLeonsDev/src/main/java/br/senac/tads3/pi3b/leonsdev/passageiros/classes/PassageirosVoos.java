@@ -15,11 +15,13 @@ public class PassageirosVoos {
     private Voos voo;
     private String status;
     private String assento;
+    private Passageiros passageiro;
 
-    public PassageirosVoos(Voos voo, String status, String assento) {
+    public PassageirosVoos(Voos voo, String status, String assento, Passageiros passageiro) {
         this.voo = voo;
         this.status = status;
         this.assento = assento;
+        this.passageiro = passageiro;
     }
     
     public PassageirosVoos() {
