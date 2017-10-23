@@ -41,6 +41,10 @@ public class LoginServlet extends HttpServlet {
         HttpSession sessao = request.getSession();
 
         
+        
+        
+        
+        
         //Faz uma verificação generica, que vai ser substituida pela DAO
         if ("master".equals(username) && "1234".equals(password)) {
             sessao.setAttribute("nome", "Usuário Master");
