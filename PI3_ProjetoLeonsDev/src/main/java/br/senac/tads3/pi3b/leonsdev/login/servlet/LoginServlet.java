@@ -45,9 +45,11 @@ public class LoginServlet extends HttpServlet {
         // Pega o class="password" e atribui á uma variavel
         String password = request.getParameter("password");
 
+
         login.setUserName(username);
         login.setSenha(password);
 
+       
         try {
 
             ServicoLogin.autenticacao(login);

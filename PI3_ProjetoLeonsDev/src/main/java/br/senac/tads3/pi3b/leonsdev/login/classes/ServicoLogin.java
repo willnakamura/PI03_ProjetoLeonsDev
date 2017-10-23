@@ -22,6 +22,7 @@ public class ServicoLogin {
         try {
             DaoLogin.Autenticacao(login);
             SingletonLogin.getInstance().setLogin(login.getUserName());
+
         } catch (Exception e) {
             e.printStackTrace();
             throw new DataExceptions("Erro na fonte de dados", e);
