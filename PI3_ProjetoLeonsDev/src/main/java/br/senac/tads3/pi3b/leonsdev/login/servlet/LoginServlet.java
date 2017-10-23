@@ -5,8 +5,11 @@
  */
 package br.senac.tads3.pi3b.leonsdev.login.servlet;
 
+import br.senac.tads3.pi3b.leonsdev.login.classes.Login;
+import br.senac.tads3.pi3b.leonsdev.login.classes.ServicoLogin;
+
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,6 +28,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
     }
@@ -32,39 +36,31 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
+        Login login = new Login();
+
         // Pega o class="user" e atribui á uma variavel
         String username = request.getParameter("user");
-        
+
         // Pega o class="password" e atribui á uma variavel
         String password = request.getParameter("password");
-        HttpSession sessao = request.getSession();
 
-        
-        //Faz uma verificação generica, que vai ser substituida pela DAO
-        if ("master".equals(username) && "1234".equals(password)) {
-            sessao.setAttribute("nome", "Usuário Master");
-            response.sendRedirect(request.getContextPath() + "/Protegido/resultado");
+        login.setUserName(username);
+        login.setSenha(password);
 
-        } else if ("normal".equals(username) && "1234".equals(password)) {
-            sessao.setAttribute("nome", "Usuário normal");
-            response.sendRedirect(request.getContextPath() + "/Protegido/resultado");
+        try {
 
-        } else { // Usuário inválido
-            request.setAttribute("Msagem Erro", "Usuário ou senha inválido");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-            dispatcher.forward(request, response);
+            ServicoLogin.autenticacao(login);
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/index.jsp");
         }
+
+        HttpSession sessao = request.getSession();
+        response.sendRedirect(request.getContextPath() + "/Protegido/resultado");
+        sessao.setAttribute("nome", "Usuário Master");
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

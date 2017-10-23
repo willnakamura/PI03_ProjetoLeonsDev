@@ -12,8 +12,7 @@ import br.senac.tads3.pi3b.leonsdev.exceptions.LoginException;
  * @author Rafael Rodrigues
  */
 public class ValidadorLogin {
-    public void Validar (Login login) throws LoginException {
-        
+    public static void Validar (Login login) throws LoginException {
         
         if(login == null){
             throw new LoginException("Dados inválidos.");
