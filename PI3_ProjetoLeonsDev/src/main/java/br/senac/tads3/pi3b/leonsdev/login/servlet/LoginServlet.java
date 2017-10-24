@@ -58,7 +58,6 @@ public class LoginServlet extends HttpServlet {
        
         try {
 
-            ValidadorLogin.Validar(login);
             ServicoLogin.autenticacao(login);
 
         } catch (LoginException e) {
@@ -67,6 +66,7 @@ public class LoginServlet extends HttpServlet {
             RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/index.jsp");
         } catch (DataExceptions ex) {
+            ex.printStackTrace();
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println(SingletonLogin.getInstance().getNome());

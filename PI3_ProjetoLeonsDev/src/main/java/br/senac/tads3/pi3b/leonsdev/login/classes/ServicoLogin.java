@@ -25,6 +25,8 @@ public class ServicoLogin {
 
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println(e.getCause());
+            
             throw new DataExceptions("Erro na fonte de dados", e);
         }
     }

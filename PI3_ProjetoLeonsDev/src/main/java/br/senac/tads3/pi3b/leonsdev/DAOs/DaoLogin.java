@@ -40,9 +40,9 @@ public class DaoLogin {
             result = preparedStatement.executeQuery();
 
             if (result.next()) {
-                SingletonLogin.getInstance().setNome(result.getString("nome"));
-                SingletonLogin.getInstance().setCargo(result.getString("cargo"));
-                SingletonLogin.getInstance().setFunc_id(result.getInt("func_id"));
+                SingletonLogin.getInstance().setNome(result.getString("Nome"));
+                SingletonLogin.getInstance().setCargo(result.getString("Cargo"));
+                SingletonLogin.getInstance().setFunc_id(result.getInt("Usuario_ID"));
             }
 
         } finally {
