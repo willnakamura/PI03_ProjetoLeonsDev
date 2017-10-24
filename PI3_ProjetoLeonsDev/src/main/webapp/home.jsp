@@ -15,10 +15,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta name="format-detection" content="telephone=no" />
-        
+
         <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
-        
+
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/camera.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/owl.carousel.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
@@ -70,13 +70,13 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                
+
                                 <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
                                 <li><a href="${pageContext.request.contextPath}/cliente.jsp">Cliente</a></li>                                
                                 <li><a href="index-2.html">SPECIAL OFFERS</a></li>
                                 <li><a href="index-3.html">BLOG</a></li>
                                 <li><a href="index-4.html">CONTACTS</a></li>
-                                
+
                             </ul>
                         </nav>
                         <div class="clear"></div>
@@ -136,24 +136,24 @@
                     </div>-->
                 </div>
                 <div class="grid_4">
-                   <!-- <div class="banner">
-                        <img src="${pageContext.request.contextPath}/images/ban_img2.jpg" alt="">
-                        <div class="label">
-                            <div class="title">GOA</div>
-                            <div class="price">FROM<span>$ 1.500</span></div>
-                            <a href="#">LEARN MORE</a>
-                        </div>
-                    </div>-->
+                    <!-- <div class="banner">
+                         <img src="${pageContext.request.contextPath}/images/ban_img2.jpg" alt="">
+                         <div class="label">
+                             <div class="title">GOA</div>
+                             <div class="price">FROM<span>$ 1.500</span></div>
+                             <a href="#">LEARN MORE</a>
+                         </div>
+                     </div>-->
                 </div>
                 <div class="grid_4">
-                   <!-- <div class="banner">
-                        <img src="${pageContext.request.contextPath}/images/ban_img3.jpg" alt="">
-                        <div class="label">
-                            <div class="title">PARIS</div>
-                            <div class="price">FROM<span>$ 1.600</span></div>
-                            <a href="#">LEARN MORE</a>
-                        </div>
-                    </div>-->
+                    <!-- <div class="banner">
+                         <img src="${pageContext.request.contextPath}/images/ban_img3.jpg" alt="">
+                         <div class="label">
+                             <div class="title">PARIS</div>
+                             <div class="price">FROM<span>$ 1.600</span></div>
+                             <a href="#">LEARN MORE</a>
+                         </div>
+                     </div>-->
                 </div>
                 <div class="clear"></div>
                 <div class="grid_6">
@@ -237,18 +237,18 @@
                         In mollis erat mattis neque facilisis, sit ametiol
                     </div>
                     <div class="clear cl1"></div>
-                    <!--<h4>Clients’ Quotes</h4>
-                    <blockquote class="bq1">
-                        <img src="${pageContext.request.contextPath}/images/page1_img2.jpg" alt="" class="img_inner noresize fleft">
-                        <div class="extra_wrapper">
-                            <p>Duis massa elit, auctor non pellentesque vel, aliquet sit amet erat. Nullam eget dignissim nisi, aliquam feugiat nibh. </p>
-                            <div class="alright">
-                                <div class="col1">Miranda Brown</div>
-                                <a href="#" class="btn">More</a>
-                            </div>
+                <!--<h4>Clients’ Quotes</h4>
+                <blockquote class="bq1">
+                    <img src="${pageContext.request.contextPath}/images/page1_img2.jpg" alt="" class="img_inner noresize fleft">
+                    <div class="extra_wrapper">
+                        <p>Duis massa elit, auctor non pellentesque vel, aliquet sit amet erat. Nullam eget dignissim nisi, aliquam feugiat nibh. </p>
+                        <div class="alright">
+                            <div class="col1">Miranda Brown</div>
+                            <a href="#" class="btn">More</a>
                         </div>
-                    </blockquote>
-                </div>-->
+                    </div>
+                </blockquote>
+            </div>-->
                 <div class="grid_12">
                     <h3 class="head1">Latest News</h3>
                 </div>
