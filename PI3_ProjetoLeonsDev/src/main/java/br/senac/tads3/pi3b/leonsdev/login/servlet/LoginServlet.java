@@ -5,10 +5,16 @@
  */
 package br.senac.tads3.pi3b.leonsdev.login.servlet;
 
+import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
+import br.senac.tads3.pi3b.leonsdev.exceptions.LoginException;
 import br.senac.tads3.pi3b.leonsdev.login.classes.Login;
 import br.senac.tads3.pi3b.leonsdev.login.classes.ServicoLogin;
+import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
+import br.senac.tads3.pi3b.leonsdev.login.classes.ValidadorLogin;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -52,17 +58,27 @@ public class LoginServlet extends HttpServlet {
        
         try {
 
+            ValidadorLogin.Validar(login);
             ServicoLogin.autenticacao(login);
 
-        } catch (Exception e) {
+        } catch (LoginException e) {
 
             e.printStackTrace();
             RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/index.jsp");
+        } catch (DataExceptions ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        HttpSession sessao = request.getSession();
+        System.out.println(SingletonLogin.getInstance().getNome());
+        if ("não logado".equals(SingletonLogin.getInstance().getNome())){
+                    response.sendRedirect(request.getContextPath() + "/index.jsp");
+                    
+        } else {
+            HttpSession sessao = request.getSession();
         response.sendRedirect(request.getContextPath() + "/Protegido/resultado");
         sessao.setAttribute("nome", "Usuário Master");
+        }
+        
+        
     }
 }
