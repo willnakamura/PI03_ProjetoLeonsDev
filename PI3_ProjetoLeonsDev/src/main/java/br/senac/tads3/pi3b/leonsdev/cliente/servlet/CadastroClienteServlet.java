@@ -113,7 +113,7 @@ public class CadastroClienteServlet extends HttpServlet {
             ServicoCliente.CadastrarCliente(cli);
 
         } catch (ClienteException | DataExceptions e) {
-
+            e.printStackTrace();
         }
 
         HttpSession sessao = request.getSession();
