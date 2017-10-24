@@ -18,12 +18,8 @@
         <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/camera.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/form.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
-     
+
+
 
 
 
@@ -51,7 +47,7 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>
+                                <li><a href="${pageContext.request.contextPath}/home.html">HOME</a></li>
                                 <li class="current"><a href="${pageContext.request.contextPath}/cliente.jsp">Cliente</a></li>
                                 <li><a href="index-2.html">SPECIAL OFFERS</a></li>
                                 <li><a href="index-3.html">BLOG</a></li>
@@ -76,64 +72,64 @@
 
             <div class="container_12">
                 <div class="grid_8">
+                    <div class="tituloCliente">
+                        <h5 class="opcao">CONSULTAR CLIENTE </h5>
+                    </div>
 
-                 <div class="formulario_Cadastrar">
-                
-                <form action="${pageContext.request.contextPath}/cadastro-cliente" method="post" class="form_cadastrar">
-                <h5>Cadastro de clientes</h5>
 
-                <label for="nome"  class="label-cadastro-nome">Nome</label>                 
-                <input type="text" id="regula-generated-96048"  name="nome" value="nomeCliente" class="input-cadastro-name"/> 
-                <label for="sobreNome"  class="label-cadastro-sobreNome">Sobre nome</label>
-                <input type="text"  name="sobreNome" value="sobreNome" class="input-cadastro-sobreName"/> 
-                
-                </br></br>
-                <label for="cpf" class="label cadastro cpf">CPF</label>
-                <input type="text" name="cpf" value="cpfCliente" class="input-cpf"/>
-                <br>
-                <br>
-                     <label for="email" class="label-cadastro-email">E-mail</label>
-                <input type="text" name="emailCliente" value="email" class="input-cadastro-email"/>
-                <br><br>
-                 <label for="cliente" class="label-cadastro-telefone">celular</label>
-                <input type="text" name="celular" value="celular" class="input-cadastro-celular"/>
-                <br><br>
-                <label for="dtnascimento" class="label-cadastro-DataNasci">Data de Nascimento</label>
-                <input type="date" id="dp1508535680021" name="dataNascimentoCliente" class="input-cadastro-dtnascimento"/>
-                </br></br>
-               
-               <label for="sexo" class="label-cadastro-sexo">Sexo</label>
-                <input type="text" name="sexo" value="sexo" class="input-cadastro-sexo"/>
-              <br><br>
-              <label for="estado" class="label-cadastro-estado">Estado</label>
-                <input type="text" name="estadoCliente" value="estado" class="input-cadastro-endereco"/>
-                <br><br>
-                <label for="cidade" class="label-cadastro-cidade">Cidade</label>
-                <input type="text" name="cidadeCliente" value="cidade" class="input-cadastro-cidade"/>
-                <br><br>
-                   <label for="cep" class="label-cadastro-cep">CEP</label>
-                <input type="number" name="cep" value="cep" class="input-cadastro-cep"/>
-                <br><br>
-                <label for="endereco" class="label-cadastro-endereco">Endereço</label>
-                <input type="text" name="enderecoCliente" value="endereco" class="input-cadastro-endereco"/>
-                
-                </br></br>
+                    <table>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Sobre Nome</th>
+                            <th>cpf</th>
+                            <th>Email</th>
+                            <th>Celular</th>    
+                            <th>Sexo</th>
+                            <th>Nascimento</th>
+                            <th>Estado</th>
+                            <th>Cidade</th>
+                            <th>Cep</th>
+                            <th>Endereço</th>
+                        </tr>
+                        <tr>
+                            <td>Pedro</td>
+                            <td>Lucas dos Santos Cruz</td>
+                            <td>445.706.958-25</td>
+                            <td>pedrolucas11@live.com</td>
+                            <td>(11)94262-1643</td>
+                            <td>Masculino</td>
+                            <td>31/08/1996</td>
+                            <td>SP</td>
+                            <td>São Paulo</td>
+                            <td>04830-020</td>
+                            <td>Rua Manoel Vitorino Pereira, 320</td>
+                        </tr>
 
-                </br></br>
-                <div>
-                  
-                    <button> Cadastrar </button>
+
+                    </table>
+
+                    <div class="form-footer">
+                        <a class="botoes">CANCELAR<span class="fa fa-ban"></span></a>
+                        <a class="botoes">EDITAR<span class="fa fa-thumbs-o-up"></span></a>
+
+                    </div>
                 </div>
+
+
+
                 <div class="grid_3 prefix_1">
 
                     <h5 class="opcao">Opção </h5>
                     <ul class="list">
-                        <li><a href="#">Cadastrar</a></li>
+                        <li><a href="cliente-cadastrar.jsp">Cadastrar</a></li>
                         <li><a href="#">Consultar</a></li>
 
 
                     </ul>
                 </div>
+
+            </div>
+
 
         </div>
         <!--==============================footer=================================-->
@@ -150,5 +146,12 @@
                 </div>
             </div>
         </footer>
+        <script>
+            $(function () {
+                $('#bookingForm').bookingForm({
+                    ownerEmail: '#'
+                });
+            })
+        </script>
     </body>
 </html>
