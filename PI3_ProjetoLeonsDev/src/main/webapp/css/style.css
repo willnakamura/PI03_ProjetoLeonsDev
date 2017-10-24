@@ -8,15 +8,176 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans:600);
 @import url(//fonts.googleapis.com/css?family=PT+Sans+Narrow);
 
+
+table {
+    border-collapse: collapse;
+    width:1300px;
+    margin-left: -25%;
+  
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;}
+
+td{
+    cursor:pointer;
+}
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #104E8B;
+    color: white;
+}
+
+
+.card-form{
+  width: 600px;
+  border-radius:50px;
+  background: white;
+  
+}
+
+  .form-title{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+   
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .form-body{
+    padding: 10px;
+  }
+    .row{
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+    }
+    
+    input {
+    border-radius: 10px !important;
+    outline: none !important;
+    }
+    
+      input[type="text"]{
+        appearance: none;
+        width: 100%;
+        margin: 0 15px;
+        height: 35px;
+        padding: 5px 15px;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        background: #e8ebed;
+        color: #576366;
+        font-size: 14px;
+      }
+        input[type="number"]{
+        appearance: none;
+        width: 100%;
+        margin: 0 15px;
+        height: 35px;
+        padding: 5px 15px;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        background: #e8ebed;
+        color: #576366;
+        font-size: 14px;
+      }
+      input[type="date"]{
+        appearance: none;
+        width: 100%;
+        margin: 0 15px;
+        height: 35px;
+        padding: 5px 15px;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        background: #e8ebed;
+        color: #576366;
+        font-size: 14px;
+      }
+      
+       select{
+        appearance: none;
+        width: 100%;
+        margin: 0 15px;
+        height: 45px;
+        padding: 5px 15px;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+        background: #e8ebed;
+        color: #576366;
+        font-size: 14px;
+      }
+      
+      .estado{     
+        appearance: none;
+        width: 100%;
+        margin: 0 15px;
+        height: 45px;
+        padding: 15px 15px;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+        background: #e8ebed;
+        color: #576366;
+        font-size: 14px;
+      }
+      
+     
+      
+    
+  
+  
+  .rule{
+    height: 2px;
+    background: #e8ebed;
+    margin: 0px 35px;
+  }
+  
+  .form-footer{
+    margin: 0 25px 15px 25px;
+    padding: 15px 10px;
+  }
+    .botoes{
+      display: inline-block;
+      height: 40px;
+      line-height: 40px;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 15px;
+      background: #104E8B;
+      margin-right: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      color: white;
+    }
+    
+    span{
+      margin-left: 8px;
+    }
+  
+  
+
+
+
 .formularioCliente{
     background-color: green;
     left: 0;
     top: 0;
     position: relative;
     width: 300px;
-    height: 500px;
-    
+    height: 500px;    
 }
+
 
 html {
     width: 100%;
@@ -73,10 +234,7 @@ p {
     margin-bottom: 14px;
 }
 
-input {
-    border-radius: 0 !important;
-    outline: none !important;
-}
+
 
 
 img {
@@ -136,7 +294,7 @@ h4 {
 
 h5 {
     font-size: 20px;
-    padding-top: 115px;
+    padding-top: 5px;
     line-height: 27px;
     color: #002747;
     text-transform: uppercase;
@@ -768,7 +926,7 @@ footer {
         margin-right: 0;
     }
 
-    .tmRadio p {
+    .tmhasDatepickerRadio p {
         padding-left: 0;
         padding-top: 10px;
     }
