@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Cliente</title>
+        <title>Usuários</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -47,9 +47,9 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                               <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuários</a></li>
+                                <li><a href="${pageContext.request.contextPath}/home.html">HOME</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/cliente.jsp">Cliente</a></li>
+                                <li><a href="${pageContext.request.contextPath}usuario-cadastrar.jsp">usuário</a></li>
                                 <li><a href="index-3.html">BLOG</a></li>
                                 <li><a href="index-4.html">CONTACTS</a></li>
                             </ul>
@@ -71,61 +71,56 @@
         <div class="content"><div class="ic"></div>
 
             <div class="container_12">
-                
+
                 <div class="grid_8">
+
+                    <div class="tituloCliente">
+                        <h5 class="opcao">CADASTRAR USUARIO </h5>
+                    </div>
                     
-                    
+                    <div class="card-form">
+                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente">
+                            <BR>
 
-                       
-                         <div class="tituloCliente">
-                        <h5 class="opcao">CONSULTAR CLIENTE </h5>
-                            </div>   
-                            
-                    <table>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Sobre Nome</th>
-                            <th>cpf</th>
-                            <th>Email</th>
-                            <th>Celular</th>    
-                            <th>Sexo</th>
-                            <th>Nascimento</th>
-                            <th>Estado</th>
-                            <th>Cidade</th>
-                            <th>Cep</th>
-                            <th>Endereço</th>
-                        </tr>
-                        <tr>
-                            <td>Pedro</td>
-                            <td>Lucas dos Santos Cruz</td>
-                            <td>445.706.958-25</td>
-                            <td>pedrolucas11@live.com</td>
-                            <td>(11)94262-1643</td>
-                            <td>Masculino</td>
-                            <td>31/08/1996</td>
-                            <td>SP</td>
-                            <td>São Paulo</td>
-                            <td>04830-020</td>
-                            <td>Rua Manoel Vitorino Pereira, 320</td>
-                        </tr>
+                            <div class="form-body">
+                                <div class="row">
+                                    <input type="text" placeholder="Nome*" name="nome-usua">
+                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-usua">
+                                </div>  
+                                <div class="row">
+                                    <input type="number" placeholder="cpf*" name="cpf-usua">
+                                     <input type="text" placeholder="Cargo" name="cargo-usua">
+                                </div>
+                                <div class="row">
+                                    <input type="text" placeholder="Email*" name="email-usua">
+                                </div>
+                                <div class="row">
+                                    <input type="number" placeholder="Login*" name="login-usua">
+                                     <input type="text" placeholder="Senha*" name="senha-usua"> 
+                                </div>                              
+                             
+                            </div>
+                        </form>
 
+                    </div>
 
-                    </table>
 
                     <div class="form-footer">
                         <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
-                        <button class="botoes">EDITAR<span class="fa fa-thumbs-o-up"></span></button>
+                        <button class="botoes">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
 
                     </div>
-                
-                    </div>
+
+
+
+                </div>
+
 
 
                 <div class="grid_3 prefix_1">
-
                     <h5 class="opcao">Opção </h5>
                     <ul class="list">
-                        <li><a href="cliente-cadastrar.jsp">Cadastrar</a></li>
+                        <li><a href="#">Cadastrar</a></li>
                         <li><a href="#">Consultar</a></li>
 
 

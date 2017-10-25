@@ -51,8 +51,8 @@
     .container_12 .grid_5			{ width: 380px; }
     .container_12 .grid_6			{ width: 460px; }
     .container_12 .grid_7			{ width: 540px; }
-    .container_12 .grid_8			{ width: 620px; }
-    .container_12 .grid_8consultar  	{ width: 620px; }
+    .container_12 .grid_8			{width: 620px;  }
+    .container_12 .grid_8consultar              { width: 620px; }
    .tituloCliente {margin-top:40px; margin-left: 40px;}
     .container_12 .grid_9			{ width: 700px; }
     .container_12 .grid_10			{ width: 780px; }

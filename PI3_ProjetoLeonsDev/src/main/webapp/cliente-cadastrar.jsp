@@ -47,9 +47,9 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                <li><a href="${pageContext.request.contextPath}/home.html">HOME</a></li>
-                                <li class="current"><a href="${pageContext.request.contextPath}/cliente.jsp">Cliente</a></li>
-                                <li><a href="index-2.html">SPECIAL OFFERS</a></li>
+                                 <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuários</a></li>
                                 <li><a href="index-3.html">BLOG</a></li>
                                 <li><a href="index-4.html">CONTACTS</a></li>
                             </ul>
@@ -85,7 +85,7 @@
                             <div class="form-body">
                                 <div class="row">
                                     <input type="text" placeholder="Nome*" name="nome-cli">
-                                    <input type="text" placeholder="Sobre Nome*" name="sobreNome-cli">
+                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-cli">
                                 </div>  
                                 <div class="row">
                                     <input type="number" placeholder="cpf*" name="cpf-cli">
