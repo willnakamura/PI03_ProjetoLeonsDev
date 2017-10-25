@@ -10,7 +10,6 @@ import br.senac.tads3.pi3b.leonsdev.exceptions.LoginException;
 import br.senac.tads3.pi3b.leonsdev.login.classes.Login;
 import br.senac.tads3.pi3b.leonsdev.login.classes.ServicoLogin;
 import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
-import br.senac.tads3.pi3b.leonsdev.login.classes.ValidadorLogin;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -68,7 +67,7 @@ public class LoginServlet extends HttpServlet {
             ex.printStackTrace();
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(SingletonLogin.getInstance().getNome());
+
         if ("não logado".equals(SingletonLogin.getInstance().getNome())) {
 
             request.setAttribute("erroLogin", "Usuário ou senha inválido");

@@ -25,7 +25,7 @@ public class DaoClientes {
         
         String sql = "INSERT INTO Clientes (Nome, Sobrenome, CPF, "
                 + "Email, Celular, Data_Nascimento, Ativo, Estado,	"
-                + "Sexo, Cidade, CEP, Endereco"
+                + "Sexo, Cidade, CEP, Endereco) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
