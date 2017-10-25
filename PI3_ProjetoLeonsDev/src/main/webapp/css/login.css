@@ -8,6 +8,12 @@ and open the template in the editor.
     Author     : Nakamura-PC
 */
 
+
+.form-box p{
+    font: 13.3333px Arial;
+    color: red;
+}
+
 body{background: #eee url(http://subtlepatterns.com/patterns/sativa.png);}
 html,body{
     position: relative;

@@ -44,6 +44,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
 
         Login login = new Login();
+        HttpSession sessao = request.getSession();
 
         // Pega o class="user" e atribui á uma variavel
         String username = request.getParameter("user");
@@ -51,11 +52,9 @@ public class LoginServlet extends HttpServlet {
         // Pega o class="password" e atribui á uma variavel
         String password = request.getParameter("password");
 
-
         login.setUserName(username);
         login.setSenha(password);
 
-       
         try {
 
             ServicoLogin.autenticacao(login);
@@ -70,15 +69,17 @@ public class LoginServlet extends HttpServlet {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println(SingletonLogin.getInstance().getNome());
-        if ("não logado".equals(SingletonLogin.getInstance().getNome())){
-                    response.sendRedirect(request.getContextPath() + "/index.jsp");
-                    
+        if ("não logado".equals(SingletonLogin.getInstance().getNome())) {
+
+            request.setAttribute("erroLogin", "Usuário ou senha inválido");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+            dispatcher.forward(request, response);
+
         } else {
-            HttpSession sessao = request.getSession();
-        response.sendRedirect(request.getContextPath() + "/Protegido/resultado");
-        sessao.setAttribute("nome", "Usuário Master");
+
+            response.sendRedirect(request.getContextPath() + "/Protegido/resultado");
+
         }
-        
-        
+
     }
 }

@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente">
+                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente" method="post">
                             <BR>
 
                             <div class="form-body">
@@ -153,16 +153,19 @@
                                 </div>
 
                             </div>
+
+                            <div class="form-footer">
+
+                                <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>>
+                                <button class="botoes" type="submit">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
+
+                            </div>
                         </form>
 
                     </div>
 
 
-                    <div class="form-footer">
-                        <a class="botoes">CANCELAR<span class="fa fa-ban"></span></a>
-                        <a class="botoes">SALVAR<span class="fa fa-thumbs-o-up"></span></a>
 
-                    </div>
 
 
 

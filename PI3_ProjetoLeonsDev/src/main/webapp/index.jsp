@@ -20,12 +20,17 @@
             <div class="login-container">
                 <div id="output"></div>
                 <div class="avatar">
-                    
+
                 </div>
                 <div class="form-box">
                     <form action="${pageContext.request.contextPath}/login" method="post">
                         <input name="user" type="text" placeholder="username">
                         <input type="password" placeholder="password" name="password">
+                        
+                        <c:if test="${not empty erroLogin}">
+                            <p class="erroLogin"><c:out value="${erroLogin}"/></p>
+                        </c:if>
+                            
                         <button class="btn btn-info btn-block login" type="submit" value="Enviar">Login</button>
                     </form>
                 </div>

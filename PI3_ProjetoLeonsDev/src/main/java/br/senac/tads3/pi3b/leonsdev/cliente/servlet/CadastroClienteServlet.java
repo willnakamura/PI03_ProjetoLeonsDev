@@ -43,6 +43,9 @@ public class CadastroClienteServlet extends HttpServlet {
         String destino;
 
         HttpSession sessao = request.getSession();
+        
+        sessao.getAttribute("cli");
+        
         if (sessao.getAttribute("cli") != null) {
             request.setAttribute("cli", sessao.getAttribute("cli"));
             // Remove o atributo da sessao para usuario nao ficar preso na tela de resultados
@@ -52,9 +55,9 @@ public class CadastroClienteServlet extends HttpServlet {
             // Remove o atributo da sessao para usuario nao ficar preso na tela de resultados
             sessao.removeAttribute("disponivel");
 
-            destino = "cliente.jsp";
+            destino = "cliente-cadastro.jsp";
         } else {
-            destino = "cliente.jsp";
+            destino = "cliente-cadastro.jsp";
         }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(destino);
@@ -73,12 +76,12 @@ public class CadastroClienteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String nome = request.getParameter("nome");
-        String sobNome = request.getParameter("sobnome");
-        String cpf = request.getParameter("cpf");
-        String sexo = request.getParameter("sexo");
+        String nome = request.getParameter("nome-cli");
+        String sobNome = request.getParameter("sobreNome-cli");
+        String cpf = request.getParameter("cpf-cli");
+        String sexo = request.getParameter("sexo-cli");
 
-        String dataNascString = request.getParameter("dataNascimentoCliente");
+        String dataNascString = request.getParameter("dtNasc-cli");
         Date dataNasc = null;
         try {
 
@@ -88,12 +91,12 @@ public class CadastroClienteServlet extends HttpServlet {
 
         }
 
-        String endereco = request.getParameter("endereco");
-        String cidade = request.getParameter("cidade");
-        String estado = request.getParameter("estado");
-        String cep = request.getParameter("cep");
-        String celular = request.getParameter("celular");
-        String email = request.getParameter("email");
+        String endereco = request.getParameter("end-cli");
+        String cidade = request.getParameter("cidade-cli");
+        String estado = request.getParameter("estado-cli");
+        String cep = request.getParameter("cep-cli");
+        String celular = request.getParameter("celular-cli");
+        String email = request.getParameter("email-cli");
 
         Cliente cli = new Cliente();
         cli.setNome(nome);
@@ -107,6 +110,7 @@ public class CadastroClienteServlet extends HttpServlet {
         cli.setCep(cep);
         cli.setCelular(celular);
         cli.setEmail(email);
+        cli.setAtivo(true);
 
         try {
 
