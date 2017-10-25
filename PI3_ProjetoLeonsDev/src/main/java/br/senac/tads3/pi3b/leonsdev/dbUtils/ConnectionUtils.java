@@ -19,12 +19,14 @@ import java.util.Properties;
 public class ConnectionUtils {
 
     //Obtém uma conexão do banco de dados
-    public static Connection getConnection() {
+    public static Connection getConnection() throws ClassNotFoundException {
         //Conexão para abertura e fechamento
         Connection connection = null;
+        Class.forName("com.mysql.jdbc.Driver");
         try {
             //Só tenta abrir uma conexão se não existir ou estiver fechada            
             //Endereço de conexão com o banco de dados
+            
             String dbURL = Constants.DB_ADDRESS;
             //Propriedades para armazenamento de usuário e senha
             Properties properties = new Properties();
