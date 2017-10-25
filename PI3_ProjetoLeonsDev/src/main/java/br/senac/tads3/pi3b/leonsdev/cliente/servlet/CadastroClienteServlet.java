@@ -123,7 +123,7 @@ public class CadastroClienteServlet extends HttpServlet {
         HttpSession sessao = request.getSession();
         sessao.setAttribute("cli", cli);
 
-        response.sendRedirect(request.getContextPath() + "/cadastro-cliente");
+        response.sendRedirect(request.getContextPath() + "/cliente-cadastrar");
     }
 
 }
