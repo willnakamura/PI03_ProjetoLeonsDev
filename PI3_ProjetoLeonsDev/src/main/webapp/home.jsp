@@ -73,7 +73,7 @@
 
                                 <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
                                 <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="index-2.html">SPECIAL OFFERS</a></li>
+                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jsp">Usuários</a></li>
                                 <li><a href="index-3.html">BLOG</a></li>
                                 <li><a href="index-4.html">CONTACTS</a></li>
 
