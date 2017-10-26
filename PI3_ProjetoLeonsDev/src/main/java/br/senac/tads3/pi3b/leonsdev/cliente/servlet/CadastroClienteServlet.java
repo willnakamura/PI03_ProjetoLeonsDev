@@ -11,7 +11,6 @@ import br.senac.tads3.pi3b.leonsdev.exceptions.ClienteException;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -75,20 +74,23 @@ public class CadastroClienteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        SimpleDateFormat dataForm = new SimpleDateFormat();
 
         String nome = request.getParameter("nome-cli");
         String sobNome = request.getParameter("sobreNome-cli");
         String cpf = request.getParameter("cpf-cli");
         String sexo = request.getParameter("sexo-cli");
-
+        
         String dataNascString = request.getParameter("dtNasc-cli");
         Date dataNasc = null;
         try {
 
-            dataNasc = new SimpleDateFormat("dd-MM-yyyy").parse(dataNascString);
+            dataNasc = dataForm.parse(dataNascString);
+            
 
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
 
         String endereco = request.getParameter("end-cli");

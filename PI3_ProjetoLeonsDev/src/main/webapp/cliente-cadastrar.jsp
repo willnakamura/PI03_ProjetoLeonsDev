@@ -47,7 +47,7 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                 <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
+                                <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
                                 <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
                                 <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuários</a></li>
                                 <li><a href="index-3.html">BLOG</a></li>
@@ -156,23 +156,14 @@
 
                             <div class="form-footer">
 
-                                <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>>
+                                <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
                                 <button class="botoes" type="submit">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
 
                             </div>
                         </form>
 
                     </div>
-
-
-
-
-
-
                 </div>
-
-
-
                 <div class="grid_3 prefix_1">
                     <h5 class="opcao">Opção </h5>
                     <ul class="list">

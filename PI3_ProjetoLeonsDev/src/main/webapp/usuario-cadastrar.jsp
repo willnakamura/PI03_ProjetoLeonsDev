@@ -79,7 +79,7 @@
                     </div>
                     
                     <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente">
+                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-usuario">
                             <BR>
 
                             <div class="form-body">
@@ -95,7 +95,7 @@
                                     <input type="text" placeholder="Email*" name="email-usua">
                                 </div>
                                 <div class="row">
-                                    <input type="number" placeholder="Login*" name="login-usua">
+                                    <input type="text" placeholder="Login*" name="login-usua">
                                      <input type="text" placeholder="Senha*" name="senha-usua"> 
                                 </div>                              
                              
@@ -107,7 +107,7 @@
 
                     <div class="form-footer">
                         <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
-                        <button class="botoes">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
+                        <button class="botoes" type="submit">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
 
                     </div>
 
