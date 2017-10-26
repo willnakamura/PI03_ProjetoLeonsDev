@@ -6,6 +6,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>CadastroUsuarioServlet</servlet-name>
-        <url-pattern>/CadastroUsuarioServlet</url-pattern>
+        <url-pattern>/cadastro-usuario</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -23,7 +23,7 @@ public class DaoUsuarios {
     public static void inserir(Usuario usuario)
             throws SQLException, Exception {
         
-        String sql = "INSERT INTO Usuarios (Nome, Sobrenome, CPF, Cargo, Email, Login, Senha, Ativo "
+        String sql = "INSERT INTO Usuarios (Nome, Sobrenome, CPF, Cargo, Email, Login, Senha, Ativo ) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -39,10 +39,11 @@ public class DaoUsuarios {
             preparedStatement.setString(1, usuario.getNome());
             preparedStatement.setString(2, usuario.getSobrenome());
             preparedStatement.setString(3, usuario.getCpf());
-            preparedStatement.setString(4, usuario.getEmail());
-            preparedStatement.setString(5, usuario.getLogin());
-            preparedStatement.setString(6, usuario.getSenha());
-            preparedStatement.setBoolean(7, true);
+            preparedStatement.setString(4, usuario.getCargo());
+            preparedStatement.setString(5, usuario.getEmail());
+            preparedStatement.setString(6, usuario.getLogin());
+            preparedStatement.setString(7, usuario.getSenha());
+            preparedStatement.setBoolean(8, true);
 
             //Executa o comando no banco de dados
             preparedStatement.execute();

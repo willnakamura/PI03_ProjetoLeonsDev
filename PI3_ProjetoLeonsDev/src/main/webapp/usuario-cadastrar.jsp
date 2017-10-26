@@ -77,9 +77,9 @@
                     <div class="tituloCliente">
                         <h5 class="opcao">CADASTRAR USUARIO </h5>
                     </div>
-                    
+
                     <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-usuario">
+                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-usuario" method="post">
                             <BR>
 
                             <div class="form-body">
@@ -89,34 +89,25 @@
                                 </div>  
                                 <div class="row">
                                     <input type="number" placeholder="cpf*" name="cpf-usua">
-                                     <input type="text" placeholder="Cargo" name="cargo-usua">
+                                    <input type="text" placeholder="Cargo" name="cargo-usua">
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Email*" name="email-usua">
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Login*" name="login-usua">
-                                     <input type="text" placeholder="Senha*" name="senha-usua"> 
+                                    <input type="text" placeholder="Senha*" name="senha-usua"> 
                                 </div>                              
-                             
+
+                            </div>
+                            <div class="form-footer">
+                                <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
+                                <button class="botoes" type="submit">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
                             </div>
                         </form>
 
                     </div>
-
-
-                    <div class="form-footer">
-                        <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
-                        <button class="botoes" type="submit">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
-
-                    </div>
-
-
-
                 </div>
-
-
-
                 <div class="grid_3 prefix_1">
                     <h5 class="opcao">Opção </h5>
                     <ul class="list">

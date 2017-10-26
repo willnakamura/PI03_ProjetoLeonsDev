@@ -75,7 +75,7 @@ public class CadastroClienteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        SimpleDateFormat dataForm = new SimpleDateFormat();
+        SimpleDateFormat dataForm = new SimpleDateFormat("yyyy-MM-dd");
 
         String nome = request.getParameter("nome-cli");
         String sobNome = request.getParameter("sobreNome-cli");
