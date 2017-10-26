@@ -12,7 +12,7 @@ import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionUsuario;
  * @author Rafael Rodrigues
  */
 public class ValidadorUsuario {
-    public void Validar (Usuario usuario) throws ExceptionUsuario{
+    public static void Validar (Usuario usuario) throws ExceptionUsuario{
         
         if(usuario == null){
             throw new ExceptionUsuario("Dados inválidos.");
