@@ -79,7 +79,7 @@
 
                        
                         <div class="tituloCliente">
-                        <h5 class="opcao">EDITAR CLIENTE </h5>
+                        <h5 class="opcao">CONSULTAR CLIENTE </h5>
                        </div>                    
                     
                     <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente">  <button id="botoesBusca">BUSCAR</button></div>
@@ -87,7 +87,7 @@
                     <div id="bg"> </div>
                         <div class="box">
                          <div id="tituloClienteConsultar" >
-                        <h5>CONSULTAR CLIENTE </h5>
+                        <h5>EDITAR CLIENTE </h5>
                        </div>  
                             
                              <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente" method="post">
@@ -181,7 +181,7 @@
                     
                     <table>
                         <tr>
-                            <th></th>
+                          
                             <th>Nome</th>
                             <th>Sobre Nome</th>
                             <th>cpf</th>
@@ -194,7 +194,7 @@
                             <th>Cep</th>
                             <th>Endereço</th>
                         </tr>
-                        <!--tr>
+                        <tr>
                             <td><input class="radio" type="radio" name="cliente" value="cliente">&nbsp;&nbsp;&nbsp;</td> 
                             <td>Pedro</td>
                             <td>Lucas dos Santos Cruz</td>
@@ -207,29 +207,8 @@
                             <td>São Paulo</td>
                             <td>04830-020</td>
                             <td>Rua Manoel Vitorino Pereira, 320</td>
-                        </tr-->
-                            <%
-                                DaoClientes dao = new DaoClientes();
-                                List<Cliente> clientes = dao.listar();
-                                for (Cliente cliente : clientes) {
-                            %>
-                            <tr>
-                                <td><%=cliente.getNome()%></td>
-                                <td><%=cliente.getSobrenome()%></td>
-                                <td><%=cliente.getCpf()%></td>
-                                <td><%=cliente.getEmail()%></td>
-                                <td><%=cliente.getCelular()%></td>
-                                <td><%=cliente.getDataNascimento().getTime()%></td>
-                                <td><%=cliente.getGenero()%></td>
-                                <td><%=cliente.getCidade()%></td>
-                                <td><%=cliente.getEstado()%></td>
-                                <td><%=cliente.getCep()%></td>
-                                <td><%=cliente.getEndereco()%></td>
-                            </tr>
-                            <%
-                                }
-                            %>
-
+                        </tr>
+                           
                     </table>
 
                     <div class="form-footer">

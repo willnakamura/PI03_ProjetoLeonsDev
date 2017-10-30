@@ -10,6 +10,10 @@
 
 
 
+#busca1{
+    width:350px;
+}
+
 table {
     border-collapse: collapse;
     width:1300px;
@@ -164,6 +168,65 @@ th {
       color: white;
       
     }
+    
+    #botoesBusca{
+        
+      display: inline-block;
+      height: 40px;
+      line-height: 40px;
+      border: none;
+      border-radius: 5px;
+      padding: 0px 15px;
+      background: #104E8B;
+     
+      font-size: 14px;
+      cursor: pointer;
+      color: white;
+       
+        
+    }
+    
+    
+    
+#bg{
+        width: 100%;
+        height: 100%;
+        top:0;
+        left: 0;
+        background-color: rgba(0,0,0,.9);
+        position: fixed;
+        display: none;
+    }
+    
+    
+    #bg:target{
+        display: block;
+    }
+    
+    #bg:target ~ .box{
+        top:-180px;
+        transition: all .3s;
+        transition-delay: .2s;
+    } 
+    
+    .box{
+        width: 720px;
+        height: 405px;
+        position: absolute;
+        margin-left: -360px;
+        left: 63%;
+        top: -950px;
+        
+    }
+    
+    .box form{
+        position: absolute;
+    }
+   .box  h5{
+      color: white;
+      margin-left: 150px;
+    }
+    
     
     span{
       margin-left: 8px;

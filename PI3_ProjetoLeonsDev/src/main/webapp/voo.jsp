@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Usuários</title>
+        <title>Cliente</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -47,9 +47,10 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                <li><a href="${pageContext.request.contextPath}/home.html">HOME</a></li>
-                                <li class="current"><a href="${pageContext.request.contextPath}/cliente.jsp">Cliente</a></li>
-                                <li><a href="${pageContext.request.contextPath}usuario-cadastrar.jsp">usuário</a></li>
+                                 <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuários</a></li>
+                                 <li><a href="#">Reserva</a></li>                                
                                 <li><a href="index-3.html">BLOG</a></li>
                                 <li><a href="index-4.html">CONTACTS</a></li>
                             </ul>
@@ -75,41 +76,49 @@
                 <div class="grid_8">
 
                     <div class="tituloCliente">
-                        <h5 class="opcao">CADASTRAR USUARIO </h5>
+                        <h5 class="opcao">VOO</h5>
                     </div>
-                    
-                    <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente">
-                            <BR>
 
-                            <div class="form-body">
-                                <div class="row">
-                                    <input type="text" placeholder="Nome*" name="nome-usua">
-                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-usua">
-                                </div>  
-                                <div class="row">
-                                    <input type="number" placeholder="cpf*" name="cpf-usua">
-                                     <input type="text" placeholder="Cargo" name="cargo-usua">
-                                </div>
-                                <div class="row">
-                                    <input type="text" placeholder="Email*" name="email-usua">
-                                </div>
-                                <div class="row">
-                                    <input type="text" placeholder="Login*" name="login-usua">
-                                     <input type="text" placeholder="Senha*" name="senha-usua"> 
-                                </div>                              
-                             
+                    <div class="card-form">
+                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente" method="post">
+                                                           
+                       <div class="row">
+                        <input type="text" name="Aeroporto_Partida" placeholder="Aeroporto de Origem" />
+                       </div> 
+                             <div class="row">
+                        <input type="text" name="Aeroporto_Chegada" placeholder="Aeroporto de Destino" "/>
+                        </div>
+                       <div class="row">
+                        <input id="iv" type="radio" value="q_destino" name="opcao"/>
+                        <label for="iv">Ida e Volta</label>
+                        <input id="vi" type="radio" value="q_origem" name="opcao"/>
+                        <label for="vi">Só Ida ou Volta</label>
+                        </div>
+                            <br><br>                           
+                            
+                            <div class="row">
+                                <label for="iv">Ida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                              
+                                <label for="iv">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volta</label>
                             </div>
+                            
+                            
+                            
+                            <div class="row">
+                        
+                        <input type="date" name="Data-ida" />
+                          <input type="date" name="data-volta" placeholder="Volta"/>    
+                        </div>
+                               <div class="row">                       
+                        
+                        <input type="number" name="passageiro" placeholder="Quantidade de Passegeiros"/>
+                        </div>
                         </form>
 
                     </div>
 
 
-                    <div class="form-footer">
-                        <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
-                        <button class="botoes">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
 
-                    </div>
 
 
 
@@ -121,7 +130,7 @@
                     <h5 class="opcao">Opção </h5>
                     <ul class="list">
                         <li><a href="#">Cadastrar</a></li>
-                        <li><a href="usuario-consultar.jsp">Consultar</a></li>
+                        <li><a href="cliente-consultar.jsp">Consultar</a></li>
 
 
                     </ul>
