@@ -79,7 +79,7 @@
 
                        
                         <div class="tituloCliente">
-                        <h5 class="opcao">EDITAR CLIENTE </h5>
+                        <h5 class="opcao">CONSULTAR CLIENTE </h5>
                        </div>                    
                     
                     <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente">  <button id="botoesBusca">BUSCAR</button></div>
@@ -214,6 +214,7 @@
                                 for (Cliente cliente : clientes) {
                             %>
                             <tr>
+                                 <td><input class="radio" type="radio" name="cliente" value="<%=cliente.getCpf()%>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> 
                                 <td><%=cliente.getNome()%></td>
                                 <td><%=cliente.getSobrenome()%></td>
                                 <td><%=cliente.getCpf()%></td>

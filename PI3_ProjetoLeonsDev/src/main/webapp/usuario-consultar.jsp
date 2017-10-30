@@ -81,7 +81,7 @@
                     <div id="bg"> </div>
                         <div class="box">
                          <div id="tituloClienteConsultar" >
-                        <h5>CONSULTAR USUARIO </h5>
+                        <h5>EDITAR USUARIO </h5>
                        </div>  
                             
                               <form class="signup" action="${pageContext.request.contextPath}/usuario-cliente">
