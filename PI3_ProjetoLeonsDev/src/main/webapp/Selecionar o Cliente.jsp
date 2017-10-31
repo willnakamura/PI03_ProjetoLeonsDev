@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Cadastrar Usuario</title>
+        <title>Cadastrar Cliente</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -47,9 +47,9 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                <li><a href="${pageContext.request.contextPath}/home.html">HOME</a></li>
-                                <li class="current"><a href="${pageContext.request.contextPath}/cliente.jsp">Cliente</a></li>
-                                <li><a href="${pageContext.request.contextPath}usuario-cadastrar.jsp">usuário</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuários</a></li>
                                 <li><a href="index-3.html">BLOG</a></li>
                                 <li><a href="index-4.html">CONTACTS</a></li>
                             </ul>
@@ -75,53 +75,68 @@
                 <div class="grid_8">
 
                     <div class="tituloCliente">
-                        <h5 class="opcao">CADASTRAR USUARIO </h5>
+                        <h5 class="opcao">SELECIONE CLIENTE </h5>
                     </div>
-                    
-                    <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente">
-                            <BR>
 
+                    <div class="card-form">
+                        <form class="signup" action="" method="post">
+                            <BR>
+                               <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente"> <button id="botoesBusca">BUSCAR</button></div>
                             <div class="form-body">
                                 <div class="row">
-                                    <input type="text" placeholder="Nome*" name="nome-usua">
-                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-usua">
+                                    <input type="text" placeholder="Nome*" name="nome-cli" readonly="readonly">
+                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-cli" readonly="readonly">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" name="cpf-usua">
-                                     <input type="text" placeholder="Cargo" name="cargo-usua">
+                                    <input type="number" placeholder="cpf*" name="cpf-cli" readonly="readonly">
+                                    
+                                    
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Email*" name="email-usua">
+                                    <input type="text" placeholder="Email*" name="email-cli" readonly="readonly">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Login*" name="login-usua">
-                                     <input type="text" placeholder="Senha*" name="senha-usua"> 
-                                </div>                              
-                             
+                                    <input type="number" placeholder="()Celular*" name="celular-cli" readonly="readonly">       
+                                </div>
+
+                                <div class="row">
+                                    <input type="text" placeholder="Sexo"  name="sexo-cli" readonly="readonly">   
+                                    <input type="text" placeholder="data de Nascimento" name="dtNasc-cli" readonly="readonly">   
+
+                                </div>
+
+                                <div class="row">
+
+
+                                   <input type="text" placeholder="Estado*" name="estado-cli" readonly="readonly">
+                                    <input type="text" placeholder="Cidade*" name="cidade-cli" readonly="readonly">
+                                </div>
+
+                                <div class="row">
+                                    <input type="number" placeholder="CEP*" name="cep-cli" readonly="readonly">
+                                </div>
+                                <div class="row">
+                                    <input type="text" placeholder="Endereço" name="end-cli" readonly="readonly">
+                                </div>
+
+                            </div>
+
+                            <div class="form-footer">
+
+                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
+                                <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
+                                <button class="botoes" type="submit">PULAR<span class="fa fa-thumbs-o-up"></span></button>
+
                             </div>
                         </form>
 
                     </div>
-
-
-                    <div class="form-footer">
-                        <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
-                        <button class="botoes">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
-
-                    </div>
-
-
-
                 </div>
-
-
-
                 <div class="grid_3 prefix_1">
                     <h5 class="opcao">Opção </h5>
                     <ul class="list">
                         <li><a href="#">Cadastrar</a></li>
-                        <li><a href="usuario-consultar.jsp">Consultar</a></li>
+                        <li><a href="cliente-consultar.jsp">Consultar</a></li>
 
 
                     </ul>

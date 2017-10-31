@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Cliente</title>
+        <title>Voo</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -92,7 +92,7 @@
                         <input id="iv" type="radio" value="q_destino" name="opcao"/>
                         <label for="iv">Ida e Volta</label>
                         <input id="vi" type="radio" value="q_origem" name="opcao"/>
-                        <label for="vi">Só Ida ou Volta</label>
+                        <label for="vi">Só Ida</label>
                         </div>
                             <br><br>                           
                             
