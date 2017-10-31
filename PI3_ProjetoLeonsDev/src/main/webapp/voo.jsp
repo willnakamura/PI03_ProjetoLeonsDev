@@ -105,14 +105,29 @@
                             
                             
                             <div class="row">
-                        
-                        <input type="date" name="Data-ida" />
-                          <input type="date" name="data-volta" placeholder="Volta"/>    
-                        </div>
+                       
+                        <input type="date"  name="Data-ida" />
+                        <input type="date"  name="data-volta" placeholder="Volta"/>    
+                            </div>
                                <div class="row">                       
                         
                         <input type="number" name="passageiro" placeholder="Quantidade de Passegeiros"/>
-                        </div>
+                        
+                                     <select id="formatar" class="bagagem" name="bagagem-cli-reserva">
+                                        <option value="0">Selecione Bagagem</option>
+                                        <option value="1">excesso de bagagem extra</option>
+                                        <option value="2">excesso de bagagem duplamente extra</option>                               
+
+                                    </select>
+                        
+                               </div>
+                        
+                        
+                        
+
+                                </div>
+                        
+                        
                         </form>
 
                     </div>
@@ -126,15 +141,6 @@
 
 
 
-                <div class="grid_3 prefix_1">
-                    <h5 class="opcao">Opção </h5>
-                    <ul class="list">
-                        <li><a href="#">Cadastrar</a></li>
-                        <li><a href="cliente-consultar.jsp">Consultar</a></li>
-
-
-                    </ul>
-                </div>
 
             </div>
 

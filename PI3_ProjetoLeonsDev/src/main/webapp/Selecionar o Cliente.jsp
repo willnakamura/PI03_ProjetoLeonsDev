@@ -132,15 +132,7 @@
 
                     </div>
                 </div>
-                <div class="grid_3 prefix_1">
-                    <h5 class="opcao">Opção </h5>
-                    <ul class="list">
-                        <li><a href="#">Cadastrar</a></li>
-                        <li><a href="cliente-consultar.jsp">Consultar</a></li>
-
-
-                    </ul>
-                </div>
+              
 
             </div>
 
