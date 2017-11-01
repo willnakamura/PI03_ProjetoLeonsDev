@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Voo</title>
+        <title>Selecionar Cliente</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -47,10 +47,9 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                 <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
+                                <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
                                 <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
                                 <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuários</a></li>
-                                 <li><a href="#">Reserva</a></li>                                
                                 <li><a href="index-3.html">BLOG</a></li>
                                 <li><a href="index-4.html">CONTACTS</a></li>
                             </ul>
@@ -76,71 +75,65 @@
                 <div class="grid_8">
 
                     <div class="tituloCliente">
-                        <h5 class="opcao">VOO</h5>
+                        <h5 class="opcao">SELECIONE CLIENTE </h5>
                     </div>
 
                     <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente" method="post">
-                                                           
-                       <div class="row">
-                        <input type="text" name="Aeroporto_Partida" placeholder="Aeroporto de Origem" />
-                       </div> 
-                             <div class="row">
-                        <input type="text" name="Aeroporto_Chegada" placeholder="Aeroporto de Destino" "/>
-                        </div>
-                       <div class="row">
-                        <input id="iv" type="radio" value="q_destino" name="opcao"/>
-                        <label for="iv">Ida e Volta</label>
-                        <input id="vi" type="radio" value="q_origem" name="opcao"/>
-                        <label for="vi">Só Ida</label>
-                        </div>
-                            <br><br>                           
-                            
-                            <div class="row">
-                                <label for="iv">Ida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                              
-                                <label for="iv">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volta</label>
-                            </div>
-                            
-                            
-                            
-                            <div class="row">
-                       
-                        <input type="date"  name="Data-ida" />
-                        <input type="date"  name="data-volta" placeholder="Volta"/>    
-                            </div>
-                               <div class="row">                       
-                        
-                        <input type="number" name="passageiro" placeholder="Quantidade de Passegeiros"/>
-                        
-                                     <select id="formatar" class="bagagem" name="bagagem-cli-reserva">
-                                        <option value="0">Selecione Bagagem</option>
-                                        <option value="1">excesso de bagagem extra</option>
-                                        <option value="2">excesso de bagagem duplamente extra</option>                               
+                        <form class="signup" action="" method="post">
+                            <BR>
+                               <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente"> <button id="botoesBusca">BUSCAR</button></div>
+                            <div class="form-body">
+                                <div class="row">
+                                    <input type="text" placeholder="Nome*" name="nome-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-cli-selecionar" readonly="readonly">
+                                </div>  
+                                <div class="row">
+                                    <input type="number" placeholder="cpf*" name="cpf-cli-selecionar" readonly="readonly">
+                                    
+                                    
+                                </div>
+                                <div class="row">
+                                    <input type="text" placeholder="Email*" name="email-cli-selecionar" readonly="readonly">
+                                </div>
+                                <div class="row">
+                                    <input type="number" placeholder="()Celular*" name="celular-cli-selecionar" readonly="readonly">       
+                                </div>
 
-                                    </select>
-                        
-                               </div>
-                        
-                        
-                        
+                                <div class="row">
+                                    <input type="text" placeholder="Sexo"  name="sexo-cli-selecionar" readonly="readonly">   
+                                    <input type="text" placeholder="data de Nascimento" name="dtNasc-cli-selecionar" readonly="readonly">   
 
                                 </div>
-                        
-                        
+
+                                <div class="row">
+
+
+                                   <input type="text" placeholder="Estado*" name="estado-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Cidade*" name="cidade-cli-selecionar" readonly="readonly">
+                                </div>
+
+                                <div class="row">
+                                    <input type="number" placeholder="CEP*" name="cep-cli-selecionar" readonly="readonly">
+                                </div>
+                                <div class="row">
+                                    <input type="text" placeholder="Endereço" name="end-cli-selecionar" readonly="readonly">
+                                </div>
+
+                            </div>
+
+                            <div class="form-footer">
+
+                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
+                                <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
+                                
+
+                            </div>
+                               
                         </form>
 
                     </div>
-
-
-
-
-
-
                 </div>
-
-
-
+              
 
             </div>
 

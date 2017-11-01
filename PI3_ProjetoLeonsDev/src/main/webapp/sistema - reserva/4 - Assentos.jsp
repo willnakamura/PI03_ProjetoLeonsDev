@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Cadastrar Cliente</title>
+        <title>Selecionar Assentos</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -75,64 +75,124 @@
                 <div class="grid_8">
 
                     <div class="tituloCliente">
-                        <h5 class="opcao">SELECIONE CLIENTE </h5>
+                        <h5 class="opcao">SELECIONAR ASSENTOS</h5>
                     </div>
-
-                    <div class="card-form">
-                        <form class="signup" action="" method="post">
+                    <div class="mapa">
+                        </div>
+                    
+ <img id="imagemMapa" src="${pageContext.request.contextPath}/images/mapa.png" >
+                    <div class="card-form">                        
+                       
+                        
+                        <form class="signup" action="#" method="post">
                             <BR>
-                               <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente"> <button id="botoesBusca">BUSCAR</button></div>
+
                             <div class="form-body">
+
                                 <div class="row">
-                                    <input type="text" placeholder="Nome*" name="nome-cli" readonly="readonly">
-                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-cli" readonly="readonly">
+                                    <input type="radio" name="#">
+                                     <input type="radio" name="#">
+                                      <input type="radio" name="#">
+                                       <input type="radio" name="#">
+                                         <input type="radio" name="#">
+                                         <input type="radio" name="#">
+                                     <input type="radio" name="#">
+                                      <input type="radio" name="#">
+                                       <input type="radio" name="#">
+                                         <input type="radio" name="#">
+                                     <input type="radio" name="#">
+                                      <input type="radio" name="#">
+                                       <input type="radio" name="#">
+                                       <input type="radio" name="#">
+                                     <input type="radio" name="#">
+                                      <input type="radio" name="#">
+                                       <input type="radio" name="#">
+                                         <input type="radio" name="#">
+                                         <input type="radio" name="#">
+                                     <input type="radio" name="#">
+                                      <input type="radio" name="#">
+                                       <input type="radio" name="#">
+                                         <input type="radio" name="#">
+                                     <input type="radio" name="#">
+                                      <input type="radio" name="#">
+                                       <input type="radio" name="#">
                                 </div>  
+                                
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" name="cpf-cli" readonly="readonly">
-                                    
-                                    
+                                     <input type="radio" name="#">
+                                     <input type="radio" name="#">
+                                      <input type="radio" name="#">
+                                       <input type="radio" name="#">
+                                         <input type="radio" name="#">
+                                         <input type="radio" name="#">
+                                     <input type="radio" name="#">
+                                      <input type="radio" name="#">
+                                       <input type="radio" name="#">
+                                         <input type="radio" name="#">
+                                     <input type="radio" name="#">
+                                      <input type="radio" name="#">
+                                       <input type="radio" name="#">
+                                       <input type="radio" name="#">
+                                     <input type="radio" name="#">
+                                      <input type="radio" name="#">
+                                       <input type="radio" name="#">
+                                         <input type="radio" name="#">
+                                         <input type="radio" name="#">
+                                     <input type="radio" name="#">
+                                      <input type="radio" name="#">
+                                       <input type="radio" name="#">
+                                         <input type="radio" name="#">
+                                     <input type="radio" name="#">
+                                      <input type="radio" name="#">
+                                       <input type="radio" name="#">
                                 </div>
+                                
                                 <div class="row">
-                                    <input type="text" placeholder="Email*" name="email-cli" readonly="readonly">
+                                    <input type="radio" name="#">
                                 </div>
+                                
                                 <div class="row">
-                                    <input type="number" placeholder="()Celular*" name="celular-cli" readonly="readonly">       
+                                    <input type="radio" name="#">
                                 </div>
 
                                 <div class="row">
-                                    <input type="text" placeholder="Sexo"  name="sexo-cli" readonly="readonly">   
-                                    <input type="text" placeholder="data de Nascimento" name="dtNasc-cli" readonly="readonly">   
+                                    <input type="radio" name="#">
 
                                 </div>
 
                                 <div class="row">
-
-
-                                   <input type="text" placeholder="Estado*" name="estado-cli" readonly="readonly">
-                                    <input type="text" placeholder="Cidade*" name="cidade-cli" readonly="readonly">
+                                    <input type="radio" name="#">
                                 </div>
 
                                 <div class="row">
-                                    <input type="number" placeholder="CEP*" name="cep-cli" readonly="readonly">
+                                    <input type="radio" name="#">
                                 </div>
+                                
                                 <div class="row">
-                                    <input type="text" placeholder="Endereço" name="end-cli" readonly="readonly">
+                                    <input type="radio" name="#">
                                 </div>
 
                             </div>
 
                             <div class="form-footer">
 
-                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
-                                <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
-                                <button class="botoes" type="submit">PULAR<span class="fa fa-thumbs-o-up"></span></button>
+                                <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
+                                <button class="botoes" type="submit">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
 
                             </div>
                         </form>
 
                     </div>
                 </div>
-              
+                <div class="grid_3 prefix_1">
+                    <h5 class="opcao">Opção </h5>
+                    <ul class="list">
+                        <li><a href="#">Cadastrar</a></li>
+                        <li><a href="cliente-consultar.jsp">Consultar</a></li>
+
+
+                    </ul>
+                </div>
 
             </div>
 

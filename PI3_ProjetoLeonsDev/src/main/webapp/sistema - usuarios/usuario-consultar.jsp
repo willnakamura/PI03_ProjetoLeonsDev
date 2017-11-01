@@ -147,7 +147,7 @@
                     </table>
 
                     <div class="form-footer">
-                        <button class="botoes"><a href="${pageContext.request.contextPath}/usuario-cliente">CANCELAR<span class="fa fa-ban"></span></button>
+                        <button class="botoes">EXCLUIR<span class="fa fa-ban"></span></button>
                         <button class="botoes"><a href="#bg">EDITAR</a><span class="fa fa-thumbs-o-up"></span></button>
 
                     </div>

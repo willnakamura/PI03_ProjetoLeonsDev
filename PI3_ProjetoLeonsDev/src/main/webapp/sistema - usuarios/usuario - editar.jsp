@@ -75,11 +75,12 @@
                 <div class="grid_8">
 
                     <div class="tituloCliente">
-                        <h5 class="opcao">CADASTRAR USUARIO </h5>
+                        <h5 class="opcao">EDITAR USUARIO </h5>
                     </div>
                     
-                    <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente">
+                    <div class="box">
+                                                    
+                              <form class="signup" action="${pageContext.request.contextPath}/usuario-cliente">
                             <BR>
 
                             <div class="form-body">
@@ -100,9 +101,16 @@
                                 </div>                              
                              
                             </div>
-                        </form>
+                            
+                              <div class="form-footer">
 
-                    </div>
+                                <button class="botoes"><a href="usuario-consultar.jsp">CANCELAR</a><span class="fa fa-ban"></span></button>
+                                
+                                <button class="botoes" type="submit">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
+
+                            </div>
+                        </form>
+                         </div>  
 
 
                     <div class="form-footer">
