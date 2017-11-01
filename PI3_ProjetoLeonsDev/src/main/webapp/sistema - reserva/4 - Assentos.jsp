@@ -78,9 +78,47 @@
                         <h5 class="opcao">SELECIONAR ASSENTOS</h5>
                     </div>
                     <div class="mapa">
-                        </div>
+                        <img id="imagemMapa" src="${pageContext.request.contextPath}/images/mapa.png" >
+                        <form class="signup" action="#" method="post">
+                    <div class="f1ao4">
+                                   
+                                     <input class="assento" type="radio" name="#">
+                                      <input class="assento" type="radio" name="#">
+                                       <input class="assento" type="radio" name="#">
+                                         <input class="assento" type="radio" name="#">
+                                   
+                                </div> 
+                         <div class="e1ao4">
+                                   
+                                     <input class="assento" type="radio" name="#">
+                                      <input class="assento" type="radio" name="#">
+                                       <input class="assento" type="radio" name="#">
+                                         <input class="assento" type="radio" name="#">
+                                   
+                                </div>
+                        
+                        
+                        <div class="b1ao4">
+                                   
+                                     <input class="assento" type="radio" name="#">
+                                      <input class="assento" type="radio" name="#">
+                                       <input class="assento" type="radio" name="#">
+                                         <input class="assento" type="radio" name="#">
+                                   
+                                </div>
+                        <div class="a1ao4">
+                                   
+                                     <input class="assento" type="radio" name="#">
+                                      <input class="assento" type="radio" name="#">
+                                       <input class="assento" type="radio" name="#">
+                                         <input class="assento" type="radio" name="#">
+                                   
+                                </div> 
                     
- <img id="imagemMapa" src="${pageContext.request.contextPath}/images/mapa.png" >
+                    </form>
+                    </div>
+                    
+ 
                     <div class="card-form">                        
                        
                         
@@ -89,62 +127,15 @@
 
                             <div class="form-body">
 
-                                <div class="row">
-                                    <input type="radio" name="#">
-                                     <input type="radio" name="#">
-                                      <input type="radio" name="#">
-                                       <input type="radio" name="#">
-                                         <input type="radio" name="#">
-                                         <input type="radio" name="#">
-                                     <input type="radio" name="#">
-                                      <input type="radio" name="#">
-                                       <input type="radio" name="#">
-                                         <input type="radio" name="#">
-                                     <input type="radio" name="#">
-                                      <input type="radio" name="#">
-                                       <input type="radio" name="#">
-                                       <input type="radio" name="#">
-                                     <input type="radio" name="#">
-                                      <input type="radio" name="#">
-                                       <input type="radio" name="#">
-                                         <input type="radio" name="#">
-                                         <input type="radio" name="#">
-                                     <input type="radio" name="#">
-                                      <input type="radio" name="#">
-                                       <input type="radio" name="#">
-                                         <input type="radio" name="#">
-                                     <input type="radio" name="#">
-                                      <input type="radio" name="#">
-                                       <input type="radio" name="#">
-                                </div>  
+                                 
                                 
                                 <div class="row">
-                                     <input type="radio" name="#">
-                                     <input type="radio" name="#">
-                                      <input type="radio" name="#">
-                                       <input type="radio" name="#">
-                                         <input type="radio" name="#">
-                                         <input type="radio" name="#">
-                                     <input type="radio" name="#">
-                                      <input type="radio" name="#">
-                                       <input type="radio" name="#">
-                                         <input type="radio" name="#">
-                                     <input type="radio" name="#">
-                                      <input type="radio" name="#">
-                                       <input type="radio" name="#">
-                                       <input type="radio" name="#">
-                                     <input type="radio" name="#">
-                                      <input type="radio" name="#">
-                                       <input type="radio" name="#">
-                                         <input type="radio" name="#">
-                                         <input type="radio" name="#">
-                                     <input type="radio" name="#">
-                                      <input type="radio" name="#">
-                                       <input type="radio" name="#">
-                                         <input type="radio" name="#">
-                                     <input type="radio" name="#">
-                                      <input type="radio" name="#">
-                                       <input type="radio" name="#">
+                                     
+                                     <input class="assento"type="radio" name="#">
+                                      <input class="assento" type="radio" name="#">
+                                       <input class="assento" type="radio" name="#">
+                                         <input class="assento" type="radio" name="#">
+                                    
                                 </div>
                                 
                                 <div class="row">
