@@ -76,15 +76,16 @@
                         <h5 class="opcao">CONSULTAR USUARIO </h5>
                     </div>                    
 
-                    <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaUsuario">  <button id="botoesBusca">BUSCAR</button></div>
+                    <form class="buscaUsuario" action="${pageContext.request.contextPath}/ConsultaUsuario" method="post">
+                        <div class="busca">
+                            <input type="text" id="busca1" placeholder="Digite sua busca" name="buscaUsuario">  <button id="botoesBusca" type="submit">BUSCAR</button>
+                        </div>
+                    </form>
 
                     <div id="bg"> </div>
                     <div class="box">
-                        <div id="tituloClienteConsultar" >
-                            <h5>EDITAR USUARIO </h5>
-                        </div>  
 
-                        <form class="signup" action="${pageContext.request.contextPath}/usuario-cliente">
+                        <form class="signup" action="${pageContext.request.contextPath}/EditarUsuario">
                             <BR>
 
                             <table>
@@ -98,6 +99,19 @@
                                     <th>Login</th>    
                                     <th>senha</th>
                                 </tr>
+                                
+                                <c:forEach items="${sessionScope.ResultUsuarioLista}" var="usu">
+                                    <tr>
+                                        <td><input type="radio" value="${usu.cpf}" name="selecionaUsuario"></td>
+                                        <td>${usu.nome}</td>
+                                        <td>${usu.sobrenome}</td>
+                                        <td>${usu.cpf}</td>
+                                        <td>${usu.email}</td>
+                                        <td>${usu.cargo}</td>
+                                        <td>${usu.login}</td>    
+                                        <td>${usu.senha}</td>
+                                    </tr>
+                                </c:forEach>
                             </table>
 
                             <div class="form-footer">
