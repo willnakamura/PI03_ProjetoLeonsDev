@@ -212,7 +212,7 @@ public class DaoClientes {
     public static Cliente procurar(String valor)
             throws SQLException, Exception {
     
-        String sql = "SELECT * FROM Clientes WHERE CPF=? AND Ativo=?";
+        String sql = "SELECT * FROM Clientes WHERE CPF=? AND Ativo=? limit 1";
     
         Cliente cliente = new Cliente();
         //Conexão para abertura e fechamento

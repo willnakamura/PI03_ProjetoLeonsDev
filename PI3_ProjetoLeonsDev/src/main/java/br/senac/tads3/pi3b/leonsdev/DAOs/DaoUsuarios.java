@@ -193,7 +193,7 @@ public class DaoUsuarios {
     public static Usuario procurar(String valor)
             throws SQLException, Exception {
     
-        String sql = "SELECT * FROM Usuarios WHERE CPF=? AND Ativo=?";
+        String sql = "SELECT * FROM Usuarios WHERE CPF=? AND Ativo=? limit 1";
     
         Usuario DadosUsuario = new Usuario();
         //Conexão para abertura e fechamento
