@@ -91,7 +91,7 @@
                                 <tr>
                                     <th></th>
                                     <th>Nome</th>
-                                    <th>Sobre Nome</th>
+                                    <th>Sobrenome</th>
                                     <th>cpf</th>
                                     <th>Email</th>
                                     <th>Cargo</th>
