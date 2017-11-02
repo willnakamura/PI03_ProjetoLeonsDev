@@ -10,22 +10,20 @@ import br.senac.tads3.pi3b.leonsdev.exceptions.ClienteException;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
 import java.util.List;
 
-
-
 /**
  *
  * @author Rafael Rodrigues
  */
 public class ServicoCliente {
 
-    public static void CadastrarCliente (Cliente cli) throws ClienteException, DataExceptions{
+    public static void CadastrarCliente(Cliente cli) throws ClienteException, DataExceptions {
         ValidadorCliente.validar(cli);
-        
+
         try {
             DaoClientes.inserir(cli);
         } catch (Exception e) {
             e.printStackTrace();
-             if (e.getMessage().contains("Incorrect datetime value")) {
+            if (e.getMessage().contains("Incorrect datetime value")) {
                 throw new DataExceptions("Data de nascimento inválida");
             } else if (e.getMessage().contains("Duplicate entry")) {
                 throw new DataExceptions("CPF já cadastrado");
@@ -34,7 +32,7 @@ public class ServicoCliente {
             }
         }
     }
-    
+
     public static void atualizarCliente(Cliente cliente) throws ClienteException, DataExceptions {
 
         ValidadorCliente.validar(cliente);
@@ -45,28 +43,31 @@ public class ServicoCliente {
             throw new DataExceptions("Erro na fonte de dados", e);
         }
     }
-    
-    public static List<Cliente> procurarCliente(String cpf, int opt) throws ClienteException, DataExceptions {
-        
+
+    public static Cliente procurarCliente(String cpf) throws ClienteException, DataExceptions {
+
         try {
-           
-            if (cpf == null || "".equals(cpf)) {
-                return DaoClientes.listar();
-            } else if (opt == 0) {
-                return DaoClientes.procurar(cpf);
-            } else {
-                
-                //add pesquisa por nome na dao de cliente....
-                return DaoClientes.procurar(cpf);
-            }
+            return DaoClientes.procurar(cpf);
+
         } catch (Exception e) {
             e.printStackTrace();
             throw new DataExceptions("Erro na fonte de dados", e);
         }
     }
-    
+
+    public static List<Cliente> listarCliente(String cpf) throws ClienteException, DataExceptions {
+
+        try {
+            return DaoClientes.listar();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new DataExceptions("Erro na fonte de dados", e);
+        }
+    }
+
     public static Cliente obterCliente(Integer id) throws ClienteException, DataExceptions {
-       
+
         try {
             return DaoClientes.obter(id);
         } catch (Exception e) {
@@ -75,7 +76,7 @@ public class ServicoCliente {
     }
 
     public static void excluirCliente(Integer id) throws ClienteException, DataExceptions {
-        
+
         try {
 
             DaoClientes.excluir(id);
@@ -83,6 +84,5 @@ public class ServicoCliente {
             throw new DataExceptions("Erro na fonte de dados", e);
         }
     }
-    
 
 }

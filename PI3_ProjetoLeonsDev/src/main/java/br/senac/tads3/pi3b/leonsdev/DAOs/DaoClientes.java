@@ -209,12 +209,12 @@ public class DaoClientes {
     }
 
     
-    public static List<Cliente> procurar(String valor)
+    public static Cliente procurar(String valor)
             throws SQLException, Exception {
     
         String sql = "SELECT * FROM Clientes WHERE CPF=? AND Ativo=?";
     
-        List<Cliente> listaClientes = null;
+        Cliente cliente = new Cliente();
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -236,12 +236,7 @@ public class DaoClientes {
 
             //Itera por cada item do resultado
             while (result.next()) {
-                //Se a lista não foi inicializada, a inicializa
-                if (listaClientes == null) {
-                    listaClientes = new ArrayList<>();
-                }
     
-                Cliente cliente = new Cliente();
                 cliente.setCelular(result.getString("Celular"));
                 cliente.setCep(result.getString("CEP"));
                 cliente.setCidade(result.getString("Cidade"));
@@ -253,8 +248,6 @@ public class DaoClientes {
                 cliente.setGenero(result.getString("Sexo"));
                 cliente.setNome(result.getString("Nome"));
                 cliente.setSobrenome(result.getString("Sobrenome"));
-                //Adiciona a instância na lista
-                listaClientes.add(cliente);
             }
         } finally {
             //Se o result ainda estiver aberto, realiza seu fechamento
@@ -271,7 +264,7 @@ public class DaoClientes {
             }
         }
     
-        return listaClientes;
+        return cliente;
     }
     
     public static Cliente obter(Integer id)

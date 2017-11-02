@@ -65,6 +65,6 @@ public class CadastroUsuarioServlet extends HttpServlet {
         HttpSession sessao = request.getSession();
         sessao.setAttribute("usuario", usuario);
 
-        response.sendRedirect(request.getContextPath() + "/usuario-cadastrar.jsp");
+        response.sendRedirect(request.getContextPath() + "/cadastrarUsuario.jsp");
     }
 }

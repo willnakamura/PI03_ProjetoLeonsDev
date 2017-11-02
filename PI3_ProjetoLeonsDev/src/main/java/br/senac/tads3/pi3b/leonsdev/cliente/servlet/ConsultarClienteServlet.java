@@ -5,8 +5,10 @@
  */
 package br.senac.tads3.pi3b.leonsdev.cliente.servlet;
 
+import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import java.io.IOException;
-import java.io.PrintWriter;
+
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,18 +25,20 @@ public class ConsultarClienteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String cpfCli = request.getParameter("buscaCliente");
-        
-        if(" ".equals(cpfCli) || cpfCli == null){
+
+        List<Cliente> clientes = null;
+
+        if (" ".equals(cpfCli) || cpfCli == null) {
             
         }
-      
+
     }
 }

@@ -190,12 +190,12 @@ public class DaoUsuarios {
     }
 
     
-    public static List<Usuario> procurar(String valor)
+    public static Usuario procurar(String valor)
             throws SQLException, Exception {
     
         String sql = "SELECT * FROM Usuarios WHERE CPF=? AND Ativo=?";
     
-        List<Usuario> listaUsuario = null;
+        Usuario DadosUsuario = new Usuario();
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -218,21 +218,14 @@ public class DaoUsuarios {
             //Itera por cada item do resultado
             while (result.next()) {
                 //Se a lista não foi inicializada, a inicializa
-                if (listaUsuario == null) {
-                    listaUsuario = new ArrayList<>();
-                }
-    
-                Usuario usuario = new Usuario();
-                usuario.setCpf(result.getString("CPF"));
-                usuario.setCargo(result.getString("Cargo"));
-                usuario.setEmail(result.getString("CPF"));
-                usuario.setEnable(result.getBoolean("Ativo"));
-                usuario.setLogin(result.getString("Login"));
-                usuario.setNome(result.getString("Nome"));
-                usuario.setSenha(result.getString("Senha"));
-                usuario.setSobrenome(result.getString("Sobrenome"));
-                //Adiciona a instância na lista
-                listaUsuario.add(usuario);
+                DadosUsuario.setCpf(result.getString("CPF"));
+                DadosUsuario.setCargo(result.getString("Cargo"));
+                DadosUsuario.setEmail(result.getString("CPF"));
+                DadosUsuario.setEnable(result.getBoolean("Ativo"));
+                DadosUsuario.setLogin(result.getString("Login"));
+                DadosUsuario.setNome(result.getString("Nome"));
+                DadosUsuario.setSenha(result.getString("Senha"));
+                DadosUsuario.setSobrenome(result.getString("Sobrenome"));
             }
         } finally {
             //Se o result ainda estiver aberto, realiza seu fechamento
@@ -249,7 +242,7 @@ public class DaoUsuarios {
             }
         }
     
-        return listaUsuario;
+        return DadosUsuario;
     }
     
     public static Usuario obter(Integer id)
