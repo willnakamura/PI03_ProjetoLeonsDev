@@ -23,8 +23,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Rafael
  */
-@WebServlet(name = "ConsultaClienteServlet", urlPatterns = {"/ConsultaCliente"})
-public class ConsultaClienteServlet extends HttpServlet {
+@WebServlet(name = "ConsultaUsuarioServlet", urlPatterns = {"/ConsultaCliente"})
+public class ConsultaUsuarioServlet extends HttpServlet {
 
 
    
@@ -34,12 +34,13 @@ public class ConsultaClienteServlet extends HttpServlet {
         
     }
     
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         HttpSession sessao = request.getSession();
-        String busca = request.getParameter("buscaCliente");
+        String busca = request.getParameter("buscaUsuario");
         List<Usuario> usuarios = null;
         
         try {

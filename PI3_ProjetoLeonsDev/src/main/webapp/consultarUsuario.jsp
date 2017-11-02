@@ -76,7 +76,7 @@
                         <h5 class="opcao">CONSULTAR USUARIO </h5>
                     </div>                    
 
-                    <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente">  <button id="botoesBusca">BUSCAR</button></div>
+                    <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaUsuario">  <button id="botoesBusca">BUSCAR</button></div>
 
                     <div id="bg"> </div>
                     <div class="box">
