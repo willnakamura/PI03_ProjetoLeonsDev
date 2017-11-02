@@ -55,7 +55,7 @@ public class ServicoCliente {
         }
     }
 
-    public static List<Cliente> listarCliente(String cpf) throws ClienteException, DataExceptions {
+    public static List<Cliente> listarCliente() throws ClienteException, DataExceptions {
 
         try {
             return DaoClientes.listar();

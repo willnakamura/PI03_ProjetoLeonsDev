@@ -4,7 +4,6 @@
     Author     : Nakamura-PC
 --%>
 
-<%@page import="br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -77,23 +76,21 @@
 
                     </div>                    
 
-                    <form method="post">
-                        
-                    <div class="busca">
-                        <input type="text" id="busca1" placeholder="Digite o CPF" name="buscaCliente">
-                        <button id="botoesBusca" type="submit">BUSCAR</button>
-                    </div>
-                        
+                    <form class="buscaCliente" action="${pageContext.request.contextPath}/ConsultarCliente" method="post">
+
+                        <div class="busca">
+                            <input type="text" id="busca1" placeholder="Digite o CPF" name="buscaCliente">
+                            <button id="botoesBusca" type="submit">BUSCAR</button>
+                        </div>
+
                     </form>
 
-                    <div id="bg"></div>                    
-
+                    <div id="bg"></div>
                     <table>
-
                         <tr>
                             <th></th>
                             <th>Nome</th>
-                            <th>Sobre Nome</th>
+                            <th>Sobrenome</th>
                             <th>cpf</th>
                             <th>Email</th>
                             <th>Celular</th>    
@@ -103,18 +100,31 @@
                             <th>Cidade</th>
                             <th>Cep</th>
                             <th>Endereço</th>
-                            <th></th>
                         </tr>
 
-                        <tr>
+                        <c:forEach var="cli" items="${sessionScope.ResultClienteLista}">    
+                            <tr>
+                                <td><input type="radio" value="${cli.cpf}" name="selecionarCli" /></td>
+                                <td>${cli.nome}</td>
+                                <td>${cli.sobrenome}</td>
+                                <td>${cli.cpf}</td>
+                                <td>${cli.email}</td>
+                                <td>${cli.celular}</td>
+                                <td>${cli.genero}</td>
+                                <td>${cli.dataNascimento}</td>
+                                <td>${cli.estado}</td>
+                                <td>${cli.cidade}</td>
+                                <td>${cli.cep}</td>
+                                <td>${cli.endereco}</td>
+                                <td></td>
+                            </tr>
                             
-                            <c:forEach items="${list}" var="cliente">
-                                <td>${cli} <c:out value="${cli.nome}" /> </td>
                         </c:forEach>
-                        
-                        </tr>
 
                     </table>
+
+
+
 
                     <div class="form-footer">
 

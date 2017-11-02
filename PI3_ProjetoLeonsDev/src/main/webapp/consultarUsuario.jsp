@@ -107,17 +107,15 @@
 
                             </table>
 
+                            <div class="form-footer">
+                                <button class="botoes">EXCLUIR<span class="fa fa-ban"></span></button>
+                                <button class="botoes"><a href="#bg">EDITAR</a><span class="fa fa-thumbs-o-up"></span></button>
+
+                            </div>
                         </form>
                     </div>  
 
-                    <div class="form-footer">
-                        <button class="botoes">EXCLUIR<span class="fa fa-ban"></span></button>
-                        <button class="botoes"><a href="#bg">EDITAR</a><span class="fa fa-thumbs-o-up"></span></button>
-
-                    </div>
-
                 </div>
-
 
                 <div class="grid_3 prefix_1">
 
@@ -129,6 +127,7 @@
                     </ul>
                 </div>
             </div>
+
         </div>
 
         <!--==============================footer=================================-->

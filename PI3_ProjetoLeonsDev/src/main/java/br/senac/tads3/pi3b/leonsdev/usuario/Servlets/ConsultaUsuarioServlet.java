@@ -40,16 +40,23 @@ public class ConsultaUsuarioServlet extends HttpServlet {
         
         HttpSession sessao = request.getSession();
         String busca = request.getParameter("buscaUsuario");
-        List<Usuario> usuarios = null;
+        Usuario usuario = new Usuario();
+        
         
         try {
-            usuarios = ServicoUsuario.Procurar(busca);
+            if(busca == null || busca.trim().equals("")){
+                List<Usuario> listaUsuario = ServicoUsuario.listar();
+                sessao.setAttribute("ResultUsuarioLista", listaUsuario);
+            }else{
+                usuario = ServicoUsuario.Procurar(busca);
+                sessao.setAttribute("ResultUsuario", usuario);
+            }
+            
+            
         } catch (DataExceptions | ExceptionUsuario e) {
             request.setAttribute("erro", e.getMessage());
         }
         
-        sessao.setAttribute("usuarios", usuarios);
-
         response.sendRedirect(request.getContextPath() + "/consultarUsuario.jsp");
     }
 }
