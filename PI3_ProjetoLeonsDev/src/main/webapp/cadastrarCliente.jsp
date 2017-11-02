@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Cadastrar Cliente</title>
+        <title>Cliente</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -47,9 +47,9 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuários</a></li>
+                                <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
+                                <li class="current"><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuarios</a></li>
                                 <li><a href="index-3.html">BLOG</a></li>
                                 <li><a href="index-4.html">CONTACTS</a></li>
                             </ul>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="grid_12">
                     <h1>
-                        <a href="index.html">
+                        <a href="index.jsp">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
                     </h1>
@@ -168,7 +168,7 @@
                     <h5 class="opcao">Opção </h5>
                     <ul class="list">
                         <li><a href="#">Cadastrar</a></li>
-                        <li><a href="cliente-consultar.jsp">Consultar</a></li>
+                        <li><a href="${pageContext.request.contextPath}/consultarCliente.jsp">Consultar</a></li>
 
 
                     </ul>

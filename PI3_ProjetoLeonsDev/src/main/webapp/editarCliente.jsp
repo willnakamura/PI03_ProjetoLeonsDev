@@ -47,9 +47,9 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuários</a></li>
+                                <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
+                                <li class="current"><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jsp">Usuarios</a></li>
                                 <li><a href="index-3.html">BLOG</a></li>
                                 <li><a href="index-4.html">CONTACTS</a></li>
                             </ul>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="grid_12">
                     <h1>
-                        <a href="index.html">
+                        <a href="index.jsp">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
                     </h1>

@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>consultar usuario</title>
+        <title>Usuario</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -19,8 +19,10 @@
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 
-        
-        
+
+
+
+
         <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery-migrate-1.2.1.js"></script>
         <script src="${pageContext.request.contextPath}/js/script.js"></script>
@@ -45,9 +47,9 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                               <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuários</a></li>
+                                <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>
+                                <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
                                 <li><a href="index-3.html">BLOG</a></li>
                                 <li><a href="index-4.html">CONTACTS</a></li>
                             </ul>
@@ -57,7 +59,7 @@
                 </div>
                 <div class="grid_12">
                     <h1>
-                        <a href="index.html">
+                        <a href="index.jsp">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
                     </h1>
@@ -65,25 +67,19 @@
 
             </div>
         </header>
- 
+        <!--==============================Content=================================-->
         <div class="content"><div class="ic"></div>
 
             <div class="container_12">
-                
+
                 <div class="grid_8">
+
+                    <div class="tituloCliente">
+                        <h5 class="opcao">EDITAR USUARIO </h5>
+                    </div>
                     
-                        <div class="tituloCliente">
-                        <h5 class="opcao">CONSULTAR USUARIO </h5>
-                       </div>                    
-                    
-                    <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente">  <button id="botoesBusca">BUSCAR</button></div>
-                     
-                    <div id="bg"> </div>
-                        <div class="box">
-                         <div id="tituloClienteConsultar" >
-                        <h5>EDITAR USUARIO </h5>
-                       </div>  
-                            
+                    <div class="box">
+                                                    
                               <form class="signup" action="${pageContext.request.contextPath}/usuario-cliente">
                             <BR>
 
@@ -115,52 +111,25 @@
                             </div>
                         </form>
                          </div>  
-                    
-                    
-                    
-                    
-                    
-                    <table>
-                        <tr>
-                            <th></th>
-                            <th>Nome</th>
-                            <th>Sobre Nome</th>
-                            <th>cpf</th>
-                            <th>Email</th>
-                            <th>Cargo</th>
-                            <th>Login</th>    
-                            <th>senha</th>
-                            
-                        </tr>
-                        <tr>
-                            <td><input class="radio" type="radio" name="cliente" value="cliente">&nbsp;&nbsp;&nbsp;</td> 
-                            <td>Pedro</td>
-                            <td>Lucas dos Santos Cruz</td>
-                            <td>445.706.958-25</td>
-                            <td>pedrolucas11@live.com</td>
-                            <td>Analista de Sistemas Pleno </td>
-                             <td>pcruz</td>
-                            <td>senac123</td>                            
-                        </tr>
 
-
-                    </table>
 
                     <div class="form-footer">
-                        <button class="botoes">EXCLUIR<span class="fa fa-ban"></span></button>
-                        <button class="botoes"><a href="#bg">EDITAR</a><span class="fa fa-thumbs-o-up"></span></button>
+                        <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
+                        <button class="botoes">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
 
                     </div>
-                
-                    </div>
+
+
+
+                </div>
+
 
 
                 <div class="grid_3 prefix_1">
-
                     <h5 class="opcao">Opção </h5>
                     <ul class="list">
-                        <li><a href="usuario-cadastrar.jsp">Cadastrar</a></li>
-                        <li><a href="#">Consultar</a></li>
+                        <li><a href="#">Cadastrar</a></li>
+                        <li><a href="consultarUsuario.jsp">Consultar</a></li>
 
 
                     </ul>

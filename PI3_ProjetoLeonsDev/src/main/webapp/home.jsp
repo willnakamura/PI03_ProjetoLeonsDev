@@ -72,8 +72,8 @@
                             <ul class="sf-menu">
 
                                 <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jsp">Usuários</a></li>
+                                <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
                                 <li><a href="index-3.html">BLOG</a></li>
                                 <li><a href="index-4.html">CONTACTS</a></li>
 
@@ -122,7 +122,9 @@
                 </div>
             </div>
         </div>
+                    
         <!--==============================Content=================================-->
+        
         <div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
             <div class="container_12">
                 <div class="grid_4">

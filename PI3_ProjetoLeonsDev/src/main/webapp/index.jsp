@@ -27,6 +27,7 @@
                         <input name="user" type="text" placeholder="username">
                         <input type="password" placeholder="password" name="password">
                         
+                        <!-- Comando "if" que realiza a exibição da mensagem de erro  -->
                         <c:if test="${not empty erroLogin}">
                             <p class="erroLogin"><c:out value="${erroLogin}"/></p>
                         </c:if>
