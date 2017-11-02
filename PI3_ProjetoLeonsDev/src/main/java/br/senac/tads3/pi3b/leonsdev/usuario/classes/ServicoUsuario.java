@@ -51,6 +51,7 @@ public class ServicoUsuario {
         }
     }
 
+    
     public static Usuario Procurar(String valor) throws DataExceptions, ExceptionUsuario {
         try {
             return DaoUsuarios.procurar(valor);
@@ -58,6 +59,7 @@ public class ServicoUsuario {
             throw new DataExceptions("Erro na fonte de dados.", e);
         }
     }
+    
 
     public static List<Usuario> listar() throws DataExceptions, ExceptionUsuario {
         try {
