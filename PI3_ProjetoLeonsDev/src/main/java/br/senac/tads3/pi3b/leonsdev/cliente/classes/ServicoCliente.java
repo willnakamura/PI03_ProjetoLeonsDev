@@ -44,15 +44,22 @@ public class ServicoCliente {
         }
     }
 
-    public static List<Cliente> procurarCliente(String cpf) throws ClienteException, DataExceptions {
+    public static Cliente procurarCliente(String cpf) throws ClienteException, DataExceptions {
 
         try {
+            return DaoClientes.procurar(cpf);
 
-            if (cpf == null || "".equals(cpf)) {
-                return DaoClientes.listar();
-            } else {
-                return DaoClientes.procurar(cpf);
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new DataExceptions("Erro na fonte de dados", e);
+        }
+    }
+
+    public static List<Cliente> listarCliente(String cpf) throws ClienteException, DataExceptions {
+
+        try {
+            return DaoClientes.listar();
+            
         } catch (Exception e) {
             e.printStackTrace();
             throw new DataExceptions("Erro na fonte de dados", e);
