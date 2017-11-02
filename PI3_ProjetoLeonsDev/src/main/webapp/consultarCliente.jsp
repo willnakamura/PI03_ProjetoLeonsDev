@@ -5,8 +5,6 @@
 --%>
 
 <%@page import="br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente"%>
-<%@page import="java.util.List"%>
-<%@page import="br.senac.tads3.pi3b.leonsdev.DAOs.DaoClientes"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -72,18 +70,26 @@
         <div class="content"><div class="ic"></div>
 
             <div class="container_12">
-
                 <div class="grid_8">
-
                     <div class="tituloCliente">
+
                         <h5 class="opcao">CONSULTAR CLIENTE </h5>
+
                     </div>                    
 
-                    <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente">  <button id="botoesBusca">BUSCAR</button></div>
+                    <form method="post">
+                        
+                    <div class="busca">
+                        <input type="text" id="busca1" placeholder="Digite o CPF" name="buscaCliente">
+                        <button id="botoesBusca" type="submit">BUSCAR</button>
+                    </div>
+                        
+                    </form>
 
-                    <div id="bg"> </div>                    
+                    <div id="bg"></div>                    
 
                     <table>
+
                         <tr>
                             <th></th>
                             <th>Nome</th>
@@ -97,11 +103,21 @@
                             <th>Cidade</th>
                             <th>Cep</th>
                             <th>Endereço</th>
+                            <th></th>
+                        </tr>
+
+                        <tr>
+                            
+                            <c:forEach items="${list}" var="cliente">
+                                <td>${cli} <c:out value="${cli.nome}" /> </td>
+                        </c:forEach>
+                        
                         </tr>
 
                     </table>
 
                     <div class="form-footer">
+
                         <button class="botoes">EXCLUIR<span class="fa fa-ban"></span></button>
                         <button class="botoes"><a href="#bg">EDITAR</a><span class="fa fa-thumbs-o-up"></span></button>
 
@@ -114,18 +130,17 @@
 
                     <h5 class="opcao">Opção </h5>
                     <ul class="list">
-                        <li><a href="${pageContext.request.contextPath}cadastrarCliente.jsp">Cadastrar</a></li>
-                        <li><a href="#">Consultar</a></li>
 
+                        <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cadastrar</a></li>
+                        <li><a href="#">Consultar</a></li>
 
                     </ul>
                 </div>
-
             </div>
-
-
         </div>
+
         <!--==============================footer=================================-->
+
         <footer>
             <div class="container_12">
                 <div class="grid_12">

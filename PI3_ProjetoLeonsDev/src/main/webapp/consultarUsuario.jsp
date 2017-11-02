@@ -76,18 +76,24 @@
                         <h5 class="opcao">CONSULTAR USUARIO </h5>
                     </div>                    
 
-                    <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente">  <button id="botoesBusca">BUSCAR</button></div>
+                    <div class="busca">
+                        <input type="text" id="busca1" placeholder="Digite o CPF" name="buscaCliente"> 
+                        <button id="botoesBusca">BUSCAR</button>
+                    </div>
 
                     <div id="bg"> </div>
                     <div class="box">
                         <div id="tituloClienteConsultar" >
+
                             <h5>EDITAR USUARIO </h5>
+
                         </div>  
 
                         <form class="signup" action="${pageContext.request.contextPath}/usuario-cliente">
                             <BR>
 
                             <table>
+
                                 <tr>
                                     <th></th>
                                     <th>Nome</th>
@@ -97,8 +103,8 @@
                                     <th>Cargo</th>
                                     <th>Login</th>    
                                     <th>senha</th>
-
                                 </tr>
+
                             </table>
 
                         </form>
@@ -122,12 +128,11 @@
 
                     </ul>
                 </div>
-
             </div>
-
-
         </div>
+
         <!--==============================footer=================================-->
+
         <footer>
             <div class="container_12">
                 <div class="grid_12">
