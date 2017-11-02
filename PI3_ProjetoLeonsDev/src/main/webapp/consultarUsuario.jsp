@@ -85,13 +85,6 @@
                     <div id="bg"> </div>
                     <div class="box">
 
-                        <div id="tituloClienteConsultar" >
-
-                            <h5>EDITAR USUARIO </h5>
-
-                        </div>  
-
-
                         <form class="signup" action="${pageContext.request.contextPath}/EditarUsuario">
                             <BR>
 
@@ -107,20 +100,37 @@
                                     <th>Login</th>    
                                     <th>senha</th>
                                 </tr>
+                                <c:choose>
+                                    <c:when test="${empty requestScope.buscaUsuario}">
+                                        <c:forEach items="${sessionScope.ResultUsuarioLista}" var="usu">
+                                            <tr>
+                                                <td><input type="radio" value="${usu.cpf}" name="selecionaUsuario"></td>
+                                                <td>${usu.nome}</td>
+                                                <td>${usu.sobrenome}</td>
+                                                <td>${usu.cpf}</td>
+                                                <td>${usu.email}</td>
+                                                <td>${usu.cargo}</td>
+                                                <td>${usu.login}</td>    
+                                                <td>${usu.senha}</td>
+                                            </tr>
+                                        </c:forEach>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:forEach items="${sessionScope.ResultUsuario}" var="usu">
+                                            <tr>
+                                                <td><input type="radio" value="${usu.cpf}" name="selecionaUsuario"></td>
+                                                <td>${usu.nome}</td>
+                                                <td>${usu.sobrenome}</td>
+                                                <td>${usu.cpf}</td>
+                                                <td>${usu.email}</td>
+                                                <td>${usu.cargo}</td>
+                                                <td>${usu.login}</td>    
+                                                <td>${usu.senha}</td>
+                                            </tr>
+                                        </c:forEach>
+                                    </c:otherwise>
+                                </c:choose>S
 
-                                
-                                <c:forEach items="${sessionScope.ResultUsuarioLista}" var="usu">
-                                    <tr>
-                                        <td><input type="radio" value="${usu.cpf}" name="selecionaUsuario"></td>
-                                        <td>${usu.nome}</td>
-                                        <td>${usu.sobrenome}</td>
-                                        <td>${usu.cpf}</td>
-                                        <td>${usu.email}</td>
-                                        <td>${usu.cargo}</td>
-                                        <td>${usu.login}</td>    
-                                        <td>${usu.senha}</td>
-                                    </tr>
-                                </c:forEach>
 
                             </table>
 

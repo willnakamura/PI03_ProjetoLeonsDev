@@ -161,7 +161,7 @@ public class DaoUsuarios {
                 Usuario usuario = new Usuario();
                 usuario.setCpf(result.getString("CPF"));
                 usuario.setCargo(result.getString("Cargo"));
-                usuario.setEmail(result.getString("CPF"));
+                usuario.setEmail(result.getString("Email"));
                 usuario.setEnable(result.getBoolean("Ativo"));
                 usuario.setLogin(result.getString("Login"));
                 usuario.setNome(result.getString("Nome"));
