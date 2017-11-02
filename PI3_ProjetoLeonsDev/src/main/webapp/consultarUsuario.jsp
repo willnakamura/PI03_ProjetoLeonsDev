@@ -85,10 +85,18 @@
                     <div id="bg"> </div>
                     <div class="box">
 
+                        <div id="tituloClienteConsultar" >
+
+                            <h5>EDITAR USUARIO </h5>
+
+                        </div>  
+
+
                         <form class="signup" action="${pageContext.request.contextPath}/EditarUsuario">
                             <BR>
 
                             <table>
+
                                 <tr>
                                     <th></th>
                                     <th>Nome</th>
@@ -99,6 +107,7 @@
                                     <th>Login</th>    
                                     <th>senha</th>
                                 </tr>
+
                                 
                                 <c:forEach items="${sessionScope.ResultUsuarioLista}" var="usu">
                                     <tr>
@@ -112,6 +121,7 @@
                                         <td>${usu.senha}</td>
                                     </tr>
                                 </c:forEach>
+
                             </table>
 
                             <div class="form-footer">
@@ -133,11 +143,12 @@
 
                     </ul>
                 </div>
-
             </div>
 
         </div>
+
         <!--==============================footer=================================-->
+
         <footer>
             <div class="container_12">
                 <div class="grid_12">

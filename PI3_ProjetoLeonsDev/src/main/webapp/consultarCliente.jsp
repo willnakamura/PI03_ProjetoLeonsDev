@@ -4,9 +4,6 @@
     Author     : Nakamura-PC
 --%>
 
-<%@page import="br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente"%>
-<%@page import="java.util.List"%>
-<%@page import="br.senac.tads3.pi3b.leonsdev.DAOs.DaoClientes"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -72,22 +69,28 @@
         <div class="content"><div class="ic"></div>
 
             <div class="container_12">
-
                 <div class="grid_8">
-
                     <div class="tituloCliente">
+
                         <h5 class="opcao">CONSULTAR CLIENTE </h5>
+
                     </div>                    
 
-                    <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente">  <button id="botoesBusca">BUSCAR</button></div>
+                    <form class="buscaCliente" action="${pageContext.request.contextPath}/ConsultarCliente" method="post">
 
-                    <div id="bg"> </div>                    
+                        <div class="busca">
+                            <input type="text" id="busca1" placeholder="Digite o CPF" name="buscaCliente">
+                            <button id="botoesBusca" type="submit">BUSCAR</button>
+                        </div>
 
+                    </form>
+
+                    <div id="bg"></div>
                     <table>
                         <tr>
                             <th></th>
                             <th>Nome</th>
-                            <th>Sobre Nome</th>
+                            <th>Sobrenome</th>
                             <th>cpf</th>
                             <th>Email</th>
                             <th>Celular</th>    
@@ -99,9 +102,32 @@
                             <th>Endereço</th>
                         </tr>
 
+                        <c:forEach var="cli" items="${sessionScope.ResultClienteLista}">    
+                            <tr>
+                                <td><input type="radio" value="${cli.cpf}" name="selecionarCli" /></td>
+                                <td>${cli.nome}</td>
+                                <td>${cli.sobrenome}</td>
+                                <td>${cli.cpf}</td>
+                                <td>${cli.email}</td>
+                                <td>${cli.celular}</td>
+                                <td>${cli.genero}</td>
+                                <td>${cli.dataNascimento}</td>
+                                <td>${cli.estado}</td>
+                                <td>${cli.cidade}</td>
+                                <td>${cli.cep}</td>
+                                <td>${cli.endereco}</td>
+                                <td></td>
+                            </tr>
+                            
+                        </c:forEach>
+
                     </table>
 
+
+
+
                     <div class="form-footer">
+
                         <button class="botoes">EXCLUIR<span class="fa fa-ban"></span></button>
                         <button class="botoes"><a href="#bg">EDITAR</a><span class="fa fa-thumbs-o-up"></span></button>
 
@@ -114,18 +140,17 @@
 
                     <h5 class="opcao">Opção </h5>
                     <ul class="list">
-                        <li><a href="${pageContext.request.contextPath}cadastrarCliente.jsp">Cadastrar</a></li>
-                        <li><a href="#">Consultar</a></li>
 
+                        <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cadastrar</a></li>
+                        <li><a href="#">Consultar</a></li>
 
                     </ul>
                 </div>
-
             </div>
-
-
         </div>
+
         <!--==============================footer=================================-->
+
         <footer>
             <div class="container_12">
                 <div class="grid_12">

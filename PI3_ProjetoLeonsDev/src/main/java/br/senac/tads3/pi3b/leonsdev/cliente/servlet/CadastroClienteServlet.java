@@ -84,6 +84,7 @@ public class CadastroClienteServlet extends HttpServlet {
         
         String dataNascString = request.getParameter("dtNasc-cli");
         Date dataNasc = null;
+        
         try {
 
             dataNasc = dataForm.parse(dataNascString);
