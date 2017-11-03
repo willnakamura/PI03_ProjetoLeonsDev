@@ -98,7 +98,7 @@
                                     <th>Email</th>
                                     <th>Cargo</th>
                                     <th>Login</th>    
-                                    <th>senha</th>
+                                    <th style="visibility: hidden">senha</th>
                                     <th style="visibility: hidden">ID</th>
                                 </tr>
 
@@ -113,7 +113,7 @@
                                             <td>${usu.email}</td>
                                             <td>${usu.cargo}</td>
                                             <td>${usu.login}</td>    
-                                            <td>${usu.senha}</td>
+                                            <td style="visibility: hidden">${usu.senha}</td>
                                             <td style="visibility: hidden">${usu.id}</td>
                                         </tr>
                                     </c:forEach>
@@ -128,21 +128,21 @@
                                         <td>${sessionScope.ResultUsuario.email}</td>
                                         <td>${sessionScope.ResultUsuario.cargo}</td>
                                         <td>${sessionScope.ResultUsuario.login}</td>    
-                                        <td>${sessionScope.ResultUsuario.senha}</td>
+                                        <td style="visibility: hidden">${sessionScope.ResultUsuario.senha}</td>
                                         <td style="visibility: hidden">${sessionScope.ResultUsuario.id}</td>
                                     </tr>
                                 </c:if>
                             </table>
 
                             <div class="form-footer">
-
-                                <button class="botoes">EXCLUIR<span class="fa fa-ban"></span></button>
-
                                 <button class="botoes">EDITAR<span class="fa fa-thumbs-o-up"></span></button>
+                                
+                                    <form class="excluirUsu" action="${pageContext.request.contextPath}/ExcluirUsuario" method="post">
+                                        <button class="botoes" type="submit" >EXCLUIR<span class="fa fa-ban"></span></button>
+                                    </form>
                             </div>
                         </form>
                     </div>  
-
                 </div>
 
                 <div class="grid_3 prefix_1">

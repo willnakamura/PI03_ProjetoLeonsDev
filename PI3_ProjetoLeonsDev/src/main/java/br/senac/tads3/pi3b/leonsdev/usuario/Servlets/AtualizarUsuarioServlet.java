@@ -55,7 +55,7 @@ public class AtualizarUsuarioServlet extends HttpServlet {
         try {
             ServicoUsuario.AtualizarUsuario(usu);
         } catch (DataExceptions | ExceptionUsuario e) {
-            e.getMessage();
+            request.setAttribute("erroAtualizar", e.getMessage());
         }
         
         response.sendRedirect(request.getContextPath() + "/consultarUsuario.jsp");

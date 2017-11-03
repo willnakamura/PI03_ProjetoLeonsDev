@@ -22,7 +22,7 @@ public class ServicoUsuario {
         try {
             DaoUsuarios.inserir(usuario);
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getMessage();
             if (e.getMessage().contains("Incorrect datetime value")) {
                 throw new DataExceptions("Data de nascimento inválida");
             } else if (e.getMessage().contains("Duplicate entry")) {

@@ -57,7 +57,7 @@ public class ConsultaUsuarioServlet extends HttpServlet {
             
             
         } catch (DataExceptions | ExceptionUsuario e) {
-            request.setAttribute("erro", e.getMessage());
+            request.setAttribute("erroConsulta", e.getMessage());
         }
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("/consultarUsuario.jsp");

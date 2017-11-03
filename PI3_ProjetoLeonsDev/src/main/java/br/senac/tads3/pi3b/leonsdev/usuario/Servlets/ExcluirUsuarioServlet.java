@@ -10,50 +10,44 @@ import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionUsuario;
 import br.senac.tads3.pi3b.leonsdev.usuario.classes.ServicoUsuario;
 import br.senac.tads3.pi3b.leonsdev.usuario.classes.Usuario;
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.xml.ws.Dispatch;
 
 /**
  *
  * @author Rafael
  */
-@WebServlet(name = "EditarUsuarioServlet", urlPatterns = {"/EditarUsuario"})
-public class EditarUsuarioServlet extends HttpServlet {
-
+@WebServlet(name = "ExcluirUsuarioServlet", urlPatterns = {"/ExcluirUsuario"})
+public class ExcluirUsuarioServlet extends HttpServlet {
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
     }
 
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
         HttpSession sessao = request.getSession();
-        Usuario usuario = new Usuario();
+        Usuario usu = new Usuario();
+        
         String cpf = request.getParameter("selecionaUsuario");
-
-        if (cpf == null || cpf.trim().equals("")) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/consultarUsuario.jsp");
-                dispatcher.forward(request, response);
-        } else {
-            try {
-                usuario = ServicoUsuario.Procurar(cpf);
-            } catch (DataExceptions | ExceptionUsuario e) {
-                request.setAttribute("erroEditar", e.getMessage());
-            }
-
-            sessao.setAttribute("usuario", usuario);
-
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/editarUsuario.jsp");
-                dispatcher.forward(request, response);
+        
+        try {
+            usu = ServicoUsuario.Procurar(cpf);
+            ServicoUsuario.ExcluirUsuario(usu.getId());
+        } catch (DataExceptions | ExceptionUsuario e) {
+            request.setAttribute("erroExcluir", e.getMessage());
         }
+        
+        response.sendRedirect(request.getContextPath() + "/consultarUsuario.jsp");
     }
 }

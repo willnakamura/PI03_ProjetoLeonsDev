@@ -77,9 +77,9 @@
                     <div class="tituloCliente">
                         <h5 class="opcao">USUARIO</h5>
                     </div>
-                    
+
                     <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente">
+                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-usuario" method="post">
                             <BR>
 
                             <div class="form-body">
@@ -89,27 +89,33 @@
                                 </div>  
                                 <div class="row">
                                     <input type="number" placeholder="cpf*" name="cpf-usua">
-                                     <input type="text" placeholder="Cargo" name="cargo-usua">
+                                    <input type="text" placeholder="Cargo" name="cargo-usua">
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Email*" name="email-usua">
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Login*" name="login-usua">
-                                     <input type="text" placeholder="Senha*" name="senha-usua"> 
-                                </div>                              
-                             
+                                    <input type="text" placeholder="Senha*" name="senha-usua"> 
+                                </div>  
+                                <div class="row">
+                                    <c:if test="${not empty requestScope.erroCadastro}">
+                                        <p class="error"><c:out value="${requestScope.erroCadastro}"/></p>
+                                    </c:if>
+                                </div>
+
+                                <div class="form-footer">
+                                    <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
+                                    <button class="botoes" type="submit">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
+
+                                </div>
+
                             </div>
                         </form>
 
                     </div>
 
 
-                    <div class="form-footer">
-                        <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
-                        <button class="botoes">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
-
-                    </div>
 
 
 

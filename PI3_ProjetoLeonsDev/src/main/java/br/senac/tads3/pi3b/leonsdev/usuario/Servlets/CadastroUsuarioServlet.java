@@ -10,6 +10,7 @@ import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionUsuario;
 import br.senac.tads3.pi3b.leonsdev.usuario.classes.ServicoUsuario;
 import br.senac.tads3.pi3b.leonsdev.usuario.classes.Usuario;
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,6 +36,8 @@ public class CadastroUsuarioServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        HttpSession sessao = request.getSession();
+        
         String nome = request.getParameter("nome-usua");
         String sobNome = request.getParameter("sobreNome-usua");
         String cpf = request.getParameter("cpf-usua");
@@ -56,13 +59,13 @@ public class CadastroUsuarioServlet extends HttpServlet {
 
             ServicoUsuario.CadastrarUsuario(usuario);
 
-        } catch (ExceptionUsuario e) {
-            e.printStackTrace();
-        } catch (DataExceptions ex) {
-            ex.printStackTrace();
+        } catch (ExceptionUsuario | DataExceptions e) {
+            request.setAttribute("erroCadastro", e.getMessage());
+            
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarUsuario.jsp");
+            dispatcher.forward(request, response);
         }
-
-        HttpSession sessao = request.getSession();
+        
         sessao.setAttribute("usuario", usuario);
 
         response.sendRedirect(request.getContextPath() + "/cadastrarUsuario.jsp");
