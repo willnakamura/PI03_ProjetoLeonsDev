@@ -85,71 +85,73 @@
 
                     </form>
 
-                    <div id="bg"></div>
-                    <table>
-                        <tr>
-                            <th></th>
-                            <th>Nome</th>
-                            <th>Sobrenome</th>
-                            <th>cpf</th>
-                            <th>Email</th>
-                            <th>Celular</th>    
-                            <th>Sexo</th>
-                            <th>Nascimento</th>
-                            <th>Estado</th>
-                            <th>Cidade</th>
-                            <th>Cep</th>
-                            <th>Endereço</th>
-                        </tr>    
+                    <form class="editCli" action="${pageContext.request.contextPath}/EditarCliente" method="post">
 
-                        <c:if test="${empty sessionScope.buscar}">
-                            <c:forEach var="cli" items="${sessionScope.ResultClienteLista}">    
-                                <tr>
-                                    <td><input type="radio" value="${cli.cpf}" name="selecionarCli" /></td>
-                                    <td>${cli.nome}</td>
-                                    <td>${cli.sobrenome}</td>
-                                    <td>${cli.cpf}</td>
-                                    <td>${cli.email}</td>
-                                    <td>${cli.celular}</td>
-                                    <td>${cli.genero}</td>
-                                    <td>${cli.dataNascimento}</td>
-                                    <td>${cli.estado}</td>
-                                    <td>${cli.cidade}</td>
-                                    <td>${cli.cep}</td>
-                                    <td>${cli.endereco}</td>
-                                </tr>
-                            </c:forEach>
-                        </c:if>
-
-                        <c:if test="${sessionScope.buscar != null}">
+                        <div id="bg"></div>
+                        <table>
                             <tr>
-                                <td><input type="radio" value="${sessionScope.ResultCli.cpf}" name="selecionarCli" /></td>
-                                <td>${sessionScope.ResultCli.nome}</td>
-                                <td>${sessionScope.ResultCli.sobrenome}</td>
-                                <td>${sessionScope.ResultCli.cpf}</td>
-                                <td>${sessionScope.ResultCli.email}</td>
-                                <td>${sessionScope.ResultCli.celular}</td>
-                                <td>${sessionScope.ResultCli.genero}</td>
-                                <td>${sessionScope.ResultCli.dataNascimento}</td>
-                                <td>${sessionScope.ResultCli.estado}</td>
-                                <td>${sessionScope.ResultCli.cidade}</td>
-                                <td>${sessionScope.ResultCli.cep}</td>
-                                <td>${sessionScope.ResultCli.endereco}</td>
-                                <td></td>
-                            </tr>
+                                <th></th>
+                                <th>Nome</th>
+                                <th>Sobrenome</th>
+                                <th>cpf</th>
+                                <th>Email</th>
+                                <th>Celular</th>    
+                                <th>Sexo</th>
+                                <th>Nascimento</th>
+                                <th>Estado</th>
+                                <th>Cidade</th>
+                                <th>Cep</th>
+                                <th>Endereço</th>
+                            </tr>    
 
-                        </c:if>
+                            <c:if test="${empty sessionScope.buscar}">
+                                <c:forEach var="cli" items="${sessionScope.ResultClienteLista}">    
+                                    <tr>
+                                        <td><input type="radio" value="${cli.cpf}" name="selecionarCli" /></td>
+                                        <td>${cli.nome}</td>
+                                        <td>${cli.sobrenome}</td>
+                                        <td>${cli.cpf}</td>
+                                        <td>${cli.email}</td>
+                                        <td>${cli.celular}</td>
+                                        <td>${cli.genero}</td>
+                                        <td>${cli.dataNascimento}</td>
+                                        <td>${cli.estado}</td>
+                                        <td>${cli.cidade}</td>
+                                        <td>${cli.cep}</td>
+                                        <td>${cli.endereco}</td>
+                                    </tr>
+                                </c:forEach>
+                            </c:if>
+
+                            <c:if test="${sessionScope.buscar != null}">
+                                <tr>
+                                    <td><input type="radio" value="${sessionScope.ResultCli.cpf}" name="selecionarCli" /></td>
+                                    <td>${sessionScope.ResultCli.nome}</td>
+                                    <td>${sessionScope.ResultCli.sobrenome}</td>
+                                    <td>${sessionScope.ResultCli.cpf}</td>
+                                    <td>${sessionScope.ResultCli.email}</td>
+                                    <td>${sessionScope.ResultCli.celular}</td>
+                                    <td>${sessionScope.ResultCli.genero}</td>
+                                    <td>${sessionScope.ResultCli.dataNascimento}</td>
+                                    <td>${sessionScope.ResultCli.estado}</td>
+                                    <td>${sessionScope.ResultCli.cidade}</td>
+                                    <td>${sessionScope.ResultCli.cep}</td>
+                                    <td>${sessionScope.ResultCli.endereco}</td>
+                                    <td></td>
+                                </tr>
+
+                            </c:if>
 
 
-                    </table>
+                        </table>
 
-                    <div class="form-footer">
+                        <div class="form-footer">
 
-                        <button class="botoes">EXCLUIR<span class="fa fa-ban"></span></button>
-                        <button class="botoes"><a href="#bg">EDITAR</a><span class="fa fa-thumbs-o-up"></span></button>
+                            <button class="botoes">EXCLUIR<span class="fa fa-ban"></span></button>
+                            <button class="botoes"><a href="#bg">EDITAR</a><span class="fa fa-thumbs-o-up"></span></button>
 
-                    </div>
-
+                        </div>
+                    </form>
                 </div>
 
 

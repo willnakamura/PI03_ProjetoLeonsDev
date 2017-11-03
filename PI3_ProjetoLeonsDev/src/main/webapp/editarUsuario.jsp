@@ -85,19 +85,19 @@
 
                             <div class="form-body">
                                 <div class="row">
-                                    <input type="text" placeholder="Nome*" name="nome-usua" value="${requestScope.usuario.nome}">
-                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-usua" value="${requestScope.usuario.sobrenome}">
+                                    <input type="text" placeholder="Nome*" name="nome-usua" value="${sessionScope.usuario.nome}">
+                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-usua" value="${sessionScope.usuario.sobrenome}">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" name="cpf-usua"value="${requestScope.usuario.cpf}">
-                                     <input type="text" placeholder="Cargo" name="cargo-usua"value="${requestScope.usuario.cargo}">
+                                    <input type="number" placeholder="cpf*" name="cpf-usua"value="${sessionScope.usuario.cpf}">
+                                     <input type="text" placeholder="Cargo" name="cargo-usua"value="${sessionScope.usuario.cargo}">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Email*" name="email-usua"value="${requestScope.usuario.email}">
+                                    <input type="text" placeholder="Email*" name="email-usua"value="${sessionScope.usuario.email}">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Login*" name="login-usua"value="${requestScope.usuario.login}">
-                                     <input type="text" placeholder="Senha*" name="senha-usua"value="${requestScope.usuario.senha}"> 
+                                    <input type="text" placeholder="Login*" name="login-usua"value="${sessionScope.usuario.login}">
+                                     <input type="text" placeholder="Senha*" name="senha-usua"value="${sessionScope.usuario.senha}"> 
                                 </div>                              
                              
                             </div>

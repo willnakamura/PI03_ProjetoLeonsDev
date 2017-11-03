@@ -48,8 +48,8 @@
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
                                 <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li class="current"><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jsp">Usuarios</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuarios</a></li>
                                 <li><a href="index-3.html">BLOG</a></li>
                                 <li><a href="index-4.html">CONTACTS</a></li>
                             </ul>
@@ -74,40 +74,38 @@
 
                 <div class="grid_8">
 
-                        <div class="tituloCliente">
+                    <div class="tituloCliente">
                         <h5>EDITAR CLIENTE </h5>
-                       </div>
-                    
-                   <div class="box">
-                           
-                            
-                             <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente" method="post">
+                    </div>
+
+                    <div class="box">                           
+
+                        <form class="signup" action="${pageContext.request.contextPath}/EditarCliente" method="post">
                             <BR>
 
                             <div class="form-body">
                                 <div class="row">
-                                    <input type="text" placeholder="Nome*" name="nome-cli">
-                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-cli">
+                                    <input type="text" placeholder="Nome*" name="nome-cli" value="${sessionScope.cliente.nome}" >
+                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-cli" value="${sessionScope.cliente.sobrenome}">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" name="cpf-cli">
+                                    <input type="number" placeholder="cpf*" name="cpf-cli" value="${sessionScope.cliente.cpf}">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Email*" name="email-cli">
+                                    <input type="text" placeholder="Email*" name="email-cli" value="${sessionScope.cliente.email}">
                                 </div>
                                 <div class="row">
-                                    <input type="number" placeholder="()Celular*" name="celular-cli">       
+                                    <input type="number" placeholder="()Celular*" name="celular-cli" value="${sessionScope.cliente.celular}">       
                                 </div>
 
                                 <div class="row">
                                     <select class="sexo" name="sexo-cli">
-                                        <option value="SelecioneSexo">Selecione</option>
+                                        <option value="${sessionScope.cliente.genero}"></option>
                                         <option value="Masculino">Masculino</option>
-                                        <option value="Feminino">Feminino</option>                               
-
+                                        <option value="Feminino">Feminino</option>
                                     </select>
 
-                                    <input type="date" placeholder="" name="dtNasc-cli">   
+                                    <input type="date" placeholder="" name="dtNasc-cli" value="${sessionScope.cliente.dataNascimento}">   
 
                                 </div>
 
@@ -115,7 +113,7 @@
 
 
                                     <select class="estado" name="estado-cli">           
-                                        <option value="selecione">Estado</option>
+                                        <option value="${sessionScope.cliente.estado}"></option>
                                         <option value="AC">AC</option>
                                         <option value="AL">AL</option>  
                                         <option value="AP">AP</option> 
@@ -144,35 +142,33 @@
                                         <option value="SE">SE</option> 
                                         <option value="TO">TO</option>                                
                                     </select>
-                                    <input type="text" placeholder="Cidade*" name="cidade-cli">
+                                    <input type="text" placeholder="Cidade*" name="cidade-cli" value="${sessionScope.cliente.cidade}">
                                 </div>
 
                                 <div class="row">
-                                    <input type="number" placeholder="CEP*" name="cep-cli">
+                                    <input type="number" placeholder="CEP*" name="cep-cli" value="${sessionScope.cliente.cep}">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Endereço" name="end-cli">
+                                    <input type="text" placeholder="Endereço" name="end-cli" value="${sessionScope.cliente.estado}">
                                 </div>
 
                             </div>
 
                             <div class="form-footer">
 
-                                <button class="botoes"><a href="cliente-consultar.jsp">CANCELAR</a><span class="fa fa-ban"></span></button>
-                                
+                                <button class="botoes"><a href="${pageContext.request.contextPath}/consultarCliente.jsp">CANCELAR</a><span class="fa fa-ban"></span></button>
+
                                 <button class="botoes" type="submit">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
 
                             </div>
-                                </form>
-                         </div>  
+                        </form>
+                    </div>  
                 </div>
                 <div class="grid_3 prefix_1">
                     <h5 class="opcao">Opção </h5>
                     <ul class="list">
-                        <li><a href="#">Cadastrar</a></li>
-                        <li><a href="cliente-consultar.jsp">Consultar</a></li>
-
-
+                        <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cadastrar</a></li>
+                        <li><a href="${pageContext.request.contextPath}/consultarCliente.jsp">Consultar</a></li>
                     </ul>
                 </div>
 

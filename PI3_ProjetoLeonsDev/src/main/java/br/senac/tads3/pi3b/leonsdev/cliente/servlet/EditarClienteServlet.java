@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.senac.tads3.pi3b.leonsdev.usuario.servlet;
+package br.senac.tads3.pi3b.leonsdev.cliente.servlet;
 
+import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
+import br.senac.tads3.pi3b.leonsdev.cliente.classes.ServicoCliente;
+import br.senac.tads3.pi3b.leonsdev.exceptions.ClienteException;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
-import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionUsuario;
-import br.senac.tads3.pi3b.leonsdev.usuario.classes.ServicoUsuario;
-import br.senac.tads3.pi3b.leonsdev.usuario.classes.Usuario;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,35 +20,37 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Rafael
+ * @author Nakamura-PC
  */
-@WebServlet(name = "EditarUsuarioServlet", urlPatterns = {"/EditarUsuario"})
-public class EditarUsuarioServlet extends HttpServlet {
+@WebServlet(name = "EditarClienteServlet", urlPatterns = {"/EditarCliente"})
+public class EditarClienteServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession sessao = request.getSession();
-        Usuario usuario = new Usuario();
-        String cpf = request.getParameter("selecionaUsuario");
-        
-            try {
-                usuario = ServicoUsuario.Procurar(cpf);
-            } catch (DataExceptions | ExceptionUsuario e) {
-                e.getMessage();
-            }
-            
-        request.setAttribute("usuario", usuario);
-        
-       RequestDispatcher dispatcher = request.getRequestDispatcher("/editarUsuario.jsp");
-            dispatcher.forward(request, response);
+        Cliente cliente = new Cliente();
+        String cpfCli = request.getParameter("selecionarCli");
+
+        try {
+            cliente = ServicoCliente.procurarCliente(cpfCli);
+
+        } catch (DataExceptions | ClienteException e) {
+            e.getMessage();
+        }
+
+        sessao.setAttribute("cliente", cliente);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/editarCliente.jsp");
+        dispatcher.forward(request, response);
 
     }
+
 }
