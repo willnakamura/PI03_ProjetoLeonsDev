@@ -15,6 +15,15 @@ import java.util.Date;
  */
 public class Voos {
     private int id, distanciaMilhas, Aeronave_ID;
+    private double tarifa;
+
+    public double getTarifa() {
+        return tarifa;
+    }
+
+    public void setTarifa(double tarifa) {
+        this.tarifa = tarifa;
+    }
 
     public int getAeronave_ID() {
         return Aeronave_ID;
