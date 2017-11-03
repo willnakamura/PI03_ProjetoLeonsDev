@@ -80,24 +80,24 @@
                     
                     <div class="box">
                                                     
-                              <form class="signup" action="${pageContext.request.contextPath}/usuario-cliente">
+                        <form class="signup" action="${pageContext.request.contextPath}/EditarUsuario" method="post">
                             <BR>
 
                             <div class="form-body">
                                 <div class="row">
-                                    <input type="text" placeholder="Nome*" name="nome-usua">
-                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-usua">
+                                    <input type="text" placeholder="Nome*" name="nome-usua" value="${requestScope.usuario.nome}">
+                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-usua" value="${requestScope.usuario.sobrenome}">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" name="cpf-usua">
-                                     <input type="text" placeholder="Cargo" name="cargo-usua">
+                                    <input type="number" placeholder="cpf*" name="cpf-usua"value="${requestScope.usuario.cpf}">
+                                     <input type="text" placeholder="Cargo" name="cargo-usua"value="${requestScope.usuario.cargo}">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Email*" name="email-usua">
+                                    <input type="text" placeholder="Email*" name="email-usua"value="${requestScope.usuario.email}">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Login*" name="login-usua">
-                                     <input type="text" placeholder="Senha*" name="senha-usua"> 
+                                    <input type="text" placeholder="Login*" name="login-usua"value="${requestScope.usuario.login}">
+                                     <input type="text" placeholder="Senha*" name="senha-usua"value="${requestScope.usuario.senha}"> 
                                 </div>                              
                              
                             </div>
@@ -111,14 +111,6 @@
                             </div>
                         </form>
                          </div>  
-
-
-                    <div class="form-footer">
-                        <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
-                        <button class="botoes">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
-
-                    </div>
-
 
 
                 </div>
