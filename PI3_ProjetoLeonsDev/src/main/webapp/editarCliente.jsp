@@ -80,10 +80,14 @@
 
                     <div class="box">                           
 
-                        <form class="signup" action="${pageContext.request.contextPath}/EditarCliente" method="post">
+                        <form class="signup" action="${pageContext.request.contextPath}/AtualizarCliente" method="post">
                             <BR>
 
                             <div class="form-body">
+                                
+                                <div class="row">
+                                    <input style="visibility: hidden" type="text" placeholder="id*" name="id-cli" value="${sessionScope.cliente.id}">
+                                </div> 
                                 <div class="row">
                                     <input type="text" placeholder="Nome*" name="nome-cli" value="${sessionScope.cliente.nome}" >
                                     <input type="text" placeholder="Sobrenome*" name="sobreNome-cli" value="${sessionScope.cliente.sobrenome}">

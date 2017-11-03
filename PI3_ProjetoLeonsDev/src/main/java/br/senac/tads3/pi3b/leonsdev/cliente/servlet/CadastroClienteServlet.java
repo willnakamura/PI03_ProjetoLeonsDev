@@ -54,9 +54,9 @@ public class CadastroClienteServlet extends HttpServlet {
             // Remove o atributo da sessao para usuario nao ficar preso na tela de resultados
             sessao.removeAttribute("disponivel");
 
-            destino = "cliente-cadastro.jsp";
+            destino = "/cadastrarCliente.jsp";
         } else {
-            destino = "cliente-cadastro.jsp";
+            destino = "/cadastrarCliente.jsp";
         }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(destino);
@@ -118,7 +118,7 @@ public class CadastroClienteServlet extends HttpServlet {
         HttpSession sessao = request.getSession();
         sessao.setAttribute("cli", cli);
 
-        response.sendRedirect(request.getContextPath() + "/cliente-cadastrar.jsp");
+        response.sendRedirect(request.getContextPath() + "/cadastrarCliente.jsp");
     }
 
 }

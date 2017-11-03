@@ -10,7 +10,6 @@ import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionUsuario;
 import br.senac.tads3.pi3b.leonsdev.usuario.classes.ServicoUsuario;
 import br.senac.tads3.pi3b.leonsdev.usuario.classes.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
