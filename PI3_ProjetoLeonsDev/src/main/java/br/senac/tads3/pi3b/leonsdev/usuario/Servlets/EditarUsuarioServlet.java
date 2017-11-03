@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.xml.ws.Dispatch;
 
 /**
  *
@@ -40,20 +39,38 @@ public class EditarUsuarioServlet extends HttpServlet {
         Usuario usuario = new Usuario();
         String cpf = request.getParameter("selecionaUsuario");
 
-        if (cpf == null || cpf.trim().equals("")) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/consultarUsuario.jsp");
+        String btnEditar = request.getParameter("btnEditar");
+        String btnExcluir = request.getParameter("btnExluir");
+
+        if (btnEditar != null) {
+
+            if (cpf == null || cpf.trim().equals("")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/consultarUsuario.jsp");
                 dispatcher.forward(request, response);
-        } else {
+            } else {
+                try {
+                    usuario = ServicoUsuario.Procurar(cpf);
+                } catch (DataExceptions | ExceptionUsuario e) {
+                    request.setAttribute("erroEditar", e.getMessage());
+                }
+
+                sessao.setAttribute("usuario", usuario);
+
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/editarUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
+        } else if (btnExcluir != null) {
+            
             try {
                 usuario = ServicoUsuario.Procurar(cpf);
+                ServicoUsuario.ExcluirUsuario(usuario.getId());
             } catch (DataExceptions | ExceptionUsuario e) {
-                request.setAttribute("erroEditar", e.getMessage());
+                request.setAttribute("erroExcluir", e.getMessage());
+
             }
 
-            sessao.setAttribute("usuario", usuario);
+            response.sendRedirect(request.getContextPath() + "/consultarUsuario.jsp");
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/editarUsuario.jsp");
-                dispatcher.forward(request, response);
         }
     }
 }
