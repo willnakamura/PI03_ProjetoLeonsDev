@@ -83,6 +83,7 @@ public class DaoUsuarios {
             preparedStatement.setString(6, usuario.getLogin());
             preparedStatement.setString(7, usuario.getSenha());
             preparedStatement.setBoolean(8, usuario.getEnable());
+            preparedStatement.setInt(9, usuario.getId());
             //Executa o comando no banco de dados
             preparedStatement.execute();
         } finally {
@@ -160,6 +161,7 @@ public class DaoUsuarios {
                 }
                 
                 Usuario usuario = new Usuario();
+                usuario.setId(result.getInt("Usuario_ID"));
                 usuario.setCpf(result.getString("CPF"));
                 usuario.setCargo(result.getString("Cargo"));
                 usuario.setEmail(result.getString("Email"));
@@ -219,6 +221,7 @@ public class DaoUsuarios {
             //Itera por cada item do resultado
             while (result.next()) {
                 //Se a lista não foi inicializada, a inicializa
+                DadosUsuario.setId(result.getInt("Usuario_ID"));
                 DadosUsuario.setCpf(result.getString("CPF"));
                 DadosUsuario.setCargo(result.getString("Cargo"));
                 DadosUsuario.setEmail(result.getString("CPF"));

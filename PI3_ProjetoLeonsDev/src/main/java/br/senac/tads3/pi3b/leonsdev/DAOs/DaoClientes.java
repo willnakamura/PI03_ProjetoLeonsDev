@@ -20,9 +20,10 @@ import java.util.List;
  * @author Josué
  */
 public class DaoClientes {
+
     public static void inserir(Cliente cliente)
             throws SQLException, Exception {
-        
+
         String sql = "INSERT INTO Clientes (Nome, Sobrenome, CPF, "
                 + "Email, Celular, Data_Nascimento, Ativo, Estado,	"
                 + "Sexo, Cidade, CEP, Endereco) "
@@ -97,6 +98,7 @@ public class DaoClientes {
             preparedStatement.setString(10, cliente.getCidade());
             preparedStatement.setString(11, cliente.getCep());
             preparedStatement.setString(12, cliente.getEndereco());
+            preparedStatement.setInt(13, cliente.getId());
 
             //Executa o comando no banco de dados
             preparedStatement.execute();
@@ -144,11 +146,10 @@ public class DaoClientes {
         }
     }
 
- 
     public static List<Cliente> listar()
             throws SQLException, Exception {
         String sql = "SELECT * FROM Clientes WHERE (Ativo=?)";
- 
+
         List<Cliente> listaClientes = null;
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -173,8 +174,9 @@ public class DaoClientes {
                 if (listaClientes == null) {
                     listaClientes = new ArrayList<>();
                 }
-                
+
                 Cliente cliente = new Cliente();
+                cliente.setId(result.getInt("Cliente_ID"));
                 cliente.setCelular(result.getString("Celular"));
                 cliente.setCep(result.getString("CEP"));
                 cliente.setCidade(result.getString("Cidade"));
@@ -208,12 +210,11 @@ public class DaoClientes {
         return listaClientes;
     }
 
-    
     public static Cliente procurar(String valor)
             throws SQLException, Exception {
-    
+
         String sql = "SELECT * FROM Clientes WHERE CPF=? AND Ativo=? limit 1";
-    
+
         Cliente cliente = new Cliente();
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -236,7 +237,7 @@ public class DaoClientes {
 
             //Itera por cada item do resultado
             while (result.next()) {
-    
+                cliente.setId(result.getInt("Cliente_ID"));
                 cliente.setCelular(result.getString("Celular"));
                 cliente.setCep(result.getString("CEP"));
                 cliente.setCidade(result.getString("Cidade"));
@@ -263,13 +264,13 @@ public class DaoClientes {
                 connection.close();
             }
         }
-    
+
         return cliente;
     }
-    
+
     public static Cliente obter(Integer id)
             throws SQLException, Exception {
-        
+
         String sql = "SELECT * FROM Clientes WHERE (Cliente_ID=? AND Ativo=?)";
 
         //Conexão para abertura e fechamento
@@ -293,7 +294,7 @@ public class DaoClientes {
 
             //Verifica se há pelo menos um resultado
             if (result.next()) {
-        
+
                 Cliente cliente = new Cliente();
                 cliente.setCelular(result.getString("Celular"));
                 cliente.setCep(result.getString("CEP"));
