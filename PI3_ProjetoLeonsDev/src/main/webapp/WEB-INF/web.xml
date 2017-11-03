@@ -8,4 +8,6 @@
         <servlet-name>CadastroUsuarioServlet</servlet-name>
         <url-pattern>/cadastro-usuario</url-pattern>
     </servlet-mapping>
+
+    
 </web-app>

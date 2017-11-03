@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.senac.tads3.pi3b.leonsdev.usuario.Servlets;
+package br.senac.tads3.pi3b.leonsdev.usuario.servlet;
 
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
 import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionUsuario;
