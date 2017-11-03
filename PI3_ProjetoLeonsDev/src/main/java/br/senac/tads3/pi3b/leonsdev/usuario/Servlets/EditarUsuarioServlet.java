@@ -46,7 +46,7 @@ public class EditarUsuarioServlet extends HttpServlet {
                 e.getMessage();
             }
             
-        request.setAttribute("usuario", usuario);
+        sessao.setAttribute("usuario", usuario);
         
        RequestDispatcher dispatcher = request.getRequestDispatcher("/editarUsuario.jsp");
             dispatcher.forward(request, response);
