@@ -74,6 +74,7 @@ public class DaoServicos {
             preparedStatement.setInt(2, servico.getReserva().getIdReserva());
             preparedStatement.setString(3, servico.getExtraBag());
             preparedStatement.setBoolean(4, servico.getAtivo());
+            preparedStatement.setInt(5, servico.getIdServico());
             //Executa o comando no banco de dados
             preparedStatement.execute();
         } finally {

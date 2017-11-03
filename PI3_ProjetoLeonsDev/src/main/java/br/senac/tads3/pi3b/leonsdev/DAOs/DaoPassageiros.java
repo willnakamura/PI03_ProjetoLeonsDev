@@ -20,9 +20,10 @@ import java.util.List;
  * @author Josué
  */
 public class DaoPassageiros {
+
     public static void inserir(Passageiros passageiros)
             throws SQLException, Exception {
-        
+
         String sql = "INSERT INTO Passageiros (Primeiro_Nome, Ultimo_Nome, CPF, "
                 + "Dt_Nascimento, Email, Reserva_ID "
                 + "VALUES (?, ?, ?, ?, ?, ?)";
@@ -63,7 +64,7 @@ public class DaoPassageiros {
     public static void atualizar(Passageiros passageiros)
             throws SQLException, Exception {
         String sql = "UPDATE Passageiros SET Primeiro_Nome=?, Ultimo_Nome=?, CPF=?, "
-                + "Dt_Nascimento=?, Email=?, Reserva_ID=?	"                
+                + "Dt_Nascimento=?, Email=?, Reserva_ID=?	"
                 + "WHERE (Passageiro_ID=?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -83,6 +84,7 @@ public class DaoPassageiros {
             preparedStatement.setTimestamp(4, t);
             preparedStatement.setString(5, passageiros.getEmail());
             preparedStatement.setInt(6, passageiros.getReserva().getIdReserva());
+            preparedStatement.setInt(7, passageiros.getId());
             //Executa o comando no banco de dados
             preparedStatement.execute();
         } finally {
@@ -129,11 +131,10 @@ public class DaoPassageiros {
         }
     }
 
- 
     public static List<Passageiros> listar()
             throws SQLException, Exception {
         String sql = "SELECT * FROM Passageiros WHERE (Ativo=?)";
- 
+
         List<Passageiros> listaPassageiros = null;
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -158,8 +159,9 @@ public class DaoPassageiros {
                 if (listaPassageiros == null) {
                     listaPassageiros = new ArrayList<>();
                 }
-                
+
                 Passageiros passageiros = new Passageiros();
+                passageiros.setId(result.getInt("Passageiro_ID"));
                 passageiros.setCpf(result.getString("CPF"));
                 passageiros.setDataNascimento(result.getDate("Dt_Nascimento"));
                 passageiros.setEmail(result.getString("Email"));
@@ -188,12 +190,11 @@ public class DaoPassageiros {
         return listaPassageiros;
     }
 
-    
     public static List<Passageiros> procurar(String valor)
             throws SQLException, Exception {
-    
+
         String sql = "SELECT * FROM Passageiros WHERE CPF=? AND Ativo=?";
-    
+
         List<Passageiros> listaPassageiros = null;
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -220,8 +221,9 @@ public class DaoPassageiros {
                 if (listaPassageiros == null) {
                     listaPassageiros = new ArrayList<>();
                 }
-    
+
                 Passageiros passageiros = new Passageiros();
+                passageiros.setId(result.getInt("Passageiro_ID"));
                 passageiros.setCpf(result.getString("CPF"));
                 passageiros.setDataNascimento(result.getDate("Dt_Nascimento"));
                 passageiros.setEmail(result.getString("Email"));
@@ -245,13 +247,13 @@ public class DaoPassageiros {
                 connection.close();
             }
         }
-    
+
         return listaPassageiros;
     }
-    
+
     public static Passageiros obter(Integer id)
             throws SQLException, Exception {
-        
+
         String sql = "SELECT * FROM Passageiros WHERE (Passageiros_ID=? AND Ativo=?)";
 
         //Conexão para abertura e fechamento
@@ -275,8 +277,9 @@ public class DaoPassageiros {
 
             //Verifica se há pelo menos um resultado
             if (result.next()) {
-        
+
                 Passageiros passageiros = new Passageiros();
+                passageiros.setId(result.getInt("Passageiro_ID"));
                 passageiros.setCpf(result.getString("CPF"));
                 passageiros.setDataNascimento(result.getDate("Dt_Nascimento"));
                 passageiros.setEmail(result.getString("Email"));

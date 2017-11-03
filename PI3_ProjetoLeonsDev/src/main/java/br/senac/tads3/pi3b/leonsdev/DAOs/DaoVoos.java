@@ -25,7 +25,7 @@ public class DaoVoos {
         
         String sql = "INSERT INTO Voos (Nr_Voo,	Aeroporto_Partida, Aeroporto_Chegada, Data_Voo,	Operadora,"
                 + " Aeronave_ID, Distancia_Milhas, HoraPartida,	HoraChegada, Ativo "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -92,6 +92,7 @@ public class DaoVoos {
             preparedStatement.setTime(8, voos.getHoraPartida());
             preparedStatement.setTime(9, voos.getHoraChegada());
             preparedStatement.setBoolean(10, voos.getAtivo());
+            preparedStatement.setInt(11, voos.getId());
             //Executa o comando no banco de dados
             preparedStatement.execute();
         } finally {
@@ -169,6 +170,7 @@ public class DaoVoos {
                 }
                 
                 Voos voos = new Voos();
+                voos.setId(result.getInt("Voo_ID"));
                 voos.setAeronave_ID(result.getInt("Aeronave_ID"));
                 voos.setAeroportoChegada(result.getString("Aeroporto_Chegada"));
                 voos.setAeroportoPartida(result.getString("Aeroporto_Partida"));
@@ -235,6 +237,7 @@ public class DaoVoos {
                 }
     
                 Voos voos = new Voos();
+                voos.setId(result.getInt("Voo_ID"));
                 voos.setAeronave_ID(result.getInt("Aeronave_ID"));
                 voos.setAeroportoChegada(result.getString("Aeroporto_Chegada"));
                 voos.setAeroportoPartida(result.getString("Aeroporto_Partida"));
@@ -294,6 +297,7 @@ public class DaoVoos {
             if (result.next()) {
         
                 Voos voos = new Voos();
+                voos.setId(result.getInt("Voo_ID"));
                 voos.setAeronave_ID(result.getInt("Aeronave_ID"));
                 voos.setAeroportoChegada(result.getString("Aeroporto_Chegada"));
                 voos.setAeroportoPartida(result.getString("Aeroporto_Partida"));

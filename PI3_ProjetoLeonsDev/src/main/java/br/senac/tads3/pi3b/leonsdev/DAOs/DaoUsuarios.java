@@ -11,7 +11,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +22,7 @@ public class DaoUsuarios {
     public static void inserir(Usuario usuario)
             throws SQLException, Exception {
         
-        String sql = "INSERT INTO Usuarios (Nome, Sobrenome, CPF, Cargo, Email, Login, Senha, Ativo ) "
+        String sql = "INSERT INTO Usuarios (Nome, Sobrenome, CPF, Cargo, Email, Login, Senha, Ativo) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -62,7 +61,7 @@ public class DaoUsuarios {
 
     public static void atualizar(Usuario usuario)
             throws SQLException, Exception {
-        String sql = "UPDATE Usuarios SET Nome=?, Sobrenome=?, CPF=?, Cargo=?, Email=?, Login=?, Senha=?, Ativo=?) "            
+        String sql = "UPDATE Usuarios SET Nome=?, Sobrenome=?, CPF=?, Cargo=?, Email=?, Login=?, Senha=?, Ativo=? "            
                 + "WHERE (Usuario_ID=?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
