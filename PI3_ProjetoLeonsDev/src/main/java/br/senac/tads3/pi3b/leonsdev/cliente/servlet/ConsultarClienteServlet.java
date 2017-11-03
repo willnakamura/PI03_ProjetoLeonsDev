@@ -38,6 +38,8 @@ public class ConsultarClienteServlet extends HttpServlet {
 
         String cpfCli = request.getParameter("buscaCliente");
         HttpSession sessao = request.getSession();
+        sessao.setAttribute("buscar", cpfCli);
+        
         Cliente cli = new Cliente();
 
         try {

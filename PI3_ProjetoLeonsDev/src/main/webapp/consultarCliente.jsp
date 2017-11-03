@@ -102,48 +102,43 @@
                             <th>Endereço</th>
                         </tr>    
 
-                        <c:choose>
-                            <c:when test="${empty cpfCli}">
-                                <c:forEach var="cli" items="${sessionScope.ResultClienteLista}">    
-                                    <tr>
-                                        <td><input type="radio" value="${cli.cpf}" name="selecionarCli" /></td>
-                                        <td>${cli.nome}</td>
-                                        <td>${cli.sobrenome}</td>
-                                        <td>${cli.cpf}</td>
-                                        <td>${cli.email}</td>
-                                        <td>${cli.celular}</td>
-                                        <td>${cli.genero}</td>
-                                        <td>${cli.dataNascimento}</td>
-                                        <td>${cli.estado}</td>
-                                        <td>${cli.cidade}</td>
-                                        <td>${cli.cep}</td>
-                                        <td>${cli.endereco}</td>
-                                        <td></td>
-                                    </tr>
-                                </c:forEach>
-                            </c:when>
+                        <c:if test="${empty sessionScope.buscar}">
+                            <c:forEach var="cli" items="${sessionScope.ResultClienteLista}">    
+                                <tr>
+                                    <td><input type="radio" value="${cli.cpf}" name="selecionarCli" /></td>
+                                    <td>${cli.nome}</td>
+                                    <td>${cli.sobrenome}</td>
+                                    <td>${cli.cpf}</td>
+                                    <td>${cli.email}</td>
+                                    <td>${cli.celular}</td>
+                                    <td>${cli.genero}</td>
+                                    <td>${cli.dataNascimento}</td>
+                                    <td>${cli.estado}</td>
+                                    <td>${cli.cidade}</td>
+                                    <td>${cli.cep}</td>
+                                    <td>${cli.endereco}</td>
+                                </tr>
+                            </c:forEach>
+                        </c:if>
 
-                            <c:otherwise>
-                                <c:forEach var="cli" items="${sessionScope.ResultCli}">    
-                                    <tr>
-                                        <td><input type="radio" value="${cli.cpf}" name="selecionarCli" /></td>
-                                        <td>${cli.nome}</td>
-                                        <td>${cli.sobrenome}</td>
-                                        <td>${cli.cpf}</td>
-                                        <td>${cli.email}</td>
-                                        <td>${cli.celular}</td>
-                                        <td>${cli.genero}</td>
-                                        <td>${cli.dataNascimento}</td>
-                                        <td>${cli.estado}</td>
-                                        <td>${cli.cidade}</td>
-                                        <td>${cli.cep}</td>
-                                        <td>${cli.endereco}</td>
-                                        <td></td>
-                                    </tr>
-                                </c:forEach>
-                            </c:otherwise>
+                        <c:if test="${sessionScope.buscar != null}">
+                            <tr>
+                                <td><input type="radio" value="${sessionScope.ResultCli.cpf}" name="selecionarCli" /></td>
+                                <td>${sessionScope.ResultCli.nome}</td>
+                                <td>${sessionScope.ResultCli.sobrenome}</td>
+                                <td>${sessionScope.ResultCli.cpf}</td>
+                                <td>${sessionScope.ResultCli.email}</td>
+                                <td>${sessionScope.ResultCli.celular}</td>
+                                <td>${sessionScope.ResultCli.genero}</td>
+                                <td>${sessionScope.ResultCli.dataNascimento}</td>
+                                <td>${sessionScope.ResultCli.estado}</td>
+                                <td>${sessionScope.ResultCli.cidade}</td>
+                                <td>${sessionScope.ResultCli.cep}</td>
+                                <td>${sessionScope.ResultCli.endereco}</td>
+                                <td></td>
+                            </tr>
 
-                        </c:choose>
+                        </c:if>
 
 
                     </table>
