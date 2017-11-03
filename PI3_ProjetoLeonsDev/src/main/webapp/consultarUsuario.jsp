@@ -85,7 +85,7 @@
                     <div id="bg"> </div>
                     <div class="box">
 
-                        <form class="signup" action="${pageContext.request.contextPath}/EditarUsuario">
+                        <form class="signup" action="${pageContext.request.contextPath}/EditarUsuario" method="post">
                             <BR>
 
                             <table>
@@ -132,9 +132,10 @@
                             </table>
 
                             <div class="form-footer">
-                                <button class="botoes">EXCLUIR<span class="fa fa-ban"></span></button>
-                                <button class="botoes"><a href="#bg">EDITAR</a><span class="fa fa-thumbs-o-up"></span></button>
 
+                                <button class="botoes">EXCLUIR<span class="fa fa-ban"></span></button>
+
+                                <button class="botoes"><a href="#bg">EDITAR</a><span class="fa fa-thumbs-o-up"></span></button>
                             </div>
                         </form>
                     </div>  

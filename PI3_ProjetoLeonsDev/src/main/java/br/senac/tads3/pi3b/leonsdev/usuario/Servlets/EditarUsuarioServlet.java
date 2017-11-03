@@ -26,32 +26,30 @@ import javax.xml.ws.Dispatch;
 @WebServlet(name = "EditarUsuarioServlet", urlPatterns = {"/EditarUsuario"})
 public class EditarUsuarioServlet extends HttpServlet {
 
-
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+         
     }
 
-    
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         HttpSession sessao = request.getSession();
         Usuario usuario = new Usuario();
-        //add parametro qdo apertar botao editar....
-        String cpf = request.getParameter("");
+        String cpf = request.getParameter("selecionaUsuario");
         
-        try {
-           usuario = ServicoUsuario.Procurar(cpf);
-        } catch (DataExceptions | ExceptionUsuario e) {
-            e.getMessage();
-        }
+            try {
+                usuario = ServicoUsuario.Procurar(cpf);
+            } catch (DataExceptions | ExceptionUsuario e) {
+                e.getMessage();
+            }
+            
+        request.setAttribute("usuario", usuario);
         
-        request.setAttribute("usuarioEditar", usuario);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("consultarUsuario.jsp");
+       RequestDispatcher dispatcher = request.getRequestDispatcher("/editarUsuario.jsp");
             dispatcher.forward(request, response);
+
     }
 }
