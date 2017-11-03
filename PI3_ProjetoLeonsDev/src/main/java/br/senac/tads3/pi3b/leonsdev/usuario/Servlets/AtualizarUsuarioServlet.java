@@ -39,6 +39,9 @@ public class AtualizarUsuarioServlet extends HttpServlet {
         HttpSession sessao = request.getSession();
         
 
+        String id = request.getParameter("id-usua");
+        int id_vdd = Integer.parseInt(id);
+        
         String nome = request.getParameter("nome-usua");
         String sobrenome = request.getParameter("sobrenome-usua");
         String cpf = request.getParameter("cpf-usua");
@@ -47,7 +50,7 @@ public class AtualizarUsuarioServlet extends HttpServlet {
         String login = request.getParameter("login-usua");
         String senha = request.getParameter("senha-usua");
         
-        Usuario usu = new Usuario(nome, sobrenome, cpf, email, cargo, login, senha, true);
+        Usuario usu = new Usuario(id_vdd, nome, sobrenome, cpf, email, cargo, login, senha, true);
         
         try {
             ServicoUsuario.AtualizarUsuario(usu);
