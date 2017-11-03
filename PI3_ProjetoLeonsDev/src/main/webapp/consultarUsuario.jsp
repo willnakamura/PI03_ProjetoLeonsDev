@@ -92,6 +92,7 @@
 
                                 <tr>
                                     <th></th>
+                                    
                                     <th>Nome</th>
                                     <th>Sobrenome</th>
                                     <th>cpf</th>
@@ -99,6 +100,7 @@
                                     <th>Cargo</th>
                                     <th>Login</th>    
                                     <th>senha</th>
+                                    <th style="visibility: hidden">ID</th>
                                 </tr>
 
 
@@ -106,6 +108,7 @@
                                     <c:forEach items="${sessionScope.ResultUsuarioLista}" var="usu">
                                         <tr>
                                             <td><input type="radio" value="${usu.cpf}" name="selecionaUsuario"></td>
+                                            
                                             <td>${usu.nome}</td>
                                             <td>${usu.sobrenome}</td>
                                             <td>${usu.cpf}</td>
@@ -113,13 +116,16 @@
                                             <td>${usu.cargo}</td>
                                             <td>${usu.login}</td>    
                                             <td>${usu.senha}</td>
+                                            <td style="visibility: hidden">${usu.id}</td>
                                         </tr>
                                     </c:forEach>
                                 </c:if>
                                 <c:if test="${sessionScope.buscar != null}" >
 
                                     <tr>
+                                       
                                         <td><input type="radio" value="${sessionScope.ResultUsuario.cpf}" name="selecionaUsuario"></td>
+                                        
                                         <td>${sessionScope.ResultUsuario.nome}</td>
                                         <td>${sessionScope.ResultUsuario.sobrenome}</td>
                                         <td>${sessionScope.ResultUsuario.cpf}</td>
@@ -127,6 +133,7 @@
                                         <td>${sessionScope.ResultUsuario.cargo}</td>
                                         <td>${sessionScope.ResultUsuario.login}</td>    
                                         <td>${sessionScope.ResultUsuario.senha}</td>
+                                         <td style="visibility: hidden">${sessionScope.ResultUsuario.id}</td>
                                     </tr>
                                 </c:if>
                             </table>
@@ -135,7 +142,7 @@
 
                                 <button class="botoes">EXCLUIR<span class="fa fa-ban"></span></button>
 
-                                <button class="botoes"><a href="#bg">EDITAR</a><span class="fa fa-thumbs-o-up"></span></button>
+                                <button class="botoes">EDITAR<span class="fa fa-thumbs-o-up"></span></button>
                             </div>
                         </form>
                     </div>  
