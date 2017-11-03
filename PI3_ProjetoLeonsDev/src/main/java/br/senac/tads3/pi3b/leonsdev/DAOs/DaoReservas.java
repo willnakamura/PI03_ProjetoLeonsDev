@@ -87,6 +87,7 @@ public class DaoReservas {
             preparedStatement.setInt(6, reserva.getCliente().getId());
             preparedStatement.setBoolean(7, true);
             preparedStatement.setString(8, reserva.getTicket());
+            preparedStatement.setInt(9, reserva.getIdReserva());
             //Executa o comando no banco de dados
             preparedStatement.execute();
         } finally {

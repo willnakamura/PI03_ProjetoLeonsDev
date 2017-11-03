@@ -23,7 +23,7 @@ public class DaoAeronaves {
             throws SQLException, Exception {
         
         String sql = "INSERT INTO Aeronaves (Fabricante, Modelo, Total_Assentos, Ativo"
-                + "VALUES (?, ?, ?)";
+                + "VALUES (?, ?, ?, ?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -57,7 +57,7 @@ public class DaoAeronaves {
 
     public static void atualizar(Aeronave aeronave)
             throws SQLException, Exception {
-        String sql = "UPDATE Aeronaves SET Fabricante=?, Modelo=?, Total_Assentos, Ativo"
+        String sql = "UPDATE Aeronaves SET Fabricante=?, Modelo=?, Total_Assentos"
                 + "WHERE (Aeronave_ID=?)";
         //Conexão para abertura e fechamento
         Connection connection = null;

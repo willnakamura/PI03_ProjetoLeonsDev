@@ -296,6 +296,7 @@ public class DaoClientes {
             if (result.next()) {
 
                 Cliente cliente = new Cliente();
+                cliente.setId(result.getInt("Cliente_ID"));
                 cliente.setCelular(result.getString("Celular"));
                 cliente.setCep(result.getString("CEP"));
                 cliente.setCidade(result.getString("Cidade"));

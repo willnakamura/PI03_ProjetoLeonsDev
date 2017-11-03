@@ -77,39 +77,46 @@
                     <div class="tituloCliente">
                         <h5 class="opcao">EDITAR USUARIO </h5>
                     </div>
-
+                    
                     <div class="box">
-
+                                                    
                         <form class="signup" action="${pageContext.request.contextPath}/AtualizarUsuario" method="post">
                             <BR>
 
                             <div class="form-body">
+                                <div class="row">
+                                    <input style="visibility: hidden" type="text" placeholder="id*" name="id-usua" value="${sessionScope.usuario.id}">
+                                </div>  
+                                
                                 <div class="row">
                                     <input type="text" placeholder="Nome*" name="nome-usua" value="${sessionScope.usuario.nome}">
                                     <input type="text" placeholder="Sobrenome*" name="sobrenome-usua" value="${sessionScope.usuario.sobrenome}">
                                 </div>  
                                 <div class="row">
                                     <input type="number" placeholder="cpf*" name="cpf-usua"value="${sessionScope.usuario.cpf}">
-                                    <input type="text" placeholder="Cargo*" name="cargo-usua"value="${sessionScope.usuario.cargo}">
+                                     <input type="text" placeholder="Cargo" name="cargo-usua"value="${sessionScope.usuario.cargo}">
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Email*" name="email-usua"value="${sessionScope.usuario.email}">
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Login*" name="login-usua"value="${sessionScope.usuario.login}">
-                                    <input type="text" placeholder="Senha*" name="senha-usua"value="${sessionScope.usuario.senha}"> 
+                                     <input type="text" placeholder="Senha*" name="senha-usua"value="${sessionScope.usuario.senha}"> 
                                 </div>                              
-
+                             
                             </div>
-
-                            <div class="form-footer">
+                            
+                              <div class="form-footer">
 
                                 <button class="botoes"><a href="${pageContext.request.contextPath}/consultarUsuario.jsp">CANCELAR</a><span class="fa fa-ban"></span></button>
 
                                 <button class="botoes" type="submit">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
+
                             </div>
                         </form>
-                    </div>  
+                         </div>  
+
+
                 </div>
 
 
