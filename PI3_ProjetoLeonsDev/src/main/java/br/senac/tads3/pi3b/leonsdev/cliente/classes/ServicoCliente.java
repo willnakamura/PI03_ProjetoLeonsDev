@@ -22,7 +22,6 @@ public class ServicoCliente {
         try {
             DaoClientes.inserir(cli);
         } catch (Exception e) {
-            e.printStackTrace();
             if (e.getMessage().contains("Incorrect datetime value")) {
                 throw new DataExceptions("Data de nascimento inválida");
             } else if (e.getMessage().contains("Duplicate entry")) {
@@ -50,7 +49,6 @@ public class ServicoCliente {
             return DaoClientes.procurar(cpf);
 
         } catch (Exception e) {
-            e.printStackTrace();
             throw new DataExceptions("Erro na fonte de dados", e);
         }
     }
@@ -61,7 +59,6 @@ public class ServicoCliente {
             return DaoClientes.listar();
             
         } catch (Exception e) {
-            e.printStackTrace();
             throw new DataExceptions("Erro na fonte de dados", e);
         }
     }

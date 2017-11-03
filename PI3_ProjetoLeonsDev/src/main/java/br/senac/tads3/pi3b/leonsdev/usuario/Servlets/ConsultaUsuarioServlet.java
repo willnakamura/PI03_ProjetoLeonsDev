@@ -62,5 +62,6 @@ public class ConsultaUsuarioServlet extends HttpServlet {
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("/consultarUsuario.jsp");
             dispatcher.forward(request, response);
+            
     }
 }
