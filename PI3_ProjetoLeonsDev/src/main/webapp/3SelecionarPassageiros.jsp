@@ -91,25 +91,34 @@
                                     <input type="number" placeholder="cpf*" name="cpf-pass-selecionar">
                                     <input type="date" placeholder="" name="dtNasc-pass-selecionar"> 
                                 </div>
-                               
+
                                 <div class="row">
-                                   <input type="text" placeholder="Email*" name="email-pass-selecionar">     
+                                    <input type="text" placeholder="Email*" name="email-pass-selecionar">     
+                                </div>
+                                
+                                <div class="row">
+                                    <select class="assentos" name="assentosPassageiro">           
+                                        <option value="selecione">Selecione seu assento!</option>
+                                    </select>
                                 </div>
 
+                            </div>
+
+                            <div class="imagem">
+                                <img id="imagemMapa" src="${pageContext.request.contextPath}/images/mapa.png" >
                             </div>
 
                             <div class="form-footer">
 
                                 <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
                                 <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
-                                <button class="botoes" type="submit">PULAR<span class="fa fa-thumbs-o-up"></span></button>
 
                             </div> 
                         </form>
 
                     </div>
                 </div>
-                
+
 
             </div>
 
