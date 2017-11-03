@@ -100,31 +100,53 @@
                             <th>Cidade</th>
                             <th>Cep</th>
                             <th>Endereço</th>
-                        </tr>
+                        </tr>    
 
-                        <c:forEach var="cli" items="${sessionScope.ResultClienteLista}">    
-                            <tr>
-                                <td><input type="radio" value="${cli.cpf}" name="selecionarCli" /></td>
-                                <td>${cli.nome}</td>
-                                <td>${cli.sobrenome}</td>
-                                <td>${cli.cpf}</td>
-                                <td>${cli.email}</td>
-                                <td>${cli.celular}</td>
-                                <td>${cli.genero}</td>
-                                <td>${cli.dataNascimento}</td>
-                                <td>${cli.estado}</td>
-                                <td>${cli.cidade}</td>
-                                <td>${cli.cep}</td>
-                                <td>${cli.endereco}</td>
-                                <td></td>
-                            </tr>
-                            
-                        </c:forEach>
+                        <c:choose>
+                            <c:when test="${empty cpfCli}">
+                                <c:forEach var="cli" items="${sessionScope.ResultClienteLista}">    
+                                    <tr>
+                                        <td><input type="radio" value="${cli.cpf}" name="selecionarCli" /></td>
+                                        <td>${cli.nome}</td>
+                                        <td>${cli.sobrenome}</td>
+                                        <td>${cli.cpf}</td>
+                                        <td>${cli.email}</td>
+                                        <td>${cli.celular}</td>
+                                        <td>${cli.genero}</td>
+                                        <td>${cli.dataNascimento}</td>
+                                        <td>${cli.estado}</td>
+                                        <td>${cli.cidade}</td>
+                                        <td>${cli.cep}</td>
+                                        <td>${cli.endereco}</td>
+                                        <td></td>
+                                    </tr>
+                                </c:forEach>
+                            </c:when>
+
+                            <c:otherwise>
+                                <c:forEach var="cli" items="${sessionScope.ResultCli}">    
+                                    <tr>
+                                        <td><input type="radio" value="${cli.cpf}" name="selecionarCli" /></td>
+                                        <td>${cli.nome}</td>
+                                        <td>${cli.sobrenome}</td>
+                                        <td>${cli.cpf}</td>
+                                        <td>${cli.email}</td>
+                                        <td>${cli.celular}</td>
+                                        <td>${cli.genero}</td>
+                                        <td>${cli.dataNascimento}</td>
+                                        <td>${cli.estado}</td>
+                                        <td>${cli.cidade}</td>
+                                        <td>${cli.cep}</td>
+                                        <td>${cli.endereco}</td>
+                                        <td></td>
+                                    </tr>
+                                </c:forEach>
+                            </c:otherwise>
+
+                        </c:choose>
+
 
                     </table>
-
-
-
 
                     <div class="form-footer">
 
