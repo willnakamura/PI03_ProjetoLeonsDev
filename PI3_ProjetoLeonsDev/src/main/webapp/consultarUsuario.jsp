@@ -136,10 +136,10 @@
 
                             <div class="form-footer">
                                 <button class="botoes">EDITAR<span class="fa fa-thumbs-o-up"></span></button>
-                                
-                                    <form class="excluirUsu" action="${pageContext.request.contextPath}/ExcluirUsuario" method="post">
-                                        <button class="botoes" type="submit" >EXCLUIR<span class="fa fa-ban"></span></button>
-                                    </form>
+
+                                <form class="excluirUsu" action="${pageContext.request.contextPath}/ExcluirUsuario" method="post">
+                                    <button class="botoes" type="submit" >EXCLUIR<span class="fa fa-ban"></span></button>
+                                </form>
                             </div>
                         </form>
                     </div>  
