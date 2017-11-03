@@ -41,6 +41,8 @@ public class ConsultaUsuarioServlet extends HttpServlet {
         
         HttpSession sessao = request.getSession();
         String busca = request.getParameter("buscaUsuario");
+        sessao.setAttribute("buscar", busca);
+        
         Usuario usuario = new Usuario();
         
         

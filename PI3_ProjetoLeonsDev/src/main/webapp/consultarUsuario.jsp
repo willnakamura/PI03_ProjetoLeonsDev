@@ -100,38 +100,35 @@
                                     <th>Login</th>    
                                     <th>senha</th>
                                 </tr>
-                                <c:choose>
-                                    <c:when test="${empty requestScope.buscaUsuario}">
-                                        <c:forEach items="${sessionScope.ResultUsuarioLista}" var="usu">
-                                            <tr>
-                                                <td><input type="radio" value="${usu.cpf}" name="selecionaUsuario"></td>
-                                                <td>${usu.nome}</td>
-                                                <td>${usu.sobrenome}</td>
-                                                <td>${usu.cpf}</td>
-                                                <td>${usu.email}</td>
-                                                <td>${usu.cargo}</td>
-                                                <td>${usu.login}</td>    
-                                                <td>${usu.senha}</td>
-                                            </tr>
-                                        </c:forEach>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <c:forEach items="${sessionScope.ResultUsuario}" var="usu">
-                                            <tr>
-                                                <td><input type="radio" value="${usu.cpf}" name="selecionaUsuario"></td>
-                                                <td>${usu.nome}</td>
-                                                <td>${usu.sobrenome}</td>
-                                                <td>${usu.cpf}</td>
-                                                <td>${usu.email}</td>
-                                                <td>${usu.cargo}</td>
-                                                <td>${usu.login}</td>    
-                                                <td>${usu.senha}</td>
-                                            </tr>
-                                        </c:forEach>
-                                    </c:otherwise>
-                                </c:choose>S
 
 
+                                <c:if test="${empty sessionScope.buscar}">
+                                    <c:forEach items="${sessionScope.ResultUsuarioLista}" var="usu">
+                                        <tr>
+                                            <td><input type="radio" value="${usu.cpf}" name="selecionaUsuario"></td>
+                                            <td>${usu.nome}</td>
+                                            <td>${usu.sobrenome}</td>
+                                            <td>${usu.cpf}</td>
+                                            <td>${usu.email}</td>
+                                            <td>${usu.cargo}</td>
+                                            <td>${usu.login}</td>    
+                                            <td>${usu.senha}</td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:if>
+                                <c:if test="${sessionScope.buscar != null}" >
+
+                                    <tr>
+                                        <td><input type="radio" value="${sessionScope.ResultUsuario.cpf}" name="selecionaUsuario"></td>
+                                        <td>${sessionScope.ResultUsuario.nome}</td>
+                                        <td>${sessionScope.ResultUsuario.sobrenome}</td>
+                                        <td>${sessionScope.ResultUsuario.cpf}</td>
+                                        <td>${sessionScope.ResultUsuario.email}</td>
+                                        <td>${sessionScope.ResultUsuario.cargo}</td>
+                                        <td>${sessionScope.ResultUsuario.login}</td>    
+                                        <td>${sessionScope.ResultUsuario.senha}</td>
+                                    </tr>
+                                </c:if>
                             </table>
 
                             <div class="form-footer">
