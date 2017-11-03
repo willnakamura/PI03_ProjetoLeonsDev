@@ -39,18 +39,34 @@ public class EditarClienteServlet extends HttpServlet {
         Cliente cliente = new Cliente();
         String cpfCli = request.getParameter("selecionarCli");
 
-        try {
-            cliente = ServicoCliente.procurarCliente(cpfCli);
+        String btnEditar = request.getParameter("btnEditar");
+        String btnExcluir = request.getParameter("btnExluir");
 
-        } catch (DataExceptions | ClienteException e) {
-            e.getMessage();
+        if (btnEditar != null) {
+            try {
+                cliente = ServicoCliente.procurarCliente(cpfCli);
+
+            } catch (DataExceptions | ClienteException e) {
+                e.getMessage();
+            }
+
+            sessao.setAttribute("cliente", cliente);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/editarCliente.jsp");
+            dispatcher.forward(request, response);
+
+        } else if (btnExcluir != null) {
+            
+            try {
+                cliente = ServicoCliente.procurarCliente(cpfCli);
+                ServicoCliente.excluirCliente(cliente.getId());
+            } catch (DataExceptions | ClienteException e) {
+                request.setAttribute("erroExcluir", e.getMessage());
+
+            }
+
+            response.sendRedirect(request.getContextPath() + "/consultarCliente.jsp");
         }
-
-        sessao.setAttribute("cliente", cliente);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/editarCliente.jsp");
-        dispatcher.forward(request, response);
-
     }
 
 }

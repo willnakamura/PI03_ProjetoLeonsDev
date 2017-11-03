@@ -135,15 +135,13 @@
                             </table>
 
                             <div class="form-footer">
-                                <button class="botoes">EDITAR<span class="fa fa-thumbs-o-up"></span></button>
-                                
-                                    <form class="excluirUsu" action="${pageContext.request.contextPath}/ExcluirUsuario" method="post">
-                                        <button class="botoes" type="submit" >EXCLUIR<span class="fa fa-ban"></span></button>
-                                    </form>
+                                <button class="botoes" name="btnEditar" value="editarUsu">EDITAR<span class="fa fa-thumbs-o-up"></span></button>
+                                <button class="botoes" name="btnExluir" value="exluirUsu">EXCLUIR<span class="fa fa-ban"></span></button>
                             </div>
                         </form>
-                    </div>  
+                    </div>
                 </div>
+
 
                 <div class="grid_3 prefix_1">
 
