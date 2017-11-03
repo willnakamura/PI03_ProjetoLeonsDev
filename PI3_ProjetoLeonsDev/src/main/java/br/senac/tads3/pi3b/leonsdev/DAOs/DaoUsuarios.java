@@ -22,8 +22,8 @@ public class DaoUsuarios {
     public static void inserir(Usuario usuario)
             throws SQLException, Exception {
         
-        String sql = "INSERT INTO Usuarios (Nome, Sobrenome, CPF, Cargo, Email, Login, Senha, Ativo) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Usuarios (Nome, Sobrenome, CPF, Cargo, Email, Login, Senha, Ativo, Admissao) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -43,6 +43,7 @@ public class DaoUsuarios {
             preparedStatement.setString(6, usuario.getLogin());
             preparedStatement.setString(7, usuario.getSenha());
             preparedStatement.setBoolean(8, true);
+            preparedStatement.setDate(9, new java.sql.Date(System.currentTimeMillis()));
 
             //Executa o comando no banco de dados
             preparedStatement.execute();
@@ -61,7 +62,7 @@ public class DaoUsuarios {
 
     public static void atualizar(Usuario usuario)
             throws SQLException, Exception {
-        String sql = "UPDATE Usuarios SET Nome=?, Sobrenome=?, CPF=?, Cargo=?, Email=?, Login=?, Senha=?, Ativo=? "            
+        String sql = "UPDATE Usuarios SET Nome=?, Sobrenome=?, CPF=?, Cargo=?, Email=?, Login=?, Senha=?, Ativo=?, Atualizacao=? "            
                 + "WHERE (Usuario_ID=?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -82,7 +83,8 @@ public class DaoUsuarios {
             preparedStatement.setString(6, usuario.getLogin());
             preparedStatement.setString(7, usuario.getSenha());
             preparedStatement.setBoolean(8, usuario.getEnable());
-            preparedStatement.setInt(9, usuario.getId());
+            preparedStatement.setDate(9, new java.sql.Date(System.currentTimeMillis()));
+            preparedStatement.setInt(10, usuario.getId());
             //Executa o comando no banco de dados
             preparedStatement.execute();
         } finally {
