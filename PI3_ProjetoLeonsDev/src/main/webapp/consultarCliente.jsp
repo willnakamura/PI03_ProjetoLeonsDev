@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="grid_12">
-                   <div id="logo">
+                    <div id="logo">
                         <a  href="index.html">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
@@ -102,7 +102,8 @@
                                 <th>Cidade</th>
                                 <th>Cep</th>
                                 <th>Endereço</th>
-                                <th></th>
+                                <th style="visibility: hidden">ID</th>
+
                             </tr>    
 
                             <c:if test="${empty sessionScope.buscar}">
@@ -120,6 +121,7 @@
                                         <td>${cli.cidade}</td>
                                         <td>${cli.cep}</td>
                                         <td>${cli.endereco}</td>
+                                        <td style="visibility: hidden">${cli.id}</td>
                                     </tr>
                                 </c:forEach>
                             </c:if>
@@ -138,6 +140,7 @@
                                     <td>${sessionScope.ResultCli.cidade}</td>
                                     <td>${sessionScope.ResultCli.cep}</td>
                                     <td>${sessionScope.ResultCli.endereco}</td>
+                                    <td style="visibility: hidden">${sessionScope.ResultCli.id}</td>
                                 </tr>
                             </c:if>
 
@@ -146,7 +149,7 @@
 
                         <div class="form-footer">
                             <button class="botoes" name="btnExluir" value="exluirCli">EXCLUIR<span class="fa fa-ban"></span></button>
-                            <button class="botoes" name="btnEdiatr" value="editarCli">EDITAR<span class="fa fa-thumbs-o-up"></span></button>
+                            <button class="botoes" name="btnEditar" value="editarCli">EDITAR<span class="fa fa-thumbs-o-up"></span></button>
                         </div>
                     </form>
                 </div>

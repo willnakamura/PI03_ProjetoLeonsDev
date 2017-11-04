@@ -33,10 +33,10 @@ public class ValidadorCliente {
         
         //sobrenome
         if (cliente.getSobrenome()== null || "".equals(cliente.getSobrenome())) {
-            throw new ClienteException("Favor informar um sobrenome do cliente.");
+            throw new ClienteException("Favor informar o sobrenome do cliente.");
         }
         if (cliente.getSobrenome().length() > 45) {
-            throw new ClienteException("Nome inválido.");
+            throw new ClienteException("Sobrenome inválido.");
         }
         
         // Genero
