@@ -10,6 +10,7 @@ import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionUsuario;
 import br.senac.tads3.pi3b.leonsdev.usuario.classes.ServicoUsuario;
 import br.senac.tads3.pi3b.leonsdev.usuario.classes.Usuario;
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -55,6 +56,9 @@ public class AtualizarUsuarioServlet extends HttpServlet {
             ServicoUsuario.AtualizarUsuario(usu);
         } catch (DataExceptions | ExceptionUsuario e) {
             request.setAttribute("erroAtualizar", e.getMessage());
+            
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/editarUsuario.jsp");
+            dispatcher.forward(request, response);
         }
         
         response.sendRedirect(request.getContextPath() + "/consultarUsuario.jsp");

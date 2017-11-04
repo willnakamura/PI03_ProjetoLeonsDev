@@ -102,7 +102,13 @@
                                 <div class="row">
                                     <input type="text" placeholder="Login*" name="login-usua"value="${sessionScope.usuario.login}">
                                      <input type="text" placeholder="Senha*" name="senha-usua"value="${sessionScope.usuario.senha}"> 
-                                </div>                              
+                                </div>   
+                                
+                                <div class="row">
+                                    <c:if test="${not empty requestScope.erroAtualizar}">
+                                        <p class="error"><c:out value="${requestScope.erroAtualizar}"/></p>
+                                    </c:if>
+                                </div>
                              
                             </div>
                             
