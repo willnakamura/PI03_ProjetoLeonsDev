@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Passageiros</title>
+        <title>Pagamento</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -57,7 +57,7 @@
                         <div class="clear"></div>
                     </div>
                 </div>
-              <div class="grid_12">
+                <div class="grid_12">
                    <div id="logo">
                         <a  href="index.html">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
@@ -75,51 +75,45 @@
                 <div class="grid_8">
 
                     <div class="tituloCliente">
-                        <h5 class="opcao">SELECIONAR PASSAGEIROS</h5>
+                        <h5 class="opcao">PAGAMENTO </h5>
                     </div>
 
                     <div class="card-form">
-                        <form class="signup" action="#" method="post">
-                            <BR>
-
+                        <form class="signup" action="" method="post">
+                           
+                               
+                                
+                               <div class="busca"><label id="rowPagador">Pagador</label><input type="text" id="pagador" placeholder="nome completo do pagador" name="nomePagador" readonly="readonly"> </div>
                             <div class="form-body">
                                 <div class="row">
-                                    <input type="text" placeholder="Nome*" name="nome-pass-selecionar">
-                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-pass-selecionar">
-                                </div>
-                                
-                                <div class="row">
-                                    <input type="number" placeholder="cpf*" name="cpf-pass-selecionar">
-                                    <input type="date" placeholder="" name="dtNasc-pass-selecionar"> 
-                                </div>
-
-                                <div class="row">
-                                    <input type="text" placeholder="Email*" name="email-pass-selecionar">     
-                                </div>
-                                
-                                <div class="row">
-                                    <select class="assentos" name="assentosPassageiro">           
-                                        <option value="selecione">Selecione seu assento!</option>
+                                      <select class="pagamento" name="pagamento">  
+                                        <option value="selecione">Selecione a forma de Pagamento</option>
+                                        <option value="selecione">Cartão de crédito</option>
+                                        <option value="selecione">Débito automático</option>
+                                        <option value="selecione">Boleto bancário</option>
                                     </select>
+                                </div>  
+                                <div class="row">
+                                    <input type="number" placeholder="TOTAL" name="total" readonly="readonly">
+                                    
+                                    
                                 </div>
-
-                            </div>
-
-                            <div class="imagem">
-                                <img id="imagemMapa" src="${pageContext.request.contextPath}/images/mapa.png" >
+                                 
                             </div>
 
                             <div class="form-footer">
 
                                 <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
-                                <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
+                                <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
+                                
 
-                            </div> 
+                            </div>
+                               
                         </form>
 
                     </div>
                 </div>
-
+              
 
             </div>
 
