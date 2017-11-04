@@ -37,14 +37,12 @@ public class ValidadorVoos {
             throw new VoosException("Favor, selecione um aeroporto de Partida.");
         }
         
-        if(voo.getAeroportoChegada().equals("Selecione")){
+        if(voo.getAeroportoPartida().equals("Selecione")){
             throw new VoosException("Favor, selecione um aeroporto de chegada.");
         }
         
         if(voo.getOperadora().equals("Selecione")){
             throw new VoosException("Selecione uma operadora para o voo.");
         }
-        
-        
     } 
 }
