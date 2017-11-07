@@ -153,6 +153,12 @@
                                 <div class="row">
                                     <input type="text" placeholder="Endereço" name="end-cli">
                                 </div>
+                                
+                                <div class="row">
+                                    <c:if test="${not empty requestScope.erroCadastro}">
+                                        <p class="error"><c:out value="${requestScope.erroCadastro}"/></p>
+                                    </c:if>
+                                </div>
 
                             </div>
 

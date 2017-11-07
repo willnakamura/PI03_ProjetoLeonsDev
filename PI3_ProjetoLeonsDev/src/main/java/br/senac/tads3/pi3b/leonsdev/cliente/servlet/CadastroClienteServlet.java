@@ -105,7 +105,10 @@ public class CadastroClienteServlet extends HttpServlet {
             ServicoCliente.CadastrarCliente(cli);
 
         } catch (ClienteException | DataExceptions e) {
-            e.printStackTrace();
+            request.setAttribute("erroCadastro", e.getMessage());
+            
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarCliente.jsp");
+            dispatcher.forward(request, response);
         }
 
         HttpSession sessao = request.getSession();
