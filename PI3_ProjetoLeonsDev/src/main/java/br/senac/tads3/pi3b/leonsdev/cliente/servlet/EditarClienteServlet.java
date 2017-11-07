@@ -41,7 +41,7 @@ public class EditarClienteServlet extends HttpServlet {
 
         String btnEditar = request.getParameter("btnEditar");
         String btnExcluir = request.getParameter("btnExluir");
-
+//
         if (btnEditar != null) {
             try {
                 cliente = ServicoCliente.procurarCliente(cpfCli);
