@@ -128,7 +128,7 @@
                         <time datetime="2014-01-01"><span>PO</span></time>
                         <div class="extra_wrapper">
                             <div class="text1 col1"><a href="#">POMBO</a></div>
-                            Proin pharetra luctus diam, any scelerisque eros convallisumsan. Maecenas vehicula egestas
+                            Essa é a categoria inicial do programa de fidelidade mais justo do país! Basta voar e acumular!
                         </div>
                     </div>
                 </div>
@@ -137,7 +137,7 @@
                         <time datetime="2014-01-01"><span>PE</span></time>
                         <div class="extra_wrapper">
                             <div class="text1 col1"><a href="#">PELICANO</a></div>
-                            Any scelerisque eros vallisumsan. Maecenas vehicula egestas natis. Duis massa elit, auctor non
+                            Voar, voar; subir, subir. Após acumular 5 mil milhas voadas, você se torna um pelicano com benefícios inigualáveis.
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                         <time datetime="2014-01-01"><span>AG</span></time>
                         <div class="extra_wrapper">
                             <div class="text1 col1"><a href="#">AGUIA</a></div>
-                            Ros convallisumsan. Maecenas vehicula egestas venenatis. Duis massa elit, auctor non
+                            De frango para águia! Aqui você é boss. Apenas 10 mil milhas para subir.
                         </div>
                     </div>
                 </div>
