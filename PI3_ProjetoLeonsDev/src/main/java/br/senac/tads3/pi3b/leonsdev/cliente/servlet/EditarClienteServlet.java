@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "EditarClienteServlet", urlPatterns = {"/EditarCliente"})
 public class EditarClienteServlet extends HttpServlet {
-
+//
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
