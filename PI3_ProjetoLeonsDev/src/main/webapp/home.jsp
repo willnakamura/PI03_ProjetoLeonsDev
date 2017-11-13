@@ -84,7 +84,7 @@
                 </div>
                 <div class="grid_12">
                    <div id="logo">
-                        <a  href="index.html">
+                        <a  href="#">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
                     </div>
@@ -146,8 +146,8 @@
                     <div class="block1">
                         <time datetime="2014-01-01"><span>AG</span></time>
                         <div class="extra_wrapper">
-                            <div class="text1 col1"><a href="#">AGUIA</a></div>
-                            De frango para águia! Aqui você é boss. Apenas 10 mil milhas para subir.
+                            <div class="text1 col1"><a href="#">ÁGUIA</a></div>
+                            De Pelicano para Águia! Aqui você é boss. Apenas 10 mil milhas para subir.
                         </div>
                     </div>
                 </div>

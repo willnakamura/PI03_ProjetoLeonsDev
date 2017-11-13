@@ -16,7 +16,15 @@ public class Cliente {
     //
     private int id;
     private String nome, sobrenome, cpf, email, celular, estado, genero, cidade, endereco, cep;
-    private Date dataNascimento;
+    private Date dataNascimento, dataCadastro;
+
+    public Date getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(Date dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
     private boolean ativo;
     
     public Cliente() {

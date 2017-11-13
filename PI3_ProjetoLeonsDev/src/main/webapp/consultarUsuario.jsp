@@ -57,7 +57,7 @@
                 </div>
                 <div class="grid_12">
                    <div id="logo">
-                        <a  href="index.html">
+                        <a  href="#">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
                     </div>
@@ -135,8 +135,8 @@
                             </table>
 
                             <div class="form-footer">
-                                <button class="botoes" name="btnEditar" value="editarUsu">EDITAR<span class="fa fa-thumbs-o-up"></span></button>
                                 <button class="botoes" name="btnExluir" value="exluirUsu">EXCLUIR<span class="fa fa-ban"></span></button>
+                                <button class="botoes" name="btnEditar" value="editarUsu">EDITAR<span class="fa fa-thumbs-o-up"></span></button>                                
                             </div>
                         </form>
                     </div>
