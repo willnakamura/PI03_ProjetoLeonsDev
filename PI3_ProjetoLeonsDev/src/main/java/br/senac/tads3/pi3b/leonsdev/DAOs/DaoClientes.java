@@ -26,8 +26,8 @@ public class DaoClientes {
 
         String sql = "INSERT INTO Clientes (Nome, Sobrenome, CPF, "
                 + "Email, Celular, Data_Nascimento, Ativo, Estado,	"
-                + "Sexo, Cidade, CEP, Endereco) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "Sexo, Cidade, CEP, Endereco, DataCadastro) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -52,6 +52,7 @@ public class DaoClientes {
             preparedStatement.setString(10, cliente.getCidade());
             preparedStatement.setString(11, cliente.getCep());
             preparedStatement.setString(12, cliente.getEndereco());
+            preparedStatement.setDate(13, new java.sql.Date(System.currentTimeMillis()));
 
             //Executa o comando no banco de dados
             preparedStatement.execute();
@@ -188,6 +189,7 @@ public class DaoClientes {
                 cliente.setGenero(result.getString("Sexo"));
                 cliente.setNome(result.getString("Nome"));
                 cliente.setSobrenome(result.getString("Sobrenome"));
+                cliente.setDataCadastro(result.getDate("DataCadastro"));
 
                 //Adiciona a instância na lista
                 listaClientes.add(cliente);
@@ -249,6 +251,7 @@ public class DaoClientes {
                 cliente.setGenero(result.getString("Sexo"));
                 cliente.setNome(result.getString("Nome"));
                 cliente.setSobrenome(result.getString("Sobrenome"));
+                cliente.setDataCadastro(result.getDate("DataCadastro"));
             }
         } finally {
             //Se o result ainda estiver aberto, realiza seu fechamento
@@ -308,6 +311,7 @@ public class DaoClientes {
                 cliente.setGenero(result.getString("Sexo"));
                 cliente.setNome(result.getString("Nome"));
                 cliente.setSobrenome(result.getString("Sobrenome"));
+                cliente.setDataCadastro(result.getDate("DataCadastro"));
                 //Retorna o resultado
                 return cliente;
             }

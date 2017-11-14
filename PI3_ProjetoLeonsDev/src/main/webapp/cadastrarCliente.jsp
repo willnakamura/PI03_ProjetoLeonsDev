@@ -61,7 +61,7 @@
                 </div>
                <div class="grid_12">
                    <div id="logo">
-                        <a  href="index.html">
+                        <a  href="#">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
                     </div>
@@ -151,7 +151,13 @@
                                     <input type="number" placeholder="CEP*" name="cep-cli">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Endereço" name="end-cli">
+                                    <input type="text" placeholder="Endereço*" name="end-cli">
+                                </div>
+                                
+                                <div class="row">
+                                    <c:if test="${not empty requestScope.erroCadastro}">
+                                        <p class="error"><c:out value="${requestScope.erroCadastro}"/></p>
+                                    </c:if>
                                 </div>
                                 
                                 <div class="row">

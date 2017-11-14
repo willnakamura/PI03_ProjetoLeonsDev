@@ -60,7 +60,7 @@
                 </div>
                <div class="grid_12">
                    <div id="logo">
-                        <a  href="index.html">
+                        <a  href="#">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
                     </div>
