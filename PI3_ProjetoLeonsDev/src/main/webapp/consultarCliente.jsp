@@ -47,20 +47,20 @@
                             <ul class="sf-menu">
                                 <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
                                 <li class="current"><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuarios</a></li>
-                                <li><a href="index-3.html">BLOG</a></li>
-                                <li><a href="index-4.html">CONTACTS</a></li>
+                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
+                                <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
+                                <li><a href="${pageContext.request.contextPath}/relatorio.jsp">Relatório</a></li>
                             </ul>
                         </nav>
                         <div class="clear"></div>
                     </div>
                 </div>
                 <div class="grid_12">
-                    <h1>
-                        <a href="index.jsp">
+                    <div id="logo">
+                        <a  href="index.html">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
-                    </h1>
+                    </div>
                 </div>
 
             </div>
@@ -102,7 +102,8 @@
                                 <th>Cidade</th>
                                 <th>Cep</th>
                                 <th>Endereço</th>
-                                <th></th>
+                                <th style="visibility: hidden">ID</th>
+
                             </tr>    
 
                             <c:if test="${empty sessionScope.buscar}">
@@ -120,6 +121,7 @@
                                         <td>${cli.cidade}</td>
                                         <td>${cli.cep}</td>
                                         <td>${cli.endereco}</td>
+                                        <td style="visibility: hidden">${cli.id}</td>
                                     </tr>
                                 </c:forEach>
                             </c:if>
@@ -138,6 +140,7 @@
                                     <td>${sessionScope.ResultCli.cidade}</td>
                                     <td>${sessionScope.ResultCli.cep}</td>
                                     <td>${sessionScope.ResultCli.endereco}</td>
+                                    <td style="visibility: hidden">${sessionScope.ResultCli.id}</td>
                                 </tr>
                             </c:if>
 
@@ -146,7 +149,7 @@
 
                         <div class="form-footer">
                             <button class="botoes" name="btnExluir" value="exluirCli">EXCLUIR<span class="fa fa-ban"></span></button>
-                            <button class="botoes" name="btnEdiatr" value="editarCli">EDITAR<span class="fa fa-thumbs-o-up"></span></button>
+                            <button class="botoes" name="btnEditar" value="editarCli">EDITAR<span class="fa fa-thumbs-o-up"></span></button>
                         </div>
                     </form>
                 </div>

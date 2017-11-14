@@ -47,23 +47,23 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                 <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuários</a></li>
-                                 <li><a href="#">Reserva</a></li>                                
-                                <li><a href="index-3.html">BLOG</a></li>
-                                <li><a href="index-4.html">CONTACTS</a></li>
+                                 <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuário</a></li>
+                                                              
+                                <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
+                                <li><a href="${pageContext.request.contextPath}/relatorio.jsp">Relatório</a></li>
                             </ul>
                         </nav>
                         <div class="clear"></div>
                     </div>
                 </div>
-                <div class="grid_12">
-                    <h1>
-                        <a href="index.html">
+               <div class="grid_12">
+                   <div id="logo">
+                        <a  href="index.html">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
-                    </h1>
+                    </div>
                 </div>
 
             </div>
@@ -80,7 +80,7 @@
                     </div>
 
                     <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente" method="post">
+                        <form class="signup" action="#" method="post">
                                                            
                        <div class="row">
                         <input type="text" name="origem-voo" placeholder="Aeroporto de Origem" />
@@ -89,9 +89,9 @@
                         <input type="text" name="destino-voo" placeholder="Aeroporto de Destino" />
                         </div>
                        <div class="row">
-                        <input  type="radio" value="0" name="opcao1"/>
+                        <input  type="radio" value="0" name="opcao"/>
                         <label >Ida e Volta</label>
-                        <input  type="radio" value="1" name="opcao2"/>
+                        <input  type="radio" value="1" name="opcao"/>
                         <label >Só Ida</label>
                         </div>
                             <br><br>                           

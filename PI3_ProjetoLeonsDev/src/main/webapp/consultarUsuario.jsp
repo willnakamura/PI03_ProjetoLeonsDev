@@ -47,20 +47,20 @@
                             <ul class="sf-menu">
                                 <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
                                 <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
-                                <li class="current"><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuarios</a></li>
-                                <li><a href="index-3.html">BLOG</a></li>
-                                <li><a href="index-4.html">CONTACTS</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
+                                <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
+                                <li><a href="${pageContext.request.contextPath}/relatorio.jsp">Relatório</a></li>
                             </ul>
                         </nav>
                         <div class="clear"></div>
                     </div>
                 </div>
                 <div class="grid_12">
-                    <h1>
-                        <a href="index.jsp">
+                   <div id="logo">
+                        <a  href="index.html">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
-                    </h1>
+                    </div>
                 </div>
 
             </div>

@@ -8,43 +8,34 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans:600);
 @import url(//fonts.googleapis.com/css?family=PT+Sans+Narrow);
 
-.f1ao4{
-    margin-top: -420px;
-    margin-left: 359px;
-   
-    letter-spacing: 7px;
-}
+
 
 p.error{
     color: red;
 }
 
-.e1ao4{
-    margin-top: 17px;
-    margin-left: 359px;
+
+
+#logo{
+    
+  width: 170px;
+  height: 300px;
+ margin-left: 380px; 
+    
+}
+
+.pagador{
+    margin-left: 40px;
+    padding-bottom: 50px;
    
-    letter-spacing: 7px;
+  
 }
-
-.b1ao4{
-    margin-top: 54px;
-    margin-left: 359px;   
-    letter-spacing: 7px;
-}
-
-.a1ao4{
-    margin-top: 16px;
-    margin-left: 359px;   
-    letter-spacing: 7px;
-}
-
-
 
 
 
 #imagemMapa{
     width: 3000px;
-    height: 120px;
+    height: 110px;
      margin-top: 30px;
 }
 
@@ -64,6 +55,11 @@ p.error{
     width:350px;
     
 }
+
+#pagador{
+     width:500px;
+}
+
 
 
 
@@ -127,6 +123,14 @@ th {
       display: flex;
       justify-content: space-around;
       padding: 10px;
+    }
+    
+    #rowPagador{
+         display: flex;
+      justify-content: space-around;
+      padding: 20px;
+      margin-left: -490px;
+      
     }
     
     input {

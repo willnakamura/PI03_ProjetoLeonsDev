@@ -49,20 +49,20 @@
                             <ul class="sf-menu">
                                 <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
                                 <li class="current"><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuarios</a></li>
-                                <li><a href="index-3.html">BLOG</a></li>
-                                <li><a href="index-4.html">CONTACTS</a></li>
+                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
+                                <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
+                                <li><a href="${pageContext.request.contextPath}/relatorio.jsp">Relátorio</a></li>
                             </ul>
                         </nav>
                         <div class="clear"></div>
                     </div>
                 </div>
                 <div class="grid_12">
-                    <h1>
-                        <a href="index.jsp">
+                   <div id="logo">
+                        <a  href="index.html">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
-                    </h1>
+                    </div>
                 </div>
 
             </div>
@@ -86,11 +86,11 @@
                             <div class="form-body">
                                 
                                 <div class="row">
-                                    <input style="visibility: hidden" type="text" placeholder="id*" name="id-cli" value="${sessionScope.cliente.id}">
+                                    <input style="visibility: hidden" type="text" placeholder="id" name="id-cli" value="${sessionScope.cliente.id}">
                                 </div> 
                                 <div class="row">
                                     <input type="text" placeholder="Nome*" name="nome-cli" value="${sessionScope.cliente.nome}" >
-                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-cli" value="${sessionScope.cliente.sobrenome}">
+                                    <input type="text" placeholder="Sobrenome*" name="sobrenome-cli" value="${sessionScope.cliente.sobrenome}">
                                 </div>  
                                 <div class="row">
                                     <input type="number" placeholder="cpf*" name="cpf-cli" value="${sessionScope.cliente.cpf}">
@@ -104,7 +104,7 @@
 
                                 <div class="row">
                                     <select class="sexo" name="sexo-cli">
-                                        <option value="${sessionScope.cliente.genero}"></option>
+                                        <option value="${sessionScope.cliente.genero}">${sessionScope.cliente.genero}</option>
                                         <option value="Masculino">Masculino</option>
                                         <option value="Feminino">Feminino</option>
                                     </select>
@@ -117,7 +117,7 @@
 
 
                                     <select class="estado" name="estado-cli">           
-                                        <option value="${sessionScope.cliente.estado}"></option>
+                                        <option value="${sessionScope.cliente.estado}">${sessionScope.cliente.estado}</option>
                                         <option value="AC">AC</option>
                                         <option value="AL">AL</option>  
                                         <option value="AP">AP</option> 
@@ -154,6 +154,12 @@
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Endereço" name="end-cli" value="${sessionScope.cliente.estado}">
+                                </div>
+                                
+                                <div class="row">
+                                    <c:if test="${not empty requestScope.erroAtualizar}">
+                                        <p class="error"><c:out value="${requestScope.erroAtualizar}"/></p>
+                                    </c:if>
                                 </div>
 
                             </div>

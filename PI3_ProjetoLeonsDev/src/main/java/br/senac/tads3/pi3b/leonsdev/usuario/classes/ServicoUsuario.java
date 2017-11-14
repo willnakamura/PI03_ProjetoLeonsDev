@@ -22,14 +22,7 @@ public class ServicoUsuario {
         try {
             DaoUsuarios.inserir(usuario);
         } catch (Exception e) {
-            e.getMessage();
-            if (e.getMessage().contains("Incorrect datetime value")) {
-                throw new DataExceptions("Data de nascimento inválida");
-            } else if (e.getMessage().contains("Duplicate entry")) {
-                throw new DataExceptions("CPF já cadastrado");
-            } else {
-                throw new DataExceptions("Erro na fonte de dados", e);
-            }
+            throw new DataExceptions("Erro na fonte de dados.", e);
         }
     }
 

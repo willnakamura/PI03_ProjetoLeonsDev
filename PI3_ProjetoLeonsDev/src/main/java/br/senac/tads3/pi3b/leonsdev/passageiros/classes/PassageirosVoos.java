@@ -39,4 +39,20 @@ public class PassageirosVoos {
         return status;
     }
 
+    public void setVoo(Voos voo) {
+        this.voo = voo;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setAssento(String assento) {
+        this.assento = assento;
+    }
+
+    public void setPassageiro(Passageiros passageiro) {
+        this.passageiro = passageiro;
+    }
+
 }

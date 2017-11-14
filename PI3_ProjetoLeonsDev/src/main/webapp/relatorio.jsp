@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Passageiros</title>
+        <title>Cliente</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -18,8 +18,6 @@
         <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-
-
 
 
 
@@ -47,17 +45,17 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuário</a></li>
+                                <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
                                 <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
-                                <li><a href="${pageContext.request.contextPath}/relatorio.jsp">Relatório</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/relatorio.jsp">Relatório</a></li>
                             </ul>
                         </nav>
                         <div class="clear"></div>
                     </div>
                 </div>
-              <div class="grid_12">
+                <div class="grid_12">
                    <div id="logo">
                         <a  href="index.html">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
@@ -67,65 +65,57 @@
 
             </div>
         </header>
-        <!--==============================Content=================================-->
+
         <div class="content"><div class="ic"></div>
 
             <div class="container_12">
-
                 <div class="grid_8">
-
                     <div class="tituloCliente">
-                        <h5 class="opcao">SELECIONAR PASSAGEIROS</h5>
-                    </div>
 
-                    <div class="card-form">
-                        <form class="signup" action="#" method="post">
-                            <BR>
+                        <h5 class="opcao">RELATÓRIO </h5>
 
-                            <div class="form-body">
-                                <div class="row">
-                                    <input type="text" placeholder="Nome*" name="nome-pass-selecionar">
-                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-pass-selecionar">
-                                </div>
-                                
-                                <div class="row">
-                                    <input type="number" placeholder="cpf*" name="cpf-pass-selecionar">
-                                    <input type="date" placeholder="" name="dtNasc-pass-selecionar"> 
-                                </div>
+                    </div>                    
 
-                                <div class="row">
-                                    <input type="text" placeholder="Email*" name="email-pass-selecionar">     
-                                </div>
-                                
-                                <div class="row">
-                                    <select class="assentos" name="assentosPassageiro">           
-                                        <option value="selecione">Selecione seu assento!</option>
-                                    </select>
-                                </div>
+                    <form class="buscaCliente" action="${pageContext.request.contextPath}/ConsultarCliente" method="post">
 
-                            </div>
+                        <div class="busca">
+                            <input type="text" id="busca1" placeholder="Digite o CPF" name="buscaCliente">
+                            <button id="botoesBusca" type="submit">BUSCAR</button>
+                        </div>
 
-                            <div class="imagem">
-                                <img id="imagemMapa" src="${pageContext.request.contextPath}/images/mapa.png" >
-                            </div>
+                    </form>
 
-                            <div class="form-footer">
+                    <form class="editCli" action="${pageContext.request.contextPath}/EditarCliente" method="post">
 
-                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
-                                <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
+                        <div id="bg"></div>
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>Nome</th>                                
+                                <th>cpf</th>       
+                                <th>Origem</th>
+                                <th>Destino</th>
+                                <th>Data</th>
+                                <th>Valor Total</th>                                
+                                <th></th>
+                            </tr>    
 
-                            </div> 
-                        </form>
+                            
 
-                    </div>
+
+                        </table>
+
+                        
+                    </form>
                 </div>
 
 
+               
             </div>
-
-
         </div>
+
         <!--==============================footer=================================-->
+
         <footer>
             <div class="container_12">
                 <div class="grid_12">

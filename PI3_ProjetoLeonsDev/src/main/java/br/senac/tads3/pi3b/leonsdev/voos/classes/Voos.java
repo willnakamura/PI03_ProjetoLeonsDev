@@ -16,6 +16,12 @@ import java.util.Date;
 public class Voos {
     private int id, distanciaMilhas, Aeronave_ID;
     private double tarifa;
+    private Integer nrVoo;
+    private String aeroportoPartida, aeroportoChegada, Operadora;
+    private Time horaPartida, horaChegada;
+    private Date DataVoo;
+    private Aeronave aeronave;
+    private Boolean ativo;
 
     public double getTarifa() {
         return tarifa;
@@ -32,12 +38,6 @@ public class Voos {
     public void setAeronave_ID(int Aeronave_ID) {
         this.Aeronave_ID = Aeronave_ID;
     }
-    private Integer nrVoo;
-    private String aeroportoPartida, aeroportoChegada, Operadora;
-    private Time horaPartida, horaChegada;
-    private Date DataVoo;
-    private Aeronave aeronave;
-    private Boolean ativo;
 
     public Boolean getAtivo() {
         return ativo;
