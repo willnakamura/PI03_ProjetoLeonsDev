@@ -48,8 +48,7 @@ public class DaoOrigensDestinos {
             //Itera por cada item do resultado
             while (result.next()) {
                 //Se a lista não foi inicializada, a inicializa
-                OrigemDestino.add(result.getString("Origem"));
-                OrigemDestino.add(result.getString("Destino"));
+                OrigemDestino.add(result.getString("Aeroporto"));
             }
 
         } finally {
