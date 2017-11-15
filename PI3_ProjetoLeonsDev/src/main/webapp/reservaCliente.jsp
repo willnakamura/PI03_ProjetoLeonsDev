@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="grid_12">
-                   <div id="logo">
+                    <div id="logo">
                         <a  href="#">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
@@ -79,44 +79,50 @@
                     </div>
 
                     <div class="card-form">
-                        <form class="signup" action="" method="post">
+                        <form class="buscaCli" action="${pageContext.request.contextPath}/SelecionaCliente" method="post">
+                            <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente"> <button id="botoesBusca" type="submit">BUSCAR</button></div>
+                        </form>
+                    </div>
+                    
+                    <div class="card-form">
+                        <form class="signup" action="${pageContext.request.contextPath}/SelecionaCliente" method="post">
                             <BR>
-                               <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente"> <button id="botoesBusca">BUSCAR</button></div>
+                            
                             <div class="form-body">
                                 <div class="row">
-                                    <input type="text" placeholder="Nome*" name="nome-cli-selecionar" readonly="readonly">
-                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Nome*" value="${sessionScope.clienteSelecionado.nome}" name="nome-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Sobrenome*" value="${sessionScope.clienteSelecionado.sobrenome}" name="sobreNome-cli-selecionar" readonly="readonly">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" name="cpf-cli-selecionar" readonly="readonly">
-                                    
-                                    
-                                </div>
-                                <div class="row">
-                                    <input type="text" placeholder="Email*" name="email-cli-selecionar" readonly="readonly">
-                                </div>
-                                <div class="row">
-                                    <input type="number" placeholder="()Celular*" name="celular-cli-selecionar" readonly="readonly">       
-                                </div>
+                                    <input type="number" placeholder="cpf*" value="${sessionScope.clienteSelecionado.cpf}" name="cpf-cli-selecionar" readonly="readonly">
 
-                                <div class="row">
-                                    <input type="text" placeholder="Sexo"  name="sexo-cli-selecionar" readonly="readonly">   
-                                    <input type="text" placeholder="data de Nascimento" name="dtNasc-cli-selecionar" readonly="readonly">   
 
+                                </div>
+                                <div class="row">
+                                    <input type="text" placeholder="Email*" value="${sessionScope.clienteSelecionado.email}" name="email-cli-selecionar" readonly="readonly">
+                                </div>
+                                <div class="row">
+                                    <input type="number" placeholder="()Celular*" value="${sessionScope.clienteSelecionado.celular}" name="celular-cli-selecionar" readonly="readonly">       
                                 </div>
 
                                 <div class="row">
+                                    <input type="text" placeholder="Sexo" value="${sessionScope.clienteSelecionado.genero}"  name="sexo-cli-selecionar" readonly="readonly">   
+                                    <input type="text" placeholder="data de Nascimento" value="${sessionScope.clienteSelecionado.dataNascimento}" name="dtNasc-cli-selecionar" readonly="readonly">   
 
-
-                                   <input type="text" placeholder="Estado*" name="estado-cli-selecionar" readonly="readonly">
-                                    <input type="text" placeholder="Cidade*" name="cidade-cli-selecionar" readonly="readonly">
                                 </div>
 
                                 <div class="row">
-                                    <input type="number" placeholder="CEP*" name="cep-cli-selecionar" readonly="readonly">
+
+
+                                    <input type="text" placeholder="Estado*" value="${sessionScope.clienteSelecionado.estado}"  name="estado-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Cidade*" value="${sessionScope.clienteSelecionado.cidade}"  name="cidade-cli-selecionar" readonly="readonly">
+                                </div>
+
+                                <div class="row">
+                                    <input type="number" placeholder="CEP*" value="${sessionScope.clienteSelecionado.cep}"  name="cep-cli-selecionar" readonly="readonly">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Endereço" name="end-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Endereço" value="${sessionScope.clienteSelecionado.endereco}"  name="end-cli-selecionar" readonly="readonly">
                                 </div>
 
                             </div>
@@ -125,15 +131,15 @@
 
                                 <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
                                 <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
-                                
+
 
                             </div>
-                               
+
                         </form>
 
                     </div>
                 </div>
-              
+
 
             </div>
 
