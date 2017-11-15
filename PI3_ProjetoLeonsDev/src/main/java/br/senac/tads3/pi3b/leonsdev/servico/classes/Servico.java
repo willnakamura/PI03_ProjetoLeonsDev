@@ -14,6 +14,11 @@ import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
 public class Servico {
 
     private Integer idServico, Reserva_ID;
+    private String extraBag;
+    private Double preco;
+    private Reserva reserva;
+    private Boolean ativo;
+    //private Integer idReserva;
 
     public Integer getReserva_ID() {
         return Reserva_ID;
@@ -22,11 +27,7 @@ public class Servico {
     public void setReserva_ID(Integer Reserva_ID) {
         this.Reserva_ID = Reserva_ID;
     }
-    private String extraBag;
-    private Double preco;
-    private Reserva reserva;
-    private Boolean ativo;
-    //private Integer idReserva;
+    
 
     public Servico (){
         

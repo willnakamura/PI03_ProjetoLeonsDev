@@ -84,15 +84,21 @@
 
                             <div class="row">
                                 <!--<input type="text" name="origem-voo" placeholder="Aeroporto de Origem" />-->
-                                
+
                                 <select class="aeroportoFormat" name="origemVoo">
                                     <option>Selecione o aeroporto de origem</option>
+                                    <c:forEach items="${sessionScope.ListaAeroportos}" var="aeroportos">
+                                        <option>${aeroportos}</option>
+                                    </c:forEach>
                                 </select>
                             </div> 
                             <div class="row">
                                 <!--<input type="text" name="destino-voo" placeholder="Aeroporto de Destino" />-->
                                 <select class="aeroportoFormat" name="destinoVoo">
                                     <option>Selecione o aeroporto de destino</option>
+                                    <c:forEach items="${sessionScope.ListaAeroportos}" var="aeroportos">
+                                        <option>${aeroportos}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
                             <div class="row">
@@ -104,11 +110,10 @@
                             <br><br>                           
 
                             <div class="row">
-                                <label >Ida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <label >Data de ida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 
-                                <label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volta</label>
+                                <label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data de volta</label>
                             </div>
-
 
 
                             <div class="row">
@@ -118,13 +123,18 @@
                             </div>
                             <div class="row">                       
 
-                                <input type="number" name="passageiro-voo" placeholder="Quantidade de Passegeiros"/>
-
+                                
+                                <select id="formatar" class="bagagem" name="qtdpax">
+                                    <option>Quantidade de Passageiros</option>
+                                    <option value="1pax">1</option>
+                                    <option value="2pax">2</option>
+                                    <option value="3pax">3</option>
+                                </select>
                                 <select id="formatar" class="bagagem" name="bagagem-voo">
-                                    <option value="0">Selecione Bagagem</option>
-                                    <option value="1">excesso de bagagem extra</option>
-                                    <option value="2">excesso de bagagem duplamente extra</option>                               
-
+                                    <option>Selecione Bagagem</option>
+                                    <option value="peso1">5kg - R$ 20,90</option>
+                                    <option value="peso2">10kg - R$ 39,90 </option>
+                                    <option value="peso3">20kg - R$ 79,90</option>
                                 </select>
 
                             </div>

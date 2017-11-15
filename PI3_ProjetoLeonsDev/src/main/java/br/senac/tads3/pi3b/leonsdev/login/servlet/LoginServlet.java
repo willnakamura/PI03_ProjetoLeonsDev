@@ -10,8 +10,13 @@ import br.senac.tads3.pi3b.leonsdev.exceptions.LoginException;
 import br.senac.tads3.pi3b.leonsdev.login.classes.Login;
 import br.senac.tads3.pi3b.leonsdev.login.classes.ServicoLogin;
 import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
+import br.senac.tads3.pi3b.leonsdev.servico.classes.ServicoServicoVoo;
+import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoAeroportos;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,10 +46,19 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         Login login = new Login();
         HttpSession sessao = request.getSession();
+        //------------pre operações para carregamento de dropBox---------
 
+        ArrayList aeroportos = null;
+        try {
+            aeroportos = ServicoAeroportos.obterAeroporto();
+        } catch (DataExceptions | SQLException ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        sessao.setAttribute("ListaAeroportos", aeroportos);
+        //-------------operaçoes de login----------------------------------
+        
         // Pega o class="user" e atribui á uma variavel
         String username = request.getParameter("user");
 
@@ -60,11 +74,9 @@ public class LoginServlet extends HttpServlet {
 
         } catch (LoginException e) {
 
-            e.printStackTrace();
             RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/index.jsp");
         } catch (DataExceptions ex) {
-            ex.printStackTrace();
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
