@@ -334,7 +334,7 @@ public class DaoVoos {
     }
 
     
-    public static List<Voos> buscarVooEspecial(Date dataVoo, String ida, String volta)
+    public static List<Voos> buscarVooEspecial(Date dataVoo, String AeroportoPartida, String AeroportoChegada)
             throws SQLException, Exception {
     
         String sql = "SELECT * FROM Voos WHERE Data_Voo=? AND"
@@ -357,8 +357,8 @@ public class DaoVoos {
             preparedStatement = connection.prepareStatement(sql);
             //Configura os parâmetros do "PreparedStatement"
             preparedStatement.setDate(1, dataVoo);
-            preparedStatement.setString(2, ida);
-            preparedStatement.setString(3, volta);
+            preparedStatement.setString(2, AeroportoPartida);
+            preparedStatement.setString(3, AeroportoChegada);
             preparedStatement.setBoolean(4, true);
 
             //Executa a consulta SQL no banco de dados
