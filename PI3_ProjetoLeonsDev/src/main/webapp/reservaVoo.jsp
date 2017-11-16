@@ -52,7 +52,7 @@
                                 <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuário</a></li>
 
                                 <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
-                                <li><a href="${pageContext.request.contextPath}/relatorio.jsp">Relatório</a></li>
+                                <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
                             </ul>
                         </nav>
                         <div class="clear"></div>
