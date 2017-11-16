@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Pagamento</title>
+        <title>Cliente</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -18,8 +18,6 @@
         <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-
-
 
 
 
@@ -47,11 +45,11 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuário</a></li>
-                                 <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
-                                <li><a href="${pageContext.request.contextPath}/relatorio.jsp">Relatório</a></li>
+                                <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
+                                <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/relatorio.jsp">Relatório</a></li>
                             </ul>
                         </nav>
                         <div class="clear"></div>
@@ -67,59 +65,71 @@
 
             </div>
         </header>
-        <!--==============================Content=================================-->
-        <div class="content">
+
+        <div class="content"><div class="ic"></div>
 
             <div class="container_12">
-
                 <div class="grid_8">
-
                     <div class="tituloCliente">
-                        <h5 class="opcao">PAGAMENTO </h5>
-                    </div>
 
-                    <div class="card-form">
-                        <form class="signup" action="" method="post">
-                           
-                               
-                                
-                               <div class="busca"><label id="rowPagador">Pagador</label><input type="text" id="pagador" placeholder="nome completo do pagador" name="nomePagador" readonly="readonly"> </div>
-                            <div class="form-body">
-                                <div class="row">
-                                      <select class="pagamento" name="pagamento">  
-                                        <option value="selecione">Selecione a forma de Pagamento</option>
-                                        <option value="selecione">Cartão de crédito</option>
-                                        <option value="selecione">Débito automático</option>
-                                        <option value="selecione">Boleto bancário</option>
-                                    </select>
-                                </div>  
-                                <div class="row">
-                                    <input type="number" placeholder="TOTAL" name="total" readonly="readonly">
-                                    
-                                    
-                                </div>
-                                 
+                        <h5 class="opcao">RELATÓRIO </h5>
+
+                    </div>                    
+
+                    <form class="buscaCliente" action="#" method="post">
+                        <div class="row">
+
+                                <input type="date"  name="data-ida-voo" />
+                                <input type="date"  name="data-volta-voo"/>    
                             </div>
+                        <br>
+                        <div class="busca">
+                            <input type="text" id="busca1" placeholder="Digite a busca" name="buscaCliente">
+                            <button id="botoesBusca" type="submit">BUSCAR</button>
+                        </div>
+                                                    
+                    </form>
 
-                            <div class="form-footer">
+                    <form class="editCli" action="#" method="post">
 
-                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
-                                <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
-                                
+                        <div id="bg"></div>
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>Data Reserva</th>                                
+                                <th>TickerCode</th>       
+                                <th>Nome do Passageiro</th>
+                                <th>Ultimo Nome do Passageiro</th>
+                                <th>Data de Partida</th>
+                                <th>Nº Voo</th>                                
+                                <th>Hora Voo</th>
+                                <th>Aeroporto Origem</th>
+                                <th>Aeroporto Destino</th>
+                                <th>Assento</th>
+                            </tr>  
 
-                            </div>
-                               
-                        </form>
+                            
+                        </table>
 
-                    </div>
+                        
+                    </form>
                 </div>
-              
+            <div class="grid_3 prefix_1">
+                    <h5 class="opcao">Opção</h5>
+                    <ul class="list">
+                        <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Reserva</a></li>
+                        <li  class="current"><a href="${pageContext.request.contextPath}/relatorioCliente.jsp">Cliente</a></li>
 
+
+                    </ul>
+                </div>
+
+               
             </div>
-
-
         </div>
+
         <!--==============================footer=================================-->
+
         <footer>
             <div class="container_12">
                 <div class="grid_12">

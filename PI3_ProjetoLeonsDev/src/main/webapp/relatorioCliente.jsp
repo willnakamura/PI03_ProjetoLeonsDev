@@ -76,39 +76,53 @@
 
                     </div>                    
 
-                    <form class="buscaCliente" action="${pageContext.request.contextPath}/ConsultarCliente" method="post">
+                    <form class="buscaCliente" action="#" method="post">
+                        <div class="row">
 
+                                <input type="date"  name="data-ida-voo" />
+                                <input type="date"  name="data-volta-voo"/>    
+                            </div>
+                        <br>
                         <div class="busca">
-                            <input type="text" id="busca1" placeholder="Digite o CPF" name="buscaCliente">
+                            <input type="text" id="busca1" placeholder="Digite a busca" name="buscaCliente">
                             <button id="botoesBusca" type="submit">BUSCAR</button>
                         </div>
-
+                                                    
                     </form>
 
-                    <form class="editCli" action="${pageContext.request.contextPath}/EditarCliente" method="post">
+                    <form class="editCli" action="#" method="post">
 
                         <div id="bg"></div>
                         <table>
                             <tr>
                                 <th></th>
-                                <th>Nome</th>                                
-                                <th>cpf</th>       
-                                <th>Origem</th>
-                                <th>Destino</th>
-                                <th>Data</th>
-                                <th>Valor Total</th>                                
-                                <th></th>
-                            </tr>    
+                                <th>Data Cadastro</th>                                
+                                <th>Nome</th>       
+                                <th>Sobre Nome</th>
+                                <th>CPF</th>
+                                <th>E-mail</th>
+                                <th>Nível</th>                                
+                                <th>Milhas Total</th>
+                                <th>Qtd Reservas</th>
+                                <th>Data Ultima Compra</th>
+                                
+                            </tr>  
 
                             
-
-
                         </table>
 
                         
                     </form>
                 </div>
+            <div class="grid_3 prefix_1">
+                    <h5 class="opcao">Opção</h5>
+                    <ul class="list">
+                        <li class="current"><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Reserva</a></li>
+                        <li><a href="${pageContext.request.contextPath}/relatorioCliente.jsp">Cliente</a></li>
 
+
+                    </ul>
+                </div>
 
                
             </div>

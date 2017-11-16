@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Voo</title>
+        <title>Resumo da Compra</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -76,84 +76,137 @@
                 <div class="grid_8">
 
                     <div class="tituloCliente">
-                        <h5 class="opcao">VOO</h5>
+                        <h5 class="opcao">resumo da compra</h5>
                     </div>
 
+
                     <div class="card-form">
+                        <form class="buscaCli" action="#" method="#">
+                            <div class="busca"><input type="text" id="busca1ResumoCompra" placeholder="Localizador" name="locazador"> <button id="botoesBusca" type="submit">BUSCAR</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <br><br>
+
+
+                    <div class="card-form">
+
+
+
                         <form class="signup" action="#" method="post">
 
                             <div class="row">
-                                <!--<input type="text" name="origem-voo" placeholder="Aeroporto de Origem" />-->
+                                <input class="status" type="text" name="statusReserva" placeholder="Status da Reserva" readonly="readonly"/>
 
-                                <select class="aeroportoFormat" name="origemVoo">
-                                    <option>Selecione o aeroporto de origem</option>
-                                    <c:forEach items="${sessionScope.ListaAeroportos}" var="aeroportos">
-                                        <option>${aeroportos}</option>
-                                    </c:forEach>
-                                </select>
+                            </div>
+                            <br><br>
+                            <div class="row">
+                                <label >Dados do Voo</label>
+
+
+                            </div>
+
+                            <br>
+
+                            <div class="row">
+                                <input type="text" name="origem-voo" placeholder="Aeroporto de Origem" readonly="readonly"/>
+                                <input type="text"  name="dataOrigem" placeholder="Data de Origem" readonly="readonly"/>
+
                             </div> 
                             <div class="row">
-                                <!--<input type="text" name="destino-voo" placeholder="Aeroporto de Destino" />-->
-                                <select class="aeroportoFormat" name="destinoVoo">
-                                    <option>Selecione o aeroporto de destino</option>
-                                    <c:forEach items="${sessionScope.ListaAeroportos}" var="aeroportos">
-                                        <option>${aeroportos}</option>
-                                    </c:forEach>
-                                </select>
+                                <input type="text" name="destino-voo" placeholder="Aeroporto de Destino" readonly="readonly"/>
+                                <input type="text"  name="dataDestino" placeholder="Data de Destino" readonly="readonly"/>
+
                             </div>
-                            <div class="row">
-                                <input  type="radio" value="0" name="opcao"/>
-                                <label >Ida e Volta</label>
-                                <input  type="radio" value="1" name="opcao"/>
-                                <label >Só Ida</label>
-                            </div>
-                            <br><br>                           
+
+                            <br>                           
 
                             <div class="row">
-                                <label >Data de ida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <label >Horário de ida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 
-                                <label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data de volta</label>
+                                <label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Horário de volta</label>
                             </div>
 
 
                             <div class="row">
 
-                                <input type="date"  name="data-ida-voo" />
-                                <input type="date"  name="data-volta-voo"/>    
+                                <input type="text"  name="data-ida-voo" placeholder="11:30" readonly="readonly"/>
+                                <input type="text"  name="data-volta-voo" placeholder="13:00" readonly="readonly"/>    
                             </div>
+                            <br>
+                            <br>
+                            <div class="row">
+                                <label >Dados dos Passageiros</label>
+
+
+                            </div>
+
                             <div class="row">                       
 
-                                
-                                <select id="formatar" class="bagagem" name="qtdpax">
-                                    <option>Quantidade de Passageiros</option>
-                                    <option value="1pax">1</option>
-                                    <option value="2pax">2</option>
-                                    <option value="3pax">3</option>
-                                </select>
-                                <select id="formatar" class="bagagem" name="bagagem-voo">
-                                    <option>Selecione Bagagem</option>
-                                    <option value="peso1">5kg - R$ 20,90</option>
-                                    <option value="peso2">10kg - R$ 39,90 </option>
-                                    <option value="peso3">20kg - R$ 79,90</option>
-                                </select>
+                                <table class="tabelaResumo">
+                                    <tr>
+
+                                        <th>Nome</th>                                
+                                        <th>Assentos de Origem</th>       
+                                        <th>Assentos de Destino</th>
+                                        <th>Bagagem</th>
+
+                                    </tr>    
+                                    <tr>
+                                        <td>Felipe</td>
+                                        <td>E12</td>
+                                        <td>B7</td>
+                                        <td>5kg - R$ 20,90</td>
+                                    </tr>
+
+
+
+                                </table>
+
+                            </div>
+                            <br><br>
+                            <div class="row">
+                                <label >Dados dos Passageiros</label>
+
 
                             </div>
 
+                            <br>
+                            <div class="row">
+
+                                <input type="text"  name="nomePagante" placeholder="Nome Completo do Pagante" readonly="readonly"/>
+
+
+                            </div>
+
+                            <div class="row">
+                                <input type="text"  name="formaPagamento" placeholder="FormadePagamento" readonly="readonly"/>
+                                <input type="text"  name="valorTotal" placeholder="Valor Total" readonly="readonly"/>
+
+
+                            </div>
+
+                            <div class="row">
+                                <input type="text"  name="nivelMilhagem" placeholder="Nivel da Milhagem" readonly="readonly"/>
+                                <input type="text"  name="pontos" placeholder="Pontos" readonly="readonly"/>
+
+                            </div>
+                            <br>
 
 
 
-                  
+                            <div class="form-footer">
 
-                    <div class="form-footer">
-
-                        <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
-                        <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
+                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
+                                <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
 
 
+                            </div>
+
+                        </form>
                     </div>
-
-                    </form>
-    </div>
                 </div>
 
 
@@ -189,7 +242,7 @@
             $('#bookingForm').bookingForm({
                 ownerEmail: '#'
             });
-        })
+        });
     </script>
 </body>
 </html>

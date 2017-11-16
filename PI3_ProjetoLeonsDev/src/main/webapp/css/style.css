@@ -47,13 +47,30 @@ p.error{
     
 }
 
+.status{
+    width:50px;
+}
+
+.tabelaResumo{
+    width: 800px;
+    margin-left: -100px;
+    text-align: center;
+    margin-top: 0px;
+}
+
 .assento{
     position: relative;
 }
 
 #busca1{
-    width:350px;
+    width:395px;
+    margin-left: 5px;
     
+}
+
+#busca1ResumoCompra{
+    width:375px;
+    margin-left: 5px;
 }
 
 #pagador{

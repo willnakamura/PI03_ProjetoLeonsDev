@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Voo</title>
+        <title>Horario</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -76,65 +76,38 @@
                 <div class="grid_8">
 
                     <div class="tituloCliente">
-                        <h5 class="opcao">VOO</h5>
+                        <h5 class="opcao">Horário</h5>
                     </div>
 
                     <div class="card-form">
                         <form class="signup" action="#" method="post">
-
+                            
+                            
                             <div class="row">
-                                <!--<input type="text" name="origem-voo" placeholder="Aeroporto de Origem" />-->
+                        <input type="text"  id="horarioNomeCliente" placeholder="Nome Completo do Cliente" name="nome-cli-selecionar" readonly="readonly"> 
+                            </div>
+                              <br><br>    <br>
+                            <div class="row">
+                                <input type="text" name="origem-voo" placeholder="Aeroporto de Origem" readonly="readonly"/>
 
-                                <select class="aeroportoFormat" name="origemVoo">
-                                    <option>Selecione o aeroporto de origem</option>
-                                    <c:forEach items="${sessionScope.ListaAeroportos}" var="aeroportos">
-                                        <option>${aeroportos}</option>
-                                    </c:forEach>
-                                </select>
                             </div> 
                             <div class="row">
-                                <!--<input type="text" name="destino-voo" placeholder="Aeroporto de Destino" />-->
-                                <select class="aeroportoFormat" name="destinoVoo">
-                                    <option>Selecione o aeroporto de destino</option>
-                                    <c:forEach items="${sessionScope.ListaAeroportos}" var="aeroportos">
-                                        <option>${aeroportos}</option>
-                                    </c:forEach>
-                                </select>
+                                <input type="text" name="destino-voo" placeholder="Aeroporto de Destino" readonly="readonly"/>
+                                
                             </div>
-                            <div class="row">
-                                <input  type="radio" value="0" name="opcao"/>
-                                <label >Ida e Volta</label>
-                                <input  type="radio" value="1" name="opcao"/>
-                                <label >Só Ida</label>
-                            </div>
+                            
                             <br><br>                           
 
-                            <div class="row">
-                                <label >Data de ida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-
-                                <label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data de volta</label>
-                            </div>
-
-
-                            <div class="row">
-
-                                <input type="date"  name="data-ida-voo" />
-                                <input type="date"  name="data-volta-voo"/>    
-                            </div>
-                            <div class="row">                       
+                            
+                         <div class="row">                       
 
                                 
-                                <select id="formatar" class="bagagem" name="qtdpax">
-                                    <option>Quantidade de Passageiros</option>
-                                    <option value="1pax">1</option>
-                                    <option value="2pax">2</option>
-                                    <option value="3pax">3</option>
+                                <select id="formatar" class="bagagem" name="horarioIda">
+                                    <option>Selecione o Horário para Ida</option>                                    
                                 </select>
-                                <select id="formatar" class="bagagem" name="bagagem-voo">
-                                    <option>Selecione Bagagem</option>
-                                    <option value="peso1">5kg - R$ 20,90</option>
-                                    <option value="peso2">10kg - R$ 39,90 </option>
-                                    <option value="peso3">20kg - R$ 79,90</option>
+                             
+                                <select id="formatar" class="bagagem" name="horarioVolta">
+                                    <option>Selecione o Horário para Volta</option>                                    
                                 </select>
 
                             </div>
@@ -142,7 +115,7 @@
 
 
 
-                  
+                    </>
 
                     <div class="form-footer">
 
@@ -153,7 +126,7 @@
                     </div>
 
                     </form>
-    </div>
+
                 </div>
 
 
