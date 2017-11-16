@@ -8,6 +8,7 @@ package br.senac.tads3.pi3b.leonsdev.DAOs;
 import br.senac.tads3.pi3b.leonsdev.dbUtils.ConnectionUtils;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -331,4 +332,77 @@ public class DaoVoos {
         //Neste caso, não há um elemento a retornar, então retornamos "null"
         return null;
     }
+
+    
+    public static List<Voos> buscarVooEspecial(Date dataVoo, String ida, String volta)
+            throws SQLException, Exception {
+    
+        String sql = "SELECT * FROM Voos WHERE Data_Voo=? AND"
+                + " Aeroporto_Partidade=? AND"
+                + " Aeroporto_Chegada=? AND"
+                + " Ativo=?";
+    
+        List<Voos> listaVoos = null;
+        //Conexão para abertura e fechamento
+        Connection connection = null;
+        //Statement para obtenção através da conexão, execução de
+        //comandos SQL e fechamentos
+        PreparedStatement preparedStatement = null;
+        //Armazenará os resultados do banco de dados
+        ResultSet result = null;
+        try {
+            //Abre uma conexão com o banco de dados
+            connection = ConnectionUtils.getConnection();
+            //Cria um statement para execução de instruções SQL
+            preparedStatement = connection.prepareStatement(sql);
+            //Configura os parâmetros do "PreparedStatement"
+            preparedStatement.setDate(1, dataVoo);
+            preparedStatement.setString(2, ida);
+            preparedStatement.setString(3, volta);
+            preparedStatement.setBoolean(4, true);
+
+            //Executa a consulta SQL no banco de dados
+            result = preparedStatement.executeQuery();
+
+            //Itera por cada item do resultado
+            while (result.next()) {
+                //Se a lista não foi inicializada, a inicializa
+                if (listaVoos == null) {
+                    listaVoos = new ArrayList<>();
+                }
+    
+                Voos voos = new Voos();
+                voos.setId(result.getInt("Voo_ID"));
+                voos.setAeronave_ID(result.getInt("Aeronave_ID"));
+                voos.setAeroportoChegada(result.getString("Aeroporto_Chegada"));
+                voos.setAeroportoPartida(result.getString("Aeroporto_Partida"));
+                voos.setAtivo(result.getBoolean("Ativo"));
+                voos.setDataVoo(result.getDate("Data_Voo"));
+                voos.setDistanciaMilhas(result.getInt("Distancia_Milhas"));
+                voos.setHoraChegada(result.getTime("HoraChegada"));
+                voos.setHoraPartida(result.getTime("HoraPartida"));
+                voos.setNrVoo(result.getInt("Nr_Voo"));
+                voos.setOperadora(result.getString("Operadora"));
+                //Adiciona a instância na lista
+                listaVoos.add(voos);
+            }
+        } finally {
+            //Se o result ainda estiver aberto, realiza seu fechamento
+            if (result != null && !result.isClosed()) {
+                result.close();
+            }
+            //Se o statement ainda estiver aberto, realiza seu fechamento
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
+                preparedStatement.close();
+            }
+            //Se a conexão ainda estiver aberta, realiza seu fechamento
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+    
+        return listaVoos;
+    }
+
+
 }
