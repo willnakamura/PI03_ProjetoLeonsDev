@@ -83,10 +83,8 @@
                         <form class="signup" action="#" method="post">
                             
                             
-                            <div class="row">
-                        <input type="text"  id="horarioNomeCliente" placeholder="Nome Completo do Cliente" name="nome-cli-selecionar" readonly="readonly"> 
-                            </div>
-                              <br><br>    <br>
+
+                              <br>
                             <div class="row">
                                 <input type="text" name="origem-voo" placeholder="Aeroporto de Origem" readonly="readonly"/>
 
