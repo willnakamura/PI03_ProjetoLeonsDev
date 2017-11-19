@@ -86,18 +86,24 @@ public class VooReservaServlet extends HttpServlet {
             voo2.setAeroportoChegada(origem);
             voo2.setDataVoo(dataVoltaVoo);
             
+            String ida = voo.getAeroportoPartida();
+            String chegada = voo.getAeroportoChegada();
+            
             List<Voos> voo1 = null;
             try {
-                voo1 = ServicoVoos.buscarVooEspecial((java.sql.Date) voo.getDataVoo(), voo.getAeroportoPartida(), voo.getAeroportoChegada());
+                voo1 = ServicoVoos.buscarVooEspecial(voo.getDataVoo(), ida.substring(0, 3), chegada.substring(0, 3));
             } catch (DataExceptions | SQLException e) {
                 e.getMessage();
             }
             
             sessao.setAttribute("VooIda", voo1);
             
+            String ida2 = voo2.getAeroportoPartida();
+            String chegada2 = voo2.getAeroportoChegada();
+            
             List<Voos> vooVolta = null;
             try {
-                vooVolta = ServicoVoos.buscarVooEspecial((java.sql.Date) voo2.getDataVoo(), voo2.getAeroportoPartida(), voo2.getAeroportoChegada());
+                vooVolta = ServicoVoos.buscarVooEspecial(voo2.getDataVoo(), ida2.substring(0, 3), chegada2.substring(0, 3));
             } catch (DataExceptions | SQLException e) {
                 e.getMessage();
             }

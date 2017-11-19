@@ -21,9 +21,10 @@ import java.util.List;
  * @author Josué
  */
 public class DaoVoos {
+
     public static void inserir(Voos voos)
             throws SQLException, Exception {
-        
+
         String sql = "INSERT INTO Voos (Nr_Voo,	Aeroporto_Partida, Aeroporto_Chegada, Data_Voo,	Operadora,"
                 + " Aeronave_ID, Distancia_Milhas, HoraPartida,	HoraChegada, Ativo "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -69,7 +70,7 @@ public class DaoVoos {
             throws SQLException, Exception {
         String sql = "UPDATE Voos SET Nr_Voo=?,	Aeroporto_Partida=?, Aeroporto_Chegada=?, Data_Voo=?,	"
                 + "Operadora=?,"
-                + " Aeronave_ID=?, Distancia_Milhas=?, HoraPartida=?,	HoraChegada=?, Ativo=? "              
+                + " Aeronave_ID=?, Distancia_Milhas=?, HoraPartida=?,	HoraChegada=?, Ativo=? "
                 + "WHERE (Voo_ID=?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -140,11 +141,10 @@ public class DaoVoos {
         }
     }
 
- 
     public static List<Voos> listar()
             throws SQLException, Exception {
         String sql = "SELECT * FROM Voos WHERE (Ativo=?)";
- 
+
         List<Voos> listaVoos = null;
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -169,7 +169,7 @@ public class DaoVoos {
                 if (listaVoos == null) {
                     listaVoos = new ArrayList<>();
                 }
-                
+
                 Voos voos = new Voos();
                 voos.setId(result.getInt("Voo_ID"));
                 voos.setAeronave_ID(result.getInt("Aeronave_ID"));
@@ -204,12 +204,11 @@ public class DaoVoos {
         return listaVoos;
     }
 
-    
     public static List<Voos> procurar(String valor)
             throws SQLException, Exception {
-    
+
         String sql = "SELECT * FROM Voos WHERE Nr_Voo=? AND Ativo=?";
-    
+
         List<Voos> listaVoos = null;
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -236,7 +235,7 @@ public class DaoVoos {
                 if (listaVoos == null) {
                     listaVoos = new ArrayList<>();
                 }
-    
+
                 Voos voos = new Voos();
                 voos.setId(result.getInt("Voo_ID"));
                 voos.setAeronave_ID(result.getInt("Aeronave_ID"));
@@ -266,13 +265,13 @@ public class DaoVoos {
                 connection.close();
             }
         }
-    
+
         return listaVoos;
     }
-    
+
     public static Voos obter(Integer id)
             throws SQLException, Exception {
-        
+
         String sql = "SELECT * FROM Voos WHERE (Voos_ID=? AND Ativo=?)";
 
         //Conexão para abertura e fechamento
@@ -296,7 +295,7 @@ public class DaoVoos {
 
             //Verifica se há pelo menos um resultado
             if (result.next()) {
-        
+
                 Voos voos = new Voos();
                 voos.setId(result.getInt("Voo_ID"));
                 voos.setAeronave_ID(result.getInt("Aeronave_ID"));
@@ -333,15 +332,14 @@ public class DaoVoos {
         return null;
     }
 
-    
     public static ArrayList<Voos> buscarVooEspecial(Date dataVoo, String AeroportoPartida, String AeroportoChegada)
             throws SQLException, Exception {
-    
+
         String sql = "SELECT * FROM Voos WHERE Data_Voo=? AND"
                 + " Aeroporto_Partida=? AND"
                 + " Aeroporto_Chegada=? AND"
                 + " Ativo=?";
-    
+
         ArrayList<Voos> listaVoos = null;
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -356,7 +354,8 @@ public class DaoVoos {
             //Cria um statement para execução de instruções SQL
             preparedStatement = connection.prepareStatement(sql);
             //Configura os parâmetros do "PreparedStatement"
-            preparedStatement.setDate(1, dataVoo);
+            Timestamp t = new Timestamp(dataVoo.getTime());
+            preparedStatement.setTimestamp(1, t);
             preparedStatement.setString(2, AeroportoPartida);
             preparedStatement.setString(3, AeroportoChegada);
             preparedStatement.setBoolean(4, true);
@@ -370,7 +369,7 @@ public class DaoVoos {
                 if (listaVoos == null) {
                     listaVoos = new ArrayList<>();
                 }
-    
+
                 Voos voos = new Voos();
                 voos.setId(result.getInt("Voo_ID"));
                 voos.setAeronave_ID(result.getInt("Aeronave_ID"));
@@ -400,9 +399,8 @@ public class DaoVoos {
                 connection.close();
             }
         }
-    
+
         return listaVoos;
     }
-
 
 }
