@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
         try {
             aeroportos = ServicoAeroportos.obterAeroporto();
         } catch (DataExceptions | SQLException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+            ex.getMessage();
         }
         sessao.setAttribute("ListaAeroportos", aeroportos);
         //-------------operaçoes de login----------------------------------

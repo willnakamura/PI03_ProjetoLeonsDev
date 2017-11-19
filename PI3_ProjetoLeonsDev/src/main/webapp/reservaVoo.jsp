@@ -80,7 +80,7 @@
                     </div>
 
                     <div class="card-form">
-                        <form class="signup" action="#" method="post">
+                        <form class="signup" action="${pageContext.request.contextPath}/VooReserva" method="post">
 
                             <div class="row">
                                 <!--<input type="text" name="origem-voo" placeholder="Aeroporto de Origem" />-->
@@ -123,12 +123,12 @@
                             </div>
                             <div class="row">                       
 
-                                
+
                                 <select id="formatar" class="bagagem" name="qtdpax">
                                     <option>Quantidade de Passageiros</option>
-                                    <option value="1pax">1</option>
-                                    <option value="2pax">2</option>
-                                    <option value="3pax">3</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
                                 </select>
                                 <select id="formatar" class="bagagem" name="bagagem-voo">
                                     <option>Selecione Bagagem</option>
@@ -142,18 +142,18 @@
 
 
 
-                  
-
-                    <div class="form-footer">
-
-                        <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
-                        <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
 
 
+                            <div class="form-footer">
+
+                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
+                                <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
+
+
+                            </div>
+
+                        </form>
                     </div>
-
-                    </form>
-    </div>
                 </div>
 
 
