@@ -334,15 +334,15 @@ public class DaoVoos {
     }
 
     
-    public static ArrayList<Voos> buscarVooEspecial(Date dataVoo, String AeroportoPartida, String AeroportoChegada)
+    public static List<Voos> buscarVooEspecial(Date dataVoo, String AeroportoPartida, String AeroportoChegada)
             throws SQLException, Exception {
     
         String sql = "SELECT * FROM Voos WHERE Data_Voo=? AND"
-                + " Aeroporto_Partida=? AND"
+                + " Aeroporto_Partidade=? AND"
                 + " Aeroporto_Chegada=? AND"
                 + " Ativo=?";
     
-        ArrayList<Voos> listaVoos = null;
+        List<Voos> listaVoos = null;
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de

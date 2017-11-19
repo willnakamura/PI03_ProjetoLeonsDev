@@ -81,31 +81,37 @@
 
                     <div class="card-form">
                         <form class="signup" action="#" method="post">
-                            
-                            
 
-                              <br>
+
+
+                            <br>
                             <div class="row">
-                                <input type="text" name="origem-voo" placeholder="Aeroporto de Origem" readonly="readonly"/>
+                                <input type="text" name="origem-voo" value="${sessionScope.VooIdaAero}" placeholder="Aeroporto de Origem" readonly="readonly"/>
 
                             </div> 
                             <div class="row">
-                                <input type="text" name="destino-voo" placeholder="Aeroporto de Destino" readonly="readonly"/>
-                                
+                                <input type="text" name="destino-voo" value="${sessionScope.VooVoltaAero}" placeholder="Aeroporto de Destino" readonly="readonly"/>
+
                             </div>
-                            
+
                             <br><br>                           
 
-                            
-                         <div class="row">                       
 
-                                
-                                <select id="formatar" class="bagagem" name="horarioIda">
-                                    <option>Selecione o Horário para Ida</option>                                    
+                            <div class="row">                       
+
+
+                                <select id="formatar" class="hora" name="horarioIda">
+                                    <option>Selecione o Horário para Ida</option>
+                                    <c:forEach items="${sessionScope.VooIda.horaPartida}" var="horario">
+                                        <option>${horario}</option>
+                                    </c:forEach>
                                 </select>
-                             
-                                <select id="formatar" class="bagagem" name="horarioVolta">
-                                    <option>Selecione o Horário para Volta</option>                                    
+
+                                <select id="formatar" class="hora" name="horarioVolta">
+                                    <option>Selecione o Horário para Volta</option>
+                                    <c:forEach items="${sessionScope.VooVolta}" var="horario">
+                                        <option>${horario}</option>
+                                    </c:forEach>
                                 </select>
 
                             </div>
@@ -113,21 +119,26 @@
 
 
 
-                    </>
+                            </>
 
-                    <div class="form-footer">
+                            <div class="form-footer">
 
-                        <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
-                        <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
+                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
+                                <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
 
+
+                            </div>
+
+                        </form>
 
                     </div>
 
-                    </form>
+
+
+
+
 
                 </div>
-
-
 
 
 
@@ -135,32 +146,27 @@
             </div>
 
 
-
-
         </div>
-
-
-    </div>
-    <!--==============================footer=================================-->
-    <footer>
-        <div class="container_12">
-            <div class="grid_12">
-                <div class="socials">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-google-plus"></a>
-                </div>
-                <div class="copy">
-                    Your Trip (c) 2017 | <a href="#">Privacy Policy</a>
+        <!--==============================footer=================================-->
+        <footer>
+            <div class="container_12">
+                <div class="grid_12">
+                    <div class="socials">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-google-plus"></a>
+                    </div>
+                    <div class="copy">
+                        Your Trip (c) 2017 | <a href="#">Privacy Policy</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
-    <script>
-        $(function () {
-            $('#bookingForm').bookingForm({
-                ownerEmail: '#'
-            });
-        })
-    </script>
-</body>
+        </footer>
+        <script>
+            $(function () {
+                $('#bookingForm').bookingForm({
+                    ownerEmail: '#'
+                });
+            })
+        </script>
+    </body>
 </html>

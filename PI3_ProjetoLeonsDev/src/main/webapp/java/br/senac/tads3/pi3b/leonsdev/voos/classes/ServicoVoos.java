@@ -7,9 +7,8 @@ package br.senac.tads3.pi3b.leonsdev.voos.classes;
 
 import br.senac.tads3.pi3b.leonsdev.DAOs.DaoVoos;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
-import java.util.Date;
+import java.sql.Date;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,14 +16,10 @@ import java.util.List;
  * @author Rafael Rodrigues
  */
 public class ServicoVoos {
-    public static ArrayList<Voos> buscarVooEspecial(Date dataVoo, String aeroportoPartida, String aeroportoChegada) throws DataExceptions, SQLException{
-        ArrayList<Voos> voos = null; 
-        
-            java.util.Date dataUtil2 = new java.util.Date();
-            dataUtil2 = dataVoo;
-            java.sql.Date dataSql2 = new java.sql.Date(dataUtil2.getTime());
+    public static List<Voos> buscarVooEspecial(Date dataVoo, String aeroportoPartida, String aeroportoChegada) throws DataExceptions, SQLException{
+        List<Voos> voos = null; 
         try {
-            voos = DaoVoos.buscarVooEspecial(dataSql2, aeroportoPartida, aeroportoChegada);
+            voos = DaoVoos.buscarVooEspecial(dataVoo, aeroportoPartida, aeroportoChegada);
         } catch (Exception e) {
             e.getMessage();
         }

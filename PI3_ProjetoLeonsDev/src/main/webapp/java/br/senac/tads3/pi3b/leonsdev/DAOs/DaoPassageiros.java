@@ -5,10 +5,9 @@
  */
 package br.senac.tads3.pi3b.leonsdev.DAOs;
 
+import br.senac.tads3.pi3b.leonsdev.passageiros.classes.Passageiros;
 import br.senac.tads3.pi3b.leonsdev.dbUtils.ConnectionUtils;
-import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,13 +19,14 @@ import java.util.List;
  *
  * @author Josué
  */
-public class DaoVoos {
-    public static void inserir(Voos voos)
+public class DaoPassageiros {
+
+    public static void inserir(Passageiros passageiros)
             throws SQLException, Exception {
-        
-        String sql = "INSERT INTO Voos (Nr_Voo,	Aeroporto_Partida, Aeroporto_Chegada, Data_Voo,	Operadora,"
-                + " Aeronave_ID, Distancia_Milhas, HoraPartida,	HoraChegada, Ativo "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        String sql = "INSERT INTO Passageiros (Primeiro_Nome, Ultimo_Nome, CPF, "
+                + "Dt_Nascimento, Email, Reserva_ID "
+                + "VALUES (?, ?, ?, ?, ?, ?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -38,17 +38,13 @@ public class DaoVoos {
             //Cria um statement para execução de instruções SQL
             preparedStatement = connection.prepareStatement(sql);
             //Configura os parâmetros do "PreparedStatement"
-            preparedStatement.setInt(1, voos.getNrVoo());
-            preparedStatement.setString(2, voos.getAeroportoPartida());
-            preparedStatement.setString(3, voos.getAeroportoChegada());
-            Timestamp t = new Timestamp(voos.getDataVoo().getTime());
+            preparedStatement.setString(1, passageiros.getNome());
+            preparedStatement.setString(2, passageiros.getSobrenome());
+            preparedStatement.setString(3, passageiros.getCpf());
+            Timestamp t = new Timestamp(passageiros.getDataNascimento().getTime());
             preparedStatement.setTimestamp(4, t);
-            preparedStatement.setString(5, voos.getOperadora());
-            preparedStatement.setInt(6, voos.getAeronave().getId());
-            preparedStatement.setInt(7, voos.getDistanciaMilhas());
-            preparedStatement.setTime(8, voos.getHoraPartida());
-            preparedStatement.setTime(9, voos.getHoraChegada());
-            preparedStatement.setBoolean(10, true);
+            preparedStatement.setString(5, passageiros.getEmail());
+            preparedStatement.setInt(6, passageiros.getReserva().getIdReserva());
 
             //Executa o comando no banco de dados
             preparedStatement.execute();
@@ -65,12 +61,11 @@ public class DaoVoos {
         }
     }
 
-    public static void atualizar(Voos voos)
+    public static void atualizar(Passageiros passageiros)
             throws SQLException, Exception {
-        String sql = "UPDATE Voos SET Nr_Voo=?,	Aeroporto_Partida=?, Aeroporto_Chegada=?, Data_Voo=?,	"
-                + "Operadora=?,"
-                + " Aeronave_ID=?, Distancia_Milhas=?, HoraPartida=?,	HoraChegada=?, Ativo=? "              
-                + "WHERE (Voo_ID=?)";
+        String sql = "UPDATE Passageiros SET Primeiro_Nome=?, Ultimo_Nome=?, CPF=?, "
+                + "Dt_Nascimento=?, Email=?, Reserva_ID=?	"
+                + "WHERE (Passageiro_ID=?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -82,18 +77,14 @@ public class DaoVoos {
             //Cria um statement para execução de instruções SQL
             preparedStatement = connection.prepareStatement(sql);
             //Configura os parâmetros do "PreparedStatement"
-            preparedStatement.setInt(1, voos.getNrVoo());
-            preparedStatement.setString(2, voos.getAeroportoPartida());
-            preparedStatement.setString(3, voos.getAeroportoChegada());
-            Timestamp t = new Timestamp(voos.getDataVoo().getTime());
+            preparedStatement.setString(1, passageiros.getNome());
+            preparedStatement.setString(2, passageiros.getSobrenome());
+            preparedStatement.setString(3, passageiros.getCpf());
+            Timestamp t = new Timestamp(passageiros.getDataNascimento().getTime());
             preparedStatement.setTimestamp(4, t);
-            preparedStatement.setString(5, voos.getOperadora());
-            preparedStatement.setInt(6, voos.getAeronave().getId());
-            preparedStatement.setInt(7, voos.getDistanciaMilhas());
-            preparedStatement.setTime(8, voos.getHoraPartida());
-            preparedStatement.setTime(9, voos.getHoraChegada());
-            preparedStatement.setBoolean(10, voos.getAtivo());
-            preparedStatement.setInt(11, voos.getId());
+            preparedStatement.setString(5, passageiros.getEmail());
+            preparedStatement.setInt(6, passageiros.getReserva().getIdReserva());
+            preparedStatement.setInt(7, passageiros.getId());
             //Executa o comando no banco de dados
             preparedStatement.execute();
         } finally {
@@ -109,9 +100,9 @@ public class DaoVoos {
     }
 
     public static void excluir(Integer id) throws SQLException, Exception {
-        //Monta a string de atualização do voos no BD, utilizando
+        //Monta a string de atualização do passageiros no BD, utilizando
         //prepared statement
-        String sql = "UPDATE Voos SET Ativo=? WHERE (Passageiro_ID=?)";
+        String sql = "UPDATE Passageiros SET Ativo=? WHERE (Passageiro_ID=?)";
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -140,12 +131,11 @@ public class DaoVoos {
         }
     }
 
- 
-    public static List<Voos> listar()
+    public static List<Passageiros> listar()
             throws SQLException, Exception {
-        String sql = "SELECT * FROM Voos WHERE (Ativo=?)";
- 
-        List<Voos> listaVoos = null;
+        String sql = "SELECT * FROM Passageiros WHERE (Ativo=?)";
+
+        List<Passageiros> listaPassageiros = null;
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -166,25 +156,21 @@ public class DaoVoos {
             //Itera por cada item do resultado
             while (result.next()) {
                 //Se a lista não foi inicializada, a inicializa
-                if (listaVoos == null) {
-                    listaVoos = new ArrayList<>();
+                if (listaPassageiros == null) {
+                    listaPassageiros = new ArrayList<>();
                 }
-                
-                Voos voos = new Voos();
-                voos.setId(result.getInt("Voo_ID"));
-                voos.setAeronave_ID(result.getInt("Aeronave_ID"));
-                voos.setAeroportoChegada(result.getString("Aeroporto_Chegada"));
-                voos.setAeroportoPartida(result.getString("Aeroporto_Partida"));
-                voos.setAtivo(result.getBoolean("Ativo"));
-                voos.setDataVoo(result.getDate("Data_Voo"));
-                voos.setDistanciaMilhas(result.getInt("Distancia_Milhas"));
-                voos.setHoraChegada(result.getTime("HoraChegada"));
-                voos.setHoraPartida(result.getTime("HoraPartida"));
-                voos.setNrVoo(result.getInt("Nr_Voo"));
-                voos.setOperadora(result.getString("Operadora"));
+
+                Passageiros passageiros = new Passageiros();
+                passageiros.setId(result.getInt("Passageiro_ID"));
+                passageiros.setCpf(result.getString("CPF"));
+                passageiros.setDataNascimento(result.getDate("Dt_Nascimento"));
+                passageiros.setEmail(result.getString("Email"));
+                passageiros.setNome(result.getString("Primeiro_Nome"));
+                passageiros.setSobrenome(result.getString("Ultimo_Nome"));
+                passageiros.setReserva_ID(result.getInt("Reserva_ID"));
 
                 //Adiciona a instância na lista
-                listaVoos.add(voos);
+                listaPassageiros.add(passageiros);
             }
         } finally {
             //Se o result ainda estiver aberto, realiza seu fechamento
@@ -200,17 +186,16 @@ public class DaoVoos {
                 connection.close();
             }
         }
-        //Retorna a lista de vooss do banco de dados
-        return listaVoos;
+        //Retorna a lista de passageiross do banco de dados
+        return listaPassageiros;
     }
 
-    
-    public static List<Voos> procurar(String valor)
+    public static List<Passageiros> procurar(String valor)
             throws SQLException, Exception {
-    
-        String sql = "SELECT * FROM Voos WHERE Nr_Voo=? AND Ativo=?";
-    
-        List<Voos> listaVoos = null;
+
+        String sql = "SELECT * FROM Passageiros WHERE CPF=? AND Ativo=?";
+
+        List<Passageiros> listaPassageiros = null;
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -233,24 +218,20 @@ public class DaoVoos {
             //Itera por cada item do resultado
             while (result.next()) {
                 //Se a lista não foi inicializada, a inicializa
-                if (listaVoos == null) {
-                    listaVoos = new ArrayList<>();
+                if (listaPassageiros == null) {
+                    listaPassageiros = new ArrayList<>();
                 }
-    
-                Voos voos = new Voos();
-                voos.setId(result.getInt("Voo_ID"));
-                voos.setAeronave_ID(result.getInt("Aeronave_ID"));
-                voos.setAeroportoChegada(result.getString("Aeroporto_Chegada"));
-                voos.setAeroportoPartida(result.getString("Aeroporto_Partida"));
-                voos.setAtivo(result.getBoolean("Ativo"));
-                voos.setDataVoo(result.getDate("Data_Voo"));
-                voos.setDistanciaMilhas(result.getInt("Distancia_Milhas"));
-                voos.setHoraChegada(result.getTime("HoraChegada"));
-                voos.setHoraPartida(result.getTime("HoraPartida"));
-                voos.setNrVoo(result.getInt("Nr_Voo"));
-                voos.setOperadora(result.getString("Operadora"));
+
+                Passageiros passageiros = new Passageiros();
+                passageiros.setId(result.getInt("Passageiro_ID"));
+                passageiros.setCpf(result.getString("CPF"));
+                passageiros.setDataNascimento(result.getDate("Dt_Nascimento"));
+                passageiros.setEmail(result.getString("Email"));
+                passageiros.setNome(result.getString("Primeiro_Nome"));
+                passageiros.setSobrenome(result.getString("Ultimo_Nome"));
+                passageiros.setReserva_ID(result.getInt("Reserva_ID"));
                 //Adiciona a instância na lista
-                listaVoos.add(voos);
+                listaPassageiros.add(passageiros);
             }
         } finally {
             //Se o result ainda estiver aberto, realiza seu fechamento
@@ -266,14 +247,14 @@ public class DaoVoos {
                 connection.close();
             }
         }
-    
-        return listaVoos;
+
+        return listaPassageiros;
     }
-    
-    public static Voos obter(Integer id)
+
+    public static Passageiros obter(Integer id)
             throws SQLException, Exception {
-        
-        String sql = "SELECT * FROM Voos WHERE (Voos_ID=? AND Ativo=?)";
+
+        String sql = "SELECT * FROM Passageiros WHERE (Passageiros_ID=? AND Ativo=?)";
 
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -296,21 +277,17 @@ public class DaoVoos {
 
             //Verifica se há pelo menos um resultado
             if (result.next()) {
-        
-                Voos voos = new Voos();
-                voos.setId(result.getInt("Voo_ID"));
-                voos.setAeronave_ID(result.getInt("Aeronave_ID"));
-                voos.setAeroportoChegada(result.getString("Aeroporto_Chegada"));
-                voos.setAeroportoPartida(result.getString("Aeroporto_Partida"));
-                voos.setAtivo(result.getBoolean("Ativo"));
-                voos.setDataVoo(result.getDate("Data_Voo"));
-                voos.setDistanciaMilhas(result.getInt("Distancia_Milhas"));
-                voos.setHoraChegada(result.getTime("HoraChegada"));
-                voos.setHoraPartida(result.getTime("HoraPartida"));
-                voos.setNrVoo(result.getInt("Nr_Voo"));
-                voos.setOperadora(result.getString("Operadora"));
+
+                Passageiros passageiros = new Passageiros();
+                passageiros.setId(result.getInt("Passageiro_ID"));
+                passageiros.setCpf(result.getString("CPF"));
+                passageiros.setDataNascimento(result.getDate("Dt_Nascimento"));
+                passageiros.setEmail(result.getString("Email"));
+                passageiros.setNome(result.getString("Primeiro_Nome"));
+                passageiros.setSobrenome(result.getString("Ultimo_Nome"));
+                passageiros.setReserva_ID(result.getInt("Reserva_ID"));
                 //Retorna o resultado
-                return voos;
+                return passageiros;
             }
         } finally {
             //Se o result ainda estiver aberto, realiza seu fechamento
@@ -332,77 +309,4 @@ public class DaoVoos {
         //Neste caso, não há um elemento a retornar, então retornamos "null"
         return null;
     }
-
-    
-    public static ArrayList<Voos> buscarVooEspecial(Date dataVoo, String AeroportoPartida, String AeroportoChegada)
-            throws SQLException, Exception {
-    
-        String sql = "SELECT * FROM Voos WHERE Data_Voo=? AND"
-                + " Aeroporto_Partida=? AND"
-                + " Aeroporto_Chegada=? AND"
-                + " Ativo=?";
-    
-        ArrayList<Voos> listaVoos = null;
-        //Conexão para abertura e fechamento
-        Connection connection = null;
-        //Statement para obtenção através da conexão, execução de
-        //comandos SQL e fechamentos
-        PreparedStatement preparedStatement = null;
-        //Armazenará os resultados do banco de dados
-        ResultSet result = null;
-        try {
-            //Abre uma conexão com o banco de dados
-            connection = ConnectionUtils.getConnection();
-            //Cria um statement para execução de instruções SQL
-            preparedStatement = connection.prepareStatement(sql);
-            //Configura os parâmetros do "PreparedStatement"
-            preparedStatement.setDate(1, dataVoo);
-            preparedStatement.setString(2, AeroportoPartida);
-            preparedStatement.setString(3, AeroportoChegada);
-            preparedStatement.setBoolean(4, true);
-
-            //Executa a consulta SQL no banco de dados
-            result = preparedStatement.executeQuery();
-
-            //Itera por cada item do resultado
-            while (result.next()) {
-                //Se a lista não foi inicializada, a inicializa
-                if (listaVoos == null) {
-                    listaVoos = new ArrayList<>();
-                }
-    
-                Voos voos = new Voos();
-                voos.setId(result.getInt("Voo_ID"));
-                voos.setAeronave_ID(result.getInt("Aeronave_ID"));
-                voos.setAeroportoChegada(result.getString("Aeroporto_Chegada"));
-                voos.setAeroportoPartida(result.getString("Aeroporto_Partida"));
-                voos.setAtivo(result.getBoolean("Ativo"));
-                voos.setDataVoo(result.getDate("Data_Voo"));
-                voos.setDistanciaMilhas(result.getInt("Distancia_Milhas"));
-                voos.setHoraChegada(result.getTime("HoraChegada"));
-                voos.setHoraPartida(result.getTime("HoraPartida"));
-                voos.setNrVoo(result.getInt("Nr_Voo"));
-                voos.setOperadora(result.getString("Operadora"));
-                //Adiciona a instância na lista
-                listaVoos.add(voos);
-            }
-        } finally {
-            //Se o result ainda estiver aberto, realiza seu fechamento
-            if (result != null && !result.isClosed()) {
-                result.close();
-            }
-            //Se o statement ainda estiver aberto, realiza seu fechamento
-            if (preparedStatement != null && !preparedStatement.isClosed()) {
-                preparedStatement.close();
-            }
-            //Se a conexão ainda estiver aberta, realiza seu fechamento
-            if (connection != null && !connection.isClosed()) {
-                connection.close();
-            }
-        }
-    
-        return listaVoos;
-    }
-
-
 }

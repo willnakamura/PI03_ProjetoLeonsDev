@@ -8,12 +8,14 @@ package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoVoos;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
+import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -86,19 +88,19 @@ public class VooReservaServlet extends HttpServlet {
             voo2.setAeroportoChegada(origem);
             voo2.setDataVoo(dataVoltaVoo);
             
-            List<Voos> voo1 = null;
+            ArrayList<Voos> voo1 = null;
             try {
-                voo1 = ServicoVoos.buscarVooEspecial((java.sql.Date) voo.getDataVoo(), voo.getAeroportoPartida(), voo.getAeroportoChegada());
-            } catch (DataExceptions | SQLException e) {
+                voo1 = (ArrayList<Voos>) ServicoVoos.buscarVooEspecial((java.sql.Date) voo.getDataVoo(), voo.getAeroportoPartida(), voo.getAeroportoChegada());
+            } catch (Exception e) {
                 e.getMessage();
             }
             
             sessao.setAttribute("VooIda", voo1);
             
-            List<Voos> vooVolta = null;
+            ArrayList<Voos> vooVolta = null;
             try {
-                vooVolta = ServicoVoos.buscarVooEspecial((java.sql.Date) voo2.getDataVoo(), voo2.getAeroportoPartida(), voo2.getAeroportoChegada());
-            } catch (DataExceptions | SQLException e) {
+                vooVolta = (ArrayList<Voos>) ServicoVoos.buscarVooEspecial((java.sql.Date) voo.getDataVoo(), voo.getAeroportoPartida(), voo.getAeroportoChegada());
+            } catch (Exception e) {
                 e.getMessage();
             }
             
@@ -130,9 +132,9 @@ public class VooReservaServlet extends HttpServlet {
             voo.setAeroportoChegada(destino);
             voo.setDataVoo(dataIdaVoo);
             
-            List<Voos> voo1 = null;
+            ArrayList<Voos> voo1 = null;
             try {
-                voo1 = ServicoVoos.buscarVooEspecial((java.sql.Date) voo.getDataVoo(), voo.getAeroportoPartida(), voo.getAeroportoChegada());
+                voo1 = (ArrayList<Voos>) ServicoVoos.buscarVooEspecial((java.sql.Date) voo.getDataVoo(), voo.getAeroportoPartida(), voo.getAeroportoChegada());
             } catch (DataExceptions | SQLException e) {
                 e.getMessage();
             }
