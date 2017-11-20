@@ -19,10 +19,6 @@
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 
-
-
-
-
         <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery-migrate-1.2.1.js"></script>
         <script src="${pageContext.request.contextPath}/js/script.js"></script>
@@ -76,11 +72,12 @@
                 <div class="grid_8">
 
                     <div class="tituloCliente">
-                        <h5 class="opcao" value="ida" name="telaIda">Horário Ida</h5>
+                        <h5 class="opcao" value="volta" name="telaVolta">Horário Volta</h5>
                     </div>
 
                     <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/HorarioReservaVoo" method="post">
+                        <form class="signup" action="${pageContext.request.contextPath}/HorarioReservaVooVolta" 
+                              method="post" name="horarioVolta">
 
                             <div id="bg"></div>
                             <table>
@@ -96,7 +93,7 @@
                                     <th style="visibility: hidden">ID</th>
 
                                 </tr>  
-                                <c:forEach var="voo" items="${sessionScope.VooIda}">    
+                                <c:forEach var="voo" items="${sessionScope.VooVolta}">    
                                     <tr>
                                         <td><input type="radio" value="${voo.nrVoo}" name="seleciona" /></td>
                                         <td>${voo.nrVoo}</td>
@@ -114,7 +111,6 @@
 
                                 <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
                                 <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
-
 
                             </div>
 

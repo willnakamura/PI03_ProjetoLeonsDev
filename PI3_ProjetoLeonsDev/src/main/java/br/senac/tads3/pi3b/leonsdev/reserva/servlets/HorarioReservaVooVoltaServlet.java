@@ -5,9 +5,9 @@
  */
 package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
-import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,26 +17,32 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Rafael
+ * @author Nakamura-PC
  */
-@WebServlet(name = "HorarioReservaVooServlet", urlPatterns = {"/HorarioReservaVoo"})
-public class HorarioReservaVooServlet extends HttpServlet {
+@WebServlet(name = "HorarioReservaVooVoltaServlet", urlPatterns = {"/HorarioReservaVooVolta"})
+public class HorarioReservaVooVoltaServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
-    //--------------------------------------------------------------------------
-    
+    //-----------------------------------------------------------------------------
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession sessao = request.getSession();
-        
-        if((int)request.getAttribute("opcaoIdaOuIdaVolta") == 0){
-                        
+
+        String nVoo = request.getParameter("seleciona");
+        int nVooInt = -1;
+        try {
+            nVooInt = Integer.parseInt(nVoo);
+        } catch (Exception e) {
+            e.getMessage();
         }
+
+        sessao.setAttribute("nVooIda", nVooInt);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorarioVolta.jsp");
     }
 }

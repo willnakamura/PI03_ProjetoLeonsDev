@@ -46,7 +46,7 @@ public class VooReservaServlet extends HttpServlet {
 
         String opcao = request.getParameter("opcao");
         int opcaoInt = Integer.parseInt(opcao);
-        request.setAttribute("opcaoIdaOuIdaVolta", opcao);
+        sessao.setAttribute("opcaoIdaOuIdaVolta", opcao);
 
         if (opcaoInt == 0) {
             Voos voo = new Voos();
@@ -75,8 +75,10 @@ public class VooReservaServlet extends HttpServlet {
             int qtdPassageiros = Integer.parseInt(qtdPass);
             
             sessao.setAttribute("qtdpax", qtdPassageiros);
-             
+            
+            //verificar operação com a bagagem....
             String bagagem = request.getParameter("bagagem-voo");
+            
             
             voo.setAeroportoPartida(origem);
             voo.setAeroportoChegada(destino);
@@ -114,6 +116,8 @@ public class VooReservaServlet extends HttpServlet {
             dispatcher.forward(request, response);
             
             
+        
+        
         }else if(opcaoInt == 1){
             Voos voo = new Voos();
             String origem = request.getParameter("origemVoo");
