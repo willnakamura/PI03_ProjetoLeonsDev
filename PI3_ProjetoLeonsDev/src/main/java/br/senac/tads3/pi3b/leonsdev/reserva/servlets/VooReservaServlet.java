@@ -75,7 +75,7 @@ public class VooReservaServlet extends HttpServlet {
             int qtdPassageiros = Integer.parseInt(qtdPass);
             
             sessao.setAttribute("qtdpax", qtdPassageiros);
-            
+             
             String bagagem = request.getParameter("bagagem-voo");
             
             voo.setAeroportoPartida(origem);
@@ -138,7 +138,7 @@ public class VooReservaServlet extends HttpServlet {
             
             List<Voos> voo1 = null;
             try {
-                voo1 = ServicoVoos.buscarVooEspecial((java.sql.Date) voo.getDataVoo(), voo.getAeroportoPartida(), voo.getAeroportoChegada());
+                voo1 = ServicoVoos.buscarVooEspecial(voo.getDataVoo(), voo.getAeroportoPartida(), voo.getAeroportoChegada());
             } catch (DataExceptions | SQLException e) {
                 e.getMessage();
             }

@@ -109,7 +109,7 @@
 
                                 <select id="formatar" class="hora" name="horarioVolta">
                                     <option>Selecione o Horário para Volta</option>
-                                    <c:forEach items="${sessionScope.VooVolta}" var="horario">
+                                    <c:forEach items="${sessionScope.VooVolta.horaPartida}" var="horario">
                                         <option>${horario}</option>
                                     </c:forEach>
                                 </select>
