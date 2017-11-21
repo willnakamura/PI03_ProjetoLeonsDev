@@ -40,9 +40,9 @@
 
     </head>
     <body>
-        
+
         <!--==============================header=================================-->
-        
+
         <header>
             <div class="container_12">
                 <div class="grid_12">
@@ -59,8 +59,8 @@
                         <div class="clear"></div>
                     </div>
                 </div>
-               <div class="grid_12">
-                   <div id="logo">
+                <div class="grid_12">
+                    <div id="logo">
                         <a  href="#">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
@@ -82,21 +82,26 @@
 
                     <div class="card-form">
                         <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente" method="post">
-                            <BR>
+
+                            <div class="row">
+                                <c:if test="${not empty requestScope.erroCadastro}">
+                                    <p class="error"><c:out value="${requestScope.erroCadastro}"/></p>
+                                </c:if>
+                            </div>
 
                             <div class="form-body">
                                 <div class="row">
-                                    <input type="text" placeholder="Nome*" name="nome-cli">
-                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-cli">
+                                    <input type="text" placeholder="Nome*" value="${sessionScope.cliRepreenche.nome}" name="nome-cli">
+                                    <input type="text" placeholder="Sobrenome*" value="${sessionScope.cliRepreenche.sobrenome}" name="sobreNome-cli">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" name="cpf-cli">
+                                    <input type="number" placeholder="cpf*" value="${sessionScope.cliRepreenche.cpf}" name="cpf-cli">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Email*" name="email-cli">
+                                    <input type="text" placeholder="Email*" value="${sessionScope.cliRepreenche.email}" name="email-cli">
                                 </div>
                                 <div class="row">
-                                    <input type="number" placeholder="()Celular*" name="celular-cli">       
+                                    <input type="number" placeholder="()Celular*" value="${sessionScope.cliRepreenche.celular}" name="celular-cli">       
                                 </div>
 
                                 <div class="row">
@@ -107,7 +112,7 @@
 
                                     </select>
 
-                                    <input type="date" placeholder="" name="dtNasc-cli">   
+                                    <input type="date" value="${sessionScope.cliRepreenche.dataNascimento}" placeholder="" name="dtNasc-cli">   
 
                                 </div>
 
@@ -144,27 +149,17 @@
                                         <option value="SE">SE</option> 
                                         <option value="TO">TO</option>                                
                                     </select>
-                                    <input type="text" placeholder="Cidade*" name="cidade-cli">
+                                    <input type="text" placeholder="Cidade*" value="${sessionScope.cliRepreenche.cidade}" name="cidade-cli">
                                 </div>
 
                                 <div class="row">
-                                    <input type="number" placeholder="CEP*" name="cep-cli">
+                                    <input type="number" placeholder="CEP*" value="${sessionScope.cliRepreenche.cep}" name="cep-cli">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Endereço*" name="end-cli">
+                                    <input type="text" placeholder="Endereço*" value="${sessionScope.cliRepreenche.endereco}" name="end-cli">
                                 </div>
-                                
-                                <div class="row">
-                                    <c:if test="${not empty requestScope.erroCadastro}">
-                                        <p class="error"><c:out value="${requestScope.erroCadastro}"/></p>
-                                    </c:if>
-                                </div>
-                                
-                                <div class="row">
-                                    <c:if test="${not empty requestScope.erroCadastro}">
-                                        <p class="error"><c:out value="${requestScope.erroCadastro}"/></p>
-                                    </c:if>
-                                </div>
+
+
 
                             </div>
 

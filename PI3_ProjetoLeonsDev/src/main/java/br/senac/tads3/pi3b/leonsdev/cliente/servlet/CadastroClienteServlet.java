@@ -61,6 +61,7 @@ public class CadastroClienteServlet extends HttpServlet {
             throws ServletException, IOException {
         
         SimpleDateFormat dataForm = new SimpleDateFormat("yyyy-MM-dd");
+        HttpSession sessao = request.getSession();
 
         String nome = request.getParameter("nome-cli");
         String sobNome = request.getParameter("sobreNome-cli");
@@ -106,15 +107,12 @@ public class CadastroClienteServlet extends HttpServlet {
 
         } catch (ClienteException | DataExceptions e) {
             request.setAttribute("erroCadastro", e.getMessage());
-            
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarCliente.jsp");
-            dispatcher.forward(request, response);
+            sessao.setAttribute("cliRepreenche", cli);
         }
-
-        HttpSession sessao = request.getSession();
         sessao.setAttribute("cli", cli);
 
-        response.sendRedirect(request.getContextPath() + "/cadastrarCliente.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarCliente.jsp");
+            dispatcher.forward(request, response);
     }
 
 }

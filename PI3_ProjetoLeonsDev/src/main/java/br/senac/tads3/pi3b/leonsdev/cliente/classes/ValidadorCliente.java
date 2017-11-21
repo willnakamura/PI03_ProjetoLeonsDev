@@ -98,5 +98,6 @@ public class ValidadorCliente {
         if (cliente.getEmail().length() > 50) {
             throw new ClienteException("Email inválido.");
         }
+
     }
 }
