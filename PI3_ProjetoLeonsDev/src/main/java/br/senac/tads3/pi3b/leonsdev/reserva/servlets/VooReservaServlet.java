@@ -42,7 +42,6 @@ public class VooReservaServlet extends HttpServlet {
 
         HttpSession sessao = request.getSession();
         SimpleDateFormat dataForm = new SimpleDateFormat("yyyy-MM-dd");
-        
 
         String opcao = request.getParameter("opcao");
         int opcaoInt = Integer.parseInt(opcao);
@@ -61,64 +60,60 @@ public class VooReservaServlet extends HttpServlet {
             } catch (ParseException e) {
                 e.getMessage();
             }
-            
+
             String datVolta = request.getParameter("data-volta-voo");
-            
+
             Date dataVoltaVoo = null;
             try {
                 dataVoltaVoo = dataForm.parse(datVolta);
             } catch (ParseException e) {
                 e.getMessage();
             }
-            
+
             String qtdPass = request.getParameter("qtdpax");
             int qtdPassageiros = Integer.parseInt(qtdPass);
-            
+
             sessao.setAttribute("qtdpax", qtdPassageiros);
-            
+
             //verificar operação com a bagagem....
             String bagagem = request.getParameter("bagagem-voo");
-            
-            
+
             voo.setAeroportoPartida(origem);
             voo.setAeroportoChegada(destino);
             voo.setDataVoo(dataIdaVoo);
-            
+
             voo2.setAeroportoPartida(destino);
             voo2.setAeroportoChegada(origem);
             voo2.setDataVoo(dataVoltaVoo);
-            
+
             String ida = voo.getAeroportoPartida();
             String chegada = voo.getAeroportoChegada();
-            
+
             List<Voos> voo1 = null;
             try {
                 voo1 = ServicoVoos.buscarVooEspecial(voo.getDataVoo(), ida.substring(0, 3), chegada.substring(0, 3));
             } catch (DataExceptions | SQLException e) {
                 e.getMessage();
             }
-            
+
             sessao.setAttribute("VooIda", voo1);
-            
+
             String ida2 = voo2.getAeroportoPartida();
             String chegada2 = voo2.getAeroportoChegada();
-            
+
             List<Voos> vooVolta = null;
             try {
                 vooVolta = ServicoVoos.buscarVooEspecial(voo2.getDataVoo(), ida2.substring(0, 3), chegada2.substring(0, 3));
             } catch (DataExceptions | SQLException e) {
                 e.getMessage();
             }
-            
+
             sessao.setAttribute("VooVolta", vooVolta);
-            
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
             dispatcher.forward(request, response);
-            
-            
-        
-        
-        }else if(opcaoInt == 1){
+
+        } else if (opcaoInt == 1) {
             Voos voo = new Voos();
             String origem = request.getParameter("origemVoo");
             String destino = request.getParameter("destinoVoo");
@@ -130,28 +125,29 @@ public class VooReservaServlet extends HttpServlet {
             } catch (ParseException e) {
                 e.getMessage();
             }
-            
+
             Integer qtdPassageiros = Integer.parseInt(request.getParameter("qtdpax"));
             sessao.setAttribute("qtdpax", qtdPassageiros);
-            
+
             String bagagem = request.getParameter("bagagem-voo");
-            
+
             voo.setAeroportoPartida(origem);
             voo.setAeroportoChegada(destino);
             voo.setDataVoo(dataIdaVoo);
-            
+
             List<Voos> voo1 = null;
             try {
-                voo1 = ServicoVoos.buscarVooEspecial(voo.getDataVoo(), voo.getAeroportoPartida(), voo.getAeroportoChegada());
+                voo1 = ServicoVoos.buscarVooEspecial(voo.getDataVoo(),
+                        voo.getAeroportoPartida().substring(0, 3), voo.getAeroportoChegada().substring(0, 3));
             } catch (DataExceptions | SQLException e) {
                 e.getMessage();
             }
-            
+
             sessao.setAttribute("VooIda", voo1);
-            
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
             dispatcher.forward(request, response);
-            
+
         }
     }
 }

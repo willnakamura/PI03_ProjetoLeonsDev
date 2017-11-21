@@ -5,7 +5,6 @@
  */
 package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -34,26 +33,24 @@ public class HorarioReservaVooIdaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession sessao = request.getSession();
-        Integer opcao = null;
-        try {
-            opcao = (int) sessao.getAttribute("opcaoIdaOuIdaVolta");
-        } catch (Exception e) {
-            e.getMessage();
-        }
 
-        if (opcao == 0) {
+        String opcao = (String) sessao.getAttribute("opcaoIdaOuIdaVolta");
+        int opcaoInt = Integer.parseInt(opcao);
+
+        if (opcaoInt == 0) {
             String nVoo = request.getParameter("seleciona");
             int nVooInt = -1;
             try {
                 nVooInt = Integer.parseInt(nVoo);
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 e.getMessage();
             }
-            
+
             sessao.setAttribute("nVooIda", nVooInt);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorarioVolta.jsp");
             dispatcher.forward(request, response);
-        } else if (opcao == 1) {
+
+        } else if (opcaoInt == 1) {
             String nVoo = request.getParameter("seleciona");
             Integer nVooInt = null;
             try {

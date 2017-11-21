@@ -43,6 +43,7 @@ public class HorarioReservaVooVoltaServlet extends HttpServlet {
         }
 
         sessao.setAttribute("nVooIda", nVooInt);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorarioVolta.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaCliente.jsp");
+        dispatcher.forward(request, response);
     }
 }

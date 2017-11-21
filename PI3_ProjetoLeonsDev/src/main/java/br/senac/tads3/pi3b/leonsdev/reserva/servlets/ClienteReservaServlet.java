@@ -43,17 +43,13 @@ public class ClienteReservaServlet extends HttpServlet {
         
         try {
             cli = ServicoCliente.procurarCliente(buscaCli);
+            sessao.setAttribute("clienteSelectReserva", cli);
+            
         } catch (ClienteException | DataExceptions e) {
             request.setAttribute("erroSelecionaCli", e.getMessage());
-        }
-        
-        sessao.setAttribute("clienteSelectReserva", cli);
+        }        
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaCliente.jsp");
-            dispatcher.forward(request, response);
-        
+            dispatcher.forward(request, response);        
     }
-
-   
-
 }

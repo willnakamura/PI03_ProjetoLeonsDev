@@ -79,50 +79,50 @@
                     </div>
 
                     <div class="card-form">
-                        <form class="buscaCli" action="${pageContext.request.contextPath}/SelecionaCliente" method="post">
+                        <form class="buscaCli" action="${pageContext.request.contextPath}/ClienteReserva" method="post">
                             <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente"> <button id="botoesBusca" type="submit">BUSCAR</button></div>
                         </form>
                     </div>
                     
                     <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/SelecionaCliente" method="post">
+                        <form class="signup" action="${pageContext.request.contextPath}/" method="post">
                             <BR>
                             
                             <div class="form-body">
                                 <div class="row">
-                                    <input type="text" placeholder="Nome*" value="${sessionScope.clienteSelecionado.nome}" name="nome-cli-selecionar" readonly="readonly">
-                                    <input type="text" placeholder="Sobrenome*" value="${sessionScope.clienteSelecionado.sobrenome}" name="sobreNome-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Nome*" value="${sessionScope.clienteSelectReserva.nome}" name="nome-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Sobrenome*" value="${sessionScope.clienteSelectReserva.sobrenome}" name="sobreNome-cli-selecionar" readonly="readonly">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" value="${sessionScope.clienteSelecionado.cpf}" name="cpf-cli-selecionar" readonly="readonly">
+                                    <input type="number" placeholder="cpf*" value="${sessionScope.clienteSelectReserva.cpf}" name="cpf-cli-selecionar" readonly="readonly">
 
 
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Email*" value="${sessionScope.clienteSelecionado.email}" name="email-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Email*" value="${sessionScope.clienteSelectReserva.email}" name="email-cli-selecionar" readonly="readonly">
                                 </div>
                                 <div class="row">
-                                    <input type="number" placeholder="()Celular*" value="${sessionScope.clienteSelecionado.celular}" name="celular-cli-selecionar" readonly="readonly">       
-                                </div>
-
-                                <div class="row">
-                                    <input type="text" placeholder="Sexo" value="${sessionScope.clienteSelecionado.genero}"  name="sexo-cli-selecionar" readonly="readonly">   
-                                    <input type="text" placeholder="data de Nascimento" value="${sessionScope.clienteSelecionado.dataNascimento}" name="dtNasc-cli-selecionar" readonly="readonly">   
-
+                                    <input type="number" placeholder="()Celular*" value="${sessionScope.clienteSelectReserva.celular}" name="celular-cli-selecionar" readonly="readonly">       
                                 </div>
 
                                 <div class="row">
+                                    <input type="text" placeholder="Sexo" value="${sessionScope.clienteSelectReserva.genero}"  name="sexo-cli-selecionar" readonly="readonly">   
+                                    <input type="text" placeholder="data de Nascimento" value="${sessionScope.clienteSelectReserva.dataNascimento}" name="dtNasc-cli-selecionar" readonly="readonly">   
 
-
-                                    <input type="text" placeholder="Estado*" value="${sessionScope.clienteSelecionado.estado}"  name="estado-cli-selecionar" readonly="readonly">
-                                    <input type="text" placeholder="Cidade*" value="${sessionScope.clienteSelecionado.cidade}"  name="cidade-cli-selecionar" readonly="readonly">
                                 </div>
 
                                 <div class="row">
-                                    <input type="number" placeholder="CEP*" value="${sessionScope.clienteSelecionado.cep}"  name="cep-cli-selecionar" readonly="readonly">
+
+
+                                    <input type="text" placeholder="Estado*" value="${sessionScope.clienteSelectReserva.estado}"  name="estado-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Cidade*" value="${sessionScope.clienteSelectReserva.cidade}"  name="cidade-cli-selecionar" readonly="readonly">
+                                </div>
+
+                                <div class="row">
+                                    <input type="number" placeholder="CEP*" value="${sessionScope.clienteSelectReserva.cep}"  name="cep-cli-selecionar" readonly="readonly">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Endereço" value="${sessionScope.clienteSelecionado.endereco}"  name="end-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Endereço" value="${sessionScope.clienteSelectReserva.endereco}"  name="end-cli-selecionar" readonly="readonly">
                                 </div>
 
                             </div>
