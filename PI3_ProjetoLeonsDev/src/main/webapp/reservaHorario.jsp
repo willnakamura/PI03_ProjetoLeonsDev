@@ -98,7 +98,7 @@
                                 </tr>  
                                 <c:forEach var="voo" items="${sessionScope.VooIda}">    
                                     <tr>
-                                        <td><input type="radio" value="${voo.nrVoo}" name="seleciona" /></td>
+                                        <td><input type="radio" value="${voo.id}" name="seleciona" /></td>
                                         <td>${voo.nrVoo}</td>
                                         <td>${voo.aeroportoPartida}</td>
                                         <td>${voo.aeroportoChegada}</td>

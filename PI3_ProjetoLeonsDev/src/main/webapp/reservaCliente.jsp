@@ -85,7 +85,7 @@
                     </div>
                     
                     <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/" method="post">
+                        <form class="signup" action="${pageContext.request.contextPath}/TrocaTelaClienteReserva" method="post">
                             <BR>
                             
                             <div class="form-body">

@@ -39,27 +39,27 @@ public class HorarioReservaVooIdaServlet extends HttpServlet {
 
         if (opcaoInt == 0) {
             String nVoo = request.getParameter("seleciona");
-            int nVooInt = -1;
+            int id = -1;
             try {
-                nVooInt = Integer.parseInt(nVoo);
+                id = Integer.parseInt(nVoo);
             } catch (NumberFormatException e) {
                 e.getMessage();
             }
 
-            sessao.setAttribute("nVooIda", nVooInt);
+            sessao.setAttribute("idVooIda", id);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorarioVolta.jsp");
             dispatcher.forward(request, response);
 
         } else if (opcaoInt == 1) {
-            String nVoo = request.getParameter("seleciona");
-            Integer nVooInt = null;
+            String id = request.getParameter("seleciona");
+            Integer idVoo = null;
             try {
-                nVooInt = Integer.parseInt(nVoo);
+                idVoo = Integer.parseInt(id);
             } catch (Exception e) {
                 e.getMessage();
             }
 
-            sessao.setAttribute("nVooIdaReservado", nVooInt);
+            sessao.setAttribute("idVooIda", idVoo);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaCliente.jsp");
             dispatcher.forward(request, response);
         }

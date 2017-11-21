@@ -272,7 +272,7 @@ public class DaoVoos {
     public static Voos obter(Integer id)
             throws SQLException, Exception {
 
-        String sql = "SELECT * FROM Voos WHERE (Voos_ID=? AND Ativo=?)";
+        String sql = "SELECT * FROM Voos WHERE Voo_ID=? AND Ativo=?";
 
         //Conexão para abertura e fechamento
         Connection connection = null;

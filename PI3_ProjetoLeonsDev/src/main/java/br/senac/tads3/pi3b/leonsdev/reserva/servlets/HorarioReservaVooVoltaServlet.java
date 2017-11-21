@@ -35,14 +35,14 @@ public class HorarioReservaVooVoltaServlet extends HttpServlet {
         HttpSession sessao = request.getSession();
 
         String nVoo = request.getParameter("seleciona");
-        int nVooInt = -1;
+        int id = -1;
         try {
-            nVooInt = Integer.parseInt(nVoo);
+            id = Integer.parseInt(nVoo);
         } catch (Exception e) {
             e.getMessage();
         }
 
-        sessao.setAttribute("nVooIda", nVooInt);
+        sessao.setAttribute("idVooVolta", id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaCliente.jsp");
         dispatcher.forward(request, response);
     }
