@@ -50,7 +50,7 @@
                                 <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
                                 <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
                                 <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuário</a></li>
-                                 <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
                                 <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
                             </ul>
                         </nav>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="grid_12">
-                   <div id="logo">
+                    <div id="logo">
                         <a  href="#">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
@@ -79,41 +79,39 @@
                     </div>
 
                     <div class="card-form">
-                        <form class="signup" action="" method="post">
-                           
-                               
-                                
-                               <div class="busca"><label id="rowPagador">Pagador</label><input type="text" id="pagador" placeholder="nome completo do pagador" name="nomePagador" readonly="readonly"> </div>
+                        <form class="signup" action="${pageContext.request.contextPath}/" method="post">
+
+                            <div class="busca">
+                                <input type="text" id="pagador" name="nomePagador" readonly="readonly" value="${sessionScope.clienteSelectReserva.nome}">
+                            </div>
+
                             <div class="form-body">
                                 <div class="row">
-                                      <select class="pagamento" name="pagamento">  
-                                        <option value="selecione">Selecione a forma de Pagamento</option>
+                                    <select class="pagamento" name="pagamento">  
+                                        <option value="selecione">Forma de Pagamento</option>
                                         <option value="selecione">Cartão de crédito</option>
                                         <option value="selecione">Débito automático</option>
-                                        <option value="selecione">Boleto bancário</option>
+                                        <option value="selecione">Dinheiro</option>
                                     </select>
                                 </div>  
+
                                 <div class="row">
                                     <input type="number" placeholder="TOTAL" name="total" readonly="readonly">
-                                    
-                                    
                                 </div>
-                                 
+
                             </div>
 
                             <div class="form-footer">
-
                                 <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
                                 <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
-                                
 
                             </div>
-                               
+
                         </form>
 
                     </div>
                 </div>
-              
+
 
             </div>
 

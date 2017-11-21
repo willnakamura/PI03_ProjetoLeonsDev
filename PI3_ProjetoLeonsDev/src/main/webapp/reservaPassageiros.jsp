@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/TrocaTelaClienteReserva" method="post">
+                        <form class="signup" action="${pageContext.request.contextPath}/PassageirosReserva" method="post">
                             <BR>
 
                             <div class="form-body">
@@ -101,8 +101,7 @@
                                     <select class="assentos" name="assentosPassageiro">           
                                         <option value="selecione">Selecione seu assento!</option>
                                         <c:forEach items="${sessionScope.assentosLista}" var="a">
-                                            <option>${a.Assento}</option>
-                                            
+                                            <option>${a}</option>                                            
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -123,8 +122,6 @@
 
                     </div>
                 </div>
-
-
             </div>
 
 

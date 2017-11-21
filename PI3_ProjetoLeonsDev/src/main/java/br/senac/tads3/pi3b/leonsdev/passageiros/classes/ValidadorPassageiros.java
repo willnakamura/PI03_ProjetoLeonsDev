@@ -29,7 +29,7 @@ public class ValidadorPassageiros {
             throw new PassageirosException("CPF inválido.");
         }
         
-        if(passageiro.getDataNascimento() == null || calendario.before(passageiro.getDataNascimento())){
+        if(passageiro.getDataNascimento() == null || calendario.getTime().after(passageiro.getDataNascimento())){
             throw new PassageirosException("Data inválida.");
         }
         
@@ -38,7 +38,7 @@ public class ValidadorPassageiros {
         }
         
         if(passageiro.getEmail().length() > 45){
-            throw new PassageirosException("Email invállido.");
+            throw new PassageirosException("Email inválido.");
         }
         
         if(passageiro.getNome() == null || passageiro.getNome().equals("")){

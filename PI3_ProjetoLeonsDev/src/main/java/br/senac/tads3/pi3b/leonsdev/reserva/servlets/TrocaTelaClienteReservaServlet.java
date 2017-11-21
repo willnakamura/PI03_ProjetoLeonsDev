@@ -53,14 +53,15 @@ public class TrocaTelaClienteReservaServlet extends HttpServlet {
             e.getMessage();
         }
         
-        ArrayList <Assentos> assentos = null;
+        ArrayList assentos = null;
         try {
             assentos = ServicoAssentos.assentosConsultaDisponiveis(voo.getDataVoo(), voo.getNrVoo());
             
         } catch (DataExceptions e) {
             e.getMessage();
         }
-        sessao.setAttribute("assentosLista", voo);
+        
+        sessao.setAttribute("assentosLista", assentos);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
         dispatcher.forward(request, response);
     }
