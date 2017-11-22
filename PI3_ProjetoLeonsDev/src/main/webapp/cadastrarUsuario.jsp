@@ -89,7 +89,13 @@
                                 </div>  
                                 <div class="row">
                                     <input type="number" placeholder="cpf*" name="cpf-usua">
-                                    <input type="text" placeholder="Cargo" name="cargo-usua">
+                                    
+                                 <select id="format-slc-usua" name="cargo-usua">
+                                    <option value="0">Selecione o cargo</option>
+                                    <option value="1">Gerente</option>
+                                    <option value="2">Vendedor</option>
+                                                                       
+                                </select>
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Email*" name="email-usua">

@@ -93,8 +93,13 @@
                                     <input type="text" placeholder="Sobrenome*" name="sobrenome-usua" value="${sessionScope.usuario.sobrenome}">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" name="cpf-usua"value="${sessionScope.usuario.cpf}">
-                                     <input type="text" placeholder="Cargo" name="cargo-usua"value="${sessionScope.usuario.cargo}">
+                                    <input type="number" id="cpf-usua-edit" placeholder="cpf*" name="cpf-usua" value="${sessionScope.usuario.cpf}">
+                                 <select id="format-slc-usua" name="cargo-usua">
+                                    <option value="0">Selecione o cargo</option>
+                                    <option value="1">Gerente</option>
+                                    <option value="2">Vendedor</option>
+                                                                       
+                                </select>
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Email*" name="email-usua"value="${sessionScope.usuario.email}">
