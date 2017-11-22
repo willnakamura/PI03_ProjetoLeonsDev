@@ -9,6 +9,7 @@ import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.dbUtils.ConnectionUtils;
 import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.Passageiros;
+import br.senac.tads3.pi3b.leonsdev.passageiros.classes.PassageirosVoos;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.TicketCode;
 import br.senac.tads3.pi3b.leonsdev.servico.classes.Servico;
@@ -25,7 +26,7 @@ import java.sql.Timestamp;
  */
 public class DaoFazerReserva {
 
-    public static void inserirVenda(Reserva reserva, Passageiros passageiro, Servico servico, Cliente cliente) throws SQLException, Exception {
+    public static void inserirVenda(Reserva reserva, Passageiros[] passageiro, PassageirosVoos[] pvoos, Servico servico, Cliente cliente) throws SQLException, Exception {
         //Monta a string de inserção dos dados no BD,
         String sql1 = "insert into Reservas (Data_Criado, Status, Vendedor, Forma_Pagto, Custo_Total, Cliente_ID, Ativo, Ticket) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -71,33 +72,35 @@ public class DaoFazerReserva {
 
             preparedStatement2 = connection.prepareStatement(sql2, Statement.RETURN_GENERATED_KEYS);
 
-            preparedStatement2.setString(1, passageiro.getNome());
-            preparedStatement2.setString(2, passageiro.getSobrenome());
-            preparedStatement2.setString(3, passageiro.getCpf());
-            Timestamp t = new Timestamp(passageiro.getDataNascimento().getTime());
-            preparedStatement2.setTimestamp(4, t);
-            preparedStatement2.setString(5, passageiro.getEmail());
-            preparedStatement2.setInt(6, rs.getInt(1));
-            preparedStatement2.execute();
+            for (int i = 0; i < passageiro.length; i++) {
+                preparedStatement2.setString(1, passageiro[i].getNome());
+                preparedStatement2.setString(2, passageiro[i].getSobrenome());
+                preparedStatement2.setString(3, passageiro[i].getCpf());
+                Timestamp t = new Timestamp(passageiro[i].getDataNascimento().getTime());
+                preparedStatement2.setTimestamp(4, t);
+                preparedStatement2.setString(5, passageiro[i].getEmail());
+                preparedStatement2.setInt(6, rs.getInt(1));
+                preparedStatement2.execute();
 
-            ResultSet rs2 = preparedStatement2.getGeneratedKeys();
-            rs2.next();
+                ResultSet rs2 = preparedStatement2.getGeneratedKeys();
+                rs2.next();
 
-            for (int i = 0; i < passageiro.getVoos().size(); i++) {
                 preparedStatement3 = connection.prepareStatement(sql3);
 
                 preparedStatement3.setInt(1, rs2.getInt(1));
-                preparedStatement3.setInt(2, passageiro.getVoos().get(i).getVoo().getId());
-                preparedStatement3.setString(3, passageiro.getVoos().get(i).getStatus());
-                preparedStatement3.setString(4, passageiro.getVoos().get(i).getAssento());
+                preparedStatement3.setInt(2, pvoos[i].getVoo().getId());
+                preparedStatement3.setString(3, pvoos[i].getStatus());
+                preparedStatement3.setString(4, pvoos[i].getAssento());
+                preparedStatement3.execute();
             }
-            
+
             preparedStatement4 = connection.prepareStatement(sql4);
-            
+
             preparedStatement4.setDouble(1, servico.getPreco());
             preparedStatement4.setInt(2, rs.getInt(1));
             preparedStatement4.setString(3, servico.getExtraBag());
             preparedStatement4.setBoolean(4, true);
+            preparedStatement4.execute();
 
         } finally {
             //Se o statement ainda estiver aberto, realiza seu fechamento
