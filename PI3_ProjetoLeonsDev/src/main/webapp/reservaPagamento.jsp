@@ -41,7 +41,6 @@
     </head>
     <body>
         <!--==============================header=================================-->
-        <!--==============================header=================================-->
         <header>
             <div class="container_12">
                 <div class="grid_12">
@@ -97,7 +96,7 @@
                                 </div>  
 
                                 <div class="row">
-                                    <input type="number" placeholder="TOTAL" name="total" readonly="readonly">
+                                    <input type="text" name="total" readonly="readonly">
                                 </div>
 
                             </div>

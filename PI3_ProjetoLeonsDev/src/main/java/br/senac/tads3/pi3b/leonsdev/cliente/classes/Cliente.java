@@ -17,6 +17,15 @@ public class Cliente {
     private int id;
     private String nome, sobrenome, cpf, email, celular, estado, genero, cidade, endereco, cep;
     private Date dataNascimento, dataCadastro;
+    private String nivel;
+
+    public String getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(String nivel) {
+        this.nivel = nivel;
+    }
 
     public Date getDataCadastro() {
         return dataCadastro;

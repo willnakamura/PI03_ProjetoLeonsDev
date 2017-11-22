@@ -74,9 +74,11 @@ public class VooReservaServlet extends HttpServlet {
             int qtdPassageiros = Integer.parseInt(qtdPass);
 
             sessao.setAttribute("qtdpax", qtdPassageiros);
+            sessao.setAttribute("qtdPassageirosReserva", qtdPassageiros);
 
             //verificar operação com a bagagem....
             String bagagem = request.getParameter("bagagem-voo");
+            sessao.setAttribute("bagagem", bagagem);
 
             voo.setAeroportoPartida(origem);
             voo.setAeroportoChegada(destino);

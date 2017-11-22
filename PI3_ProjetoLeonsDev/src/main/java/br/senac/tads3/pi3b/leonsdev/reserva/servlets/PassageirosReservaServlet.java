@@ -70,22 +70,22 @@ public class PassageirosReservaServlet extends HttpServlet {
 
         passVoos.setAssento(assento);
         passVoos.setPassageiro(pass);
-        
+
         try {
-            
+
             ValidadorPassageiros.Validar(pass);
-            
+
         } catch (PassageirosException e) {
-           request.setAttribute("erroPassageiro", e.getMessage());
-           
-           RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+            request.setAttribute("erroPassageiro", e.getMessage());
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
             dispatcher.forward(request, response);
         }
 
         if (qntPass == 1) {
             sessao.setAttribute("Passageiro1", pass);
             sessao.setAttribute("PassageiroVoo1", passVoos);
-            
+
         } else if (qntPass == 2) {
             sessao.setAttribute("Passageiro2", pass);
             sessao.setAttribute("PassageiroVoo2", passVoos);
@@ -103,8 +103,6 @@ public class PassageirosReservaServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
             dispatcher.forward(request, response);
         }
-        
-        
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
         dispatcher.forward(request, response);
