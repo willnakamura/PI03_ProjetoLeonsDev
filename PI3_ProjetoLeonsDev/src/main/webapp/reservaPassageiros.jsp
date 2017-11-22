@@ -80,7 +80,11 @@
 
                     <div class="card-form">
                         <form class="signup" action="${pageContext.request.contextPath}/PassageirosReserva" method="post">
-                            <BR>
+                             <div class="row">
+                                <c:if test="${not empty requestScope.erroPassageiro}">
+                                    <p class="error"><c:out value="${requestScope.erroPassageiro}"/></p>
+                                </c:if>
+                            </div>
 
                             <div class="form-body">
                                 <div class="row">
@@ -99,7 +103,7 @@
                                 
                                 <div class="row">
                                     <select class="assentos" name="assentosPassageiro">           
-                                        <option value="selecione">Selecione seu assento!</option>
+                                        <option value="selecione">Selecione o assento!</option>
                                         <c:forEach items="${sessionScope.assentosLista}" var="a">
                                             <option>${a}</option>                                            
                                         </c:forEach>

@@ -21,6 +21,22 @@ public class ValidadorPassageiros {
             throw new PassageirosException("Dados inválidos.");
         }
         
+        if(passageiro.getNome() == null || passageiro.getNome().equals("")){
+            throw new PassageirosException("Favor, informe o nome do passageiro.");
+        }
+        
+        if(passageiro.getNome().length() > 45){
+            throw new PassageirosException("Nome inválido.");
+        }
+        
+        if(passageiro.getSobrenome() == null || passageiro.getSobrenome().equals("")){
+            throw new PassageirosException("Favor, informe o sobrenome do passageiro.");
+        }
+        
+        if(passageiro.getSobrenome().length() > 45){
+            throw new PassageirosException("Sobrenome inválido.");
+        }
+        
         if(passageiro.getCpf() == null || passageiro.getCpf().equals("")){
             throw new PassageirosException("Favor, informar um CPF válido.");
         }
@@ -29,7 +45,7 @@ public class ValidadorPassageiros {
             throw new PassageirosException("CPF inválido.");
         }
         
-        if(passageiro.getDataNascimento() == null || calendario.getTime().after(passageiro.getDataNascimento())){
+        if(passageiro.getDataNascimento() == null || calendario.before(passageiro.getDataNascimento())){
             throw new PassageirosException("Data inválida.");
         }
         
@@ -39,22 +55,6 @@ public class ValidadorPassageiros {
         
         if(passageiro.getEmail().length() > 45){
             throw new PassageirosException("Email inválido.");
-        }
-        
-        if(passageiro.getNome() == null || passageiro.getNome().equals("")){
-            throw new PassageirosException("Favor, informe seu nome.");
-        }
-        
-        if(passageiro.getNome().length() > 45){
-            throw new PassageirosException("Nome inválido.");
-        }
-        
-        if(passageiro.getSobrenome() == null || passageiro.getSobrenome().equals("")){
-            throw new PassageirosException("Favor, informe um sobrenome.");
-        }
-        
-        if(passageiro.getSobrenome().length() > 45){
-            throw new PassageirosException("Sobrenome inválido.");
         }
     }
 }

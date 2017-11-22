@@ -5,6 +5,7 @@
  */
 package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
+import br.senac.tads3.pi3b.leonsdev.exceptions.PassageirosException;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.Passageiros;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.PassageirosVoos;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.ValidadorPassageiros;
@@ -74,14 +75,17 @@ public class PassageirosReservaServlet extends HttpServlet {
             
             ValidadorPassageiros.Validar(pass);
             
-        } catch (Exception e) {
-           sessao.setAttribute("erroPassageiro", e.getMessage());
+        } catch (PassageirosException e) {
+           request.setAttribute("erroPassageiro", e.getMessage());
+           
+           RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+            dispatcher.forward(request, response);
         }
 
         if (qntPass == 1) {
             sessao.setAttribute("Passageiro1", pass);
             sessao.setAttribute("PassageiroVoo1", passVoos);
-
+            
         } else if (qntPass == 2) {
             sessao.setAttribute("Passageiro2", pass);
             sessao.setAttribute("PassageiroVoo2", passVoos);
