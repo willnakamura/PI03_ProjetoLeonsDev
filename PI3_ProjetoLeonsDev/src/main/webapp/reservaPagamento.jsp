@@ -79,10 +79,10 @@
                     </div>
 
                     <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/" method="post">
+                        <form class="signup" action="${pageContext.request.contextPath}/PagamentoReserva" method="post">
 
                             <div class="busca">
-                                <input type="text" id="pagador" name="nomePagador" readonly="readonly" value="${sessionScope.clienteSelectReserva.nome}">
+                                <input type="text" id="pagador" name="nomePagador" readonly="readonly" value="${sessionScope.nomePagador}">
                             </div>
 
                             <div class="form-body">
@@ -96,7 +96,7 @@
                                 </div>  
 
                                 <div class="row">
-                                    <input type="text" name="total" readonly="readonly">
+                                    <input type="text" name="total" value="" readonly="readonly">
                                 </div>
 
                             </div>

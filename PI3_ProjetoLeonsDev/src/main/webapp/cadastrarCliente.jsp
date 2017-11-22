@@ -82,7 +82,12 @@
 
                     <div class="card-form">
                         <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente" method="post">
-
+                            <div class="row">
+                                <c:if test="${not empty requestScope.sucessCadastro}">
+                                    <p class="sucess"><c:out value="${requestScope.sucessCadastro}"/></p>
+                                </c:if>
+                            </div>
+                            
                             <div class="row">
                                 <c:if test="${not empty requestScope.erroCadastro}">
                                     <p class="error"><c:out value="${requestScope.erroCadastro}"/></p>

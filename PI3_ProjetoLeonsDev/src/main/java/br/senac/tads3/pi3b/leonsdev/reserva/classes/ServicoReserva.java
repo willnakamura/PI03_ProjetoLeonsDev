@@ -20,7 +20,7 @@ public class ServicoReserva {
     public static void inserirReserva (Reserva reserva) throws DataExceptions, ReservaException {
         
         try{
-            ValidadorReserva.validar(reserva);
+            ValidadorReservaVoo.validar(reserva);
         }catch(ReservaException e){
             e.printStackTrace();
             System.out.println("Erro. " + e.getMessage());
@@ -38,7 +38,7 @@ public class ServicoReserva {
     public static void atualizarReserva (Reserva reserva) throws DataExceptions, ReservaException{
         
         try{
-            ValidadorReserva.validar(reserva);
+            ValidadorReservaVoo.validar(reserva);
         }catch(ReservaException e){
             e.printStackTrace();
             System.out.println("Erro, " + e.getMessage());

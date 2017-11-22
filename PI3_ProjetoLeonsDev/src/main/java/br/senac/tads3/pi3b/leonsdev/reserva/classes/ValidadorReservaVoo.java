@@ -13,7 +13,7 @@ import java.util.Date;
  *
  * @author Nakamura-PC
  */
-public class ValidadorReserva {
+public class ValidadorReservaVoo {
 
     public static void validar(Reserva reserva) throws ReservaException {
 
@@ -28,6 +28,7 @@ public class ValidadorReserva {
             throw new ReservaException("A data da reserva é menor que a data de hoje.");
         }
         if (reserva.getFormaPgto().equals("Selecione")) {
+            
             throw new ReservaException("É necessário informar o modo de pagamento.");
         }
     }

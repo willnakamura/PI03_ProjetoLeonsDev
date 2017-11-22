@@ -26,42 +26,51 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "ConsultaUsuarioServlet", urlPatterns = {"/ConsultaUsuario"})
 public class ConsultaUsuarioServlet extends HttpServlet {
 
-
-   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
-    
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession sessao = request.getSession();
         String busca = request.getParameter("buscaUsuario");
         sessao.setAttribute("buscar", busca);
-        
+
         Usuario usuario = new Usuario();
-        
-        
+
         try {
-            if(busca == null || busca.trim().equals("")){
+            if (busca == null || busca.trim().equals("")) {
                 List<Usuario> listaUsuario = ServicoUsuario.listar();
-                sessao.setAttribute("ResultUsuarioLista", listaUsuario);
-            }else{
+
+                if (!listaUsuario.isEmpty() && listaUsuario != null) {
+                    sessao.setAttribute("ResultUsuarioLista", listaUsuario);
+                } else {
+                    request.setAttribute("erroConsulta", "Não houve resultados nesta pesquisa.");
+                }
+
+            } else {
                 usuario = ServicoUsuario.Procurar(busca);
-                sessao.setAttribute("ResultUsuario", usuario);
+                boolean usuNull = usuario.getCpf() == null;
+
+                if (usuNull) {
+                    request.setAttribute("erroConsulta", "Não houve resultados nesta pesquisa.");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/consultarUsuario.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    sessao.setAttribute("ResultUsuario", usuario);
+                }
             }
-            
-            
+
         } catch (DataExceptions | ExceptionUsuario e) {
             request.setAttribute("erroConsulta", e.getMessage());
         }
-        
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/consultarUsuario.jsp");
-            dispatcher.forward(request, response);
-            
+        dispatcher.forward(request, response);
+
     }
 }

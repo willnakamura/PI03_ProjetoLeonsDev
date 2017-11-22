@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="grid_12">
-                   <div id="logo">
+                    <div id="logo">
                         <a  href="#">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
@@ -77,6 +77,12 @@
                     </div>                    
 
                     <form class="buscaUsuario" action="${pageContext.request.contextPath}/ConsultaUsuario" method="post">
+                        <div class="row">
+                            <c:if test="${not empty requestScope.erroConsulta}">
+                                <p class="error"><c:out value="${requestScope.erroConsulta}"/></p>
+                            </c:if>
+                        </div>
+
                         <div class="busca">
                             <input type="text" id="busca1" placeholder="Digite sua busca" name="buscaUsuario">  <button id="botoesBusca" type="submit">BUSCAR</button>
                         </div>
@@ -86,7 +92,7 @@
                     <div class="box">
 
                         <form class="signup" action="${pageContext.request.contextPath}/EditarUsuario" method="post">
-                            <BR>
+
 
                             <table>
 

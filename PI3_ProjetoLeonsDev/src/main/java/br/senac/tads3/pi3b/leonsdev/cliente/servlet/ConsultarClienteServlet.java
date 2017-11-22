@@ -39,23 +39,33 @@ public class ConsultarClienteServlet extends HttpServlet {
         String cpfCli = request.getParameter("buscaCliente");
         HttpSession sessao = request.getSession();
         sessao.setAttribute("buscar", cpfCli);
-        
+
         Cliente cli = new Cliente();
 
         try {
 
             if (cpfCli == null || cpfCli.trim().equals("")) {
                 List<Cliente> listaCli = ServicoCliente.listarCliente();
-
-                sessao.setAttribute("ResultClienteLista", listaCli);
+                if (!listaCli.isEmpty() || listaCli != null) {
+                    sessao.setAttribute("ResultClienteLista", listaCli);
+                } else {
+                    request.setAttribute("erroConsulta", "Não houve resultados nesta pesquisa.");
+                }
 
             } else {
                 cli = ServicoCliente.procurarCliente(cpfCli);
-                sessao.setAttribute("ResultCli", cli);
+                boolean cliNull = cli.getCpf() == null;
+
+                if (cliNull) {
+                    request.setAttribute("erroConsulta", "Não houve resultados nesta pesquisa.");
+                    
+                } else {
+                    sessao.setAttribute("ResultCli", cli);
+                }
             }
 
         } catch (DataExceptions | ClienteException e) {
-            request.setAttribute("erro", e.getMessage());
+            request.setAttribute("erroConsulta", e.getMessage());
         }
 
         RequestDispatcher rd = request.getRequestDispatcher("/consultarCliente.jsp");

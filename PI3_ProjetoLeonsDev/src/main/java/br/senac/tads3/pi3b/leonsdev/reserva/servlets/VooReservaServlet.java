@@ -46,6 +46,7 @@ public class VooReservaServlet extends HttpServlet {
         String opcao = request.getParameter("opcao");
         int opcaoInt = Integer.parseInt(opcao);
         sessao.setAttribute("opcaoIdaOuIdaVolta", opcao);
+        sessao.setAttribute("qtdPassageirosReserva", opcaoInt);
 
         if (opcaoInt == 0) {
             Voos voo = new Voos();

@@ -31,6 +31,8 @@ public class TotalReservaServlet extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession sessao = request.getSession();
+        
+        
 
     }
 }

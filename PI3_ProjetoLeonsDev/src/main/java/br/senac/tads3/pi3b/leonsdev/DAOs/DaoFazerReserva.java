@@ -119,4 +119,8 @@ public class DaoFazerReserva {
             }
         }
     }
+
+    public static void inserirVenda(Reserva reserva, Passageiros[] pass, Servico serv, Cliente cliente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

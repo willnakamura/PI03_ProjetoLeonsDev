@@ -5,6 +5,7 @@
  */
 package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
+import br.senac.tads3.pi3b.leonsdev.DAOs.DaoFazerReserva;
 import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
 import br.senac.tads3.pi3b.leonsdev.login.classes.Login;
@@ -20,6 +21,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -79,33 +81,41 @@ public class PagamentoReservaServlet extends HttpServlet {
         Passageiros pass1 = new Passageiros();
         Passageiros pass2 = new Passageiros();
         Passageiros pass3 = new Passageiros();
+        Passageiros pass [] = new Passageiros[qtdPass];
 
         if (qtdPass == 1) {
             pass1 = (Passageiros) sessao.getAttribute("Passageiro1");
+            pass [0] = pass1;
         } else if (qtdPass == 2) {
             pass1 = (Passageiros) sessao.getAttribute("Passageiro1");
             pass2 = (Passageiros) sessao.getAttribute("Passageiro2");
+            pass [0] = pass1;
+            pass [1] = pass2;
         } else if (qtdPass == 3) {
             pass1 = (Passageiros) sessao.getAttribute("Passageiro1");
             pass2 = (Passageiros) sessao.getAttribute("Passageiro2");
             pass3 = (Passageiros) sessao.getAttribute("Passageiro3");
+            pass [0] = pass1;
+            pass [1] = pass2;
+            pass [2] = pass3;
         }
 
         Servico serv = new Servico();
         String servBag = null;
-        Double precoBagagem = (Double) sessao.getAttribute("bagagem");
-        if (precoBagagem == 20.90d) {
+        String precoBagagem = (String) sessao.getAttribute("bagagem");
+        //Double precoBagagem = Double.parseDouble(precoBag);
+        if (precoBagagem.equals(20.90)) {
             servBag = "5Kg";
             serv.setExtraBag(servBag);
-            serv.setPreco(precoBagagem);
-        }else if (precoBagagem == 39.90d) {
+            serv.setPreco(Double.parseDouble(precoBagagem));
+        }else if (precoBagagem.equals(39.90)) {
             servBag = "10Kg";
             serv.setExtraBag(servBag);
-            serv.setPreco(precoBagagem);
-        }else if (precoBagagem == 79.90d) {
+            serv.setPreco(Double.parseDouble(precoBagagem));
+        }else if (precoBagagem.equals(79.90d)) {
             servBag = "20Kg";
             serv.setExtraBag(servBag);
-            serv.setPreco(precoBagagem);
+            serv.setPreco(Double.parseDouble(precoBagagem));
         }
         
         Voos vooIda = new Voos();
@@ -134,6 +144,13 @@ public class PagamentoReservaServlet extends HttpServlet {
             reserva.setCustoTotal(vooIda.getTarifa() + serv.getPreco());
         }
         
-
+        Cliente cliente = (Cliente) sessao.getAttribute("clienteSelectReserva");
+        String nomePagador = cliente.getNome() + " " + cliente.getSobrenome();
+        sessao.setAttribute("nomePagador", nomePagador);
+        
+        DaoFazerReserva.inserirVenda(reserva, pass, serv, cliente);
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompra.jsp");
+        dispatcher.forward(request, response);
     }
 }

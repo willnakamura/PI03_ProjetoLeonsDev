@@ -74,9 +74,17 @@
 
                         <h5 class="opcao">CONSULTAR CLIENTE </h5>
 
-                    </div>                    
+                    </div>          
+
+
 
                     <form class="buscaCliente" action="${pageContext.request.contextPath}/ConsultarCliente" method="post">
+
+                        <div class="row">
+                            <c:if test="${not empty requestScope.erroConsulta}">
+                                <p class="error"><c:out value="${requestScope.erroConsulta}"/></p>
+                            </c:if>
+                        </div>
 
                         <div class="busca">
                             <input type="text" id="busca1" placeholder="Digite o CPF" name="buscaCliente">
