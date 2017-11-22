@@ -130,19 +130,15 @@
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                 </select>
+                                
                                 <select id="formatar" class="bagagem" name="bagagem-voo">
                                     <option>Selecione Bagagem</option>
-                                    <option value="20,90">5kg - R$ 20,90</option>
-                                    <option value="39,90">10kg - R$ 39,90 </option>
-                                    <option value="79,90">20kg - R$ 79,90</option>
+                                    <option value="5">5kg - R$ 20,90</option>
+                                    <option value="10">10kg - R$ 39,90 </option>
+                                    <option value="20">20kg - R$ 79,90</option>
                                 </select>
 
                             </div>
-
-
-
-
-
 
                             <div class="form-footer">
 
@@ -156,40 +152,28 @@
                     </div>
                 </div>
 
-
-
-
-
-
-            </div>
-
-
-
-
-        </div>
-
-
-    </div>
-    <!--==============================footer=================================-->
-    <footer>
-        <div class="container_12">
-            <div class="grid_12">
-                <div class="socials">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-google-plus"></a>
-                </div>
-                <div class="copy">
-                    Your Trip (c) 2017 | <a href="#">Privacy Policy</a>
-                </div>
             </div>
         </div>
-    </footer>
-    <script>
-        $(function () {
-            $('#bookingForm').bookingForm({
-                ownerEmail: '#'
-            });
-        })
-    </script>
-</body>
+        <!--==============================footer=================================-->
+        <footer>
+            <div class="container_12">
+                <div class="grid_12">
+                    <div class="socials">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-google-plus"></a>
+                    </div>
+                    <div class="copy">
+                        Your Trip (c) 2017 | <a href="#">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+            $(function () {
+                $('#bookingForm').bookingForm({
+                    ownerEmail: '#'
+                });
+            })
+        </script>
+    </body>
 </html>

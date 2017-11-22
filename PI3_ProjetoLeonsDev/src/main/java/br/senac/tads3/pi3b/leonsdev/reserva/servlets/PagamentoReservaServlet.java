@@ -8,9 +8,9 @@ package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 import br.senac.tads3.pi3b.leonsdev.DAOs.DaoFazerReserva;
 import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
-import br.senac.tads3.pi3b.leonsdev.login.classes.Login;
 import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.Passageiros;
+import br.senac.tads3.pi3b.leonsdev.passageiros.classes.PassageirosVoos;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
 import br.senac.tads3.pi3b.leonsdev.servico.classes.Servico;
 import br.senac.tads3.pi3b.leonsdev.usuario.classes.ServicoUsuario;
@@ -19,8 +19,6 @@ import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoVoos;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
 import java.io.IOException;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -49,107 +47,54 @@ public class PagamentoReservaServlet extends HttpServlet {
         Calendar calendario = Calendar.getInstance();
         HttpSession sessao = request.getSession();
 
+        Reserva r = new Reserva();
+
         String pagamento = request.getParameter("pagamento");
-
-        Reserva reserva = new Reserva();
-
-        reserva.setFormaPgto(pagamento);
-        reserva.setCliente((Cliente) sessao.getAttribute("clienteSelectReserva"));
-        reserva.setDataReserva(calendario.getTime());
-
-        Usuario usu = new Usuario();
-//        Login log = new Login();
-//        
-//        try {
-//            usu = ServicoUsuario.ObterUsuario(log.getFuncID());
-//        } catch (Exception e) {
-//            e.getMessage();
-//        }
-
-        SingletonLogin singleton = SingletonLogin.getInstance();
-
-        try {
-            usu = ServicoUsuario.ObterUsuario(singleton.getFunc_id());
-        } catch (Exception e) {
-            e.getMessage();
-        }
-
-        reserva.setUsuario(usu);
-        reserva.setVendedor(usu.getNome());
-
         int qtdPass = (int) sessao.getAttribute("qtdPassageirosReserva");
         Passageiros pass1 = new Passageiros();
         Passageiros pass2 = new Passageiros();
         Passageiros pass3 = new Passageiros();
-        Passageiros pass [] = new Passageiros[qtdPass];
+        PassageirosVoos passVoos1 = new PassageirosVoos();
+        PassageirosVoos passVoos2 = new PassageirosVoos();
+        PassageirosVoos passVoos3 = new PassageirosVoos();
+        Passageiros passVetor[] = new Passageiros[qtdPass];
+        PassageirosVoos passVoosVetor [] = new PassageirosVoos[qtdPass];
 
         if (qtdPass == 1) {
             pass1 = (Passageiros) sessao.getAttribute("Passageiro1");
-            pass [0] = pass1;
+            passVoos1 = (PassageirosVoos) sessao.getAttribute("PassageiroVoo1");
+            passVetor[0] = pass1;
+            passVoosVetor[0] = passVoos1;
         } else if (qtdPass == 2) {
             pass1 = (Passageiros) sessao.getAttribute("Passageiro1");
             pass2 = (Passageiros) sessao.getAttribute("Passageiro2");
-            pass [0] = pass1;
-            pass [1] = pass2;
+            passVoos1 = (PassageirosVoos) sessao.getAttribute("PassageiroVoo1");
+            passVoos2 = (PassageirosVoos) sessao.getAttribute("PassageiroVoo2");
+            passVetor[0] = pass1;
+            passVetor[1] = pass2;
+            passVoosVetor[0] = passVoos1;
+            passVoosVetor[1] = passVoos2;
         } else if (qtdPass == 3) {
             pass1 = (Passageiros) sessao.getAttribute("Passageiro1");
             pass2 = (Passageiros) sessao.getAttribute("Passageiro2");
             pass3 = (Passageiros) sessao.getAttribute("Passageiro3");
-            pass [0] = pass1;
-            pass [1] = pass2;
-            pass [2] = pass3;
+            passVoos1 = (PassageirosVoos) sessao.getAttribute("PassageiroVoo1");
+            passVoos2 = (PassageirosVoos) sessao.getAttribute("PassageiroVoo2");
+            passVoos3 = (PassageirosVoos) sessao.getAttribute("PassageiroVoo3");
+            passVetor[0] = pass1;
+            passVetor[1] = pass2;
+            passVetor[2] = pass3;
+            passVoosVetor[0] = passVoos1;
+            passVoosVetor[1] = passVoos2;
+            passVoosVetor[2] = passVoos3;
+           
         }
-
-        Servico serv = new Servico();
-        String servBag = null;
-        String precoBagagem = (String) sessao.getAttribute("bagagem");
-        //Double precoBagagem = Double.parseDouble(precoBag);
-        if (precoBagagem.equals(20.90)) {
-            servBag = "5Kg";
-            serv.setExtraBag(servBag);
-            serv.setPreco(Double.parseDouble(precoBagagem));
-        }else if (precoBagagem.equals(39.90)) {
-            servBag = "10Kg";
-            serv.setExtraBag(servBag);
-            serv.setPreco(Double.parseDouble(precoBagagem));
-        }else if (precoBagagem.equals(79.90d)) {
-            servBag = "20Kg";
-            serv.setExtraBag(servBag);
-            serv.setPreco(Double.parseDouble(precoBagagem));
-        }
+        r = (Reserva) sessao.getAttribute("ReservaFinal");
+        r.setFormaPgto(pagamento);
+        Servico servico = new Servico();
+        servico = (Servico) sessao.getAttribute("ServicoReservaFinal");
         
-        Voos vooIda = new Voos();
-        Voos vooVolta = new Voos();
-        int opcao = (int) sessao.getAttribute("opcaoIdaOuIdaVolta");
-        
-        if(opcao == 0){
-            int idIda = (int) sessao.getAttribute("idVooIda");
-            int idVolta = (int) sessao.getAttribute("idVooVolta");
-            try {
-                vooIda = ServicoVoos.obterVoo(idIda);
-                vooVolta = ServicoVoos.obterVoo(idVolta);
-            } catch (DataExceptions ex) {
-               ex.getMessage();
-            }
-            reserva.setCustoTotal(vooIda.getTarifa() + serv.getPreco() + vooVolta.getTarifa());
-        }else if(opcao == 1){
-            int idIda = (int) sessao.getAttribute("idVooIda");
-            
-            try {
-                vooIda = ServicoVoos.obterVoo(idIda);
-                
-            } catch (DataExceptions ex) {
-               ex.getMessage();
-            }
-            reserva.setCustoTotal(vooIda.getTarifa() + serv.getPreco());
-        }
-        
-        Cliente cliente = (Cliente) sessao.getAttribute("clienteSelectReserva");
-        String nomePagador = cliente.getNome() + " " + cliente.getSobrenome();
-        sessao.setAttribute("nomePagador", nomePagador);
-        
-        DaoFazerReserva.inserirVenda(reserva, pass, serv, cliente);
-        
+        //DaoFazerReserva.inserirVenda(r, passVetor, passVoosVetor, servico);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompra.jsp");
         dispatcher.forward(request, response);
     }

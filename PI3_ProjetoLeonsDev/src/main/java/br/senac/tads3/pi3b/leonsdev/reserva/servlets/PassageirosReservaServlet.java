@@ -5,12 +5,22 @@
  */
 package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
+import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
+import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
 import br.senac.tads3.pi3b.leonsdev.exceptions.PassageirosException;
+import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.Passageiros;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.PassageirosVoos;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.ValidadorPassageiros;
+import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
+import br.senac.tads3.pi3b.leonsdev.servico.classes.Servico;
+import br.senac.tads3.pi3b.leonsdev.usuario.classes.ServicoUsuario;
+import br.senac.tads3.pi3b.leonsdev.usuario.classes.Usuario;
+import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoVoos;
+import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -80,6 +90,7 @@ public class PassageirosReservaServlet extends HttpServlet {
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
             dispatcher.forward(request, response);
+
         }
 
         if (qntPass == 1) {
@@ -104,6 +115,84 @@ public class PassageirosReservaServlet extends HttpServlet {
             dispatcher.forward(request, response);
         }
 
+        //-----------------------------------------------------------------------------------------
+        Calendar calendario = Calendar.getInstance();
+        Reserva reserva = new Reserva();
+
+
+        reserva.setCliente((Cliente) sessao.getAttribute("clienteSelectReserva"));
+        reserva.setDataReserva(calendario.getTime());
+
+        Usuario usu = new Usuario();
+        SingletonLogin singleton = SingletonLogin.getInstance();
+
+        try {
+            usu = ServicoUsuario.ObterUsuario(singleton.getFunc_id());
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
+        reserva.setUsuario(usu);
+        reserva.setVendedor(usu.getNome());        
+
+        Servico serv = new Servico();
+        Double precoBag = null;
+        String bagagem = (String) sessao.getAttribute("bagagem");
+
+        if (bagagem.equals("5")) {
+            precoBag = 20.9;
+            serv.setExtraBag(bagagem);
+            serv.setPreco(precoBag);
+
+        } else if (bagagem.equals("10")) {
+            precoBag = 39.9;
+            serv.setExtraBag(bagagem);
+            serv.setPreco(precoBag);
+
+        } else if (bagagem.equals(79.90)) {
+            precoBag = 79.9;
+            serv.setExtraBag(bagagem);
+            serv.setPreco(precoBag);
+        }
+
+        Voos vooIda = new Voos();
+        Voos vooVolta = new Voos();
+        String opcao = (String) sessao.getAttribute("opcaoIdaOuIdaVolta");
+
+        if (opcao.equals("0")) {
+            int idIda = (int) sessao.getAttribute("idVooIda");
+            int idVolta = (int) sessao.getAttribute("idVooVolta");
+
+            try {
+                vooIda = ServicoVoos.obterVoo(idIda);
+                vooVolta = ServicoVoos.obterVoo(idVolta);
+            } catch (DataExceptions ex) {
+                ex.getMessage();
+            }
+            reserva.setCustoTotal(vooIda.getTarifa() + serv.getPreco() + vooVolta.getTarifa());
+
+        } else if (opcao.equals("1")) {
+            int idIda = (int) sessao.getAttribute("idVooIda");
+
+            try {
+                vooIda = ServicoVoos.obterVoo(idIda);
+
+            } catch (DataExceptions ex) {
+                ex.getMessage();
+            }
+            reserva.setCustoTotal(vooIda.getTarifa() + serv.getPreco());
+        }
+        
+        sessao.setAttribute("ReservaFinal", reserva);
+        sessao.setAttribute("ServicoReservaFinal", serv);
+        sessao.setAttribute("VooIdaReservaFinal", vooIda);
+        sessao.setAttribute("VooVoltaResrvaFinal", vooVolta);
+
+        Cliente cliente = (Cliente) sessao.getAttribute("clienteSelectReserva");
+        String nomePagador = cliente.getNome() + " " + cliente.getSobrenome();
+        sessao.setAttribute("nomePagador", nomePagador);
+        sessao.setAttribute("custoTotal", reserva.getCustoTotal());
+        //---------------------------------------------------------------------------------------------
         RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
         dispatcher.forward(request, response);
     }

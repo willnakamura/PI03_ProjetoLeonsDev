@@ -96,7 +96,7 @@
                                 </div>  
 
                                 <div class="row">
-                                    <input type="text" name="total" value="" readonly="readonly">
+                                    <input type="text" name="total" value="${sessionScope.custoTotal}" readonly="readonly">
                                 </div>
 
                             </div>
