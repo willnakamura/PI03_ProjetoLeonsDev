@@ -76,13 +76,18 @@
                 <div class="grid_8">
 
                     <div class="tituloCliente">
-                        <h5 class="opcao" value="ida" name="telaIda">Horário Ida</h5>
+                        <h5 class="opcao" >Horário Voo Ida</h5>
                     </div>
 
                     <div class="card-form">
                         <form class="signup" action="${pageContext.request.contextPath}/HorarioReservaVoo" method="post">
 
-                            <div id="bg"></div>
+                            <div id="bg">
+                                <c:if test="${not empty requestScope.erroTelaHorarioIda}">
+                                    <p class="error"><c:out value="${requestScope.erroTelaHorarioIda}"/></p>
+                                </c:if>
+                            </div>
+
                             <table>
 
                                 <tr>
@@ -109,7 +114,7 @@
                                     </tr>
                                 </table>
                             </c:forEach>
-                            
+
                             <div class="form-footer">
 
                                 <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>

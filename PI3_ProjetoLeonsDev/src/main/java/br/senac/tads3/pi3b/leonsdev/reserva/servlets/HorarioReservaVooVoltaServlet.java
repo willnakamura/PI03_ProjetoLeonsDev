@@ -44,7 +44,7 @@ public class HorarioReservaVooVoltaServlet extends HttpServlet {
             ValidadorTelaHorarioIda.validar(telaHorarioIda);
 
         } catch (Exception e) {
-            request.setAttribute("erroTelaHorarioIda", e.getMessage());
+            request.setAttribute("erroTelaHorarioVolta", e.getMessage());
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
             dispatcher.forward(request, response);
         }

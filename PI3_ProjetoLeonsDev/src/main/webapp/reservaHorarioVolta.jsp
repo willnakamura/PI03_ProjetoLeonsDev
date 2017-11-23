@@ -72,14 +72,19 @@
                 <div class="grid_8">
 
                     <div class="tituloCliente">
-                        <h5 class="opcao" value="volta" name="telaVolta">Horário Volta</h5>
+                        <h5 class="opcao">Horário Voo Volta</h5>
                     </div>
 
                     <div class="card-form">
                         <form class="signup" action="${pageContext.request.contextPath}/HorarioReservaVooVolta" 
                               method="post" name="horarioVolta">
 
-                            <div id="bg"></div>
+                            <div id="bg">
+                                <c:if test="${not empty requestScope.erroTelaHorarioVolta}">
+                                    <p class="error"><c:out value="${requestScope.erroTelaHorarioVolta}"/></p>
+                                </c:if>
+                            </div>
+
                             <table>
 
                                 <tr>
@@ -106,7 +111,7 @@
                                     </tr>
                                 </table>
                             </c:forEach>
-                            
+
                             <div class="form-footer">
 
                                 <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
