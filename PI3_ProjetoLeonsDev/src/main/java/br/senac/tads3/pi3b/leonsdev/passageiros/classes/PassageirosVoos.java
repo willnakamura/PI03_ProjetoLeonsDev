@@ -20,20 +20,18 @@ public class PassageirosVoos {
         this.passageiro = passageiro;
     }
 
-    private ArrayList<Voos> voos = new ArrayList<Voos>();
     private String status;
+    private int idVoo;
+
+    public int getIdVoo() {
+        return idVoo;
+    }
+
+    public void setIdVoo(int idVoo) {
+        this.idVoo = idVoo;
+    }
     private String assento;
     private Passageiros passageiro;
-
-    
-
-    public ArrayList<Voos> getVoos() {
-        return voos;
-    }
-
-    public void setVoos(ArrayList<Voos> voos) {
-        this.voos = voos;
-    }
 
     public PassageirosVoos() {
     }
