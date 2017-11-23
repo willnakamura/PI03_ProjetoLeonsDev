@@ -52,8 +52,8 @@ public class PassageirosReservaServlet extends HttpServlet {
         PassageirosVoos passVoos = new PassageirosVoos();
 
         SimpleDateFormat dataForm = new SimpleDateFormat("yyyy-MM-dd");
-        
-        String qtdPassString = (String)  sessao.getAttribute("qtdpax");
+
+        String qtdPassString = (String) sessao.getAttribute("qtdpax");
         int qntPass = Integer.parseInt(qtdPassString);
         String qtdPassReservaString = (String) sessao.getAttribute("qtdPassageirosReserva");
         int qtdPassReserva = Integer.parseInt(qtdPassReservaString);
@@ -97,15 +97,10 @@ public class PassageirosReservaServlet extends HttpServlet {
             dispatcher.forward(request, response);
 
         }
-        
-        
-        
-        
-        
-         //-------------------------------Reserva----------------------------------------------------------
+
+        //-------------------------------Reserva----------------------------------------------------------
         Calendar calendario = Calendar.getInstance();
         Reserva reserva = new Reserva();
-
 
         reserva.setCliente((Cliente) sessao.getAttribute("clienteSelectReserva"));
         reserva.setDataReserva(calendario.getTime());
@@ -120,7 +115,7 @@ public class PassageirosReservaServlet extends HttpServlet {
         }
 
         reserva.setUsuario(usu);
-        reserva.setVendedor(usu.getNome());        
+        reserva.setVendedor(usu.getNome());
 
         Servico serv = new Servico();
         Double precoBag = null;
@@ -157,8 +152,8 @@ public class PassageirosReservaServlet extends HttpServlet {
                 ex.getMessage();
             }
             int quantidadePass = (int) sessao.getAttribute("qtdpax");
-            
-            reserva.setCustoTotal((vooIda.getTarifa()*quantidadePass )+ serv.getPreco() + (vooVolta.getTarifa()*quantidadePass));
+
+            reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
 
         } else if (opcao.equals("1")) {
             int idIda = (int) sessao.getAttribute("idVooIda");
@@ -169,15 +164,15 @@ public class PassageirosReservaServlet extends HttpServlet {
             } catch (DataExceptions ex) {
                 ex.getMessage();
             }
-            
+
             int quantidadePass = qtdPassReserva;
-            
+
             double tarifa = vooIda.getTarifa();
             double servPreco = serv.getPreco();
-            
-            double soma = (vooIda.getTarifa()* qtdPassReserva )+ serv.getPreco();
-            
-            reserva.setCustoTotal((vooIda.getTarifa()* qtdPassReserva )+ serv.getPreco());
+
+            double soma = (vooIda.getTarifa() * qtdPassReserva) + serv.getPreco();
+
+            reserva.setCustoTotal((vooIda.getTarifa() * qtdPassReserva) + serv.getPreco());
         }
         
         sessao.setAttribute("ReservaFinal", reserva);
@@ -190,26 +185,23 @@ public class PassageirosReservaServlet extends HttpServlet {
         sessao.setAttribute("nomePagador", nomePagador);
         sessao.setAttribute("custoTotal", reserva.getCustoTotal());
         //---------------------------------------------------------------------------------------------
-        
-        
-        
-        
 
         if (qntPass == 1) {
             sessao.setAttribute("Passageiro1", pass);
             sessao.setAttribute("PassageiroVoo1", passVoos);
+            sessao.setAttribute("assentoPass", assento);
 
         } else if (qntPass == 2) {
             sessao.setAttribute("Passageiro2", pass);
             sessao.setAttribute("PassageiroVoo2", passVoos);
             qntPass--;
             sessao.setAttribute("qtdpax", qntPass);
-            
+
             request.setAttribute("nPassPag", 2);
-            
+            sessao.setAttribute("assentoPass", assento);
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
             dispatcher.forward(request, response);
-            
 
         } else if (qntPass == 3) {
             sessao.setAttribute("Passageiro3", pass);
@@ -217,15 +209,13 @@ public class PassageirosReservaServlet extends HttpServlet {
 
             qntPass--;
             sessao.setAttribute("qtdpax", qntPass);
-            
-           
             request.setAttribute("nPassPag", 3);
-            
+            sessao.setAttribute("assentoPass", assento);
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
             dispatcher.forward(request, response);
         }
 
-       
         RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
         dispatcher.forward(request, response);
     }
