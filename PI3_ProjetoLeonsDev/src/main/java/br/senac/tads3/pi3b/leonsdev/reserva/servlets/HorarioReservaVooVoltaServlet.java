@@ -5,8 +5,9 @@
  */
 package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
+import br.senac.tads3.pi3b.leonsdev.Telas.classes.TelaHorarioIda;
+import br.senac.tads3.pi3b.leonsdev.Telas.classes.ValidadorTelaHorarioIda;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,9 +33,22 @@ public class HorarioReservaVooVoltaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession sessao = request.getSession();
 
+        HttpSession sessao = request.getSession();
+        TelaHorarioIda telaHorarioIda = new TelaHorarioIda();
         String nVoo = request.getParameter("seleciona");
+
+        telaHorarioIda.setOpcaoVoo(nVoo);
+
+        try {
+            ValidadorTelaHorarioIda.validar(telaHorarioIda);
+
+        } catch (Exception e) {
+            request.setAttribute("erroTelaHorarioIda", e.getMessage());
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
+            dispatcher.forward(request, response);
+        }
+
         int id = -1;
         try {
             id = Integer.parseInt(nVoo);

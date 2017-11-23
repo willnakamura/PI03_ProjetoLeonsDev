@@ -5,6 +5,8 @@
  */
 package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
+import br.senac.tads3.pi3b.leonsdev.Telas.classes.TelaHorarioIda;
+import br.senac.tads3.pi3b.leonsdev.Telas.classes.ValidadorTelaHorarioIda;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -32,13 +34,27 @@ public class HorarioReservaVooIdaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         HttpSession sessao = request.getSession();
+        TelaHorarioIda telaHorarioIda = new TelaHorarioIda();
 
         String opcao = (String) sessao.getAttribute("opcaoIdaOuIdaVolta");
         int opcaoInt = Integer.parseInt(opcao);
 
         if (opcaoInt == 0) {
             String nVoo = request.getParameter("seleciona");
+
+            telaHorarioIda.setOpcaoVoo(nVoo);
+
+            try {
+                ValidadorTelaHorarioIda.validar(telaHorarioIda);
+
+            } catch (Exception e) {
+                request.setAttribute("erroTelaHorarioIda", e.getMessage());
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
+                dispatcher.forward(request, response);
+            }
+
             int id = -1;
             try {
                 id = Integer.parseInt(nVoo);
@@ -52,7 +68,20 @@ public class HorarioReservaVooIdaServlet extends HttpServlet {
 
         } else if (opcaoInt == 1) {
             String id = request.getParameter("seleciona");
+
+            telaHorarioIda.setOpcaoVoo(id);
+
+            try {
+                ValidadorTelaHorarioIda.validar(telaHorarioIda);
+
+            } catch (Exception e) {
+                request.setAttribute("erroTelaHorarioIda", e.getMessage());
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
+                dispatcher.forward(request, response);
+            }
+
             Integer idVoo = null;
+
             try {
                 idVoo = Integer.parseInt(id);
             } catch (Exception e) {
