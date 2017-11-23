@@ -179,7 +179,7 @@
                 $('#bookingForm').bookingForm({
                     ownerEmail: '#'
                 });
-            })
+            });
         </script>
     </body>
 </html>

@@ -56,7 +56,7 @@ public class DaoFazerReserva {
             preparedStatement = connection.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
             //Configura os parâmetros do "PreparedStatement"
             preparedStatement.setDate(1, new java.sql.Date(System.currentTimeMillis()));
-            preparedStatement.setString(2, reserva.getStatus());
+            preparedStatement.setString(2, "Confirmado");
             preparedStatement.setString(3, SingletonLogin.getInstance().getLogin());
             preparedStatement.setString(4, reserva.getFormaPgto());
             preparedStatement.setDouble(5, reserva.getCustoTotal());
