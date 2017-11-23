@@ -32,6 +32,20 @@ public class ValidadorTelaVoo {
             throw new ExceptionTelaVoo("Selecione a opção ida ou ida e volta.");
         }
         
-        if(telaVoo.getOpcaoIdaVolta())
+        if(telaVoo.getOpcaoIdaVolta().equals(0)){
+            if(telaVoo.getDataIda().before(calendar.getTime()) || telaVoo.getDataIda() == null){
+                throw new ExceptionTelaVoo("Informe uma data de ida Válida.");
+            }else if(telaVoo.getDataVolta().before(calendar.getTime()) || telaVoo.getDataVolta() == null){
+                throw new ExceptionTelaVoo("Informe uma data de volta Válida.");
+            }
+        }else if(telaVoo.getOpcaoIdaVolta().equals(1)){
+             if(telaVoo.getDataIda().before(calendar.getTime()) || telaVoo.getDataIda() == null){
+                throw new ExceptionTelaVoo("Informe uma data de ida Válida.");
+            }
+        }
+        
+        if(telaVoo.getQtdPass().equals("Quantidade de Passageiros")){
+            throw new ExceptionTelaVoo("Selecione a quantidade de passageiros para este voo.");
+        }
     }
 }

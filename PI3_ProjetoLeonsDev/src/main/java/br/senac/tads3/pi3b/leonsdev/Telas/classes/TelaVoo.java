@@ -15,7 +15,7 @@ public class TelaVoo {
     private String AeroportoOrigem, AeroportoDestino, opcaoIdaVolta;
     //String bagagem;
     private Date dataIda, dataVolta;
-    private int qtdPass;
+    private String qtdPass;
 
     public TelaVoo() {
     }
@@ -60,11 +60,11 @@ public class TelaVoo {
         this.dataVolta = dataVolta;
     }
 
-    public int getQtdPass() {
+    public String getQtdPass() {
         return qtdPass;
     }
 
-    public void setQtdPass(int qtdPass) {
+    public void setQtdPass(String qtdPass) {
         this.qtdPass = qtdPass;
     }
     

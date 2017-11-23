@@ -83,6 +83,12 @@
                         <form class="signup" action="${pageContext.request.contextPath}/VooReserva" method="post">
 
                             <div class="row">
+                                <c:if test="${not empty requestScope.erroTelaVoo}">
+                                    <p class="error"><c:out value="${requestScope.erroTelaVoo}"/></p>
+                                </c:if>
+                            </div>
+                            
+                            <div class="row">
                                 <!--<input type="text" name="origem-voo" placeholder="Aeroporto de Origem" />-->
 
                                 <select class="aeroportoFormat" name="origemVoo">
