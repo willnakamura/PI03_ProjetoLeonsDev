@@ -20,6 +20,7 @@ import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoVoos;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import javax.servlet.RequestDispatcher;
@@ -148,9 +149,15 @@ public class PassageirosReservaServlet extends HttpServlet {
             try {
                 vooIda = ServicoVoos.obterVoo(idIda);
                 vooVolta = ServicoVoos.obterVoo(idVolta);
+                
             } catch (DataExceptions ex) {
                 ex.getMessage();
             }
+            ArrayList<Voos> voos = new ArrayList<Voos>();
+            voos.add(vooIda);
+            voos.add(vooVolta);
+            passVoos.setVoos(voos);
+            
             int quantidadePass = (int) sessao.getAttribute("qtdpax");
 
             reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
@@ -160,10 +167,14 @@ public class PassageirosReservaServlet extends HttpServlet {
 
             try {
                 vooIda = ServicoVoos.obterVoo(idIda);
-
+                
             } catch (DataExceptions ex) {
                 ex.getMessage();
             }
+            
+            ArrayList<Voos> voos = new ArrayList<Voos>();
+            voos.add(vooIda);
+            passVoos.setVoos(voos);
 
             int quantidadePass = qtdPassReserva;
 
