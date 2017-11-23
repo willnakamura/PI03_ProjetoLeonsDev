@@ -37,7 +37,7 @@ public class CadastroUsuarioServlet extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession sessao = request.getSession();
-        
+
         String nome = request.getParameter("nome-usua");
         String sobNome = request.getParameter("sobreNome-usua");
         String cpf = request.getParameter("cpf-usua");
@@ -55,19 +55,28 @@ public class CadastroUsuarioServlet extends HttpServlet {
         usuario.setLogin(login);
         usuario.setSenha(senha);
         usuario.setEnable(true);
+//        try {
+//
+//            ServicoUsuario.CadastrarUsuario(usuario);
+//            request.setAttribute("sucessCadastro", "Cadastro realizado com sucesso.");
+//        } catch (ExceptionUsuario | DataExceptions e) {
+//            request.setAttribute("erroCadastro", e.getMessage());
+//            sessao.setAttribute("usuRepreenche", usuario);
+//            RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarUsuario.jsp");
+//            dispatcher.forward(request, response);
+//        }
+//        
         try {
-
             ServicoUsuario.CadastrarUsuario(usuario);
-
+            request.setAttribute("sucessCadastro", "Cadastro realizado com sucesso.");
         } catch (ExceptionUsuario | DataExceptions e) {
             request.setAttribute("erroCadastro", e.getMessage());
-            
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarUsuario.jsp");
-            dispatcher.forward(request, response);
+            request.setAttribute("usuRepreenche", usuario);
         }
-        
+
         sessao.setAttribute("usuario", usuario);
 
-        response.sendRedirect(request.getContextPath() + "/cadastrarUsuario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarUsuario.jsp");
+        dispatcher.forward(request, response);
     }
 }

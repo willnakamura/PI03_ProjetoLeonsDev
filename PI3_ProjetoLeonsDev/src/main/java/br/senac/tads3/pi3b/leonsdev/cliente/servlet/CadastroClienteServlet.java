@@ -106,7 +106,7 @@ public class CadastroClienteServlet extends HttpServlet {
             request.setAttribute("sucessCadastro", "Cadastro realizado com sucesso.");
         } catch (ClienteException | DataExceptions e) {
             request.setAttribute("erroCadastro", e.getMessage());
-            sessao.setAttribute("cliRepreenche", cli);
+            request.setAttribute("cliRepreenche", cli);
         }
         sessao.setAttribute("cli", cli);
 

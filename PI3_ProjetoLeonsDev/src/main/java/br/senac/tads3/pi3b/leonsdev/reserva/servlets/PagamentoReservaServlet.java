@@ -12,6 +12,7 @@ import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.Passageiros;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.PassageirosVoos;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
+import br.senac.tads3.pi3b.leonsdev.reserva.classes.ServicoReserva;
 import br.senac.tads3.pi3b.leonsdev.servico.classes.Servico;
 import br.senac.tads3.pi3b.leonsdev.usuario.classes.ServicoUsuario;
 import br.senac.tads3.pi3b.leonsdev.usuario.classes.Usuario;
@@ -19,6 +20,8 @@ import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoVoos;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,7 +53,8 @@ public class PagamentoReservaServlet extends HttpServlet {
         Reserva r = new Reserva();
 
         String pagamento = request.getParameter("pagamento");
-        int qtdPass = (int) sessao.getAttribute("qtdPassageirosReserva");
+        String qtdPassString = (String) sessao.getAttribute("qtdPassageirosReserva");
+        int qtdPass = Integer.parseInt(qtdPassString);
         Passageiros pass1 = new Passageiros();
         Passageiros pass2 = new Passageiros();
         Passageiros pass3 = new Passageiros();
@@ -93,8 +97,16 @@ public class PagamentoReservaServlet extends HttpServlet {
         r.setFormaPgto(pagamento);
         Servico servico = new Servico();
         servico = (Servico) sessao.getAttribute("ServicoReservaFinal");
-        
-        //DaoFazerReserva.inserirVenda(r, passVetor, passVoosVetor, servico);
+        Cliente cli = new Cliente();
+        cli = (Cliente) sessao.getAttribute("clienteSelectReserva");
+        String erro;
+
+        try {
+            ServicoReserva.inserirVenda(r, passVetor, passVoosVetor, servico, cli);
+        } catch (Exception e) {
+           erro = e.getMessage();
+           e.printStackTrace();
+        }
         RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompra.jsp");
         dispatcher.forward(request, response);
     }

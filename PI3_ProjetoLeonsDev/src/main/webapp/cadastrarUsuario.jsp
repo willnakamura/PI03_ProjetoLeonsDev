@@ -57,8 +57,8 @@
                         <div class="clear"></div>
                     </div>
                 </div>
-               <div class="grid_12">
-                   <div id="logo">
+                <div class="grid_12">
+                    <div id="logo">
                         <a  href="#">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
@@ -80,40 +80,53 @@
 
                     <div class="card-form">
                         <form class="signup" action="${pageContext.request.contextPath}/cadastro-usuario" method="post">
-                            <BR>
+                            <div class="row">
+                                <c:if test="${not empty requestScope.sucessCadastro}">
+                                    <p class="sucess"><c:out value="${requestScope.sucessCadastro}"/></p>
+                                </c:if>
+                            </div>
+
+                            <div class="row">
+                                <c:if test="${not empty requestScope.erroCadastro}">
+                                    <p class="error"><c:out value="${requestScope.erroCadastro}"/></p>
+                                </c:if>
+                            </div>
 
                             <div class="form-body">
                                 <div class="row">
-                                    <input type="text" placeholder="Nome*" name="nome-usua">
-                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-usua">
+                                    <input type="text" value="${requestScope.usuRepreenche.nome}" placeholder="Nome*" name="nome-usua">
+                                    <input type="text" value="${requestScope.usuRepreenche.sobrenome}" placeholder="Sobrenome*" name="sobreNome-usua">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" name="cpf-usua">
-                                    
-                                 <select id="format-slc-usua" name="cargo-usua">
-                                    <option value="0">Selecione o cargo</option>
-                                    <option value="1">Gerente</option>
-                                    <option value="2">Vendedor</option>
-                                                                       
-                                </select>
+                                    <input type="number" value="${requestScope.usuRepreenche.cpf}" placeholder="cpf*" name="cpf-usua">
+
+                                    <select id="format-slc-usua" name="cargo-usua">
+                                        <c:choose>
+                                            <c:when test="${not empty requestScope.usuRepreenche.cargo}">
+                                                <option value="${requestScope.usuRepreenche.cargo}">${requestScope.usuRepreenche.cargo}</option>
+                                            </c:when>
+
+                                            <c:otherwise>
+                                                <option value="Selecione o cargo">Selecione o cargo</option>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <option value="Gerente">Gerente</option>
+                                        <option value="Vendedor">Vendedor</option>
+
+                                    </select>
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Email*" name="email-usua">
+                                    <input type="text" value="${requestScope.usuRepreenche.email}" placeholder="Email*" name="email-usua">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Login*" name="login-usua">
-                                    <input type="text" placeholder="Senha*" name="senha-usua"> 
+                                    <input type="text" value="${requestScope.usuRepreenche.login}" placeholder="Login*" name="login-usua">
+                                    <input type="text" value="${requestScope.usuRepreenche.senha}" placeholder="Senha*" name="senha-usua"> 
                                 </div>  
-                                <div class="row">
-                                    <c:if test="${not empty requestScope.erroCadastro}">
-                                        <p class="error"><c:out value="${requestScope.erroCadastro}"/></p>
-                                    </c:if>
-                                </div>
+
 
                                 <div class="form-footer">
                                     <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
                                     <button class="botoes" type="submit">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
-
                                 </div>
 
                             </div>

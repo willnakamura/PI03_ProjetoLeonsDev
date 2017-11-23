@@ -49,7 +49,7 @@ public class ConsultaUsuarioServlet extends HttpServlet {
                 if (!listaUsuario.isEmpty() && listaUsuario != null) {
                     sessao.setAttribute("ResultUsuarioLista", listaUsuario);
                 } else {
-                    request.setAttribute("erroConsulta", "Não houve resultados nesta pesquisa.");
+                    request.setAttribute("erroConsulta", "Não houve resultados para esta pesquisa.");
                 }
 
             } else {
@@ -57,7 +57,7 @@ public class ConsultaUsuarioServlet extends HttpServlet {
                 boolean usuNull = usuario.getCpf() == null;
 
                 if (usuNull) {
-                    request.setAttribute("erroConsulta", "Não houve resultados nesta pesquisa.");
+                    request.setAttribute("erroConsulta", "Não houve resultados para esta pesquisa.");
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/consultarUsuario.jsp");
                     dispatcher.forward(request, response);
                 } else {

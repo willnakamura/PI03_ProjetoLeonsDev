@@ -5,9 +5,15 @@
  */
 package br.senac.tads3.pi3b.leonsdev.reserva.classes;
 
+import br.senac.tads3.pi3b.leonsdev.DAOs.DaoFazerReserva;
 import br.senac.tads3.pi3b.leonsdev.DAOs.DaoReservas;
+import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
 import br.senac.tads3.pi3b.leonsdev.exceptions.ReservaException;
+import br.senac.tads3.pi3b.leonsdev.passageiros.classes.Passageiros;
+import br.senac.tads3.pi3b.leonsdev.passageiros.classes.PassageirosVoos;
+import br.senac.tads3.pi3b.leonsdev.servico.classes.Servico;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -81,6 +87,15 @@ public class ServicoReserva {
         } catch (Exception ex) {
             ex.printStackTrace();
             throw new DataExceptions("Erro na fonte de dados" , ex);
+        }
+    }
+    
+    public static void inserirVenda(Reserva reserva, Passageiros[] passageiro, PassageirosVoos[] pvoos, Servico servico, Cliente cliente) throws SQLException, Exception {
+        try {
+            DaoFazerReserva.inserirVenda(reserva, passageiro, pvoos, servico, cliente);
+        } catch (Exception e) {
+            e.getMessage();
+            e.printStackTrace();
         }
     }
 }

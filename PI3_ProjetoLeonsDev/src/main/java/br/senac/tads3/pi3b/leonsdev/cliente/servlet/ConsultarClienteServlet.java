@@ -49,7 +49,7 @@ public class ConsultarClienteServlet extends HttpServlet {
                 if (!listaCli.isEmpty() || listaCli != null) {
                     sessao.setAttribute("ResultClienteLista", listaCli);
                 } else {
-                    request.setAttribute("erroConsulta", "Não houve resultados nesta pesquisa.");
+                    request.setAttribute("erroConsulta", "Não houve resultados para esta pesquisa.");
                 }
 
             } else {
@@ -57,7 +57,7 @@ public class ConsultarClienteServlet extends HttpServlet {
                 boolean cliNull = cli.getCpf() == null;
 
                 if (cliNull) {
-                    request.setAttribute("erroConsulta", "Não houve resultados nesta pesquisa.");
+                    request.setAttribute("erroConsulta", "Não houve resultados para esta pesquisa.");
                     
                 } else {
                     sessao.setAttribute("ResultCli", cli);

@@ -87,7 +87,7 @@
                                     <p class="sucess"><c:out value="${requestScope.sucessCadastro}"/></p>
                                 </c:if>
                             </div>
-                            
+
                             <div class="row">
                                 <c:if test="${not empty requestScope.erroCadastro}">
                                     <p class="error"><c:out value="${requestScope.erroCadastro}"/></p>
@@ -96,35 +96,56 @@
 
                             <div class="form-body">
                                 <div class="row">
-                                    <input type="text" placeholder="Nome*" value="${sessionScope.cliRepreenche.nome}" name="nome-cli">
-                                    <input type="text" placeholder="Sobrenome*" value="${sessionScope.cliRepreenche.sobrenome}" name="sobreNome-cli">
+                                    <input type="text" placeholder="Nome*" value="${requestScope.cliRepreenche.nome}" name="nome-cli">
+                                    <input type="text" placeholder="Sobrenome*" value="${requestScope.cliRepreenche.sobrenome}" name="sobreNome-cli">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" value="${sessionScope.cliRepreenche.cpf}" name="cpf-cli">
+                                    <input type="number" placeholder="cpf*" value="${requestScope.cliRepreenche.cpf}" name="cpf-cli">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Email*" value="${sessionScope.cliRepreenche.email}" name="email-cli">
+                                    <input type="text" placeholder="Email*" value="${requestScope.cliRepreenche.email}" name="email-cli">
                                 </div>
                                 <div class="row">
-                                    <input type="number" placeholder="()Celular*" value="${sessionScope.cliRepreenche.celular}" name="celular-cli">       
+                                    <input type="number" placeholder="()Celular*" value="${requestScope.cliRepreenche.celular}" name="celular-cli">       
                                 </div>
 
                                 <div class="row">
                                     <select class="sexo" name="sexo-cli">
-                                        <option value="SelecioneSexo">Selecione</option>
+
+                                        <c:choose>
+                                            <c:when test="${not empty requestScope.cliRepreenche.genero}">
+                                                <option value="${requestScope.cliRepreenche.genero}">${requestScope.cliRepreenche.genero}</option>
+                                            </c:when>
+
+                                            <c:otherwise>
+                                                <option value="SelecioneSexo">Selecione</option>
+                                            </c:otherwise>
+                                        </c:choose>
+
                                         <option value="Masculino">Masculino</option>
                                         <option value="Feminino">Feminino</option>                               
 
                                     </select>
 
-                                    <input type="date" value="${sessionScope.cliRepreenche.dataNascimento}" placeholder="" name="dtNasc-cli">   
+                                    <input type="date" value="${requestScope.cliRepreenche.dataNascimento}" placeholder="" name="dtNasc-cli">   
 
                                 </div>
 
                                 <div class="row">
 
 
-                                    <select class="estado" name="estado-cli">           
+                                    <select class="estado" name="estado-cli">
+                                        
+                                        <c:choose>
+                                            <c:when test="${not empty requestScope.cliRepreenche.estado}">
+                                                <option value="${requestScope.cliRepreenche.estado}">${requestScope.cliRepreenche.estado}</option>
+                                            </c:when>
+
+                                            <c:otherwise>
+                                                <option value="selecione">Selecione</option>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        
                                         <option value="selecione">Estado</option>
                                         <option value="AC">AC</option>
                                         <option value="AL">AL</option>  
@@ -154,14 +175,14 @@
                                         <option value="SE">SE</option> 
                                         <option value="TO">TO</option>                                
                                     </select>
-                                    <input type="text" placeholder="Cidade*" value="${sessionScope.cliRepreenche.cidade}" name="cidade-cli">
+                                    <input type="text" placeholder="Cidade*" value="${requestScope.cliRepreenche.cidade}" name="cidade-cli">
                                 </div>
 
                                 <div class="row">
-                                    <input type="number" placeholder="CEP*" value="${sessionScope.cliRepreenche.cep}" name="cep-cli">
+                                    <input type="number" placeholder="CEP*" value="${requestScope.cliRepreenche.cep}" name="cep-cli">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Endereço*" value="${sessionScope.cliRepreenche.endereco}" name="end-cli">
+                                    <input type="text" placeholder="Endereço*" value="${requestScope.cliRepreenche.endereco}" name="end-cli">
                                 </div>
 
 

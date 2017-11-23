@@ -6,7 +6,7 @@
 package br.senac.tads3.pi3b.leonsdev.DAOs;
 
 import br.senac.tads3.pi3b.leonsdev.dbUtils.ConnectionUtils;
-import br.senac.tads3.pi3b.leonsdev.relatorios.RelatorioClientes;
+import br.senac.tads3.pi3b.leonsdev.relatorios.classes.RelatorioClientes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,13 +15,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import br.senac.tads3.pi3b.leonsdev.relatorios.RelatorioReservas;
+import br.senac.tads3.pi3b.leonsdev.relatorios.classes.RelatorioReservas;
 
 /**
  *
  * @author Josué
  */
-public class Relatorios {
+public class DaoRelatorios {
     public static List<RelatorioReservas> listarVendas(Date dataInicio, Date dataFim)
             throws SQLException, Exception {
 

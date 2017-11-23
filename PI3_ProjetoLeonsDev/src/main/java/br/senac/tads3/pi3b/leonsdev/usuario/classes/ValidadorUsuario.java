@@ -34,15 +34,6 @@ public class ValidadorUsuario {
             throw new ExceptionUsuario("sobrenome inválido.");
         }
         
-        
-        if(usuario.getEmail() == null || usuario.getEmail().equals("")){
-            throw new ExceptionUsuario("Favor, informe um email válido.");
-        }
-        if(usuario.getEmail().length() > 25){
-            throw new ExceptionUsuario("Email inválido.");
-        }
-        
-        
         if(usuario.getCpf() == null || usuario.getCpf().equals("")){
             throw new ExceptionUsuario("Favor, informe um CPF válido.");
         }
@@ -51,11 +42,16 @@ public class ValidadorUsuario {
         }
         
         
-        if(usuario.getCargo() == null || usuario.getCargo().equals("")){
+        if(usuario.getCargo().equals("Selecione o cargo")){
             throw new ExceptionUsuario("Favor, informe um cargo válido.");
         }
-        if(usuario.getCargo().length() > 20){
-            throw new ExceptionUsuario("Cargo inválido.");
+        
+        
+        if(usuario.getEmail() == null || usuario.getEmail().equals("")){
+            throw new ExceptionUsuario("Favor, informe um email válido.");
+        }
+        if(usuario.getEmail().length() > 25){
+            throw new ExceptionUsuario("Email inválido.");
         }
         
         

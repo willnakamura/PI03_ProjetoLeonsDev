@@ -128,10 +128,13 @@ public class VooReservaServlet extends HttpServlet {
             } catch (ParseException e) {
                 e.getMessage();
             }
+            String qtdPass = request.getParameter("qtdpax");
+            int qtdPassageiros = Integer.parseInt(qtdPass);
 
-            Integer qtdPassageiros = Integer.parseInt(request.getParameter("qtdpax"));
             sessao.setAttribute("qtdpax", qtdPassageiros);
-
+            sessao.setAttribute("qtdPassageirosReserva", qtdPass);
+            
+            
             String bagagem = request.getParameter("bagagem-voo");
             sessao.setAttribute("bagagem", bagagem);
 

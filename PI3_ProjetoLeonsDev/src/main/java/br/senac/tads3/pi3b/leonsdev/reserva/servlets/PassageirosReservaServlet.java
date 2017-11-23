@@ -53,6 +53,9 @@ public class PassageirosReservaServlet extends HttpServlet {
 
         SimpleDateFormat dataForm = new SimpleDateFormat("yyyy-MM-dd");
         int qntPass = (int) sessao.getAttribute("qtdpax");
+        String qtdPassReservaString = (String) sessao.getAttribute("qtdPassageirosReserva");
+        int qtdPassReserva = Integer.parseInt(qtdPassReservaString);
+        //sessao.setAttribute("qtdPassReserva", qtdPassReserva);
 
         String nome = request.getParameter("nome-pass-selecionar");
         String sobreNome = request.getParameter("sobreNome-pass-selecionar");
@@ -92,38 +95,12 @@ public class PassageirosReservaServlet extends HttpServlet {
             dispatcher.forward(request, response);
 
         }
-
-        if (qntPass == 1) {
-            sessao.setAttribute("Passageiro1", pass);
-            sessao.setAttribute("PassageiroVoo1", passVoos);
-
-        } else if (qntPass == 2) {
-            sessao.setAttribute("Passageiro2", pass);
-            sessao.setAttribute("PassageiroVoo2", passVoos);
-            qntPass--;
-            sessao.setAttribute("qtdpax", qntPass);
-            
-            request.setAttribute("nPassPag", 3);
-            
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-            dispatcher.forward(request, response);
-            
-
-        } else if (qntPass == 3) {
-            sessao.setAttribute("Passageiro3", pass);
-            sessao.setAttribute("PassageiroVoo3", passVoos);
-
-            qntPass--;
-            sessao.setAttribute("qtdpax", qntPass);
-            
-           
-            request.setAttribute("nPassPag", 2);
-            
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-            dispatcher.forward(request, response);
-        }
-
-        //-----------------------------------------------------------------------------------------
+        
+        
+        
+        
+        
+         //-------------------------------Reserva----------------------------------------------------------
         Calendar calendario = Calendar.getInstance();
         Reserva reserva = new Reserva();
 
@@ -177,7 +154,9 @@ public class PassageirosReservaServlet extends HttpServlet {
             } catch (DataExceptions ex) {
                 ex.getMessage();
             }
-            reserva.setCustoTotal(vooIda.getTarifa() + serv.getPreco() + vooVolta.getTarifa());
+            int quantidadePass = (int) sessao.getAttribute("qtdpax");
+            
+            reserva.setCustoTotal((vooIda.getTarifa()*quantidadePass )+ serv.getPreco() + (vooVolta.getTarifa()*quantidadePass));
 
         } else if (opcao.equals("1")) {
             int idIda = (int) sessao.getAttribute("idVooIda");
@@ -188,7 +167,15 @@ public class PassageirosReservaServlet extends HttpServlet {
             } catch (DataExceptions ex) {
                 ex.getMessage();
             }
-            reserva.setCustoTotal(vooIda.getTarifa() + serv.getPreco());
+            
+            int quantidadePass = qtdPassReserva;
+            
+            double tarifa = vooIda.getTarifa();
+            double servPreco = serv.getPreco();
+            
+            double soma = (vooIda.getTarifa()* qtdPassReserva )+ serv.getPreco();
+            
+            reserva.setCustoTotal((vooIda.getTarifa()* qtdPassReserva )+ serv.getPreco());
         }
         
         sessao.setAttribute("ReservaFinal", reserva);
@@ -201,6 +188,42 @@ public class PassageirosReservaServlet extends HttpServlet {
         sessao.setAttribute("nomePagador", nomePagador);
         sessao.setAttribute("custoTotal", reserva.getCustoTotal());
         //---------------------------------------------------------------------------------------------
+        
+        
+        
+        
+
+        if (qntPass == 1) {
+            sessao.setAttribute("Passageiro1", pass);
+            sessao.setAttribute("PassageiroVoo1", passVoos);
+
+        } else if (qntPass == 2) {
+            sessao.setAttribute("Passageiro2", pass);
+            sessao.setAttribute("PassageiroVoo2", passVoos);
+            qntPass--;
+            sessao.setAttribute("qtdpax", qntPass);
+            
+            request.setAttribute("nPassPag", 2);
+            
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+            dispatcher.forward(request, response);
+            
+
+        } else if (qntPass == 3) {
+            sessao.setAttribute("Passageiro3", pass);
+            sessao.setAttribute("PassageiroVoo3", passVoos);
+
+            qntPass--;
+            sessao.setAttribute("qtdpax", qntPass);
+            
+           
+            request.setAttribute("nPassPag", 3);
+            
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+            dispatcher.forward(request, response);
+        }
+
+       
         RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
         dispatcher.forward(request, response);
     }
