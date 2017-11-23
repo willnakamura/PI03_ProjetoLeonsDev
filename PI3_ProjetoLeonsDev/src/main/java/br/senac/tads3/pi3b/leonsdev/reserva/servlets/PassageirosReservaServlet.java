@@ -52,7 +52,9 @@ public class PassageirosReservaServlet extends HttpServlet {
         PassageirosVoos passVoos = new PassageirosVoos();
 
         SimpleDateFormat dataForm = new SimpleDateFormat("yyyy-MM-dd");
-        int qntPass = (int) sessao.getAttribute("qtdpax");
+        
+        String qtdPassString = (String)  sessao.getAttribute("qtdpax");
+        int qntPass = Integer.parseInt(qtdPassString);
         String qtdPassReservaString = (String) sessao.getAttribute("qtdPassageirosReserva");
         int qtdPassReserva = Integer.parseInt(qtdPassReservaString);
         //sessao.setAttribute("qtdPassReserva", qtdPassReserva);
