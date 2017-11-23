@@ -5,7 +5,10 @@
  */
 package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
+import br.senac.tads3.pi3b.leonsdev.Telas.classes.TelaVoo;
+import br.senac.tads3.pi3b.leonsdev.Telas.classes.ValidadorTelaVoo;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
+import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionTelaVoo;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoVoos;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
 import java.io.IOException;
@@ -43,42 +46,60 @@ public class VooReservaServlet extends HttpServlet {
         HttpSession sessao = request.getSession();
         SimpleDateFormat dataForm = new SimpleDateFormat("yyyy-MM-dd");
 
+        TelaVoo tela = new TelaVoo();
         String opcao = request.getParameter("opcao");
-        int opcaoInt = Integer.parseInt(opcao);
-        sessao.setAttribute("opcaoIdaOuIdaVolta", opcao);
-        
+        tela.setOpcaoIdaVolta(opcao);
 
-        if (opcaoInt == 0) {
+        String origem = request.getParameter("origemVoo");
+        String destino = request.getParameter("destinoVoo");
+        String datIda = request.getParameter("data-ida-voo");
+
+        Date dataIdaVoo = null;
+        try {
+            dataIdaVoo = dataForm.parse(datIda);
+        } catch (ParseException e) {
+            e.getMessage();
+        }
+
+        String datVolta = request.getParameter("data-volta-voo");
+
+        Date dataVoltaVoo = null;
+        try {
+            dataVoltaVoo = dataForm.parse(datVolta);
+        } catch (ParseException e) {
+            e.getMessage();
+        }
+
+        String qtdPass = request.getParameter("qtdpax");
+        //int qtdPassageiros = Integer.parseInt(qtdPass);
+
+        sessao.setAttribute("opcaoIdaOuIdaVolta", opcao);
+
+        String bagagem = request.getParameter("bagagem-voo");
+
+        tela.setAeroportoDestino(destino);
+        tela.setAeroportoOrigem(origem);
+        tela.setDataIda(dataIdaVoo);
+        tela.setDataVolta(dataVoltaVoo);
+
+        tela.setQtdPass(qtdPass);
+
+        try {
+            ValidadorTelaVoo.validar(tela);
+        } catch (ExceptionTelaVoo e) {
+            request.setAttribute("erroTelaVoo", e.getMessage());
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
+            dispatcher.forward(request, response);
+        }
+
+        if (opcao.equals("0")) {
             Voos voo = new Voos();
             Voos voo2 = new Voos();
-            String origem = request.getParameter("origemVoo");
-            String destino = request.getParameter("destinoVoo");
-            String datIda = request.getParameter("data-ida-voo");
 
-            Date dataIdaVoo = null;
-            try {
-                dataIdaVoo = dataForm.parse(datIda);
-            } catch (ParseException e) {
-                e.getMessage();
-            }
-
-            String datVolta = request.getParameter("data-volta-voo");
-
-            Date dataVoltaVoo = null;
-            try {
-                dataVoltaVoo = dataForm.parse(datVolta);
-            } catch (ParseException e) {
-                e.getMessage();
-            }
-
-            String qtdPass = request.getParameter("qtdpax");
-            int qtdPassageiros = Integer.parseInt(qtdPass);
-
-            sessao.setAttribute("qtdpax", qtdPassageiros);
-            sessao.setAttribute("qtdPassageirosReserva", qtdPassageiros);
+            sessao.setAttribute("qtdpax", qtdPass);
+            sessao.setAttribute("qtdPassageirosReserva", qtdPass);
 
             //verificar operação com a bagagem....
-            String bagagem = request.getParameter("bagagem-voo");
             sessao.setAttribute("bagagem", bagagem);
 
             voo.setAeroportoPartida(origem);
@@ -116,26 +137,13 @@ public class VooReservaServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
             dispatcher.forward(request, response);
 
-        } else if (opcaoInt == 1) {
+        } else if (opcao.equals("1")) {
             Voos voo = new Voos();
-            String origem = request.getParameter("origemVoo");
-            String destino = request.getParameter("destinoVoo");
-            String datIda = request.getParameter("data-ida-voo");
+            
 
-            Date dataIdaVoo = null;
-            try {
-                dataIdaVoo = dataForm.parse(datIda);
-            } catch (ParseException e) {
-                e.getMessage();
-            }
-            String qtdPass = request.getParameter("qtdpax");
-            int qtdPassageiros = Integer.parseInt(qtdPass);
-
-            sessao.setAttribute("qtdpax", qtdPassageiros);
+            sessao.setAttribute("qtdpax", qtdPass);
             sessao.setAttribute("qtdPassageirosReserva", qtdPass);
             
-            
-            String bagagem = request.getParameter("bagagem-voo");
             sessao.setAttribute("bagagem", bagagem);
 
             voo.setAeroportoPartida(origem);
