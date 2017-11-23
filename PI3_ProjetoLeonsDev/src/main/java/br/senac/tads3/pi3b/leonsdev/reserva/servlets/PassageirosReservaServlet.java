@@ -102,8 +102,12 @@ public class PassageirosReservaServlet extends HttpServlet {
             sessao.setAttribute("PassageiroVoo2", passVoos);
             qntPass--;
             sessao.setAttribute("qtdpax", qntPass);
+            
+            request.setAttribute("nPassPag", 3);
+            
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
             dispatcher.forward(request, response);
+            
 
         } else if (qntPass == 3) {
             sessao.setAttribute("Passageiro3", pass);
@@ -111,6 +115,10 @@ public class PassageirosReservaServlet extends HttpServlet {
 
             qntPass--;
             sessao.setAttribute("qtdpax", qntPass);
+            
+           
+            request.setAttribute("nPassPag", 2);
+            
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
             dispatcher.forward(request, response);
         }

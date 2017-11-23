@@ -75,7 +75,7 @@
                 <div class="grid_8">
 
                     <div class="tituloCliente">
-                        <h5 class="opcao">SELECIONAR PASSAGEIROS</h5>
+                        <h5 class="opcao">CADASTRO DE PASSAGEIRO ${requestScope.nPassPag} </h5>
                     </div>
 
                     <div class="card-form">
