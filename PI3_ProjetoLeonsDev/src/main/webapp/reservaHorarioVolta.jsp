@@ -109,8 +109,9 @@
                                         <td>${voo.horaChegada}</td>
                                         <td style="visibility: hidden">${voo.id}</td>
                                     </tr>
-                                </table>
-                            </c:forEach>
+                                </c:forEach>
+
+                            </table>
 
                             <div class="form-footer">
 
