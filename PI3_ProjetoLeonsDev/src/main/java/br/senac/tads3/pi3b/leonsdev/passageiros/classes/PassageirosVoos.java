@@ -12,18 +12,36 @@ import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
  * @author Rafael Rodrigues
  */
 public class PassageirosVoos {
-    private Voos voo;
+
+    private Voos vooIda, vooVolta;
     private String status;
     private String assento;
     private Passageiros passageiro;
 
-    public PassageirosVoos(Voos voo, String status, String assento, Passageiros passageiro) {
-        this.voo = voo;
+    public PassageirosVoos(Voos vooIda, Voos vooVolta, String status, String assento, Passageiros passageiro) {
+        this.vooIda = vooIda;
+        this.vooVolta = vooVolta;
         this.status = status;
         this.assento = assento;
         this.passageiro = passageiro;
     }
-    
+
+    public Voos getVooIda() {
+        return vooIda;
+    }
+
+    public void setVooIda(Voos vooIda) {
+        this.vooIda = vooIda;
+    }
+
+    public Voos getVooVolta() {
+        return vooVolta;
+    }
+
+    public void setVooVolta(Voos vooVolta) {
+        this.vooVolta = vooVolta;
+    }
+
     public PassageirosVoos() {
     }
 
@@ -31,16 +49,8 @@ public class PassageirosVoos {
         return assento;
     }
 
-    public Voos getVoo() {
-        return voo;
-    }
-
     public String getStatus() {
         return status;
-    }
-
-    public void setVoo(Voos voo) {
-        this.voo = voo;
     }
 
     public void setStatus(String status) {

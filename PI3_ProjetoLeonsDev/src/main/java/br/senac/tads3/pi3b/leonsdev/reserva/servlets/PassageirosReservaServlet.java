@@ -148,6 +148,8 @@ public class PassageirosReservaServlet extends HttpServlet {
             try {
                 vooIda = ServicoVoos.obterVoo(idIda);
                 vooVolta = ServicoVoos.obterVoo(idVolta);
+                passVoos.setVooIda(vooIda);
+                passVoos.setVooVolta(vooVolta);
             } catch (DataExceptions ex) {
                 ex.getMessage();
             }
@@ -160,7 +162,7 @@ public class PassageirosReservaServlet extends HttpServlet {
 
             try {
                 vooIda = ServicoVoos.obterVoo(idIda);
-
+                passVoos.setVooIda(vooIda);
             } catch (DataExceptions ex) {
                 ex.getMessage();
             }
