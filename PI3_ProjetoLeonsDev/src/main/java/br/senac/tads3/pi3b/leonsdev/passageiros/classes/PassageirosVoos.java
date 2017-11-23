@@ -6,6 +6,7 @@
 package br.senac.tads3.pi3b.leonsdev.passageiros.classes;
 
 import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,33 +14,25 @@ import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
  */
 public class PassageirosVoos {
 
-    private Voos vooIda, vooVolta;
-    private String status;
-    private String assento;
-    private Passageiros passageiro;
-
-    public PassageirosVoos(Voos vooIda, Voos vooVolta, String status, String assento, Passageiros passageiro) {
-        this.vooIda = vooIda;
-        this.vooVolta = vooVolta;
+    public PassageirosVoos(String status, String assento, Passageiros passageiro) {
         this.status = status;
         this.assento = assento;
         this.passageiro = passageiro;
     }
 
-    public Voos getVooIda() {
-        return vooIda;
+    private ArrayList<Voos> voos = new ArrayList<Voos>();
+    private String status;
+    private String assento;
+    private Passageiros passageiro;
+
+    
+
+    public ArrayList<Voos> getVoos() {
+        return voos;
     }
 
-    public void setVooIda(Voos vooIda) {
-        this.vooIda = vooIda;
-    }
-
-    public Voos getVooVolta() {
-        return vooVolta;
-    }
-
-    public void setVooVolta(Voos vooVolta) {
-        this.vooVolta = vooVolta;
+    public void setVoos(ArrayList<Voos> voos) {
+        this.voos = voos;
     }
 
     public PassageirosVoos() {
