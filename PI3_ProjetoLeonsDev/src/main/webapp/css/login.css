@@ -75,7 +75,7 @@ html,body{
     margin: 10px auto 30px;
     border-radius: 100%;
     border: 2px solid #aaa;
-    background-size: cover;
+    background-size: cover; 
 }
 
 .form-box input{

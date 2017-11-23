@@ -10,13 +10,11 @@ import br.senac.tads3.pi3b.leonsdev.exceptions.LoginException;
 import br.senac.tads3.pi3b.leonsdev.login.classes.Login;
 import br.senac.tads3.pi3b.leonsdev.login.classes.ServicoLogin;
 import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
-import br.senac.tads3.pi3b.leonsdev.servico.classes.ServicoServicoVoo;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoAeroportos;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -50,15 +48,7 @@ public class LoginServlet extends HttpServlet {
         HttpSession sessao = request.getSession();
         //------------pre operações para carregamento de dropBox---------
 
-        ArrayList aeroportos = null;
-        try {
-            aeroportos = ServicoAeroportos.obterAeroporto();
-        } catch (DataExceptions | SQLException ex) {
-            ex.getMessage();
-        }
-        sessao.setAttribute("ListaAeroportos", aeroportos);
         //-------------operaçoes de login----------------------------------
-        
         // Pega o class="user" e atribui á uma variavel
         String username = request.getParameter("user");
 
@@ -87,7 +77,13 @@ public class LoginServlet extends HttpServlet {
             dispatcher.forward(request, response);
 
         } else {
-
+            ArrayList aeroportos = null;
+            try {
+                aeroportos = ServicoAeroportos.obterAeroporto();
+            } catch (DataExceptions | SQLException ex) {
+                ex.getMessage();
+            }
+            sessao.setAttribute("ListaAeroportos", aeroportos);
             response.sendRedirect(request.getContextPath() + "/Protegido/resultado");
 
         }
