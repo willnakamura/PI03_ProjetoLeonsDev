@@ -77,6 +77,153 @@
 
                     <div class="tituloCliente">
                         <h5 class="opcao">resumo da compra</h5>
+                        </div>
+                        
+                        <div class="resumo">
+                        <div >
+                            <label class="resumo-form"> Status da Reserva: </label> 
+                            <label class="resumo-form" id="result">Ativo</label>
+
+                        </div>
+                        <br>
+                        <div >
+                            <label class="resumo-form" id="tituloResumo">Voo</label>
+
+
+                        </div>
+                        <br>
+
+                        <div >
+                            <label class="resumo-form">Aeroporto de Origem:</label>
+                            <label class="resumo-form">Congonhas</label>
+                             
+                            
+                           
+                        </div>
+
+                        <div>
+                            <label class="resumo-form">Aeroporto de Destino:</label>
+                             <label class="resumo-form">Alagoinhas</label>
+                         
+
+                        </div>
+                        <div>
+                            <label class="resumo-form">Data de Origem:</label>
+                            <label class="resumo-form">11/12/2017</label>
+                            </div>
+                        <div>
+                            <label class="resumo-form">Data de Destino:</label>
+                            <label class="resumo-form">20/12/2017</label>
+                            </div>    
+                        
+                        <div >
+                            <label class="resumo-form">Horário de ida:</label>
+                            <label class="resumo-form-2" id="result">11:30</label>
+
+                        </div>
+
+                        <div >
+                            <label class="resumo-form">Horário de volta:</label>
+
+                            <label class="resumo-form-2" id="result">13:00</label>   
+                        </div>
+                        <br>
+                        <div>
+                            <label class="resumo-form" id="tituloResumo">Dados dos Passageiros</label>
+
+                        </div>
+                        <br>
+
+                        <div >                      
+
+                            <label class="resumo-form">Nome: </label>  
+
+                            <label class="resumo-form" id="result">Joaquim Barbosa Filho</label>                                 
+
+                        </div>
+
+                        <div >   
+                            <label class="resumo-form">Assentos de Origem: </label> 
+                            <label class="resumo-form" id="result">E06</label> 
+                        </div>
+                        <div >   
+                            <label class="resumo-form">Assentos de Destino: </label>
+                            <label class="resumo-form" id="result">B01</label> 
+                        </div>
+                        <div >  
+                            <label class="resumo-form">Bagagem: </label>
+                            <label class="resumo-form" id="result">5kg - R$ 20,90</label>
+                        </div>
+                        <br>
+                         
+
+                        <div >                      
+
+                            <label class="resumo-form">Nome: </label>  
+
+                            <label class="resumo-form" id="result">Stefano Santos Teixeira</label>                                 
+
+                        </div>
+
+                        <div >   
+                            <label class="resumo-form">Assentos de Origem: </label> 
+                            <label class="resumo-form" id="result">C25</label> 
+                        </div>
+                        <div >   
+                            <label class="resumo-form">Assentos de Destino: </label>
+                            <label class="resumo-form" id="result">H01</label> 
+                        </div>
+                        <div >  
+                            <label class="resumo-form">Bagagem: </label>
+                            <label class="resumo-form" id="result">20kg - R$ 79,90</label>
+                        </div>
+                        
+                        <br>
+
+                        <div>
+                            <label class="resumo-form" id="tituloResumo">Dados de Pagamento</label>
+
+
+                        </div>
+                        <br>
+
+
+                        <div>
+
+                            <label class="resumo-form">Nome Completo do Pagante:</label>
+                            <label class="resumo-form" id="result">Clebeson Vieira Lima</label>
+
+
+                        </div>
+
+                        <div >
+                            <label class="resumo-form">Forma de Pagamento: </label>
+                              <label class="resumo-form" id="result">Boleto bancário</label>
+
+
+                        </div>
+
+
+                        <div>
+                            <label class="resumo-form">Nivel da Milhagem: </label>
+                             <label class="resumo-form" id="result">Cliente Pombo </label>
+
+
+                        </div>
+
+                        <div >
+
+                            <label class="resumo-form">Valor Total: </label>
+                            <label class="resumo-form" id="result"> R$ 400,00</label>
+
+                        </div>
+
+                        <div >
+
+                            <label class="resumo-form">Pontos: </label>
+                            <label class="resumo-form" id="result">50</label>
+
+                        </div>
                     </div>
 
 
@@ -84,168 +231,59 @@
                     <br>
 
 
-                    <div class="card-form">
 
 
 
-                        <form class="signup" action="#" method="post">
+                    <form class="signup" action="#" method="post">
+                        
+                        
+                       
+                        <div class="form-footer">
 
-                            <div class="row">
-                                <label class="resumo-form"> Status da Reserva: </label>
-
-                            </div>
-
-                            <br>
-
-                            <div class="row">
-                                <label class="resumo-form">Voo</label>
+                            <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
+                            <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
 
 
-                            </div>
+                        </div>
 
-                      
-
-                            <div class="row">
-                                <label class="resumo-form">Aeroporto de Origem:</label>
-                                <label class="resumo-form-2">Data de Origem:</label>
-
-                            </div> 
-                            <div class="row">
-                                <label class="resumo-form">Aeroporto de Destino:</label>
-                                <label class="resumo-form-2">Data de Destino:</label>
-
-                            </div>
-
-                            <br>                           
-
-                            <div class="row">
-                                <label class="resumo-form">Horário de ida:</label>
-                                <label class="resumo-form-2">11:30</label>
-
-                            </div>
-
-
-                            <div class="row">
-                                <label class="resumo-form">Horário de volta</label>
-
-                                <label class="resumo-form-2">13:00</label>   
-                            </div>
-                            <br>
-                            <br>
-                            <div class="row">
-                                <label class="resumo-form">Dados dos Passageiros</label>
-
-                            </div>
-
-                            <div class="row">                      
-
-                                <label class="resumo-form">Nome: </label>                                
-
-                            </div>
-
-                            <div class="row">   
-                                <label class="resumo-form">Assentos de Origem: </label>    
-                            </div>
-                            <div class="row">   
-                                <label class="resumo-form">Assentos de Destino: </label>
-                            </div>
-                            <div class="row">  
-                                <label class="resumo-form">Bagagem: </label>
-                            </div>
-
-
-
-
-                            <br><br>
-                            <div class="row">
-                                <label class="resumo-form">Dados de Pagamento</label>
-
-
-                            </div>
-
-                            
-                            <div class="row">
-
-                                <label class="resumo-form">Nome Completo do Pagante:</label>
-
-
-                            </div>
-
-                            <div class="row">
-                                <label class="resumo-form">Forma de Pagamento: </label>
-                              
-
-                            </div>
-                            
-
-                            <div class="row">
-                                <label class="resumo-form">Nivel da Milhagem: </label>
-                                
-
-                            </div>
-                            
-                             <div class="row">
-                                
-                                <label class="resumo-form">Valor Total: </label>
-
-                            </div>
-                            
-                              <div class="row">
-                               
-                                <label class="resumo-form">Pontos: </label>
-
-                            </div>
-                            
-                            <br>
-
-
-
-                            <div class="form-footer">
-
-                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
-                                <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
-
-
-                            </div>
-
-                        </form>
-                    </div>
+                    </form>
                 </div>
-
-
-
-
-
-
             </div>
 
 
 
 
+
+
         </div>
+
+
 
 
     </div>
-    <!--==============================footer=================================-->
-    <footer>
-        <div class="container_12">
-            <div class="grid_12">
-                <div class="socials">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-google-plus"></a>
-                </div>
-                <div class="copy">
-                    Your Trip (c) 2017 | <a href="#">Privacy Policy</a>
-                </div>
+
+
+</div>
+<!--==============================footer=================================-->
+<footer>
+    <div class="container_12">
+        <div class="grid_12">
+            <div class="socials">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-google-plus"></a>
+            </div>
+            <div class="copy">
+                Your Trip (c) 2017 | <a href="#">Privacy Policy</a>
             </div>
         </div>
-    </footer>
-    <script>
-        $(function () {
-            $('#bookingForm').bookingForm({
-                ownerEmail: '#'
-            });
+    </div>
+</footer>
+<script>
+    $(function () {
+        $('#bookingForm').bookingForm({
+            ownerEmail: '#'
         });
-    </script>
+    });
+</script>
 </body>
 </html>

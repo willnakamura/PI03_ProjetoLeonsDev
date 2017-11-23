@@ -18,7 +18,26 @@ p.sucess{
     color: green;
 }
 
+#result{
+    margin-left: 5px;
+}
 
+
+.resumo{
+    margin-left: 40px;
+    
+    width: 100%;
+}
+
+.resumo-form{
+   margin-bottom: 50px;
+    padding-top: 10px;
+   
+}
+
+#tituloResumo{
+   font-weight: bold;
+}
 
 #logo{
     
