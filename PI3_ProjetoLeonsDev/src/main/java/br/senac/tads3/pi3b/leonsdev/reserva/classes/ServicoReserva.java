@@ -92,7 +92,7 @@ public class ServicoReserva {
     
     public static void inserirVenda(Reserva reserva, Passageiros[] passageiro, PassageirosVoos[] pvoos, Servico servico, Cliente cliente) throws SQLException, Exception {
         try {
-            DaoFazerReserva.inserirVenda(reserva, passageiro, pvoos, servico, cliente);
+            DaoFazerReserva.inserirVenda(reserva, passageiro, servico, cliente);
         } catch (Exception e) {
             e.getMessage();
             e.printStackTrace();

@@ -9,7 +9,6 @@ import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.dbUtils.ConnectionUtils;
 import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.Passageiros;
-import br.senac.tads3.pi3b.leonsdev.passageiros.classes.PassageirosVoos;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.TicketCode;
 import br.senac.tads3.pi3b.leonsdev.servico.classes.Servico;
@@ -26,7 +25,7 @@ import java.sql.Timestamp;
  */
 public class DaoFazerReserva {
 
-    public static void inserirVenda(Reserva reserva, Passageiros[] passageiro, PassageirosVoos[] pvoos, Servico servico, Cliente cliente) throws SQLException, Exception {
+    public static void inserirVenda(Reserva reserva, Passageiros[] passageiro, Servico servico, Cliente cliente) throws SQLException, Exception {
         //Monta a string de inserção dos dados no BD,
         String sql1 = "insert into Reservas (Data_Criado, Status, Vendedor, Forma_Pagto, Custo_Total, Cliente_ID, Ativo, Ticket) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -85,13 +84,15 @@ public class DaoFazerReserva {
                 ResultSet rs2 = preparedStatement2.getGeneratedKeys();
                 rs2.next();
 
-                preparedStatement3 = connection.prepareStatement(sql3);
+                for (int j = 0; j < passageiro[i].getpassVoos().size(); j++) {
+                    preparedStatement3 = connection.prepareStatement(sql3);
 
-                preparedStatement3.setInt(1, rs2.getInt(1));
-                preparedStatement3.setInt(2, pvoos[i].getVoo().getId());
-                preparedStatement3.setString(3, pvoos[i].getStatus());
-                preparedStatement3.setString(4, pvoos[i].getAssento());
-                preparedStatement3.execute();
+                    preparedStatement3.setInt(1, rs2.getInt(1));
+                    preparedStatement3.setInt(2, passageiro[i].getpassVoos().get(j).getIdVoo());
+                    preparedStatement3.setString(3, "Confirmado");
+                    preparedStatement3.setString(4, passageiro[i].getpassVoos().get(j).getAssento());
+                    preparedStatement3.execute();
+                }
             }
 
             preparedStatement4 = connection.prepareStatement(sql4);
@@ -121,9 +122,5 @@ public class DaoFazerReserva {
                 connection.close();
             }
         }
-    }
-
-    public static void inserirVenda(Reserva reserva, Passageiros[] pass, Servico serv, Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
