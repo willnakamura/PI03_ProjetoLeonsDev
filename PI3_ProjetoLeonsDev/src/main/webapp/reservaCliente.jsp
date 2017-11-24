@@ -80,13 +80,33 @@
 
                     <div class="card-form">
                         <form class="buscaCli" action="${pageContext.request.contextPath}/ClienteReserva" method="post">
+                            <div class="row">
+                                <c:if test="${not empty requestScope.sucessoSelecionaCli}">
+                                    <p class="sucess"><c:out value="${requestScope.sucessoSelecionaCli}"/></p>
+                                </c:if>
+                            </div>
+                            
+                            <div class="row">
+                                <c:if test="${not empty requestScope.erroCampoBusca}">
+                                    <p class="error"><c:out value="${requestScope.erroCampoBusca}"/></p>
+                                </c:if>
+                            </div>
+
+                            <div class="row">
+                                <c:if test="${not empty requestScope.erroSelecionaCli}">
+                                    <p class="error"><c:out value="${requestScope.erroSelecionaCli}"/></p>
+                                </c:if>
+                            </div>
+                            
                             <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente"> <button id="botoesBusca" type="submit">BUSCAR</button></div>
+                        
+                            
                         </form>
                     </div>
                     
                     <div class="card-form">
                         <form class="signup" action="${pageContext.request.contextPath}/TrocaTelaClienteReserva" method="post">
-                            <BR>
+                            
                             
                             <div class="form-body">
                                 <div class="row">
