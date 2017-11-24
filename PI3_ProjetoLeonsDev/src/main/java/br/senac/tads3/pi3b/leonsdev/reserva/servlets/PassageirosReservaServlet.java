@@ -51,6 +51,7 @@ public class PassageirosReservaServlet extends HttpServlet {
         HttpSession sessao = request.getSession();
         Passageiros pass = new Passageiros();
         PassageirosVoos passVoos = new PassageirosVoos();
+        PassageirosVoos passVoosVolta = new PassageirosVoos();
 
         SimpleDateFormat dataForm = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -83,9 +84,6 @@ public class PassageirosReservaServlet extends HttpServlet {
         pass.setCpf(cpf);
         pass.setDataNascimento(dataNasc);
         pass.setEmail(email);
-
-        passVoos.setAssento(assento);
-        passVoos.setPassageiro(pass);
 
         try {
 
@@ -149,15 +147,18 @@ public class PassageirosReservaServlet extends HttpServlet {
             try {
                 vooIda = ServicoVoos.obterVoo(idIda);
                 vooVolta = ServicoVoos.obterVoo(idVolta);
-                
+
             } catch (DataExceptions ex) {
                 ex.getMessage();
             }
-            ArrayList<Voos> voos = new ArrayList<Voos>();
-            voos.add(vooIda);
-            voos.add(vooVolta);
-            passVoos.setVoos(voos);
-            
+
+            passVoos.setIdVoo(vooIda.getId());
+            passVoosVolta.setIdVoo(vooVolta.getId());
+            passVoos.setAssento(assento);
+            passVoos.setPassageiro(pass);
+            passVoosVolta.setAssento(assento);
+            passVoosVolta.setPassageiro(pass);
+
             int quantidadePass = (int) sessao.getAttribute("qtdpax");
 
             reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
@@ -167,15 +168,18 @@ public class PassageirosReservaServlet extends HttpServlet {
 
             try {
                 vooIda = ServicoVoos.obterVoo(idIda);
-                
+
             } catch (DataExceptions ex) {
                 ex.getMessage();
             }
-            
-            ArrayList<Voos> voos = new ArrayList<Voos>();
-            voos.add(vooIda);
-            passVoos.setVoos(voos);
 
+            
+//            passVoos.setVoos(voos);
+            passVoos.setIdVoo(vooIda.getId());
+            passVoos.setAssento(assento);
+            passVoos.setPassageiro(pass);
+            
+            
             int quantidadePass = qtdPassReserva;
 
             double tarifa = vooIda.getTarifa();
@@ -185,7 +189,7 @@ public class PassageirosReservaServlet extends HttpServlet {
 
             reserva.setCustoTotal((vooIda.getTarifa() * qtdPassReserva) + serv.getPreco());
         }
-        
+
         sessao.setAttribute("ReservaFinal", reserva);
         sessao.setAttribute("ServicoReservaFinal", serv);
         sessao.setAttribute("VooIdaReservaFinal", vooIda);

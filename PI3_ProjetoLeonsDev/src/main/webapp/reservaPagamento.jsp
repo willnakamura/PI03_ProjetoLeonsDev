@@ -89,8 +89,8 @@
                                 <div class="row">
                                     <select class="pagamento" name="pagamento">  
                                         <option value="selecione">Forma de Pagamento</option>
-                                        <option value="selecione">Cartão de crédito</option>
-                                        <option value="selecione">Débito automático</option>
+                                        <option value="selecione">crédito</option>
+                                        <option value="selecione">Débito</option>
                                         <option value="selecione">Dinheiro</option>
                                     </select>
                                 </div>  

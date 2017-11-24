@@ -17,7 +17,7 @@ public class Passageiros {
     private int id, Reserva_ID;
     private String nome, sobrenome, cpf, email;
     private Date dataNascimento;
-    private ArrayList<PassageirosVoos> voos = new ArrayList<PassageirosVoos>();
+    private ArrayList<PassageirosVoos> passVoos = new ArrayList<PassageirosVoos>();
     private Reserva reserva;
 
     public Reserva getReserva() {
@@ -104,12 +104,12 @@ public class Passageiros {
         this.dataNascimento = dataNascimento;
     }
     
-        public ArrayList<PassageirosVoos> getVoos() {
-        return voos;
+        public ArrayList<PassageirosVoos> getpassVoos() {
+        return passVoos;
     }
 
-    public void setVoos(ArrayList<PassageirosVoos> voos) {
-        this.voos = voos;
+    public void setpassVoos(ArrayList<PassageirosVoos> voos) {
+        this.passVoos = voos;
     }
 
     
