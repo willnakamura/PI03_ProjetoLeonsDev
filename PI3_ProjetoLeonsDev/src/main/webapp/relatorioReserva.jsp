@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="grid_12">
-                   <div id="logo">
+                    <div id="logo">
                         <a  href="#">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
@@ -72,22 +72,28 @@
                 <div class="grid_8">
                     <div class="tituloCliente">
 
-                        <h5 class="opcao">RELATÓRIO </h5>
+                        <h5 class="opcao">RELATÓRIO DE RESERVAS </h5>
 
                     </div>                    
 
-                    <form class="buscaCliente" action="#" method="post">
+                    <form class="buscaCliente" action="${pageContext.request.contextPath}/" method="post">
+                        <div class="row">
+                            <c:if test="${not empty requestScope.erroRelatorio}">
+                                <p class="error"><c:out value="${requestScope.erroRelatorio}"/></p>
+                            </c:if>
+                        </div>
+
                         <div class="row">
 
-                                <input type="date"  name="data-ida-voo" />
-                                <input type="date"  name="data-volta-voo"/>    
-                            </div>
+                            <input type="date"  name="data-inicio" />
+                            <input type="date"  name="data-fim"/>    
+                        </div>
                         <br>
                         <div class="busca">
                             <input type="text" id="busca1" placeholder="Digite a busca" name="buscaCliente">
                             <button id="botoesBusca" type="submit">BUSCAR</button>
                         </div>
-                                                    
+
                     </form>
 
                     <form class="editCli" action="#" method="post">
@@ -106,15 +112,32 @@
                                 <th>Aeroporto Origem</th>
                                 <th>Aeroporto Destino</th>
                                 <th>Assento</th>
-                            </tr>  
-
+                            </tr> 
                             
-                        </table>
+                            
+                                <c:forEach var="relatorio" items="${sessionScope.ListaReservaRelatorio}">    
+                                    <tr>
+                                        <td>${relatorio}</td>
+                                        <td>${cli.sobrenome}</td>
+                                        <td>${cli.cpf}</td>
+                                        <td>${cli.email}</td>
+                                        <td>${cli.celular}</td>
+                                        <td>${cli.genero}</td>
+                                        <td>${cli.dataNascimento}</td>
+                                        <td>${cli.estado}</td>
+                                        <td>${cli.cidade}</td>
+                                        <td>${cli.cep}</td>
+                                        <td>${cli.endereco}</td>
+                                    </tr>
+                                </c:forEach>
 
+                        </table>
                         
+                        
+
                     </form>
                 </div>
-            <div class="grid_3 prefix_1">
+                <div class="grid_3 prefix_1">
                     <h5 class="opcao">Opção</h5>
                     <ul class="list">
                         <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Reserva</a></li>
@@ -124,7 +147,7 @@
                     </ul>
                 </div>
 
-               
+
             </div>
         </div>
 
