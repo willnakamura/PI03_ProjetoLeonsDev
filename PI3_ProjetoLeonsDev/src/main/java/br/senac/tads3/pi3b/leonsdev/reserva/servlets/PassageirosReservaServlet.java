@@ -120,18 +120,22 @@ public class PassageirosReservaServlet extends HttpServlet {
         Double precoBag = null;
         String bagagem = (String) sessao.getAttribute("bagagem");
 
-        if (bagagem.equals("5")) {
-            precoBag = 20.9;
+        if (bagagem.equals("5Kg")) {
+            precoBag = 20.9d;
             serv.setExtraBag(bagagem);
             serv.setPreco(precoBag);
 
-        } else if (bagagem.equals("10")) {
-            precoBag = 39.9;
+        } else if (bagagem.equals("10Kg")) {
+            precoBag = 39.9d;
             serv.setExtraBag(bagagem);
             serv.setPreco(precoBag);
 
-        } else if (bagagem.equals(79.90)) {
-            precoBag = 79.9;
+        } else if (bagagem.equals("20Kg")) {
+            precoBag = 79.9d;
+            serv.setExtraBag(bagagem);
+            serv.setPreco(precoBag);
+        } else if(bagagem.equals("0Kg")){
+            precoBag = 0.0d;
             serv.setExtraBag(bagagem);
             serv.setPreco(precoBag);
         }

@@ -80,7 +80,13 @@
 
                     <div class="card-form">
                         <form class="signup" action="${pageContext.request.contextPath}/PagamentoReserva" method="post">
-
+                            
+                            <div class="row">
+                                <c:if test="${not empty requestScope.erroPagamento}">
+                                    <p class="error"><c:out value="${requestScope.erroPagamento}"/></p>
+                                </c:if>
+                            </div>
+                            
                             <div class="busca">
                                 <input type="text" id="pagador" name="nomePagador" readonly="readonly" value="${sessionScope.nomePagador}">
                             </div>

@@ -138,10 +138,10 @@
                                 </select>
                                 
                                 <select id="formatar" class="bagagem" name="bagagem-voo">
-                                    <option>Selecione Bagagem</option>
-                                    <option value="5">5kg - R$ 20,90</option>
-                                    <option value="10">10kg - R$ 39,90 </option>
-                                    <option value="20">20kg - R$ 79,90</option>
+                                    <option value="0Kg">Selecione Bagagem</option>
+                                    <option value="5Kg">5kg - R$ 20,90</option>
+                                    <option value="10Kg">10kg - R$ 39,90 </option>
+                                    <option value="20Kg">20kg - R$ 79,90</option>
                                 </select>
 
                             </div>

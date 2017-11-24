@@ -32,13 +32,13 @@ public class ValidadorTelaVoo {
             throw new ExceptionTelaVoo("Selecione a opção ida ou ida e volta.");
         }
         
-        if(telaVoo.getOpcaoIdaVolta().equals(0)){
+        if(telaVoo.getOpcaoIdaVolta().equals("0")){
             if(telaVoo.getDataIda().before(calendar.getTime()) || telaVoo.getDataIda() == null){
                 throw new ExceptionTelaVoo("Informe uma data de ida Válida.");
             }else if(telaVoo.getDataVolta().before(calendar.getTime()) || telaVoo.getDataVolta() == null){
                 throw new ExceptionTelaVoo("Informe uma data de volta Válida.");
             }
-        }else if(telaVoo.getOpcaoIdaVolta().equals(1)){
+        }else if(telaVoo.getOpcaoIdaVolta().equals("1")){
              if(telaVoo.getDataIda().before(calendar.getTime()) || telaVoo.getDataIda() == null){
                 throw new ExceptionTelaVoo("Informe uma data de ida Válida.");
             }

@@ -6,8 +6,11 @@
 package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
 import br.senac.tads3.pi3b.leonsdev.DAOs.DaoFazerReserva;
+import br.senac.tads3.pi3b.leonsdev.Telas.classes.TelaPagamento;
+import br.senac.tads3.pi3b.leonsdev.Telas.classes.ValidadorTelaPagamento;
 import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
+import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionTelaPagamento;
 import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.Passageiros;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.PassageirosVoos;
@@ -53,6 +56,16 @@ public class PagamentoReservaServlet extends HttpServlet {
         Reserva r = new Reserva();
 
         String pagamento = request.getParameter("pagamento");
+        TelaPagamento tela = new TelaPagamento();
+        tela.setPagamento(pagamento);
+        try {
+            ValidadorTelaPagamento.validar(tela);
+        } catch (DataExceptions | ExceptionTelaPagamento e) {
+            request.setAttribute("erroPagamento", e.getMessage());
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/resrvaPagamento.jsp");
+            dispatcher.forward(request, response);
+        }
+
         String qtdPassString = (String) sessao.getAttribute("qtdPassageirosReserva");
         int qtdPass = Integer.parseInt(qtdPassString);
         Passageiros pass1 = new Passageiros();
@@ -62,7 +75,7 @@ public class PagamentoReservaServlet extends HttpServlet {
         PassageirosVoos passVoos2 = new PassageirosVoos();
         PassageirosVoos passVoos3 = new PassageirosVoos();
         Passageiros passVetor[] = new Passageiros[qtdPass];
-        PassageirosVoos passVoosVetor [] = new PassageirosVoos[qtdPass];
+        PassageirosVoos passVoosVetor[] = new PassageirosVoos[qtdPass];
 
         if (qtdPass == 1) {
             pass1 = (Passageiros) sessao.getAttribute("Passageiro1");
@@ -91,7 +104,7 @@ public class PagamentoReservaServlet extends HttpServlet {
             passVoosVetor[0] = passVoos1;
             passVoosVetor[1] = passVoos2;
             passVoosVetor[2] = passVoos3;
-           
+
         }
         r = (Reserva) sessao.getAttribute("ReservaFinal");
         r.setFormaPgto(pagamento);
@@ -104,8 +117,8 @@ public class PagamentoReservaServlet extends HttpServlet {
         try {
             ServicoReserva.inserirVenda(r, passVetor, passVoosVetor, servico, cli);
         } catch (Exception e) {
-           erro = e.getMessage();
-           e.printStackTrace();
+            erro = e.getMessage();
+            e.printStackTrace();
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompra.jsp");
         dispatcher.forward(request, response);

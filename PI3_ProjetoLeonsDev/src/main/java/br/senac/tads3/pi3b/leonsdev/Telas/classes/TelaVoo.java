@@ -13,7 +13,6 @@ import java.util.Date;
  */
 public class TelaVoo {
     private String AeroportoOrigem, AeroportoDestino, opcaoIdaVolta;
-    //String bagagem;
     private Date dataIda, dataVolta;
     private String qtdPass;
 
