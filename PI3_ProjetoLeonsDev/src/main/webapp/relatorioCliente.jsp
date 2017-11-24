@@ -72,7 +72,7 @@
                 <div class="grid_8">
                     <div class="tituloCliente">
 
-                        <h5 class="opcao">RELATÓRIO </h5>
+                        <h5 class="opcao">RELATÓRIO DE CLIENTE </h5>
 
                     </div>                    
 
