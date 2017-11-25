@@ -145,10 +145,10 @@ public class DaoRelatorios {
                 
                 clientela.setDataCadastro(result.getDate("DataCadastro"));
                 clientela.setNome(result.getString("Nome"));
-                clientela.setSobreNome(result.getString("Sobrenome"));
-                clientela.setCPF(result.getString("CPF"));
+                clientela.setSobrenome(result.getString("Sobrenome"));
+                clientela.setCpf(result.getString("CPF"));
                 clientela.setEmail(result.getString("Email"));
-                clientela.setNível(result.getString("Nivel"));
+                clientela.setNivel(result.getString("Nivel"));
                 clientela.setMilhasTotal(result.getInt("MilhasTotal"));
                 clientela.setQtdReservas(result.getInt("TotalReservas"));
                 clientela.setDataUltimaCompra(result.getDate("UltimaReserva"));
