@@ -108,7 +108,7 @@
                                     <input type="text" value="${requestScope.usuRepreenche.sobrenome}" placeholder="Sobrenome*" name="sobreNome-usua">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" value="${requestScope.usuRepreenche.cpf}" placeholder="cpf*" name="cpf-usua">
+                                    <input type="number" value="${requestScope.usuRepreenche.cpf}" min="11" max="11"  placeholder="cpf*" name="cpf-usua">
 
                                     <select id="format-slc-usua" name="cargo-usua">
                                         <c:choose>
