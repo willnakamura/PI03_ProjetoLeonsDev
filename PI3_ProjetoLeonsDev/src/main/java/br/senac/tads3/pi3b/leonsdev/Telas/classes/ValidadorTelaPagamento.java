@@ -21,7 +21,7 @@ public class ValidadorTelaPagamento {
             throw new ExceptionTelaPagamento("Pagamento inválido.");
         }
         
-        if(tela.getPagamento().equals("Forma de Pagamento")){
+        if(tela.getPagamento().equals("Selecione")){
             throw new ExceptionTelaPagamento("Selecione uma forma de pagamento.");
         }
     }

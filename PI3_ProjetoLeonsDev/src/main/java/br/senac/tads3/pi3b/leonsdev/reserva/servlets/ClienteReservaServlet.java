@@ -68,9 +68,6 @@ public class ClienteReservaServlet extends HttpServlet {
                 dispatcher.forward(request, response);
             }else{
                 request.setAttribute("sucessoSelecionaCli", "Pesquisa realizada com sucesso.");
-            
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaCliente.jsp");
-                dispatcher.forward(request, response);
             }
             
             sessao.setAttribute("clienteSelectReserva", cli);

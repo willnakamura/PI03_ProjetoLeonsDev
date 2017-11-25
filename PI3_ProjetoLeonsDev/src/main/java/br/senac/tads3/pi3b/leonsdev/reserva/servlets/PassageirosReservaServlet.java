@@ -57,6 +57,7 @@ public class PassageirosReservaServlet extends HttpServlet {
 
         String qtdPassString = (String) sessao.getAttribute("qtdpax");
         int qntPass = Integer.parseInt(qtdPassString);
+        
         String qtdPassReservaString = (String) sessao.getAttribute("qtdPassageirosReserva");
         int qtdPassReserva = Integer.parseInt(qtdPassReservaString);
         //sessao.setAttribute("qtdPassReserva", qtdPassReserva);
@@ -162,6 +163,9 @@ public class PassageirosReservaServlet extends HttpServlet {
             passVoos.setPassageiro(pass);
             passVoosVolta.setAssento(assento);
             passVoosVolta.setPassageiro(pass);
+            
+            pass.setpassVoos(passVoos);
+            pass.setpassVoos(passVoosVolta);
 
             int quantidadePass = qtdPassReserva;
 
@@ -182,6 +186,8 @@ public class PassageirosReservaServlet extends HttpServlet {
             passVoos.setIdVoo(vooIda.getId());
             passVoos.setAssento(assento);
             passVoos.setPassageiro(pass);
+            
+            pass.setpassVoos(passVoos);
 
             int quantidadePass = qtdPassReserva;
 
@@ -211,7 +217,8 @@ public class PassageirosReservaServlet extends HttpServlet {
             sessao.setAttribute("Passageiro2", pass);
             sessao.setAttribute("PassageiroVoo2", passVoos);
             qntPass--;
-            sessao.setAttribute("qtdpax", qntPass);
+            String qtdPax = Integer.toString(qntPass);
+            sessao.setAttribute("qtdpax", qtdPax);
 
             request.setAttribute("nPassPag", 2);
             sessao.setAttribute("assentoPass", assento);
@@ -224,7 +231,8 @@ public class PassageirosReservaServlet extends HttpServlet {
             sessao.setAttribute("PassageiroVoo3", passVoos);
 
             qntPass--;
-            sessao.setAttribute("qtdpax", qntPass);
+            String qtdPax = Integer.toString(qntPass);
+            sessao.setAttribute("qtdpax", qtdPax);
             request.setAttribute("nPassPag", 3);
             sessao.setAttribute("assentoPass", assento);
 
