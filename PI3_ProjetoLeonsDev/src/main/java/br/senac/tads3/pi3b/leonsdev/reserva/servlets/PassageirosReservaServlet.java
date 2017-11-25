@@ -19,8 +19,8 @@ import br.senac.tads3.pi3b.leonsdev.usuario.classes.Usuario;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoVoos;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import javax.servlet.RequestDispatcher;
@@ -72,7 +72,7 @@ public class PassageirosReservaServlet extends HttpServlet {
 
             dataNasc = dataForm.parse(dataNascString);
 
-        } catch (Exception e) {
+        } catch (ParseException e) {
             e.getMessage();
         }
 
@@ -134,7 +134,7 @@ public class PassageirosReservaServlet extends HttpServlet {
             precoBag = 79.9d;
             serv.setExtraBag(bagagem);
             serv.setPreco(precoBag);
-        } else if(bagagem.equals("0Kg")){
+        } else if (bagagem.equals("0Kg")) {
             precoBag = 0.0d;
             serv.setExtraBag(bagagem);
             serv.setPreco(precoBag);
@@ -163,11 +163,12 @@ public class PassageirosReservaServlet extends HttpServlet {
             passVoosVolta.setAssento(assento);
             passVoosVolta.setPassageiro(pass);
 
-            int quantidadePass = (int) sessao.getAttribute("qtdpax");
+            int quantidadePass = qtdPassReserva;
 
             reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
 
         } else if (opcao.equals("1")) {
+            
             int idIda = (int) sessao.getAttribute("idVooIda");
 
             try {
@@ -177,19 +178,12 @@ public class PassageirosReservaServlet extends HttpServlet {
                 ex.getMessage();
             }
 
-            
 //            passVoos.setVoos(voos);
             passVoos.setIdVoo(vooIda.getId());
             passVoos.setAssento(assento);
             passVoos.setPassageiro(pass);
-            
-            
+
             int quantidadePass = qtdPassReserva;
-
-            double tarifa = vooIda.getTarifa();
-            double servPreco = serv.getPreco();
-
-            double soma = (vooIda.getTarifa() * qtdPassReserva) + serv.getPreco();
 
             reserva.setCustoTotal((vooIda.getTarifa() * qtdPassReserva) + serv.getPreco());
         }
@@ -209,6 +203,9 @@ public class PassageirosReservaServlet extends HttpServlet {
             sessao.setAttribute("Passageiro1", pass);
             sessao.setAttribute("PassageiroVoo1", passVoos);
             sessao.setAttribute("assentoPass", assento);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
+            dispatcher.forward(request, response);
 
         } else if (qntPass == 2) {
             sessao.setAttribute("Passageiro2", pass);
@@ -235,7 +232,5 @@ public class PassageirosReservaServlet extends HttpServlet {
             dispatcher.forward(request, response);
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
-        dispatcher.forward(request, response);
     }
 }
