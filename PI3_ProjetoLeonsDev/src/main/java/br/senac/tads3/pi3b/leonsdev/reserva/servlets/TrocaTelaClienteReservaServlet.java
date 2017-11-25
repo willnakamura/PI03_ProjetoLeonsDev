@@ -28,41 +28,47 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "TrocaTelaClienteReservaServlet", urlPatterns = {"/TrocaTelaClienteReserva"})
 public class TrocaTelaClienteReservaServlet extends HttpServlet {
 
-    
-   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
     //-------------------------------------------------------------------------
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession sessao = request.getSession();
-        
+
         Voos voo = new Voos();
         Integer id = (Integer) sessao.getAttribute("idVooIda");
-        
+
         try {
             voo = ServicoVoos.obterVoo(id);
         } catch (DataExceptions e) {
             e.getMessage();
         }
-        
+
         ArrayList assentos = null;
         try {
             assentos = ServicoAssentos.assentosConsultaDisponiveis(voo.getDataVoo(), voo.getNrVoo());
-            
+
         } catch (DataExceptions e) {
             e.getMessage();
         }
-        
+
         sessao.setAttribute("assentosLista", assentos);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-        dispatcher.forward(request, response);
+
+        String opcao = (String) sessao.getAttribute("opcaoIdaOuIdaVolta");
+
+        if (opcao.equals("0")) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
+            dispatcher.forward(request, response);
+        } else if (opcao.equals("1")) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+            dispatcher.forward(request, response);
+        }
+
     }
 }
