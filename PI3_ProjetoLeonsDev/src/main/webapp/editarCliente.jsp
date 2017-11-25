@@ -103,7 +103,7 @@
                                     <input type="text" placeholder="Sobrenome*" name="sobrenome-cli" value="${sessionScope.cliente.sobrenome}">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" name="cpf-cli" value="${sessionScope.cliente.cpf}">
+                                    <input type="number" placeholder="cpf*" min="11" max="11" name="cpf-cli" value="${sessionScope.cliente.cpf}">
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Email*" name="email-cli" value="${sessionScope.cliente.email}">
@@ -119,7 +119,7 @@
                                         <option value="Feminino">Feminino</option>
                                     </select>
 
-                                    <input type="date" placeholder="" name="dtNasc-cli" value="${sessionScope.cliente.dataNascimento}">   
+                                    <input type="date" placeholder="" max="2999-12-31" name="dtNasc-cli" value="${sessionScope.cliente.dataNascimento}">   
 
                                 </div>
 

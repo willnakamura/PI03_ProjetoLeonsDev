@@ -102,8 +102,8 @@
                                 </div>
                                 
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" name="cpf-pass-selecionar">
-                                    <input type="date" placeholder="" name="dtNasc-pass-selecionar"> 
+                                    <input type="number" placeholder="cpf*" min="11" max="11"  name="cpf-pass-selecionar">
+                                    <input type="date" max="2999-12-31" placeholder="" name="dtNasc-pass-selecionar"> 
                                 </div>
 
                                 <div class="row">

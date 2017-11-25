@@ -114,7 +114,7 @@
                                     <input type="text" placeholder="Sobrenome*" value="${requestScope.cliRepreenche.sobrenome}" name="sobreNome-cli">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*"  value="${requestScope.cliRepreenche.cpf}" name="cpf-cli"/>
+                                    <input type="number" placeholder="cpf*" min="11" max="11"  value="${requestScope.cliRepreenche.cpf}" name="cpf-cli"/>
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Email*" value="${requestScope.cliRepreenche.email}" name="email-cli">
@@ -140,12 +140,13 @@
                                         <option value="Feminino">Feminino</option>                               
 
                                     </select>
-
-                                    <input type="date" value="${requestScope.cliRepreenche.dataNascimento}" id="dataCadsClient" onclick="limite" placeholder="" name="dtNasc-cli">   
+                                    
+                                   
+                                    <input type="date" value="${requestScope.cliRepreenche.dataNascimento}" id="dataCadsClient" max="2999-12-31" placeholder="" name="dtNasc-cli">   
 
                                 </div>
 
-                                <div class="row">
+                                <div class="row" >
 
 
                                     <select class="estado" name="estado-cli">
