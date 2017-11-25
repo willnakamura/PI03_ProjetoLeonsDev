@@ -76,7 +76,7 @@
 
                     </div>                    
 
-                    <form class="buscaCliente" action="${pageContext.request.contextPath}/" method="post">
+                    <form class="buscaCliente" action="${pageContext.request.contextPath}/RelatorioReserva" method="post">
                         <div class="row">
                             <c:if test="${not empty requestScope.erroRelatorio}">
                                 <p class="error"><c:out value="${requestScope.erroRelatorio}"/></p>
@@ -99,7 +99,7 @@
                         <div id="bg"></div>
                         <table>
                             <tr>
-                                <th></th>
+                                
                                 <th>Data Reserva</th>                                
                                 <th>TickerCode</th>       
                                 <th>Nome do Passageiro</th>
@@ -115,17 +115,16 @@
                             
                                 <c:forEach var="relatorio" items="${sessionScope.ListaReservaRelatorio}">    
                                     <tr>
-                                        <td>${relatorio}</td>
-                                        <td>${cli.sobrenome}</td>
-                                        <td>${cli.cpf}</td>
-                                        <td>${cli.email}</td>
-                                        <td>${cli.celular}</td>
-                                        <td>${cli.genero}</td>
-                                        <td>${cli.dataNascimento}</td>
-                                        <td>${cli.estado}</td>
-                                        <td>${cli.cidade}</td>
-                                        <td>${cli.cep}</td>
-                                        <td>${cli.endereco}</td>
+                                        <td>${relatorio.dataReserva}</td>
+                                        <td>${relatorio.ticketCode}</td>
+                                        <td>${relatorio.primeiroNome_Passageiro}</td>
+                                        <td>${relatorio.ultimoNome_Passageiro}</td>
+                                        <td>${relatorio.dataPartida}</td>
+                                        <td>${relatorio.nr_Voo}</td>
+                                        <td>${relatorio.horaVoo}</td>
+                                        <td>${relatorio.aeroportoOrigem}</td>
+                                        <td>${relatorio.aeroportoDestino}</td>
+                                        <td>${relatorio.assento}</td>
                                     </tr>
                                 </c:forEach>
 

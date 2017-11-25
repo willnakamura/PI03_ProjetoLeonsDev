@@ -5,14 +5,11 @@
  */
 package br.senac.tads3.pi3b.leonsdev.relatorios.Servlets;
 
-import br.senac.tads3.pi3b.leonsdev.DAOs.DaoRelatorios;
 import br.senac.tads3.pi3b.leonsdev.relatorios.classes.RelatorioReservas;
 import br.senac.tads3.pi3b.leonsdev.relatorios.classes.ServicoRelatorios;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -28,7 +25,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Rafael
  */
-@WebServlet(name = "RelatorioReservaServlet", urlPatterns = {"/RelatorioReservaServlet"})
+@WebServlet(name = "RelatorioReservaServlet", urlPatterns = {"/RelatorioReserva"})
 public class RelatorioReservaServlet extends HttpServlet {
 
     @Override
