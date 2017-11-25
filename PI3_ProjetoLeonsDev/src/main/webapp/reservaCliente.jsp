@@ -100,7 +100,7 @@
                             
                             <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente"> <button id="botoesBusca" type="submit">BUSCAR</button></div>
                         
-                            
+                            <br><br>
                         </form>
                     </div>
                     

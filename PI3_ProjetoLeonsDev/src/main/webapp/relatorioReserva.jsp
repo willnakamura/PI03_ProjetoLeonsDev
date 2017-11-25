@@ -86,13 +86,11 @@
                         <div class="row">
 
                             <input type="date"  name="data-inicio" />
-                            <input type="date"  name="data-fim"/>    
-                        </div>
-                        <br>
-                        <div class="busca">
-                            <input type="text" id="busca1" placeholder="Digite a busca" name="buscaCliente">
+                            <input type="date"  name="data-fim"/> 
                             <button id="botoesBusca" type="submit">BUSCAR</button>
                         </div>
+                      
+                        
 
                     </form>
 

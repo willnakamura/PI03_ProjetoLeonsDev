@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Usuario</title>
+        <title>Passageiros</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -47,18 +47,18 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>
-                                <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>
-                                <li class="current"><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
-                                <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuário</a></li>
+                                 <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
                                 <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
                             </ul>
                         </nav>
                         <div class="clear"></div>
                     </div>
                 </div>
-                <div class="grid_12">
-                    <div id="logo">
+              <div class="grid_12">
+                   <div id="logo">
                         <a  href="#">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
@@ -68,90 +68,73 @@
             </div>
         </header>
         <!--==============================Content=================================-->
-        <div class="content"><div class="ic"></div>
+        <div class="content">
 
             <div class="container_12">
 
                 <div class="grid_8">
 
                     <div class="tituloCliente">
-                        <h5 class="opcao">CADASTRAR USUARIO</h5>
+                        <h5 class="opcao">CADASTRO DE PASSAGEIRO ${requestScope.nPassPag} </h5>
                     </div>
 
                     <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-usuario" method="post">
-                            <div class="row">
-                                <c:if test="${not empty requestScope.sucessCadastro}">
-                                    <p class="sucess"><c:out value="${requestScope.sucessCadastro}"/></p>
-                                </c:if>
-                            </div>
-
-                            <div class="row">
-                                <c:if test="${not empty requestScope.erroCadastro}">
-                                    <p class="error"><c:out value="${requestScope.erroCadastro}"/></p>
+                        <form class="signup" action="${pageContext.request.contextPath}/PassageirosReserva" method="post">
+                             <div class="row">
+                                <c:if test="${not empty requestScope.erroPassageiro}">
+                                    <p class="error"><c:out value="${requestScope.erroPassageiro}"/></p>
                                 </c:if>
                             </div>
 
                             <div class="form-body">
                                 <div class="row">
-                                    <input type="text" value="${requestScope.usuRepreenche.nome}" placeholder="Nome*" name="nome-usua">
-                                    <input type="text" value="${requestScope.usuRepreenche.sobrenome}" placeholder="Sobrenome*" name="sobreNome-usua">
-                                </div>  
+                                    <input type="text" placeholder="Nome*" name="nome-pass-selecionar">
+                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-pass-selecionar">
+                                </div>
+                                
                                 <div class="row">
-                                    <input type="number" value="${requestScope.usuRepreenche.cpf}" placeholder="cpf*" name="cpf-usua">
+                                    <input type="number" placeholder="cpf*" name="cpf-pass-selecionar">
+                                    <input type="date" placeholder="" name="dtNasc-pass-selecionar"> 
+                                </div>
 
-                                    <select id="format-slc-usua" name="cargo-usua">
-                                        <c:choose>
-                                            <c:when test="${not empty requestScope.usuRepreenche.cargo}">
-                                                <option value="${requestScope.usuRepreenche.cargo}">${requestScope.usuRepreenche.cargo}</option>
-                                            </c:when>
-
-                                            <c:otherwise>
-                                                <option value="Selecione o cargo">Selecione o cargo</option>
-                                            </c:otherwise>
-                                        </c:choose>
-                                        <option value="Gerente">Gerente</option>
-                                        <option value="Vendedor">Vendedor</option>
-
+                                <div class="row">
+                                    <input type="text" placeholder="Email*" name="email-pass-selecionar">     
+                                </div>
+                                
+                                <div class="row">
+                                    <select class="assentos" name="assentosPassageiro">           
+                                        <option value="selecione">Selecione o assento!</option>
+                                        <c:forEach items="${sessionScope.assentosLista}" var="a">
+                                            <option>${a}</option>                                            
+                                        </c:forEach>
                                     </select>
+                                    
+                                    
+                                    <select class="assentos" name="assentosPassageiro">           
+                                        <option value="selecione">Selecione o assento!</option>
+                                        
+                                    </select>
+                                    
                                 </div>
-                                <div class="row">
-                                    <input type="text" value="${requestScope.usuRepreenche.email}" placeholder="Email*" name="email-usua">
-                                </div>
-                                <div class="row">
-                                    <input type="text" value="${requestScope.usuRepreenche.login}" placeholder="Login*" name="login-usua">
-                                    <input type="text" value="${requestScope.usuRepreenche.senha}" placeholder="Senha*" name="senha-usua"> 
-                                </div>  
-
-
-                                <div class="form-footer">
-                                    <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
-                                    <button class="botoes" type="submit">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
-                                </div>
-
+                               
                             </div>
+                             
+                            <div class="imagem">
+                                <label class="txtDescricao">assentos das fileiras 1, 2, 3 e 4 custam R$30. Exceto para clientes Pelicano e Águia </label>
+                                <br><br>
+                                <img id="imagemMapa" src="${pageContext.request.contextPath}/images/mapa.png" >
+                            </div>
+
+                            <div class="form-footer">
+
+                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
+                                <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
+
+                            </div> 
                         </form>
 
                     </div>
-
-
-
-
-
                 </div>
-
-
-
-                <div class="grid_3 prefix_1">
-                    <h5 class="opcao">Opção </h5>
-                    <ul class="list">
-                        <li><a href="#">Cadastrar</a></li>
-                        <li><a href="${pageContext.request.contextPath}/consultarUsuario.jsp">Consultar</a></li>
-
-
-                    </ul>
-                </div>
-
             </div>
 
 

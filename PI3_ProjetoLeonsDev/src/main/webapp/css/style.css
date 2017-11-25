@@ -66,17 +66,15 @@ p.sucess{
     width: 550px;
 }
 
-#imagemMapa{
-    width: 3000px;
-    height: 110px;
-     margin-top: 30px;
-}
 
-.mapa{
+
+.imagem{
     margin-left:-40%;
-      width: 1300px;
-    height: 500px;
-    
+    width: 1000px;
+    height: 200px;
+  margin-top: 40px;
+  padding-top: 30px;
+  
     
 }
 
@@ -95,9 +93,19 @@ p.sucess{
     position: relative;
 }
 
+.txtDescricao{
+    
+   margin-top: 0px;
+   margin-left: 275px;
+   
+  
+  
+   
+}
+
 #busca1{
-    width:395px;
-    margin-left: 5px;
+    width:350px;
+    margin-left: 15px;
     
 }
 
@@ -146,11 +154,8 @@ th {
 
 
 .card-form{
-  width: 600px;
-  border-radius:50px;
-  background: white;
-  
-  
+  width: 600px;  
+    
 }
 
   .form-title{
@@ -166,8 +171,9 @@ th {
   }
   
   .form-body{
+      
     padding: 10px;
-    margin-top: 50px;
+    margin-top: 0px;
   }
     .row{
       display: flex;
@@ -604,7 +610,7 @@ header {
     -ms-background-size: 100% auto;
     -o-background-size: 100% auto;
     background-size: 100% auto;
-    padding-bottom: 98px;
+    padding-bottom: 20px;
 }
 
 .page1 header {

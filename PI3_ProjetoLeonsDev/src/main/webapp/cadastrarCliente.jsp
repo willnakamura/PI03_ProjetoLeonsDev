@@ -31,6 +31,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery.equalheights.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+        <script src="${pageContext.request.contextPath}/js/limitarCampos.js"></script>
 
         <script>
             $(document).ready(function () {
@@ -54,6 +55,7 @@
                                 <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
                                 <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
                                 <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
+                                
                             </ul>
                         </nav>
                         <div class="clear"></div>
@@ -70,7 +72,7 @@
             </div>
         </header>
         <!--==============================Content=================================-->
-        <div class="content"><div class="ic"></div>
+        <div class="content">
 
             <div class="container_12">
 
@@ -81,7 +83,7 @@
                     </div>
 
                     <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/cadastro-cliente" method="post">
+                        <form class="signup" name="form" action="${pageContext.request.contextPath}/cadastro-cliente" method="post">
                             <div class="row">
                                 <c:if test="${not empty requestScope.sucessCadastro}">
                                     <p class="sucess"><c:out value="${requestScope.sucessCadastro}"/></p>

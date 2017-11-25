@@ -109,10 +109,12 @@
                                         </c:forEach>
                                     </select>
                                 </div>
-
+                               
                             </div>
-
+                             
                             <div class="imagem">
+                                <label class="txtDescricao">assentos das fileiras 1, 2, 3 e 4 custam R$30. Exceto para clientes Pelicano e Águia </label>
+                                <br><br>
                                 <img id="imagemMapa" src="${pageContext.request.contextPath}/images/mapa.png" >
                             </div>
 

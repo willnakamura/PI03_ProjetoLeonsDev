@@ -241,7 +241,7 @@
                         <div class="form-footer">
 
                             <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
-                            <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
+                            
 
 
                         </div>

@@ -80,13 +80,10 @@
                         <div class="row">
 
                                 <input type="date"  name="data-ida-voo" />
-                                <input type="date"  name="data-volta-voo"/>    
+                                <input type="date"  name="data-volta-voo"/>
+                                <button id="botoesBusca" type="submit">BUSCAR</button>
                             </div>
-                        <br>
-                        <div class="busca">
-                            <input type="text" id="busca1" placeholder="Digite a busca" name="buscaCliente">
-                            <button id="botoesBusca" type="submit">BUSCAR</button>
-                        </div>
+                                                
                                                     
                     </form>
 

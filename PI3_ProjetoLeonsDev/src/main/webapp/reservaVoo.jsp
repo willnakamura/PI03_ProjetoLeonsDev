@@ -31,6 +31,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery.equalheights.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+        <script src="${pageContext.request.contextPath}/js/esconderData.js"></script>
 
         <script>
             $(document).ready(function () {
@@ -108,9 +109,9 @@
                                 </select>
                             </div>
                             <div class="row">
-                                <input  type="radio" value="0" name="opcao"/>
+                                <input  type="radio" id="IdaeVolta" value="0" name="opcao" />
                                 <label >Ida e Volta</label>
-                                <input  type="radio" value="1" name="opcao"/>
+                                <input  type="radio" id="SoIda" value="1" name="opcao"/>
                                 <label >Só Ida</label>
                             </div>
                             <br><br>                           
@@ -122,10 +123,12 @@
                             </div>
 
 
-                            <div class="row">
+                            <div class="row" >
 
-                                <input type="date"  name="data-ida-voo" />
-                                <input type="date"  name="data-volta-voo"/>    
+                                <input type="date"  name="data-ida-voo" class="dataidavoo" />
+                                
+                                <input type="date" id="ocultarData" name="data-volta-voo" class="datavoltavoo"/>
+                                
                             </div>
                             <div class="row">                       
 
