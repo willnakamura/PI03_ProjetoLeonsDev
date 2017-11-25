@@ -140,12 +140,13 @@
                                         <option value="Feminino">Feminino</option>                               
 
                                     </select>
-
+                                    
+                                   
                                     <input type="date" value="${requestScope.cliRepreenche.dataNascimento}" id="dataCadsClient" onclick="limite" placeholder="" name="dtNasc-cli">   
 
                                 </div>
 
-                                <div class="row">
+                                <div class="row" >
 
 
                                     <select class="estado" name="estado-cli">
