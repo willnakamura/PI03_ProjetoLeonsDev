@@ -1,14 +1,17 @@
-window.addEventListener("load",iniciar);
+window.addEventListener("load",limite);
 
-function iniciar(){
+function limite(){
 
-var quantidade;
+    var el = document.querySelector("dataCadsClient");
+    el.addEventListener('keyup', function(event){
+        var input = event.target;
+        var toStr = String(input.value);
+        if(input.value.length > 3){
+            var novo = toStr.slice(0, limit);
+            input.value = parseInt(novo);
+        }
+    });
 
-quantidade = form.nomeCli.value.length;
-
-if(quantidade == 3){
-    form.nomeCli.focus();
 }
 
 
-}

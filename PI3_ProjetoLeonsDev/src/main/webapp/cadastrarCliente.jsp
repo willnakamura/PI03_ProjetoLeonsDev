@@ -56,6 +56,7 @@
                                 <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
                                 <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
                                 <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
+                                
 
                             </ul>
                         </nav>
@@ -113,7 +114,7 @@
                                     <input type="text" placeholder="Sobrenome*" value="${requestScope.cliRepreenche.sobrenome}" name="sobreNome-cli">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" value="${requestScope.cliRepreenche.cpf}" name="cpf-cli">
+                                    <input type="number" placeholder="cpf*"  value="${requestScope.cliRepreenche.cpf}" name="cpf-cli"/>
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Email*" value="${requestScope.cliRepreenche.email}" name="email-cli">
@@ -140,7 +141,7 @@
 
                                     </select>
 
-                                    <input type="date" value="${requestScope.cliRepreenche.dataNascimento}" placeholder="" name="dtNasc-cli">   
+                                    <input type="date" value="${requestScope.cliRepreenche.dataNascimento}" id="dataCadsClient" onclick="limite" placeholder="" name="dtNasc-cli">   
 
                                 </div>
 
