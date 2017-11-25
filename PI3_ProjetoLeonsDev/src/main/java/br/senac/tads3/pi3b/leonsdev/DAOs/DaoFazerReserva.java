@@ -89,7 +89,7 @@ public class DaoFazerReserva {
 
                     preparedStatement3.setInt(1, rs2.getInt(1));
                     preparedStatement3.setInt(2, passageiro[i].getpassVoos().get(j).getIdVoo());
-                    preparedStatement3.setString(3, "Confirmado");
+                    preparedStatement3.setString(3, "Default");
                     preparedStatement3.setString(4, passageiro[i].getpassVoos().get(j).getAssento());
                     preparedStatement3.execute();
                 }

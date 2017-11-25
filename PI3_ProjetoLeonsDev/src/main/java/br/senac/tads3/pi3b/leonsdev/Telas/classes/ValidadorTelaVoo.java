@@ -33,9 +33,11 @@ public class ValidadorTelaVoo {
         }
         
         if(telaVoo.getOpcaoIdaVolta().equals("0")){
-            if(telaVoo.getDataIda().before(calendar.getTime()) || telaVoo.getDataIda() == null){
+            if(telaVoo.getDataIda().before(calendar.getTime()) || telaVoo.getDataIda() == null
+                    ||  telaVoo.getDataIda().equals("")){
                 throw new ExceptionTelaVoo("Informe uma data de ida Válida.");
-            }else if(telaVoo.getDataVolta().before(calendar.getTime()) || telaVoo.getDataVolta() == null){
+            }else if(telaVoo.getDataVolta().before(calendar.getTime()) || telaVoo.getDataVolta() == null
+                    ||  telaVoo.getDataVolta().equals("")){
                 throw new ExceptionTelaVoo("Informe uma data de volta Válida.");
             }
         }else if(telaVoo.getOpcaoIdaVolta().equals("1")){
