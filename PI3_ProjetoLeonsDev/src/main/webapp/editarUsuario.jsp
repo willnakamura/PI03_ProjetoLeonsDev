@@ -31,6 +31,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery.equalheights.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+        <script src="${pageContext.request.contextPath}/js/limitarCampos.js"></script>
 
         <script>
             $(document).ready(function () {
@@ -103,7 +104,7 @@
                                     <input type="text" placeholder="Sobrenome*" name="sobrenome-usua" value="${sessionScope.usuario.sobrenome}">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" id="cpf-usua-edit" placeholder="cpf*" min="11" max="11"  name="cpf-usua" value="${sessionScope.usuario.cpf}">
+                                    <input type="number" id="validadorCpf" placeholder="cpf*" min="11" max="11" id="validadorCpf" onkeydown="limita(this);" onkeyup="limita(this) name="cpf-usua" value="${sessionScope.usuario.cpf}">
                                  <select id="format-slc-usua" name="cargo-usua">
                                     <option value="0">Selecione o cargo</option>
                                     <option value="1">Gerente</option>

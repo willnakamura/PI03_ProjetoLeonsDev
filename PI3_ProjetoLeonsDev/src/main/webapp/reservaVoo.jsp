@@ -139,7 +139,6 @@
                             </div>
                             <div class="row">                       
 
-
                                 <select id="formatar"  name="qtdpax">
                                     <option>Quantidade de Passageiros</option>
                                     <option value="1">1</option>

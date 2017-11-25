@@ -31,6 +31,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery.equalheights.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+        <script src="${pageContext.request.contextPath}/js/limitarCampos.js"></script>
 
         <script>
             $(document).ready(function () {
@@ -102,7 +103,7 @@
                                 </div>
                                 
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" min="11" max="11"  name="cpf-pass-selecionar">
+                                    <input type="number" placeholder="cpf*" id="validadorCpf" onkeydown="limita(this);" onkeyup="limita(this);"  name="cpf-pass-selecionar">
                                     <input type="date" max="2999-12-31" placeholder="" name="dtNasc-pass-selecionar"> 
                                 </div>
 
