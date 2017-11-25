@@ -109,18 +109,14 @@
                                 </select>
                             </div>
                             <div class="row">
-                                <input  type="radio" id="IdaeVolta" value="0" name="opcao" />
+                                <input  type="radio" id="IdaeVolta" onclick="mostrar()" value="0" name="opcao" />
                                 <label >Ida e Volta</label>
-                                <input  type="radio" id="SoIda" value="1" name="opcao"/>
+                                <input  type="radio" id="SoIda" onclick="ocultar()" value="1" name="opcao"/>
                                 <label >Só Ida</label>
                             </div>
                             <br><br>                           
 
-                            <div class="row">
-                                <label >Data de ida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-
-                                <label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data de volta</label>
-                            </div>
+                            
 
 
                             <div class="row" >
