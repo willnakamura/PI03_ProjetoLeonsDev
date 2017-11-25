@@ -54,6 +54,12 @@ public class VooReservaServlet extends HttpServlet {
         String destino = request.getParameter("destinoVoo");
         String datIda = request.getParameter("data-ida-voo");
 
+        if (datIda.equals("")) {
+            request.setAttribute("erroTelaVoo", "Favor informar uma data de ida");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
+            dispatcher.forward(request, response);
+        }
+
         Date dataIdaVoo = null;
         try {
             dataIdaVoo = dataForm.parse(datIda);
@@ -62,6 +68,12 @@ public class VooReservaServlet extends HttpServlet {
         }
 
         String datVolta = request.getParameter("data-volta-voo");
+
+        if (datVolta.equals("")) {
+            request.setAttribute("erroTelaVoo", "Favor informar uma data de volta");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
+            dispatcher.forward(request, response);
+        }
 
         Date dataVoltaVoo = null;
         try {
@@ -139,11 +151,10 @@ public class VooReservaServlet extends HttpServlet {
 
         } else if (opcao.equals("1")) {
             Voos voo = new Voos();
-            
 
             sessao.setAttribute("qtdpax", qtdPass);
             sessao.setAttribute("qtdPassageirosReserva", qtdPass);
-            
+
             sessao.setAttribute("bagagem", bagagem);
 
             voo.setAeroportoPartida(origem);

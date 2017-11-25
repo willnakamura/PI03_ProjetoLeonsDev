@@ -31,6 +31,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery.equalheights.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+        <script src="${pageContext.request.contextPath}/js/limitarCampos.js"></script>
 
         <script>
             $(document).ready(function () {
@@ -122,7 +123,7 @@
                                     <input type="text" placeholder="Sobrenome*" value="${sessionScope.clienteSelectReserva.sobrenome}" name="sobreNome-cli-selecionar" readonly="readonly">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" value="${sessionScope.clienteSelectReserva.cpf}" name="cpf-cli-selecionar" readonly="readonly">
+                                    <input type="number" placeholder="cpf*" value="${sessionScope.clienteSelectReserva.cpf}"  name="cpf-cli-selecionar" readonly="readonly">
 
 
                                 </div>

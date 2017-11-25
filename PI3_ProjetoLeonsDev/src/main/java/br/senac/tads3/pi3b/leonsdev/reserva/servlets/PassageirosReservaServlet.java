@@ -5,8 +5,11 @@
  */
 package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
+import br.senac.tads3.pi3b.leonsdev.Telas.classes.TelaPassageiro;
+import br.senac.tads3.pi3b.leonsdev.Telas.classes.ValidadorTelaPassageiro;
 import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
+import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionTelaPassageiro;
 import br.senac.tads3.pi3b.leonsdev.exceptions.PassageirosException;
 import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.Passageiros;
@@ -52,6 +55,9 @@ public class PassageirosReservaServlet extends HttpServlet {
         Passageiros pass = new Passageiros();
         PassageirosVoos passVoos = new PassageirosVoos();
         PassageirosVoos passVoosVolta = new PassageirosVoos();
+        TelaPassageiro telaPass = new TelaPassageiro();
+
+        String opcao = (String) sessao.getAttribute("opcaoIdaOuIdaVolta");
 
         SimpleDateFormat dataForm = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -67,6 +73,13 @@ public class PassageirosReservaServlet extends HttpServlet {
         String cpf = request.getParameter("cpf-pass-selecionar");
 
         String dataNascString = request.getParameter("dtNasc-pass-selecionar");
+
+        if (dataNascString.equals("")) {
+            request.setAttribute("erroPassageiro", "Favor informar uma data de nascimento válida");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+            dispatcher.forward(request, response);
+        }
+
         Date dataNasc = null;
 
         try {
@@ -85,18 +98,6 @@ public class PassageirosReservaServlet extends HttpServlet {
         pass.setCpf(cpf);
         pass.setDataNascimento(dataNasc);
         pass.setEmail(email);
-
-        try {
-
-            ValidadorPassageiros.Validar(pass);
-
-        } catch (PassageirosException e) {
-            request.setAttribute("erroPassageiro", e.getMessage());
-
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-            dispatcher.forward(request, response);
-
-        }
 
         //-------------------------------Reserva----------------------------------------------------------
         Calendar calendario = Calendar.getInstance();
@@ -143,13 +144,33 @@ public class PassageirosReservaServlet extends HttpServlet {
 
         Voos vooIda = new Voos();
         Voos vooVolta = new Voos();
-        String opcao = (String) sessao.getAttribute("opcaoIdaOuIdaVolta");
+
+        telaPass.setNome(nome);
+        telaPass.setSobrenome(sobreNome);
+        telaPass.setCpf(cpf);
+        telaPass.setDtNasc(dataNasc);
+        telaPass.setEmail(email);
 
         if (opcao.equals("0")) {
             String assentoVolta = request.getParameter("assentosPassageiroVolta");
 
             int idIda = (int) sessao.getAttribute("idVooIda");
             int idVolta = (int) sessao.getAttribute("idVooVolta");
+
+            telaPass.setAssentoIda(assento);
+            telaPass.setAssentoVolta(assentoVolta);
+
+            try {
+
+                ValidadorTelaPassageiro.validar(telaPass, opcao);
+
+            } catch (ExceptionTelaPassageiro e) {
+                request.setAttribute("erroPassageiro", e.getMessage());
+
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+                dispatcher.forward(request, response);
+
+            }
 
             try {
                 vooIda = ServicoVoos.obterVoo(idIda);
@@ -183,6 +204,18 @@ public class PassageirosReservaServlet extends HttpServlet {
         } else if (opcao.equals("1")) {
 
             int idIda = (int) sessao.getAttribute("idVooIda");
+            telaPass.setAssentoIda(assento);
+
+            try {
+
+                ValidadorTelaPassageiro.validar(telaPass, opcao);
+
+            } catch (ExceptionTelaPassageiro e) {
+                request.setAttribute("erroPassageiro", e.getMessage());
+
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+                dispatcher.forward(request, response);
+            }
 
             try {
                 vooIda = ServicoVoos.obterVoo(idIda);
