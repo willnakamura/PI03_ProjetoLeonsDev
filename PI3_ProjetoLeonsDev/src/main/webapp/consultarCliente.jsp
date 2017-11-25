@@ -64,16 +64,13 @@
                 </div>
 
             </div>
-                        <form>
+           <form action="${pageContext.request.contextPath}/Logout" method="post">
                 <div class="form-footer" id="logout">
-
 
                     <button class="botoesLogout" type="submit">logout</button>
 
-
                 </div>
-            </form>
-                        
+            </form>  
         </header>
 
         <div class="content"><div class="ic"></div>

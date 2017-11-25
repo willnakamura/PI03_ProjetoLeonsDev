@@ -166,12 +166,12 @@ public class PassageirosReservaServlet extends HttpServlet {
             passVoosVolta.setAssento(assentoVolta);
             passVoosVolta.setPassageiro(pass);
 
-            if (passVoos.getAssento().equals(passVoosVolta.getAssento())) {
-                request.setAttribute("erroPassageiro", "Este assento ja está reservado.");
-
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
-                dispatcher.forward(request, response);
-            }
+//            if (passVoos.getAssento().equals(passVoosVolta.getAssento())) {
+//                request.setAttribute("erroPassageiro", "Este assento ja está reservado.");
+//
+//                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
+//                dispatcher.forward(request, response);
+//            }
 
             pass.setpassVoos(passVoos);
             pass.setpassVoos(passVoosVolta);
@@ -248,6 +248,5 @@ public class PassageirosReservaServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
             dispatcher.forward(request, response);
         }
-
     }
 }

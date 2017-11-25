@@ -66,14 +66,14 @@ public class LoginServlet extends HttpServlet {
 
             RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/index.jsp");
+            dispatcher.forward(request, response);
         } catch (DataExceptions ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         if ("não logado".equals(SingletonLogin.getInstance().getNome())) {
-
             request.setAttribute("erroLogin", "Usuário ou senha inválido");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
             dispatcher.forward(request, response);
 
         } else {

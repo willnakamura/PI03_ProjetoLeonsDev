@@ -50,7 +50,7 @@
                                 <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
                                 <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
                                 <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jsp">Usuário</a></li>
-                                 <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
                                 <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relátorio</a></li>
                             </ul>
                         </nav>
@@ -66,16 +66,14 @@
                 </div>
 
             </div>
-                         <form>
+            <form action="${pageContext.request.contextPath}/Logout" method="post">
                 <div class="form-footer" id="logout">
-
 
                     <button class="botoesLogout" type="submit">logout</button>
 
-
                 </div>
             </form>
-                        
+
         </header>
         <!--==============================Content=================================-->
         <div class="content">
@@ -95,7 +93,7 @@
                                     <p class="sucess"><c:out value="${requestScope.sucessoSelecionaCli}"/></p>
                                 </c:if>
                             </div>
-                            
+
                             <div class="row">
                                 <c:if test="${not empty requestScope.erroCampoBusca}">
                                     <p class="error"><c:out value="${requestScope.erroCampoBusca}"/></p>
@@ -107,17 +105,17 @@
                                     <p class="error"><c:out value="${requestScope.erroSelecionaCli}"/></p>
                                 </c:if>
                             </div>
-                            
+
                             <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente"> <button id="botoesBusca" type="submit">BUSCAR</button></div>
-                        
+
                             <br><br>
                         </form>
                     </div>
-                    
+
                     <div class="card-form">
                         <form class="signup" action="${pageContext.request.contextPath}/TrocaTelaClienteReserva" method="post">
-                            
-                            
+
+
                             <div class="form-body">
                                 <div class="row">
                                     <input type="text" placeholder="Nome*" value="${sessionScope.clienteSelectReserva.nome}" name="nome-cli-selecionar" readonly="readonly">
