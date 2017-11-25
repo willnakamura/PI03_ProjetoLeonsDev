@@ -57,7 +57,7 @@ public class PassageirosReservaServlet extends HttpServlet {
 
         String qtdPassString = (String) sessao.getAttribute("qtdpax");
         int qntPass = Integer.parseInt(qtdPassString);
-        
+
         String qtdPassReservaString = (String) sessao.getAttribute("qtdPassageirosReserva");
         int qtdPassReserva = Integer.parseInt(qtdPassReservaString);
         //sessao.setAttribute("qtdPassReserva", qtdPassReserva);
@@ -146,6 +146,8 @@ public class PassageirosReservaServlet extends HttpServlet {
         String opcao = (String) sessao.getAttribute("opcaoIdaOuIdaVolta");
 
         if (opcao.equals("0")) {
+            String assentoVolta = request.getParameter("assentosPassageiroVolta");
+
             int idIda = (int) sessao.getAttribute("idVooIda");
             int idVolta = (int) sessao.getAttribute("idVooVolta");
 
@@ -161,9 +163,16 @@ public class PassageirosReservaServlet extends HttpServlet {
             passVoosVolta.setIdVoo(vooVolta.getId());
             passVoos.setAssento(assento);
             passVoos.setPassageiro(pass);
-            passVoosVolta.setAssento(assento);
+            passVoosVolta.setAssento(assentoVolta);
             passVoosVolta.setPassageiro(pass);
-            
+
+            if (passVoos.getAssento().equals(passVoosVolta.getAssento())) {
+                request.setAttribute("erroPassageiro", "Este assento ja está reservado.");
+
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
+                dispatcher.forward(request, response);
+            }
+
             pass.setpassVoos(passVoos);
             pass.setpassVoos(passVoosVolta);
 
@@ -172,7 +181,7 @@ public class PassageirosReservaServlet extends HttpServlet {
             reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
 
         } else if (opcao.equals("1")) {
-            
+
             int idIda = (int) sessao.getAttribute("idVooIda");
 
             try {
@@ -186,7 +195,7 @@ public class PassageirosReservaServlet extends HttpServlet {
             passVoos.setIdVoo(vooIda.getId());
             passVoos.setAssento(assento);
             passVoos.setPassageiro(pass);
-            
+
             pass.setpassVoos(passVoos);
 
             int quantidadePass = qtdPassReserva;
