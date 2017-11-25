@@ -108,8 +108,8 @@ public class Passageiros {
         return passVoos;
     }
 
-    public void setpassVoos(ArrayList<PassageirosVoos> voos) {
-        this.passVoos = voos;
+    public void setpassVoos(PassageirosVoos passVoos) {
+        this.passVoos.add(passVoos);
     }
 
     

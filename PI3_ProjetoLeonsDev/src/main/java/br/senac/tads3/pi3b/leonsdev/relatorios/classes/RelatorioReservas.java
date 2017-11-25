@@ -14,105 +14,107 @@ import java.sql.Time;
  */
 public class RelatorioReservas {
 
-    private Date DataReserva, DataPartida;
-    private String TicketCode, PrimeiroNome_Passageiro, UltimoNome_Passageiro, AeroportoOrigem, AeroportoDestino, Assento;
-    private Integer Nr_Voo;
-    private Time HoraVoo;
-
-    public Date getDataReserva() {
-        return DataReserva;
-    }
-
-    public void setDataReserva(Date DataReserva) {
-        this.DataReserva = DataReserva;
-    }
-
-    public Date getDataPartida() {
-        return DataPartida;
-    }
-
-    public void setDataPartida(Date DataPartida) {
-        this.DataPartida = DataPartida;
-    }
-
-    public String getTicketCode() {
-        return TicketCode;
-    }
-
-    public void setTicketCode(String TicketCode) {
-        this.TicketCode = TicketCode;
-    }
-
-    public String getPrimeiroNome_Passageiro() {
-        return PrimeiroNome_Passageiro;
-    }
-
-    public void setPrimeiroNome_Passageiro(String PrimeiroNome_Passageiro) {
-        this.PrimeiroNome_Passageiro = PrimeiroNome_Passageiro;
-    }
-
-    public String getUltimoNome_Passageiro() {
-        return UltimoNome_Passageiro;
-    }
-
-    public void setUltimoNome_Passageiro(String UltimoNome_Passageiro) {
-        this.UltimoNome_Passageiro = UltimoNome_Passageiro;
-    }
-
-    public String getAeroportoOrigem() {
-        return AeroportoOrigem;
-    }
-
-    public void setAeroportoOrigem(String AeroportoOrigem) {
-        this.AeroportoOrigem = AeroportoOrigem;
-    }
-
-    public String getAeroportoDestino() {
-        return AeroportoDestino;
-    }
-
-    public void setAeroportoDestino(String AeroportoDestino) {
-        this.AeroportoDestino = AeroportoDestino;
-    }
-
-    public String getAssento() {
-        return Assento;
-    }
-
-    public void setAssento(String Assento) {
-        this.Assento = Assento;
-    }
-
-    public Integer getNr_Voo() {
-        return Nr_Voo;
-    }
-
-    public void setNr_Voo(Integer Nr_Voo) {
-        this.Nr_Voo = Nr_Voo;
-    }
-
-    public Time getHoraVoo() {
-        return HoraVoo;
-    }
-
-    public void setHoraVoo(Time HoraVoo) {
-        this.HoraVoo = HoraVoo;
-    }
-
-    public RelatorioReservas(Date DataReserva, Date DataPartida, String TicketCode, String PrimeiroNome_Passageiro, String UltimoNome_Passageiro, String AeroportoOrigem, String AeroportoDestino, String Assento, Integer Nr_Voo, Time HoraVoo) {
-        this.DataReserva = DataReserva;
-        this.DataPartida = DataPartida;
-        this.TicketCode = TicketCode;
-        this.PrimeiroNome_Passageiro = PrimeiroNome_Passageiro;
-        this.UltimoNome_Passageiro = UltimoNome_Passageiro;
-        this.AeroportoOrigem = AeroportoOrigem;
-        this.AeroportoDestino = AeroportoDestino;
-        this.Assento = Assento;
-        this.Nr_Voo = Nr_Voo;
-        this.HoraVoo = HoraVoo;
-    }
+    private Date dataReserva, dataPartida;
+    private String ticketCode, primeiroNome_Passageiro, ultimoNome_Passageiro, 
+            aeroportoOrigem, aeroportoDestino, assento;
+    private Integer nr_Voo;
+    private Time horaVoo;
 
     public RelatorioReservas() {
     }
+
+    public RelatorioReservas(Date dataReserva, Date dataPartida, String ticketCode, String primeiroNome_Passageiro, String ultimoNome_Passageiro, String aeroportoOrigem, String aeroportoDestino, String assento, Integer nr_Voo, Time horaVoo) {
+        this.dataReserva = dataReserva;
+        this.dataPartida = dataPartida;
+        this.ticketCode = ticketCode;
+        this.primeiroNome_Passageiro = primeiroNome_Passageiro;
+        this.ultimoNome_Passageiro = ultimoNome_Passageiro;
+        this.aeroportoOrigem = aeroportoOrigem;
+        this.aeroportoDestino = aeroportoDestino;
+        this.assento = assento;
+        this.nr_Voo = nr_Voo;
+        this.horaVoo = horaVoo;
+    }
+
+    public Date getDataReserva() {
+        return dataReserva;
+    }
+
+    public void setDataReserva(Date dataReserva) {
+        this.dataReserva = dataReserva;
+    }
+
+    public Date getDataPartida() {
+        return dataPartida;
+    }
+
+    public void setDataPartida(Date dataPartida) {
+        this.dataPartida = dataPartida;
+    }
+
+    public String getTicketCode() {
+        return ticketCode;
+    }
+
+    public void setTicketCode(String ticketCode) {
+        this.ticketCode = ticketCode;
+    }
+
+    public String getPrimeiroNome_Passageiro() {
+        return primeiroNome_Passageiro;
+    }
+
+    public void setPrimeiroNome_Passageiro(String primeiroNome_Passageiro) {
+        this.primeiroNome_Passageiro = primeiroNome_Passageiro;
+    }
+
+    public String getUltimoNome_Passageiro() {
+        return ultimoNome_Passageiro;
+    }
+
+    public void setUltimoNome_Passageiro(String ultimoNome_Passageiro) {
+        this.ultimoNome_Passageiro = ultimoNome_Passageiro;
+    }
+
+    public String getAeroportoOrigem() {
+        return aeroportoOrigem;
+    }
+
+    public void setAeroportoOrigem(String aeroportoOrigem) {
+        this.aeroportoOrigem = aeroportoOrigem;
+    }
+
+    public String getAeroportoDestino() {
+        return aeroportoDestino;
+    }
+
+    public void setAeroportoDestino(String aeroportoDestino) {
+        this.aeroportoDestino = aeroportoDestino;
+    }
+
+    public String getAssento() {
+        return assento;
+    }
+
+    public void setAssento(String assento) {
+        this.assento = assento;
+    }
+
+    public Integer getNr_Voo() {
+        return nr_Voo;
+    }
+
+    public void setNr_Voo(Integer nr_Voo) {
+        this.nr_Voo = nr_Voo;
+    }
+
+    public Time getHoraVoo() {
+        return horaVoo;
+    }
+
+    public void setHoraVoo(Time horaVoo) {
+        this.horaVoo = horaVoo;
+    }
+
     
 }
