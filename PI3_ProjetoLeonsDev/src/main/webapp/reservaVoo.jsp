@@ -132,9 +132,9 @@
 
                             <div class="row" >
 
-                                <input type="date"  name="data-ida-voo" class="dataidavoo" />
+                                <input type="date"  name="data-ida-voo" max="2999-12-31" id="dataidavoo"  class="dataidavoo" />
                                 
-                                <input type="date" id="ocultarData" name="data-volta-voo" class="datavoltavoo"/>
+                                <input type="date" id="ocultarData" max="2999-12-31" name="data-volta-voo" class="datavoltavoo"/>
                                 
                             </div>
                             <div class="row">                       
