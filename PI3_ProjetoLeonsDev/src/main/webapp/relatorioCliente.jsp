@@ -85,35 +85,49 @@
 
                     </div>                    
 
-                    <form class="buscaCliente" action="#" method="post">
+                    <form class="buscaCliente" action="${pageContext.request.contextPath}/RelatorioClientes" method="post">
                         <div class="row">
 
-                                <input type="date"  name="data-ida-voo" />
-                                <input type="date"  name="data-volta-voo"/>
+                                <input type="date"  name="data-inicio" />
+                                <input type="date"  name="data-fim"/>
                                 <button id="botoesBusca" type="submit">BUSCAR</button>
                             </div>
-                                                
-                                                    
+                                                                         
                     </form>
 
-                    <form class="editCli" action="#" method="post">
-
+                    <form class="editCli" action="" method="post">
+                        <div class="row">
+                            <c:if test="${not empty requestScope.erroRelatorio}">
+                                <p class="error"><c:out value="${requestScope.erroRelatorio}"/></p>
+                            </c:if>
+                        </div>
+                        
                         <div id="bg"></div>
                         <table>
                             <tr>
-                                <th></th>
                                 <th>Data Cadastro</th>                                
                                 <th>Nome</th>       
-                                <th>Sobre Nome</th>
+                                <th>Sobrenome</th>
                                 <th>CPF</th>
                                 <th>E-mail</th>
                                 <th>Nível</th>                                
                                 <th>Milhas Total</th>
                                 <th>Qtd Reservas</th>
                                 <th>Data Ultima Compra</th>
-                                
                             </tr>  
-
+                            <c:forEach var="relatorio" items="${sessionScope.ListaCliRelatorio}">    
+                                    <tr>
+                                        <td>${relatorio.dataCadastro}</td>
+                                        <td>${relatorio.nome}</td>
+                                        <td>${relatorio.sobrenome}</td>
+                                        <td>${relatorio.cpf}</td>
+                                        <td>${relatorio.email}</td>
+                                        <td>${relatorio.nivel}</td>
+                                        <td>${relatorio.milhasTotal}</td>
+                                        <td>${relatorio.qtdReservas}</td>
+                                        <td>${relatorio.dataUltimaCompra}</td>
+                                    </tr>
+                                </c:forEach>
                             
                         </table>
 
