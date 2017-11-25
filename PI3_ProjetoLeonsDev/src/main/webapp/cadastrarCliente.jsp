@@ -45,6 +45,7 @@
         <!--==============================header=================================-->
 
         <header>
+
             <div class="container_12">
                 <div class="grid_12">
                     <div class="menu_block">
@@ -55,12 +56,13 @@
                                 <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
                                 <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
                                 <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
-                                
+
                             </ul>
                         </nav>
                         <div class="clear"></div>
                     </div>
-                </div>
+                </div>                                
+
                 <div class="grid_12">
                     <div id="logo">
                         <a  href="#">
@@ -70,6 +72,15 @@
                 </div>
 
             </div>
+            <form>
+                <div class="form-footer" id="logout">
+
+
+                    <button class="botoesLogout" type="submit">logout</button>
+
+
+                </div>
+            </form>
         </header>
         <!--==============================Content=================================-->
         <div class="content">
@@ -83,7 +94,7 @@
                     </div>
 
                     <div class="card-form">
-                        <form class="signup" name="form" action="${pageContext.request.contextPath}/cadastro-cliente" method="post">
+                        <form class="signup"  action="${pageContext.request.contextPath}/cadastro-cliente" method="post">
                             <div class="row">
                                 <c:if test="${not empty requestScope.sucessCadastro}">
                                     <p class="sucess"><c:out value="${requestScope.sucessCadastro}"/></p>
@@ -137,7 +148,7 @@
 
 
                                     <select class="estado" name="estado-cli">
-                                        
+
                                         <c:choose>
                                             <c:when test="${not empty requestScope.cliRepreenche.estado}">
                                                 <option value="${requestScope.cliRepreenche.estado}">${requestScope.cliRepreenche.estado}</option>
@@ -147,7 +158,7 @@
                                                 <option value="selecione">Selecione</option>
                                             </c:otherwise>
                                         </c:choose>
-                                        
+
                                         <option value="selecione">Estado</option>
                                         <option value="AC">AC</option>
                                         <option value="AL">AL</option>  

@@ -59,6 +59,8 @@
                         <div class="clear"></div>
                     </div>
                 </div>
+                      
+                            
                 <div class="grid_12">
                     <div id="logo">
                         <a  href="#">
@@ -68,6 +70,15 @@
                 </div>
 
             </div>
+            <form>
+                <div class="form-footer" id="logout">
+
+
+                    <button class="botoesLogout" type="submit">logout</button>
+
+
+                </div>
+            </form>
         </header>
         <!--==============================Content=================================-->
         <div class="content">

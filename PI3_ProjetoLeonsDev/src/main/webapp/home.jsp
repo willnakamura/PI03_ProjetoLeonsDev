@@ -90,6 +90,16 @@
                     </div>
                 </div>
             </div>
+                         <form>
+                <div class="form-footer" id="logout">
+
+
+                    <button class="botoesLogout" type="submit">logout</button>
+
+
+                </div>
+            </form>
+                        
         </header>
         <div class="slider_wrapper">
             <div id="camera_wrap" class="">

@@ -66,6 +66,16 @@
                 </div>
 
             </div>
+                         <form>
+                <div class="form-footer" id="logout">
+
+
+                    <button class="botoesLogout" type="submit">logout</button>
+
+
+                </div>
+            </form>
+                        
         </header>
         <!--==============================Content=================================-->
         <div class="content">

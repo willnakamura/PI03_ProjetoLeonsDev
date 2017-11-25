@@ -14,6 +14,8 @@ p.error{
     color: red;
 }
 
+
+
 p.sucess{
     color: green;
 }
@@ -293,6 +295,31 @@ th {
       color: white;
       
     }
+    
+    .botoesLogout{
+        
+      display: inline-block;
+      height: 40px;
+      line-height: 40px;
+      border: none;
+      border-radius: 100px;
+      padding: 0px 20px;
+      background: #104E8B;
+      margin-right: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      color: white;
+      
+    }
+    
+    #logout{   
+  
+    margin-top: -140px;
+    margin-left:1700px;
+    
+    height: 100px;
+   
+}
     
     #botoesBusca{
         
