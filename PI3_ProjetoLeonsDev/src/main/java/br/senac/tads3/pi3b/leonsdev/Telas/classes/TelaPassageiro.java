@@ -15,10 +15,26 @@ public class TelaPassageiro {
 
     private String nome, sobrenome, cpf;
     private Date dtNasc;
-    private String email, assento;
+    private String email, assentoIda, assentoVolta;
 
     public TelaPassageiro() {
 
+    }
+
+    public String getAssentoIda() {
+        return assentoIda;
+    }
+
+    public void setAssentoIda(String assentoIda) {
+        this.assentoIda = assentoIda;
+    }
+
+    public String getAssentoVolta() {
+        return assentoVolta;
+    }
+
+    public void setAssentoVolta(String assentoVolta) {
+        this.assentoVolta = assentoVolta;
     }
 
     public String getNome() {
@@ -60,13 +76,4 @@ public class TelaPassageiro {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public String getAssento() {
-        return assento;
-    }
-
-    public void setAssento(String assento) {
-        this.assento = assento;
-    }
-
 }
