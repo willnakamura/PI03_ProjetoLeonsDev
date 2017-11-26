@@ -22,7 +22,7 @@ import java.util.List;
 public class DaoAssentos {
     public static List<Assento> listar(Date dataVoo, int nrVoo)
             throws SQLException, Exception {
-        String sql = "CALL AssentosDisponiveis (dataVoo=?, NrVoo=?)";
+        String sql = "CALL AssentosDisponiveis (?, ?)";
 
         List<Assento> listaAssentos = null;
         //Conexão para abertura e fechamento
