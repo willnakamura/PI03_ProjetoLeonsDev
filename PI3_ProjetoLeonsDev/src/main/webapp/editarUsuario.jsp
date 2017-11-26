@@ -102,7 +102,7 @@
                                     <input type="text" placeholder="Sobrenome*" name="sobrenome-usua" value="${sessionScope.usuario.sobrenome}">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" id="validadorCpf" placeholder="cpf*" min="11" max="11" id="validadorCpf" onkeydown="limita(this);" onkeyup="limita(this);" name="cpf-usua" value="${sessionScope.usuario.cpf}">
+                                    <input type="number" id="validadorCpf" placeholder="cpf*"  id="validadorCpf" onkeydown="limita(this);" onkeyup="limita(this);" name="cpf-usua" value="${sessionScope.usuario.cpf}">
                                  <select id="format-slc-usua" name="cargo-usua">
                                     <option value="0">Selecione o cargo</option>
                                     <option value="1">Gerente</option>
