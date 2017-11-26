@@ -102,7 +102,7 @@
                                     <input type="text" placeholder="Sobrenome*" name="sobrenome-cli" value="${sessionScope.cliente.sobrenome}">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" id="validadorCpf" onkeydown="limita(this);" onkeyup="limita(this) name="cpf-cli" value="${sessionScope.cliente.cpf}">
+                                    <input type="number" placeholder="cpf*" id="validadorCpf" onkeydown="limita(this);" onkeyup="limita(this);" name="cpf-cli" value="${sessionScope.cliente.cpf}">
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Email*" name="email-cli" value="${sessionScope.cliente.email}">
