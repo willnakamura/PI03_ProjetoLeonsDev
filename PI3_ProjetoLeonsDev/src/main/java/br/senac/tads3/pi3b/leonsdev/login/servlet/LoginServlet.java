@@ -79,19 +79,35 @@ public class LoginServlet extends HttpServlet {
             dispatcher.forward(request, response);
 
         } else {
-            ArrayList aeroportos = null;
+            if (SingletonLogin.getInstance().getCargo().equals("Gerente")) {
+                ArrayList aeroportos = null;
 
-            try {
-                aeroportos = ServicoAeroportos.obterAeroporto();
-                Set<String> hs = new HashSet<>();
-                hs.addAll(aeroportos);
-                aeroportos.clear();
-                aeroportos.addAll(hs);
-            } catch (DataExceptions | SQLException ex) {
-                ex.getMessage();
+                try {
+                    aeroportos = ServicoAeroportos.obterAeroporto();
+                    Set<String> hs = new HashSet<>();
+                    hs.addAll(aeroportos);
+                    aeroportos.clear();
+                    aeroportos.addAll(hs);
+                } catch (DataExceptions | SQLException ex) {
+                    ex.getMessage();
+                }
+                sessao.setAttribute("ListaAeroportos", aeroportos);
+                response.sendRedirect(request.getContextPath() + "/Protegido/resultado");
+            }else{
+                ArrayList aeroportos = null;
+                
+                try {
+                    aeroportos = ServicoAeroportos.obterAeroporto();
+                    Set<String> hs = new HashSet<>();
+                    hs.addAll(aeroportos);
+                    aeroportos.clear();
+                    aeroportos.addAll(hs);
+                } catch (DataExceptions | SQLException ex) {
+                    ex.getMessage();
+                }
+                sessao.setAttribute("ListaAeroportos", aeroportos);
+                response.sendRedirect(request.getContextPath() + "/Protegido/resultadoFunc");
             }
-            sessao.setAttribute("ListaAeroportos", aeroportos);
-            response.sendRedirect(request.getContextPath() + "/Protegido/resultado");
 
         }
 
