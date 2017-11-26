@@ -72,12 +72,13 @@ public class LoginServlet extends HttpServlet {
 
         if ("não logado".equals(SingletonLogin.getInstance().getNome())) {
 
-            request.setAttribute("erroLogin", "Usuário ou senha inválido");
+            request.setAttribute("erroLogin", "Usuário e/ou senha inválido");
             RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
 
         } else {
             ArrayList aeroportos = null;
+            
             try {
                 aeroportos = ServicoAeroportos.obterAeroporto();
             } catch (DataExceptions | SQLException ex) {

@@ -8,6 +8,7 @@ package br.senac.tads3.pi3b.leonsdev.Logout.Servlets;
 import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.ejb.Singleton;
 import javax.faces.context.FacesContext;
 import javax.servlet.RequestDispatcher;
@@ -44,8 +45,7 @@ public class LogoutServlet extends HttpServlet {
         singleton.setLogin(null);
         singleton.setNome(null);
         
-
-
+        
         sessao.invalidate();
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
