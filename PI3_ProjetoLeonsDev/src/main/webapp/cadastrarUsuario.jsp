@@ -31,6 +31,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery.equalheights.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+        <script src="${pageContext.request.contextPath}/js/limitarCampos.js"></script>
 
         <script>
             $(document).ready(function () {
@@ -66,16 +67,14 @@
                 </div>
 
             </div>
-                        <form>
+            <form action="${pageContext.request.contextPath}/Logout" method="post">
                 <div class="form-footer" id="logout">
-
 
                     <button class="botoesLogout" type="submit">logout</button>
 
-
                 </div>
             </form>
-                        
+
         </header>
         <!--==============================Content=================================-->
         <div class="content"><div class="ic"></div>
@@ -108,7 +107,7 @@
                                     <input type="text" value="${requestScope.usuRepreenche.sobrenome}" placeholder="Sobrenome*" name="sobreNome-usua">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" value="${requestScope.usuRepreenche.cpf}" min="11" max="11"  placeholder="cpf*" name="cpf-usua">
+                                    <input type="number" value="${requestScope.usuRepreenche.cpf}" placeholder="cpf*" id="validadorCpf" onkeydown="limita(this);" onkeyup="limita(this);"  name="cpf-usua">
 
                                     <select id="format-slc-usua" name="cargo-usua">
                                         <c:choose>

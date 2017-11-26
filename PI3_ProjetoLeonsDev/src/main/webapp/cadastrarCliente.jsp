@@ -73,12 +73,10 @@
                 </div>
 
             </div>
-            <form>
+            <form action="${pageContext.request.contextPath}/Logout" method="post">
                 <div class="form-footer" id="logout">
 
-
                     <button class="botoesLogout" type="submit">logout</button>
-
 
                 </div>
             </form>
@@ -114,7 +112,7 @@
                                     <input type="text" placeholder="Sobrenome*" value="${requestScope.cliRepreenche.sobrenome}" name="sobreNome-cli">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" min="11" max="11"  value="${requestScope.cliRepreenche.cpf}" name="cpf-cli"/>
+                                    <input type="number" placeholder="cpf*" id="validadorCpf" onkeydown="limita(this);" onkeyup="limita(this);" value="${requestScope.cliRepreenche.cpf}" name="cpf-cli"/>
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Email*" value="${requestScope.cliRepreenche.email}" name="email-cli">

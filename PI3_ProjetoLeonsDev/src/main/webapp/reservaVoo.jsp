@@ -70,12 +70,10 @@
                 </div>
 
             </div>
-            <form>
+            <form action="${pageContext.request.contextPath}/Logout" method="post">
                 <div class="form-footer" id="logout">
 
-
                     <button class="botoesLogout" type="submit">logout</button>
-
 
                 </div>
             </form>
@@ -138,7 +136,6 @@
                                 
                             </div>
                             <div class="row">                       
-
 
                                 <select id="formatar"  name="qtdpax">
                                     <option>Quantidade de Passageiros</option>

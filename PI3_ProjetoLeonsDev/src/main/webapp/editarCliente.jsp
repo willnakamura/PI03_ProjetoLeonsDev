@@ -31,6 +31,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery.equalheights.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+        <script src="${pageContext.request.contextPath}/js/limitarCampos.js"></script>
 
         <script>
             $(document).ready(function () {
@@ -66,12 +67,10 @@
                 </div>
 
             </div>
-                        <form>
+              <form action="${pageContext.request.contextPath}/Logout" method="post">
                 <div class="form-footer" id="logout">
 
-
                     <button class="botoesLogout" type="submit">logout</button>
-
 
                 </div>
             </form>
@@ -103,7 +102,7 @@
                                     <input type="text" placeholder="Sobrenome*" name="sobrenome-cli" value="${sessionScope.cliente.sobrenome}">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" min="11" max="11" name="cpf-cli" value="${sessionScope.cliente.cpf}">
+                                    <input type="number" placeholder="cpf*" id="validadorCpf" onkeydown="limita(this);" onkeyup="limita(this) name="cpf-cli" value="${sessionScope.cliente.cpf}">
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Email*" name="email-cli" value="${sessionScope.cliente.email}">

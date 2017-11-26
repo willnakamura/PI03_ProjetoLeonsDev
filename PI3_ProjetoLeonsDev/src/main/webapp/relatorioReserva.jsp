@@ -64,12 +64,10 @@
                 </div>
 
             </div>
-                         <form>
+             <form action="${pageContext.request.contextPath}/Logout" method="post">
                 <div class="form-footer" id="logout">
 
-
                     <button class="botoesLogout" type="submit">logout</button>
-
 
                 </div>
             </form>
@@ -95,8 +93,8 @@
 
                         <div class="row">
 
-                            <input type="date"  name="data-inicio" />
-                            <input type="date"  name="data-fim"/> 
+                            <input type="date" max="2999-12-31" name="data-inicio" />
+                            <input type="date" max="2999-12-31" name="data-fim"/> 
                             <button id="botoesBusca" type="submit">BUSCAR</button>
                         </div>
                       

@@ -79,57 +79,57 @@
 
                             </ul>
                         </nav>
-                                <div class="clear"></div>
+                        <div class="clear"></div>
                     </div>
                 </div>
                 <div class="grid_12">
-                   <div id="logo">
+                    <div id="logo">
                         <a  href="#">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
                     </div>
                 </div>
             </div>
-                         <form>
-                <div class="form-footer" id="logout">
 
+
+            <form action="${pageContext.request.contextPath}/Logout" method="post">
+                <div class="form-footer" id="logout">
 
                     <button class="botoesLogout" type="submit">logout</button>
 
-
                 </div>
             </form>
-                        
+
         </header>
         <div class="slider_wrapper">
             <div id="camera_wrap" class="">
                 <div data-src="${pageContext.request.contextPath}/images/slide.jpg">
                     <div class="caption fadeIn">
                         <h2>LONDON</h2>
-                        
+
                     </div>
                 </div>
                 <div data-src="${pageContext.request.contextPath}/images/slide1.jpg">
                     <div class="caption fadeIn">
                         <h2>Maldives</h2>
-                        
-                        
+
+
                     </div>
                 </div>
                 <div data-src="${pageContext.request.contextPath}/images/slide2.jpg">
                     <div class="caption fadeIn">
                         <h2>Venice</h2>
-                       
+
                     </div>
                 </div>
             </div>
         </div>
-                    
+
         <!--==============================Content=================================-->
-        
+
         <div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
             <div class="container_12">
-                
+
                 <div class="grid_12">
                     <h3 class="head1">CLASSIFICAÇÃO DE CLIENTES</h3>
                 </div>
@@ -151,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="grid_4">
                     <div class="block1">
                         <time datetime="2014-01-01"><span>AG</span></time>
