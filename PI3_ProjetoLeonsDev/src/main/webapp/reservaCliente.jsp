@@ -107,7 +107,7 @@
                                 </c:if>
                             </div>
 
-                            <div class="busca"><input type="text" id="busca1" placeholder="Digite sua busca" name="buscaCliente"> <button id="botoesBusca" type="submit">BUSCAR</button></div>
+                            <div class="busca"><input type="text" maxlength="11" id="busca1" placeholder="Digite sua busca" name="buscaCliente"> <button id="botoesBusca" type="submit">BUSCAR</button></div>
 
                             <br><br>
                         </form>
@@ -123,7 +123,7 @@
                                     <input type="text" placeholder="Sobrenome*" value="${sessionScope.clienteSelectReserva.sobrenome}" name="sobreNome-cli-selecionar" readonly="readonly">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" value="${sessionScope.clienteSelectReserva.cpf}"  name="cpf-cli-selecionar" readonly="readonly">
+                                    <input type="number"  placeholder="cpf*" value="${sessionScope.clienteSelectReserva.cpf}"  name="cpf-cli-selecionar" readonly="readonly">
 
 
                                 </div>
