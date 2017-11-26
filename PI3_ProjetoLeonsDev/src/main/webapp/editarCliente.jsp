@@ -19,10 +19,6 @@
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 
-
-
-
-
         <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery-migrate-1.2.1.js"></script>
         <script src="${pageContext.request.contextPath}/js/script.js"></script>

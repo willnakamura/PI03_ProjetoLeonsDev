@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="busca">
-                            <input type="text" id="busca1" placeholder="Digite o CPF" name="buscaCliente">
+                            <input type="text" id="busca1" maxlength="11"  placeholder="Digite o CPF" name="buscaCliente">
                             <button id="botoesBusca" type="submit">BUSCAR</button>
                         </div>
 
