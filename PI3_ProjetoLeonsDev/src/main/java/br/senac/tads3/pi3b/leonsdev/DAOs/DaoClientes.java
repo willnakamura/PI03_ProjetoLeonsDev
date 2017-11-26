@@ -219,7 +219,7 @@ public class DaoClientes {
             throws SQLException, Exception {
 
         String sql = "SELECT C.*, F.Nivel FROM Clientes C "
-                + "INNER JOIN Fidelidade F ON F.Cliente_ID = F.Cliente_ID"
+                + "INNER JOIN Fidelidade F ON F.Cliente_ID = C.Cliente_ID"
                 + " WHERE C.CPF=? AND C.Ativo=? limit 1";
 
         Cliente cliente = new Cliente();

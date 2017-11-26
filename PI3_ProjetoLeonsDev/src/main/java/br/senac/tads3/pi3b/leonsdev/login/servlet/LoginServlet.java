@@ -15,6 +15,8 @@ import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoAeroportos;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -78,9 +80,13 @@ public class LoginServlet extends HttpServlet {
 
         } else {
             ArrayList aeroportos = null;
-            
+
             try {
                 aeroportos = ServicoAeroportos.obterAeroporto();
+                Set<String> hs = new HashSet<>();
+                hs.addAll(aeroportos);
+                aeroportos.clear();
+                aeroportos.addAll(hs);
             } catch (DataExceptions | SQLException ex) {
                 ex.getMessage();
             }
