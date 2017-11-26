@@ -17,7 +17,7 @@
 
         <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_1.css">
 
 
 
@@ -31,7 +31,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery.equalheights.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
-         <script src="${pageContext.request.contextPath}/js/limitarCampos.js"></script>
+        <script src="${pageContext.request.contextPath}/js/limitarCampos.js"></script>
 
         <script>
             $(document).ready(function () {
@@ -45,14 +45,14 @@
         <header>
             <div class="container_12">
                 <div class="grid_12">
-                    <div class="menu_block">
+                    <div class="menu_block" id="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
-                            <ul class="sf-menu">
-                                <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jps">Usuário</a></li>
-                                 <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
-                                <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
+                            <ul class="sf-menu" id="menu_blockul">
+                                <li class="current" id="menu_blockHome"><a href="${pageContext.request.contextPath}/homeUsuario.jsp">HOME</a></li>                                
+                                <li id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarUsuaroUsuario.jsp">Cliente</a></li>                                
+                              
+                                 <li class="current"><a href="${pageContext.request.contextPath}/reservaVooUsuario.jsp" id="menu_blockReserva">Reserva</a></li>
+                               
                             </ul>
                         </nav>
                         <div class="clear"></div>
@@ -101,8 +101,8 @@
                                 </div>
                                 
                                 <div class="row">
-                                    <input type="number" placeholder="cpf*" id="validadorCpf" onkeydown="limita(this);" onkeyup="limita(this);" name="cpf-pass-selecionar">
-                                    <input type="date" max="2999-12-31" name="dtNasc-pass-selecionar"> 
+                                    <input type="number" placeholder="cpf*" id="validadorCpf" onkeydown="limita(this);" onkeyup="limita(this);"  name="cpf-pass-selecionar">
+                                    <input type="date" max="2999-12-31" placeholder="" name="dtNasc-pass-selecionar"> 
                                 </div>
 
                                 <div class="row">
@@ -111,20 +111,11 @@
                                 
                                 <div class="row">
                                     <select class="assentos" name="assentosPassageiro">           
-                                        <option value="selecione">Selecione o assento da Ida</option>
+                                        <option value="selecione">Selecione o assento!</option>
                                         <c:forEach items="${sessionScope.assentosLista}" var="a">
                                             <option>${a}</option>                                            
                                         </c:forEach>
                                     </select>
-                                    
-                                    
-                                    <select class="assentos" name="assentosPassageiroVolta">           
-                                        <option value="selecione">Selecione o assento da Volta</option>
-                                        <c:forEach items="${sessionScope.assentosLista}" var="a">
-                                            <option>${a}</option>                                            
-                                        </c:forEach>
-                                    </select>
-                                    
                                 </div>
                                
                             </div>
