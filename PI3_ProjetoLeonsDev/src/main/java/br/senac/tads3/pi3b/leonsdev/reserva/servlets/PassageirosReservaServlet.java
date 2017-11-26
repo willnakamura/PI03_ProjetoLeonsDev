@@ -131,15 +131,17 @@ public class PassageirosReservaServlet extends HttpServlet {
             precoBag = 39.9d;
             serv.setExtraBag(bagagem);
             serv.setPreco(precoBag);
-
+            sessao.setAttribute("Servico", serv);
         } else if (bagagem.equals("20Kg")) {
             precoBag = 79.9d;
             serv.setExtraBag(bagagem);
             serv.setPreco(precoBag);
+            sessao.setAttribute("Servico", serv);
         } else if (bagagem.equals("0Kg")) {
             precoBag = 0.0d;
             serv.setExtraBag(bagagem);
             serv.setPreco(precoBag);
+            sessao.setAttribute("Servico", serv);
         }
 
         Voos vooIda = new Voos();
@@ -210,7 +212,8 @@ public class PassageirosReservaServlet extends HttpServlet {
                         || passVoos.getAssento().equals("3E") || passVoos.getAssento().equals("3F")
                         || passVoos.getAssento().equals("4A") || passVoos.getAssento().equals("4B")
                         || passVoos.getAssento().equals("4E") || passVoos.getAssento().equals("4F")) {
-
+                    
+                    sessao.setAttribute("desconto", 30.0d * quantidadePass);
                     reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass) - 30.0);
 
                 } else if (!passVoos.getAssento().equals("1A") || !passVoos.getAssento().equals("1B")
@@ -221,7 +224,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                         || !passVoos.getAssento().equals("3E") || !passVoos.getAssento().equals("3F")
                         || !passVoos.getAssento().equals("4A") || !passVoos.getAssento().equals("4B")
                         || !passVoos.getAssento().equals("4E") || !passVoos.getAssento().equals("4F")) {
-
+                    sessao.setAttribute("desconto", 0.0);
                     reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
                 }
                 //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
@@ -234,7 +237,8 @@ public class PassageirosReservaServlet extends HttpServlet {
                         || passVoos.getAssento().equals("3E") || passVoos.getAssento().equals("3F")
                         || passVoos.getAssento().equals("4A") || passVoos.getAssento().equals("4B")
                         || passVoos.getAssento().equals("4E") || passVoos.getAssento().equals("4F")) {
-
+                    
+                    sessao.setAttribute("desconto", (30.0d + serv.getPreco())*quantidadePass);
                     reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - 30.0 - serv.getPreco());
 
                 } else if (!passVoos.getAssento().equals("1A") || !passVoos.getAssento().equals("1B")
@@ -245,7 +249,8 @@ public class PassageirosReservaServlet extends HttpServlet {
                         || !passVoos.getAssento().equals("3E") || !passVoos.getAssento().equals("3F")
                         || !passVoos.getAssento().equals("4A") || !passVoos.getAssento().equals("4B")
                         || !passVoos.getAssento().equals("4E") || !passVoos.getAssento().equals("4F")) {
-
+                    
+                    sessao.setAttribute("desconto", serv.getPreco() * quantidadePass);
                     reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - serv.getPreco());
                 }
                 //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));

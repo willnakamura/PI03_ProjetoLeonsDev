@@ -102,7 +102,7 @@ id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarClie
                             <div class="form-body">
                                 <div class="row">
                                     <select class="pagamento" name="pagamento">  
-                                        <option value="selecione">Forma de Pagamento</option>
+                                        <option value="Selecione">Forma de Pagamento</option>
                                         <option value="crédito">crédito</option>
                                         <option value="Débito">Débito</option>
                                         <option value="Dinheiro">Dinheiro</option>

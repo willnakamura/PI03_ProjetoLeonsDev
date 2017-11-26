@@ -95,7 +95,7 @@
                         <br>
 
                         <div>
-                            <label class="resumo-form" id="tituloResumo">Voo</label>
+                            <label class="resumo-form" id="tituloResumo">Voo de ida</label>
                         </div>
                         <br>
 
@@ -131,6 +131,11 @@
                         <br>
 
                         <c:if test="${not empty sessionScope.VooVoltaReservaFinal}" >
+                             <div>
+                            <label class="resumo-form" id="tituloResumo">Voo de Volta</label>
+                        </div>
+                        <br>
+                            
                             <div >
                                 <label class="resumo-form">Aeroporto de Origem: </label>
                                 <label class="resumo-form">${sessionScope.VooVoltaReservaFinal.aeroportoPartida}</label>
@@ -190,11 +195,11 @@
                             </c:if>
                             <div>  
                                 <label class="resumo-form">Bagagem: </label>
-                                <label class="resumo-form" id="result">5kg - R$ 20,90</label>
+                                <label class="resumo-form" id="result">${sessionScope.Servico.extraBag} - R$ ${sessionScope.Servico.preco}</label>
                             </div>
                             <br>
                         </c:if>
-                            <c:if test="${not empty sessionScope.Passageiro2}">
+                        <c:if test="${not empty sessionScope.Passageiro2}">
                             <div >                      
                                 <label class="resumo-form">Nome: </label>  
 
@@ -215,11 +220,11 @@
                             </c:if>
                             <div>  
                                 <label class="resumo-form">Bagagem: </label>
-                                <label class="resumo-form" id="result">5kg - R$ 20,90</label>
+                                <label class="resumo-form" id="result">${sessionScope.Servico.extraBag} - R$ ${sessionScope.Servico.preco}</label>
                             </div>
                             <br>
                         </c:if>
-                            <c:if test="${not empty sessionScope.Passageiro2}">
+                        <c:if test="${not empty sessionScope.Passageiro2}">
                             <div >                      
                                 <label class="resumo-form">Nome: </label>  
 
@@ -240,12 +245,12 @@
                             </c:if>
                             <div>  
                                 <label class="resumo-form">Bagagem: </label>
-                                <label class="resumo-form" id="result">5kg - R$ 20,90</label>
+                                <label class="resumo-form" id="result">${sessionScope.Servico.extraBag} - R$ ${sessionScope.Servico.preco}</label>
                             </div>
                             <br>
                         </c:if>
 
-                        
+
 
                         <div>
                             <label class="resumo-form" id="tituloResumo">Dados do Cliente e de Pagamento</label>
@@ -282,12 +287,15 @@
                             <label class="resumo-form" id="result"> R$ ${sessionScope.ReservaFinal.custoTotal}</label>
 
                         </div>
-
-                        <div >
-
+                            
+                        <div>
+                            <label class="resumo-form">Desconto: </label>
+                            <label class="resumo-form" id="result">${sessionScope.desconto}</label>
+                        </div>    
+                            
+                        <div>
                             <label class="resumo-form">Pontos: </label>
                             <label class="resumo-form" id="result">50</label>
-
                         </div>
                     </div>
 
@@ -304,11 +312,7 @@
 
 
                         <div class="form-footer">
-
-                            <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
-
-
-
+                            <button class="botoes">HOME<span class="fa fa-ban"></span></button>
                         </div>
 
                     </form>

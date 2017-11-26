@@ -37,7 +37,7 @@ public class ValidadorUsuario {
         if(usuario.getCpf() == null || usuario.getCpf().equals("")){
             throw new ExceptionUsuario("Favor, informe um CPF válido.");
         }
-        if(usuario.getCpf().length() > 11){
+        if(usuario.getCpf().length() > 11 || usuario.getCpf().length() < 11){
             throw new ExceptionUsuario("CPF inválido.");
         }
         
