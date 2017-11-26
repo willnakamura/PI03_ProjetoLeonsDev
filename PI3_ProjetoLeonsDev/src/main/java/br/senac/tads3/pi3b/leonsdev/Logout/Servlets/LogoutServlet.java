@@ -36,15 +36,17 @@ public class LogoutServlet extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession sessao = request.getSession();
-
+        
         SingletonLogin singleton = SingletonLogin.getInstance();
-
+       
         singleton.setCargo(null);
         singleton.setFunc_id(-1);
         singleton.setLogin(null);
         singleton.setNome(null);
+        
 
-        request.getSession().invalidate();
+
+        sessao.invalidate();
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
     }

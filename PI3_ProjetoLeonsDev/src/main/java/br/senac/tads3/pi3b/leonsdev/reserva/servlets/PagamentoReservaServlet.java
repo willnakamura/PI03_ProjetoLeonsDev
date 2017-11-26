@@ -108,6 +108,7 @@ public class PagamentoReservaServlet extends HttpServlet {
         }
         r = (Reserva) sessao.getAttribute("ReservaFinal");
         r.setFormaPgto(pagamento);
+        sessao.setAttribute("ReservaFinal", r);
         Servico servico = new Servico();
         servico = (Servico) sessao.getAttribute("ServicoReservaFinal");
         Cliente cli = new Cliente();
@@ -120,7 +121,7 @@ public class PagamentoReservaServlet extends HttpServlet {
             erro = e.getMessage();
             e.printStackTrace();
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompra.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompraNOVO.jsp");
         dispatcher.forward(request, response);
     }
 }

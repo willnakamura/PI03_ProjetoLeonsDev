@@ -90,7 +90,7 @@
 
 
                     <div class="card-form">
-                        <form class="buscaCli" action="#" method="#">
+                        <form class="buscaCli" action="" method="#">
                             <div class="busca"><input type="text" id="busca1ResumoCompra" placeholder="Localizador" name="locazador"> <button id="botoesBusca" type="submit">BUSCAR</button>
                             </div>
 

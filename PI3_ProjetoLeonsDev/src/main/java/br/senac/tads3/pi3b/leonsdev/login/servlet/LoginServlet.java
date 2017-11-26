@@ -48,8 +48,6 @@ public class LoginServlet extends HttpServlet {
         HttpSession sessao = request.getSession();
         //------------pre operações para carregamento de dropBox---------
 
-        ArrayList aeroportos = new ArrayList();
-
         //-------------operaçoes de login----------------------------------
         // Pega o class="user" e atribui á uma variavel
         String username = request.getParameter("user");
@@ -68,25 +66,24 @@ public class LoginServlet extends HttpServlet {
 
             RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/index.jsp");
-            dispatcher.forward(request, response);
         } catch (DataExceptions ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         if ("não logado".equals(SingletonLogin.getInstance().getNome())) {
-            request.setAttribute("erroLogin", "Usuário e/ou senha inválido");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+
+            request.setAttribute("erroLogin", "Usuário ou senha inválido");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
 
         } else {
-            if (aeroportos.isEmpty() || aeroportos == null) {
-                try {
-                    aeroportos = ServicoAeroportos.obterAeroporto();
-                } catch (DataExceptions | SQLException ex) {
-                    ex.getMessage();
-                }
-                sessao.setAttribute("ListaAeroportos", aeroportos);
+            ArrayList aeroportos = null;
+            try {
+                aeroportos = ServicoAeroportos.obterAeroporto();
+            } catch (DataExceptions | SQLException ex) {
+                ex.getMessage();
             }
+            sessao.setAttribute("ListaAeroportos", aeroportos);
             response.sendRedirect(request.getContextPath() + "/Protegido/resultado");
 
         }
