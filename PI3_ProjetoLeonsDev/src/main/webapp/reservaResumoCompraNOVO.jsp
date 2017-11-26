@@ -224,7 +224,7 @@
                             </div>
                             <br>
                         </c:if>
-                        <c:if test="${not empty sessionScope.Passageiro2}">
+                        <c:if test="${not empty sessionScope.Passageiro3}">
                             <div >                      
                                 <label class="resumo-form">Nome: </label>  
 
@@ -295,7 +295,7 @@
                             
                         <div>
                             <label class="resumo-form">Pontos: </label>
-                            <label class="resumo-form" id="result">50</label>
+                            <label class="resumo-form" id="result">${sessionScope.ReservaFinal.cliente.pontos}</label>
                         </div>
                     </div>
 

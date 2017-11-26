@@ -124,6 +124,7 @@ public class PassageirosReservaServlet extends HttpServlet {
             precoBag = 20.9d;
             serv.setExtraBag(bagagem);
             serv.setPreco(precoBag);
+            sessao.setAttribute("Servico", serv);
 
         } else if (bagagem.equals("10Kg")) {
             precoBag = 39.9d;
@@ -202,78 +203,45 @@ public class PassageirosReservaServlet extends HttpServlet {
             //-----------desconto----------
             //----------------------------
             if (reserva.getCliente().getNivel().equals("Pelicano")) {
-                if (passVoos.getAssento().equals("1A") || passVoos.getAssento().equals("1B")
-                        || passVoos.getAssento().equals("1E") || passVoos.getAssento().equals("1F")
-                        || passVoos.getAssento().equals("2A") || passVoos.getAssento().equals("2B")
-                        || passVoos.getAssento().equals("2E") || passVoos.getAssento().equals("2F")
-                        || passVoos.getAssento().equals("3A") || passVoos.getAssento().equals("3B")
-                        || passVoos.getAssento().equals("3E") || passVoos.getAssento().equals("3F")
-                        || passVoos.getAssento().equals("4A") || passVoos.getAssento().equals("4B")
-                        || passVoos.getAssento().equals("4E") || passVoos.getAssento().equals("4F")) {
-                    
-                    sessao.setAttribute("desconto", 30.0d * quantidadePass);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass) - 30.0);
+                if (passVoos.getAssento().contains("30.0")){
+                    Double desconto =null;
+                    desconto = 30.0;
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto + serv.getPreco());
 
-                } else if (!passVoos.getAssento().equals("1A") || !passVoos.getAssento().equals("1B")
-                        || !passVoos.getAssento().equals("1E") || !passVoos.getAssento().equals("1F")
-                        || !passVoos.getAssento().equals("2A") || !passVoos.getAssento().equals("2B")
-                        || !passVoos.getAssento().equals("2E") || !passVoos.getAssento().equals("2F")
-                        || !passVoos.getAssento().equals("3A") || !passVoos.getAssento().equals("3B")
-                        || !passVoos.getAssento().equals("3E") || !passVoos.getAssento().equals("3F")
-                        || !passVoos.getAssento().equals("4A") || !passVoos.getAssento().equals("4B")
-                        || !passVoos.getAssento().equals("4E") || !passVoos.getAssento().equals("4F")) {
-                    sessao.setAttribute("desconto", 0.0);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
+                } else {
+                    Double desconto = null;
+                    desconto = 0.0;
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto + serv.getPreco());
                 }
                 //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
             } else if (reserva.getCliente().getNivel().equals("Aguia")) {
-                if (passVoos.getAssento().equals("1A") || passVoos.getAssento().equals("1B")
-                        || passVoos.getAssento().equals("1E") || passVoos.getAssento().equals("1F")
-                        || passVoos.getAssento().equals("2A") || passVoos.getAssento().equals("2B")
-                        || passVoos.getAssento().equals("2E") || passVoos.getAssento().equals("2F")
-                        || passVoos.getAssento().equals("3A") || passVoos.getAssento().equals("3B")
-                        || passVoos.getAssento().equals("3E") || passVoos.getAssento().equals("3F")
-                        || passVoos.getAssento().equals("4A") || passVoos.getAssento().equals("4B")
-                        || passVoos.getAssento().equals("4E") || passVoos.getAssento().equals("4F")) {
-                    
-                    sessao.setAttribute("desconto", (30.0d + serv.getPreco())*quantidadePass);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - 30.0 - serv.getPreco());
+                if (passVoos.getAssento().contains("30.0")){
+                    Double desconto =null;
+                    desconto = 30 + serv.getPreco();
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
 
-                } else if (!passVoos.getAssento().equals("1A") || !passVoos.getAssento().equals("1B")
-                        || !passVoos.getAssento().equals("1E") || !passVoos.getAssento().equals("1F")
-                        || !passVoos.getAssento().equals("2A") || !passVoos.getAssento().equals("2B")
-                        || !passVoos.getAssento().equals("2E") || !passVoos.getAssento().equals("2F")
-                        || !passVoos.getAssento().equals("3A") || !passVoos.getAssento().equals("3B")
-                        || !passVoos.getAssento().equals("3E") || !passVoos.getAssento().equals("3F")
-                        || !passVoos.getAssento().equals("4A") || !passVoos.getAssento().equals("4B")
-                        || !passVoos.getAssento().equals("4E") || !passVoos.getAssento().equals("4F")) {
-                    
-                    sessao.setAttribute("desconto", serv.getPreco() * quantidadePass);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - serv.getPreco());
+                } else {
+                    Double desconto = null;
+                    desconto = serv.getPreco();
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
                 }
                 //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
             } else if (reserva.getCliente().getNivel().equals("Pombo")) {
-                if (passVoos.getAssento().equals("1A") || passVoos.getAssento().equals("1B")
-                        || passVoos.getAssento().equals("1E") || passVoos.getAssento().equals("1F")
-                        || passVoos.getAssento().equals("2A") || passVoos.getAssento().equals("2B")
-                        || passVoos.getAssento().equals("2E") || passVoos.getAssento().equals("2F")
-                        || passVoos.getAssento().equals("3A") || passVoos.getAssento().equals("3B")
-                        || passVoos.getAssento().equals("3E") || passVoos.getAssento().equals("3F")
-                        || passVoos.getAssento().equals("4A") || passVoos.getAssento().equals("4B")
-                        || passVoos.getAssento().equals("4E") || passVoos.getAssento().equals("4F")) {
-
+                if (passVoos.getAssento().contains("30.0")){
+                    Double desconto =null;
+                    desconto = 0.0;
+                    sessao.setAttribute("desconto", desconto);
                     reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) + 30.0 + serv.getPreco());
 
-                } else if (!passVoos.getAssento().equals("1A") || !passVoos.getAssento().equals("1B")
-                        || !passVoos.getAssento().equals("1E") || !passVoos.getAssento().equals("1F")
-                        || !passVoos.getAssento().equals("2A") || !passVoos.getAssento().equals("2B")
-                        || !passVoos.getAssento().equals("2E") || !passVoos.getAssento().equals("2F")
-                        || !passVoos.getAssento().equals("3A") || !passVoos.getAssento().equals("3B")
-                        || !passVoos.getAssento().equals("3E") || !passVoos.getAssento().equals("3F")
-                        || !passVoos.getAssento().equals("4A") || !passVoos.getAssento().equals("4B")
-                        || !passVoos.getAssento().equals("4E") || !passVoos.getAssento().equals("4F")) {
-
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) + serv.getPreco());
+                } else {
+                    Double desconto = null;
+                    desconto = 0.0;
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - serv.getPreco());
                 }
 
             }
@@ -363,78 +331,49 @@ public class PassageirosReservaServlet extends HttpServlet {
             int quantidadePass = qtdPassReserva;
 
             if (reserva.getCliente().getNivel().equals("Pelicano")) {
-                if (passVoos.getAssento().equals("1A") || passVoos.getAssento().equals("1B")
-                        || passVoos.getAssento().equals("1E") || passVoos.getAssento().equals("1F")
-                        || passVoos.getAssento().equals("2A") || passVoos.getAssento().equals("2B")
-                        || passVoos.getAssento().equals("2E") || passVoos.getAssento().equals("2F")
-                        || passVoos.getAssento().equals("3A") || passVoos.getAssento().equals("3B")
-                        || passVoos.getAssento().equals("3E") || passVoos.getAssento().equals("3F")
-                        || passVoos.getAssento().equals("4A") || passVoos.getAssento().equals("4B")
-                        || passVoos.getAssento().equals("4E") || passVoos.getAssento().equals("4F")) {
+                if (passVoos.getAssento().contains("30.0")){
+                    Double desconto =null;
+                    desconto = 30.0;
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto + serv.getPreco());
 
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass) - 30.0);
-
-                } else if (!passVoos.getAssento().equals("1A") || !passVoos.getAssento().equals("1B")
-                        || !passVoos.getAssento().equals("1E") || !passVoos.getAssento().equals("1F")
-                        || !passVoos.getAssento().equals("2A") || !passVoos.getAssento().equals("2B")
-                        || !passVoos.getAssento().equals("2E") || !passVoos.getAssento().equals("2F")
-                        || !passVoos.getAssento().equals("3A") || !passVoos.getAssento().equals("3B")
-                        || !passVoos.getAssento().equals("3E") || !passVoos.getAssento().equals("3F")
-                        || !passVoos.getAssento().equals("4A") || !passVoos.getAssento().equals("4B")
-                        || !passVoos.getAssento().equals("4E") || !passVoos.getAssento().equals("4F")) {
-
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
+                } else {
+                    Double desconto = null;
+                    desconto = 0.0;
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto + serv.getPreco());
                 }
                 //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
             } else if (reserva.getCliente().getNivel().equals("Aguia")) {
-                if (passVoos.getAssento().equals("1A") || passVoos.getAssento().equals("1B")
-                        || passVoos.getAssento().equals("1E") || passVoos.getAssento().equals("1F")
-                        || passVoos.getAssento().equals("2A") || passVoos.getAssento().equals("2B")
-                        || passVoos.getAssento().equals("2E") || passVoos.getAssento().equals("2F")
-                        || passVoos.getAssento().equals("3A") || passVoos.getAssento().equals("3B")
-                        || passVoos.getAssento().equals("3E") || passVoos.getAssento().equals("3F")
-                        || passVoos.getAssento().equals("4A") || passVoos.getAssento().equals("4B")
-                        || passVoos.getAssento().equals("4E") || passVoos.getAssento().equals("4F")) {
+                if (passVoos.getAssento().contains("30.0")){
+                    Double desconto =null;
+                    desconto = 30 + serv.getPreco();
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
 
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - 30.0 - serv.getPreco());
-
-                } else if (!passVoos.getAssento().equals("1A") || !passVoos.getAssento().equals("1B")
-                        || !passVoos.getAssento().equals("1E") || !passVoos.getAssento().equals("1F")
-                        || !passVoos.getAssento().equals("2A") || !passVoos.getAssento().equals("2B")
-                        || !passVoos.getAssento().equals("2E") || !passVoos.getAssento().equals("2F")
-                        || !passVoos.getAssento().equals("3A") || !passVoos.getAssento().equals("3B")
-                        || !passVoos.getAssento().equals("3E") || !passVoos.getAssento().equals("3F")
-                        || !passVoos.getAssento().equals("4A") || !passVoos.getAssento().equals("4B")
-                        || !passVoos.getAssento().equals("4E") || !passVoos.getAssento().equals("4F")) {
-
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - serv.getPreco());
+                } else {
+                    Double desconto = null;
+                    desconto = serv.getPreco();
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
                 }
                 //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
             } else if (reserva.getCliente().getNivel().equals("Pombo")) {
-                if (passVoos.getAssento().equals("1A") || passVoos.getAssento().equals("1B")
-                        || passVoos.getAssento().equals("1E") || passVoos.getAssento().equals("1F")
-                        || passVoos.getAssento().equals("2A") || passVoos.getAssento().equals("2B")
-                        || passVoos.getAssento().equals("2E") || passVoos.getAssento().equals("2F")
-                        || passVoos.getAssento().equals("3A") || passVoos.getAssento().equals("3B")
-                        || passVoos.getAssento().equals("3E") || passVoos.getAssento().equals("3F")
-                        || passVoos.getAssento().equals("4A") || passVoos.getAssento().equals("4B")
-                        || passVoos.getAssento().equals("4E") || passVoos.getAssento().equals("4F")) {
-
+                if (passVoos.getAssento().contains("30.0")){
+                    Double desconto =null;
+                    desconto = 0.0;
+                    sessao.setAttribute("desconto", desconto);
                     reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) + 30.0 + serv.getPreco());
 
-                } else if (!passVoos.getAssento().equals("1A") || !passVoos.getAssento().equals("1B")
-                        || !passVoos.getAssento().equals("1E") || !passVoos.getAssento().equals("1F")
-                        || !passVoos.getAssento().equals("2A") || !passVoos.getAssento().equals("2B")
-                        || !passVoos.getAssento().equals("2E") || !passVoos.getAssento().equals("2F")
-                        || !passVoos.getAssento().equals("3A") || !passVoos.getAssento().equals("3B")
-                        || !passVoos.getAssento().equals("3E") || !passVoos.getAssento().equals("3F")
-                        || !passVoos.getAssento().equals("4A") || !passVoos.getAssento().equals("4B")
-                        || !passVoos.getAssento().equals("4E") || !passVoos.getAssento().equals("4F")) {
-
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) + serv.getPreco());
+                } else {
+                    Double desconto = null;
+                    desconto = 0.0;
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - serv.getPreco());
                 }
 
             }
+
 
             sessao.setAttribute("ReservaFinal", reserva);
             sessao.setAttribute("ServicoReservaFinal", serv);
