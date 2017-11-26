@@ -45,7 +45,7 @@ public class ValidadorCliente {
         }
         
         //Data Nasc.
-        if (cliente.getDataNascimento() == null || calendario.before(cliente.getDataNascimento())) {
+        if (cliente.getDataNascimento() == null || cliente.getDataNascimento().after(calendario.getTime())) {
             throw new ClienteException("Favor informar uma data válida.");
         }
 

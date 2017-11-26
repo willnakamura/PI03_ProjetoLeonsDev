@@ -27,7 +27,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "ClienteServlet", urlPatterns = {"/cadastro-cliente"})
 public class CadastroClienteServlet extends HttpServlet {
 
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -35,9 +34,9 @@ public class CadastroClienteServlet extends HttpServlet {
         String destino;
 
         HttpSession sessao = request.getSession();
-        
+
         sessao.getAttribute("cli");
-        
+
         if (sessao.getAttribute("cli") != null) {
             request.setAttribute("cli", sessao.getAttribute("cli"));
             // Remove o atributo da sessao para usuario nao ficar preso na tela de resultados
@@ -55,11 +54,11 @@ public class CadastroClienteServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher(destino);
         dispatcher.forward(request, response);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         SimpleDateFormat dataForm = new SimpleDateFormat("yyyy-MM-dd");
         HttpSession sessao = request.getSession();
 
@@ -67,14 +66,20 @@ public class CadastroClienteServlet extends HttpServlet {
         String sobNome = request.getParameter("sobreNome-cli");
         String cpf = request.getParameter("cpf-cli");
         String sexo = request.getParameter("sexo-cli");
-        
+
         String dataNascString = request.getParameter("dtNasc-cli");
+
+        if (dataNascString.equals("")) {
+            request.setAttribute("erroCadastro", "Favor informar uma data de nascimento válida");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarCliente.jsp");
+            dispatcher.forward(request, response);
+        }
+
         Date dataNasc = null;
-        
+
         try {
 
             dataNasc = dataForm.parse(dataNascString);
-            
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -111,7 +116,7 @@ public class CadastroClienteServlet extends HttpServlet {
         sessao.setAttribute("cli", cli);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarCliente.jsp");
-            dispatcher.forward(request, response);
+        dispatcher.forward(request, response);
     }
 
 }
