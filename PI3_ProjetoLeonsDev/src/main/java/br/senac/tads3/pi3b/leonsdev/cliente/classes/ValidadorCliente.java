@@ -53,7 +53,7 @@ public class ValidadorCliente {
         if ("".equals(cliente.getCpf()) || cliente.getCpf() == null) {
             throw new ClienteException("Favor informar um CPF válido.");
         }
-        if(cliente.getCpf().length() > 11){
+        if(cliente.getCpf().length() > 11 || cliente.getCpf().length() < 11){
             throw new ClienteException("CPF inválido.");
         }
 

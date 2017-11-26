@@ -62,7 +62,7 @@ public class PagamentoReservaServlet extends HttpServlet {
             ValidadorTelaPagamento.validar(tela);
         } catch (DataExceptions | ExceptionTelaPagamento e) {
             request.setAttribute("erroPagamento", e.getMessage());
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/resrvaPagamento.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
             dispatcher.forward(request, response);
         }
 
