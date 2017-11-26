@@ -8,7 +8,7 @@ package br.senac.tads3.pi3b.leonsdev.DAOs;
 import br.senac.tads3.pi3b.leonsdev.dbUtils.ConnectionUtils;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.Assento;
 import java.sql.Connection;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,7 +37,7 @@ public class DaoAssentos {
             connection = ConnectionUtils.getConnection();
             //Cria um statement para execução de instruções SQL
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setDate(1, dataVoo);
+            preparedStatement.setDate(1, (java.sql.Date) dataVoo);
             preparedStatement.setInt(2, nrVoo);
 
             //Executa a consulta SQL no banco de dados

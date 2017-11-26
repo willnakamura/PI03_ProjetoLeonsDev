@@ -6,10 +6,8 @@
 package br.senac.tads3.pi3b.leonsdev.relatorios.Servlets;
 
 import br.senac.tads3.pi3b.leonsdev.relatorios.classes.RelatorioClientes;
-import br.senac.tads3.pi3b.leonsdev.relatorios.classes.RelatorioReservas;
 import br.senac.tads3.pi3b.leonsdev.relatorios.classes.ServicoRelatorios;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

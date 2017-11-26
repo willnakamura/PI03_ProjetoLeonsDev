@@ -6,12 +6,11 @@
 package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
-import br.senac.tads3.pi3b.leonsdev.reserva.classes.Assentos;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.ServicoAssentos;
+import br.senac.tads3.pi3b.leonsdev.voos.classes.Assento;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoVoos;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -50,9 +49,9 @@ public class TrocaTelaClienteReservaServlet extends HttpServlet {
             e.getMessage();
         }
 
-        ArrayList assentos = null;
+        ArrayList <Assento> assentos = null;
         try {
-            assentos = ServicoAssentos.assentosConsultaDisponiveis(voo.getDataVoo(), voo.getNrVoo());
+            assentos = (ArrayList) ServicoAssentos.assentosDisponiveis(voo.getDataVoo(), voo.getNrVoo());
 
         } catch (DataExceptions e) {
             e.getMessage();

@@ -7,10 +7,6 @@ package br.senac.tads3.pi3b.leonsdev.Logout.Servlets;
 
 import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import javax.ejb.Singleton;
-import javax.faces.context.FacesContext;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

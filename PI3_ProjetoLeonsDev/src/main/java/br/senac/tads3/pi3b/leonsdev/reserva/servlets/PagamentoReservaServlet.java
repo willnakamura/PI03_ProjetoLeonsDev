@@ -5,26 +5,18 @@
  */
 package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
-import br.senac.tads3.pi3b.leonsdev.DAOs.DaoFazerReserva;
 import br.senac.tads3.pi3b.leonsdev.Telas.classes.TelaPagamento;
 import br.senac.tads3.pi3b.leonsdev.Telas.classes.ValidadorTelaPagamento;
 import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
 import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionTelaPagamento;
-import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.Passageiros;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.PassageirosVoos;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.ServicoReserva;
 import br.senac.tads3.pi3b.leonsdev.servico.classes.Servico;
-import br.senac.tads3.pi3b.leonsdev.usuario.classes.ServicoUsuario;
-import br.senac.tads3.pi3b.leonsdev.usuario.classes.Usuario;
-import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoVoos;
-import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
 import java.io.IOException;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
