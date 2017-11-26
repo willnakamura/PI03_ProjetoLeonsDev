@@ -7,6 +7,7 @@ package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
 import br.senac.tads3.pi3b.leonsdev.Telas.classes.TelaHorarioIda;
 import br.senac.tads3.pi3b.leonsdev.Telas.classes.ValidadorTelaHorarioIda;
+import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionHorarioIda;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -74,7 +75,7 @@ public class HorarioReservaVooIdaServlet extends HttpServlet {
             try {
                 ValidadorTelaHorarioIda.validar(telaHorarioIda);
 
-            } catch (Exception e) {
+            } catch (ExceptionHorarioIda e) {
                 request.setAttribute("erroTelaHorarioIda", e.getMessage());
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
                 dispatcher.forward(request, response);
@@ -84,7 +85,7 @@ public class HorarioReservaVooIdaServlet extends HttpServlet {
 
             try {
                 idVoo = Integer.parseInt(id);
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 e.getMessage();
             }
 
