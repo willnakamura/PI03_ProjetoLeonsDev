@@ -92,7 +92,7 @@
                         </div>
 
                         <div class="busca">
-                            <input type="text" id="busca1" placeholder="Digite sua busca" name="buscaUsuario">  <button id="botoesBusca" type="submit">BUSCAR</button>
+                            <input type="text" id="busca1" maxlength="11"  placeholder="Digite sua busca" name="buscaUsuario">  <button id="botoesBusca" type="submit">BUSCAR</button>
                         </div>
                     </form>
 
