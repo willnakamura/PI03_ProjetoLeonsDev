@@ -69,11 +69,7 @@ public class VooReservaServlet extends HttpServlet {
 
         String datVolta = request.getParameter("data-volta-voo");
 
-        if (datVolta.equals("")) {
-            request.setAttribute("erroTelaVoo", "Favor informar uma data de volta");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
-            dispatcher.forward(request, response);
-        }
+        
 
         Date dataVoltaVoo = null;
         try {
@@ -105,6 +101,12 @@ public class VooReservaServlet extends HttpServlet {
         }
 
         if (opcao.equals("0")) {
+            if (datVolta.equals("")) {
+            request.setAttribute("erroTelaVoo", "Favor informar uma data de volta");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
+            dispatcher.forward(request, response);
+        }
+            
             Voos voo = new Voos();
             Voos voo2 = new Voos();
 

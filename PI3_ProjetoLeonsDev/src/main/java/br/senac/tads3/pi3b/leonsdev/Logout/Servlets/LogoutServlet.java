@@ -43,8 +43,6 @@ public class LogoutServlet extends HttpServlet {
         singleton.setFunc_id(-1);
         singleton.setLogin(null);
         singleton.setNome(null);
-        
-        
 
         request.getSession().invalidate();
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
