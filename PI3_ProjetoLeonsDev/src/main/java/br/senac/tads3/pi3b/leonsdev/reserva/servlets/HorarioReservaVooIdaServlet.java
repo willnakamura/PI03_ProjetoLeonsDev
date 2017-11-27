@@ -8,6 +8,7 @@ package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 import br.senac.tads3.pi3b.leonsdev.Telas.classes.TelaHorarioIda;
 import br.senac.tads3.pi3b.leonsdev.Telas.classes.ValidadorTelaHorarioIda;
 import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionHorarioIda;
+import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -36,6 +37,7 @@ public class HorarioReservaVooIdaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        SingletonLogin singleton = SingletonLogin.getInstance();
         HttpSession sessao = request.getSession();
         TelaHorarioIda telaHorarioIda = new TelaHorarioIda();
 
@@ -52,8 +54,15 @@ public class HorarioReservaVooIdaServlet extends HttpServlet {
 
             } catch (Exception e) {
                 request.setAttribute("erroTelaHorarioIda", e.getMessage());
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
-                dispatcher.forward(request, response);
+
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorarioUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
+
             }
 
             int id = -1;
@@ -64,8 +73,13 @@ public class HorarioReservaVooIdaServlet extends HttpServlet {
             }
 
             sessao.setAttribute("idVooIda", id);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorarioVolta.jsp");
-            dispatcher.forward(request, response);
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorarioVolta.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorarioVoltaUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
 
         } else if (opcaoInt == 1) {
             String id = request.getParameter("seleciona");
@@ -77,8 +91,15 @@ public class HorarioReservaVooIdaServlet extends HttpServlet {
 
             } catch (ExceptionHorarioIda e) {
                 request.setAttribute("erroTelaHorarioIda", e.getMessage());
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
-                dispatcher.forward(request, response);
+
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorarioUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
+
             }
 
             Integer idVoo = null;
@@ -90,8 +111,15 @@ public class HorarioReservaVooIdaServlet extends HttpServlet {
             }
 
             sessao.setAttribute("idVooIda", idVoo);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaCliente.jsp");
-            dispatcher.forward(request, response);
+
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaCliente.jsp");
+                dispatcher.forward(request, response);
+            }else{
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaClienteUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
+
         }
 
     }

@@ -10,6 +10,7 @@ import br.senac.tads3.pi3b.leonsdev.Telas.classes.ValidadorTelaPagamento;
 import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
 import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionTelaPagamento;
+import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.Passageiros;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.PassageirosVoos;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
@@ -41,7 +42,7 @@ public class PagamentoReservaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        SingletonLogin singleton = SingletonLogin.getInstance();
         Calendar calendario = Calendar.getInstance();
         HttpSession sessao = request.getSession();
 
@@ -54,8 +55,15 @@ public class PagamentoReservaServlet extends HttpServlet {
             ValidadorTelaPagamento.validar(tela);
         } catch (DataExceptions | ExceptionTelaPagamento e) {
             request.setAttribute("erroPagamento", e.getMessage());
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
-            dispatcher.forward(request, response);
+
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamentoUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
+
         }
 
         String qtdPassString = (String) sessao.getAttribute("qtdPassageirosReserva");
@@ -113,7 +121,14 @@ public class PagamentoReservaServlet extends HttpServlet {
             erro = e.getMessage();
             e.printStackTrace();
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompraNOVO.jsp");
-        dispatcher.forward(request, response);
+
+        if (singleton.getCargo().equals("Gerente")) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompraNOVO.jsp");
+            dispatcher.forward(request, response);
+        }else{
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompraUsuario.jsp");
+            dispatcher.forward(request, response);
+        }
+
     }
 }

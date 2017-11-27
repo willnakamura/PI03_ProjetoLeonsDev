@@ -9,6 +9,7 @@ import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.cliente.classes.ServicoCliente;
 import br.senac.tads3.pi3b.leonsdev.exceptions.ClienteException;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
+import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -58,7 +59,7 @@ public class ConsultarClienteServlet extends HttpServlet {
 
                 if (cliNull) {
                     request.setAttribute("erroConsulta", "Não houve resultados para esta pesquisa.");
-                    
+
                 } else {
                     sessao.setAttribute("ResultCli", cli);
                 }
@@ -68,7 +69,14 @@ public class ConsultarClienteServlet extends HttpServlet {
             request.setAttribute("erroConsulta", e.getMessage());
         }
 
-        RequestDispatcher rd = request.getRequestDispatcher("/consultarCliente.jsp");
-        rd.forward(request, response);
+        SingletonLogin singleton = SingletonLogin.getInstance();
+        if (singleton.getCargo().equals("Gerente")) {
+            RequestDispatcher rd = request.getRequestDispatcher("/consultarCliente.jsp");
+            rd.forward(request, response);
+        }else{
+            RequestDispatcher rd = request.getRequestDispatcher("/consultarClienteUsuario.jsp");
+            rd.forward(request, response);
+        }
+
     }
 }

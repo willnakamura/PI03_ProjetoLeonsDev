@@ -113,7 +113,7 @@
                                     <select class="assentos" name="assentosPassageiro">           
                                         <option value="selecione">Selecione o assento!</option>
                                         <c:forEach items="${sessionScope.assentosLista}" var="a">
-                                            <option>${a}</option>                                            
+                                            <option>${a.nAssento} - R$ ${a.preco}</option>                                            
                                         </c:forEach>
                                     </select>
                                 </div>

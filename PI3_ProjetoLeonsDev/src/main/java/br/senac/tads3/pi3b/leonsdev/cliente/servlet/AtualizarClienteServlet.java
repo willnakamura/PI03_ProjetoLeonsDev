@@ -9,6 +9,7 @@ import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.cliente.classes.ServicoCliente;
 import br.senac.tads3.pi3b.leonsdev.exceptions.ClienteException;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
+import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -38,6 +39,7 @@ public class AtualizarClienteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        SingletonLogin singleton = SingletonLogin.getInstance();
         HttpSession sessao = request.getSession();
         SimpleDateFormat dataForm = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -71,11 +73,21 @@ public class AtualizarClienteServlet extends HttpServlet {
         } catch (DataExceptions | ClienteException e) {
             request.setAttribute("erroAtualizar", e.getMessage());
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/editarCliente.jsp");
-            dispatcher.forward(request, response);
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/editarCliente.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/editarClienteUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
         }
 
-        response.sendRedirect(request.getContextPath() + "/consultarCliente.jsp");
+        if (singleton.getCargo().equals("Gerente")) {
+            response.sendRedirect(request.getContextPath() + "/consultarCliente.jsp");
+        } else {
+            response.sendRedirect(request.getContextPath() + "/consultarClienteUsuario.jsp");
+        }
+
     }
 
 }

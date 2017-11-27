@@ -49,6 +49,7 @@ public class PassageirosReservaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        SingletonLogin singleton = SingletonLogin.getInstance();
         HttpSession sessao = request.getSession();
         Passageiros pass = new Passageiros();
         PassageirosVoos passVoos = new PassageirosVoos();
@@ -74,8 +75,14 @@ public class PassageirosReservaServlet extends HttpServlet {
 
         if (dataNascString.equals("")) {
             request.setAttribute("erroPassageiro", "Favor informar uma data de nascimento válida");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-            dispatcher.forward(request, response);
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
+
         }
 
         Date dataNasc = null;
@@ -105,7 +112,6 @@ public class PassageirosReservaServlet extends HttpServlet {
         reserva.setDataReserva(calendario.getTime());
 
         Usuario usu = new Usuario();
-        SingletonLogin singleton = SingletonLogin.getInstance();
 
         try {
             usu = ServicoUsuario.ObterUsuario(singleton.getFunc_id());
@@ -168,8 +174,13 @@ public class PassageirosReservaServlet extends HttpServlet {
             } catch (ExceptionTelaPassageiro e) {
                 request.setAttribute("erroPassageiro", e.getMessage());
 
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-                dispatcher.forward(request, response);
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
 
             }
 
@@ -188,9 +199,6 @@ public class PassageirosReservaServlet extends HttpServlet {
             passVoosVolta.setAssento(assentoVolta);
             passVoosVolta.setPassageiro(pass);
 
-
-
-            
 //            if (passVoos.getAssento().equals(passVoosVolta.getAssento())) {
 //                request.setAttribute("erroPassageiro", "Este assento ja está reservado.");
 //
@@ -207,7 +215,7 @@ public class PassageirosReservaServlet extends HttpServlet {
             if (reserva.getCliente().getNivel().equals("Pelicano")) {
                 if (passVoos.getAssento().contains("30.0")) {
                     Double desconto = (Double) sessao.getAttribute("desconto");
-                    if(desconto == null){
+                    if (desconto == null) {
                         desconto = 0.0;
                     }
                     desconto = desconto + 30.0;
@@ -216,7 +224,7 @@ public class PassageirosReservaServlet extends HttpServlet {
 
                 } else {
                     Double desconto = (Double) sessao.getAttribute("desconto");
-                    if(desconto == null){
+                    if (desconto == null) {
                         desconto = 0.0;
                     }
                     desconto = 0.0;
@@ -227,7 +235,7 @@ public class PassageirosReservaServlet extends HttpServlet {
             } else if (reserva.getCliente().getNivel().equals("Aguia")) {
                 if (passVoos.getAssento().contains("30.0")) {
                     Double desconto = (Double) sessao.getAttribute("desconto");
-                    if(desconto == null){
+                    if (desconto == null) {
                         desconto = 0.0;
                     }
                     desconto = desconto + 30.0 + serv.getPreco();
@@ -236,7 +244,7 @@ public class PassageirosReservaServlet extends HttpServlet {
 
                 } else {
                     Double desconto = (Double) sessao.getAttribute("desconto");
-                    if(desconto == null){
+                    if (desconto == null) {
                         desconto = 0.0;
                     }
                     desconto = desconto + serv.getPreco();
@@ -247,7 +255,7 @@ public class PassageirosReservaServlet extends HttpServlet {
             } else if (reserva.getCliente().getNivel().equals("Pombo")) {
                 if (passVoos.getAssento().contains("30.0")) {
                     Double desconto = (Double) sessao.getAttribute("desconto");
-                    if(desconto == null){
+                    if (desconto == null) {
                         desconto = 0.0;
                     }
                     desconto = 0.0;
@@ -256,7 +264,7 @@ public class PassageirosReservaServlet extends HttpServlet {
 
                 } else {
                     Double desconto = (Double) sessao.getAttribute("desconto");
-                    if(desconto == null){
+                    if (desconto == null) {
                         desconto = 0.0;
                     }
                     desconto = 0.0;
@@ -285,8 +293,13 @@ public class PassageirosReservaServlet extends HttpServlet {
                 sessao.setAttribute("assentoPass1", passVoos.getAssento());
                 sessao.setAttribute("assentoPass1Volta", passVoosVolta.getAssento());
 
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
-                dispatcher.forward(request, response);
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamentoUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
 
             } else if (qntPass == 2) {
                 sessao.setAttribute("Passageiro2", pass);
@@ -298,9 +311,13 @@ public class PassageirosReservaServlet extends HttpServlet {
 
                 request.setAttribute("nPassPag", 2);
 //                sessao.setAttribute("assentoPass2", assento);
-
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
-                dispatcher.forward(request, response);
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVoltaUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
 
             } else if (qntPass == 3) {
                 sessao.setAttribute("Passageiro3", pass);
@@ -313,8 +330,13 @@ public class PassageirosReservaServlet extends HttpServlet {
                 request.setAttribute("nPassPag", 3);
 //                sessao.setAttribute("assentoPass3", assento);
 
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
-                dispatcher.forward(request, response);
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVoltaUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
             }
             //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
 
@@ -330,8 +352,14 @@ public class PassageirosReservaServlet extends HttpServlet {
             } catch (ExceptionTelaPassageiro e) {
                 request.setAttribute("erroPassageiro", e.getMessage());
 
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-                dispatcher.forward(request, response);
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
+
             }
 
             try {
@@ -353,7 +381,7 @@ public class PassageirosReservaServlet extends HttpServlet {
             if (reserva.getCliente().getNivel().equals("Pelicano")) {
                 if (passVoos.getAssento().contains("30.0")) {
                     Double desconto = (Double) sessao.getAttribute("desconto");
-                    if(desconto == null){
+                    if (desconto == null) {
                         desconto = 0.0;
                     }
                     desconto = 30.0;
@@ -362,7 +390,7 @@ public class PassageirosReservaServlet extends HttpServlet {
 
                 } else {
                     Double desconto = (Double) sessao.getAttribute("desconto");
-                    if(desconto == null){
+                    if (desconto == null) {
                         desconto = 0.0;
                     }
                     desconto = 0.0;
@@ -373,18 +401,17 @@ public class PassageirosReservaServlet extends HttpServlet {
             } else if (reserva.getCliente().getNivel().equals("Aguia")) {
                 if (passVoos.getAssento().contains("30.0")) {
                     Double desconto = (Double) sessao.getAttribute("desconto");
-                    if(desconto == null){
+                    if (desconto == null) {
                         desconto = 0.0;
                     }
-                    
-                    
+
                     desconto = desconto + 30 + serv.getPreco();
                     sessao.setAttribute("desconto", desconto);
                     reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
 
                 } else {
                     Double desconto = (Double) sessao.getAttribute("desconto");
-                    if(desconto == null){
+                    if (desconto == null) {
                         desconto = 0.0;
                     }
                     desconto = desconto + serv.getPreco();
@@ -394,8 +421,8 @@ public class PassageirosReservaServlet extends HttpServlet {
                 //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
             } else if (reserva.getCliente().getNivel().equals("Pombo")) {
                 if (passVoos.getAssento().contains("30.0")) {
-                   Double desconto = (Double) sessao.getAttribute("desconto");
-                    if(desconto == null){
+                    Double desconto = (Double) sessao.getAttribute("desconto");
+                    if (desconto == null) {
                         desconto = 0.0;
                     }
                     desconto = 0.0;
@@ -404,7 +431,7 @@ public class PassageirosReservaServlet extends HttpServlet {
 
                 } else {
                     Double desconto = (Double) sessao.getAttribute("desconto");
-                    if(desconto == null){
+                    if (desconto == null) {
                         desconto = 0.0;
                     }
                     desconto = 0.0;
@@ -430,8 +457,13 @@ public class PassageirosReservaServlet extends HttpServlet {
                 sessao.setAttribute("PassageiroVoo1", passVoos);
                 sessao.setAttribute("assentoPass1", passVoos.getAssento());
 
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
-                dispatcher.forward(request, response);
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamentoUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
 
             } else if (qntPass == 2) {
                 sessao.setAttribute("Passageiro2", pass);
@@ -443,8 +475,13 @@ public class PassageirosReservaServlet extends HttpServlet {
                 request.setAttribute("nPassPag", 2);
                 sessao.setAttribute("assentoPass2", passVoos.getAssento());
 
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-                dispatcher.forward(request, response);
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
 
             } else if (qntPass == 3) {
                 sessao.setAttribute("Passageiro3", pass);
@@ -456,56 +493,15 @@ public class PassageirosReservaServlet extends HttpServlet {
                 request.setAttribute("nPassPag", 3);
                 sessao.setAttribute("assentoPass3", passVoos.getAssento());
 
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-                dispatcher.forward(request, response);
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
             }
             //reserva.setCustoTotal((vooIda.getTarifa() * qtdPassReserva) + serv.getPreco());
         }
-
-//        sessao.setAttribute("ReservaFinal", reserva);
-//        sessao.setAttribute("ServicoReservaFinal", serv);
-//        sessao.setAttribute("VooIdaReservaFinal", vooIda);
-//        sessao.setAttribute("VooVoltaResrvaFinal", vooVolta);
-//
-//        Cliente cliente = (Cliente) sessao.getAttribute("clienteSelectReserva");
-//        String nomePagador = cliente.getNome() + " " + cliente.getSobrenome();
-//        sessao.setAttribute("nomePagador", nomePagador);
-//        sessao.setAttribute("custoTotal", reserva.getCustoTotal());
-//        //---------------------------------------------------------------------------------------------
-//
-//        if (qntPass == 1) {
-//            sessao.setAttribute("Passageiro1", pass);
-//            sessao.setAttribute("PassageiroVoo1", passVoos);
-//            sessao.setAttribute("assentoPass1", assento);
-//
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
-//            dispatcher.forward(request, response);
-//
-//        } else if (qntPass == 2) {
-//            sessao.setAttribute("Passageiro2", pass);
-//            sessao.setAttribute("PassageiroVoo2", passVoos);
-//            qntPass--;
-//            String qtdPax = Integer.toString(qntPass);
-//            sessao.setAttribute("qtdpax", qtdPax);
-//
-//            request.setAttribute("nPassPag", 2);
-//            sessao.setAttribute("assentoPass2", assento);
-//
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-//            dispatcher.forward(request, response);
-//
-//        } else if (qntPass == 3) {
-//            sessao.setAttribute("Passageiro3", pass);
-//            sessao.setAttribute("PassageiroVoo3", passVoos);
-//
-//            qntPass--;
-//            String qtdPax = Integer.toString(qntPass);
-//            sessao.setAttribute("qtdpax", qtdPax);
-//            request.setAttribute("nPassPag", 3);
-//            sessao.setAttribute("assentoPass3", assento);
-//
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-//            dispatcher.forward(request, response);
-//        }
     }
 }

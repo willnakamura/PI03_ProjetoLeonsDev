@@ -9,6 +9,7 @@ import br.senac.tads3.pi3b.leonsdev.Telas.classes.TelaVoo;
 import br.senac.tads3.pi3b.leonsdev.Telas.classes.ValidadorTelaVoo;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
 import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionTelaVoo;
+import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoVoos;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
 import java.io.IOException;
@@ -42,7 +43,7 @@ public class VooReservaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        SingletonLogin singleton = SingletonLogin.getInstance();
         HttpSession sessao = request.getSession();
         SimpleDateFormat dataForm = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -56,8 +57,15 @@ public class VooReservaServlet extends HttpServlet {
 
         if (datIda.equals("")) {
             request.setAttribute("erroTelaVoo", "Favor informar uma data de ida");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
-            dispatcher.forward(request, response);
+
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVooUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
+
         }
 
         Date dataIdaVoo = null;
@@ -68,8 +76,6 @@ public class VooReservaServlet extends HttpServlet {
         }
 
         String datVolta = request.getParameter("data-volta-voo");
-
-        
 
         Date dataVoltaVoo = null;
         try {
@@ -96,17 +102,27 @@ public class VooReservaServlet extends HttpServlet {
             ValidadorTelaVoo.validar(tela);
         } catch (ExceptionTelaVoo e) {
             request.setAttribute("erroTelaVoo", e.getMessage());
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
-            dispatcher.forward(request, response);
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVooUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
         }
 
         if (opcao.equals("0")) {
             if (datVolta.equals("")) {
-            request.setAttribute("erroTelaVoo", "Favor informar uma data de volta");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
-            dispatcher.forward(request, response);
-        }
-            
+                request.setAttribute("erroTelaVoo", "Favor informar uma data de volta");
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVooUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
+            }
+
             Voos voo = new Voos();
             Voos voo2 = new Voos();
 
@@ -148,8 +164,13 @@ public class VooReservaServlet extends HttpServlet {
 
             sessao.setAttribute("VooVolta", vooVolta);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
-            dispatcher.forward(request, response);
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
+                dispatcher.forward(request, response);
+            }else{
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorarioUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
 
         } else if (opcao.equals("1")) {
             Voos voo = new Voos();
@@ -173,8 +194,14 @@ public class VooReservaServlet extends HttpServlet {
 
             sessao.setAttribute("VooIda", voo1);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
-            dispatcher.forward(request, response);
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
+                dispatcher.forward(request, response);
+            }else{
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorarioUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
+
 
         }
     }

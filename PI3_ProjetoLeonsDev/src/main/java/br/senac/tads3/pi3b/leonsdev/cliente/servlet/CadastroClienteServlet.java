@@ -9,9 +9,11 @@ import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.cliente.classes.ServicoCliente;
 import br.senac.tads3.pi3b.leonsdev.exceptions.ClienteException;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
+import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.ejb.Singleton;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,28 +34,28 @@ public class CadastroClienteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String destino;
-
-        HttpSession sessao = request.getSession();
-        
-        sessao.getAttribute("cli");
-        
-        if (sessao.getAttribute("cli") != null) {
-            request.setAttribute("cli", sessao.getAttribute("cli"));
-            // Remove o atributo da sessao para usuario nao ficar preso na tela de resultados
-            sessao.removeAttribute("cli");
-
-            request.setAttribute("disponivel", sessao.getAttribute("disponivel"));
-            // Remove o atributo da sessao para usuario nao ficar preso na tela de resultados
-            sessao.removeAttribute("disponivel");
-
-            destino = "/cadastrarCliente.jsp";
-        } else {
-            destino = "/cadastrarCliente.jsp";
-        }
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher(destino);
-        dispatcher.forward(request, response);
+//        String destino;
+//
+//        HttpSession sessao = request.getSession();
+//        
+//        sessao.getAttribute("cli");
+//        
+//        if (sessao.getAttribute("cli") != null) {
+//            request.setAttribute("cli", sessao.getAttribute("cli"));
+//            // Remove o atributo da sessao para usuario nao ficar preso na tela de resultados
+//            sessao.removeAttribute("cli");
+//
+//            request.setAttribute("disponivel", sessao.getAttribute("disponivel"));
+//            // Remove o atributo da sessao para usuario nao ficar preso na tela de resultados
+//            sessao.removeAttribute("disponivel");
+//
+//            destino = "/cadastrarCliente.jsp";
+//        } else {
+//            destino = "/cadastrarCliente.jsp";
+//        }
+//
+//        RequestDispatcher dispatcher = request.getRequestDispatcher(destino);
+//        dispatcher.forward(request, response);
     }
     
     @Override
@@ -110,8 +112,18 @@ public class CadastroClienteServlet extends HttpServlet {
         }
         sessao.setAttribute("cli", cli);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarCliente.jsp");
+        
+        SingletonLogin singleton = SingletonLogin.getInstance();
+        if(singleton.getCargo().equals("Gerente")){
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarCliente.jsp");
             dispatcher.forward(request, response);
+        }else{
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarClienteUsuario.jsp");
+            dispatcher.forward(request, response);
+        }
+        
+        
+        
     }
 
 }

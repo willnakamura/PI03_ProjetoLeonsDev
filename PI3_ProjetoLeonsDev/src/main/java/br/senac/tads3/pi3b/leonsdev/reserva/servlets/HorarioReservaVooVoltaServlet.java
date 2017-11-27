@@ -7,6 +7,7 @@ package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
 import br.senac.tads3.pi3b.leonsdev.Telas.classes.TelaHorarioIda;
 import br.senac.tads3.pi3b.leonsdev.Telas.classes.ValidadorTelaHorarioIda;
+import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,6 +35,7 @@ public class HorarioReservaVooVoltaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        SingletonLogin singleton = SingletonLogin.getInstance();
         HttpSession sessao = request.getSession();
         TelaHorarioIda telaHorarioIda = new TelaHorarioIda();
         String nVoo = request.getParameter("seleciona");
@@ -45,8 +47,15 @@ public class HorarioReservaVooVoltaServlet extends HttpServlet {
 
         } catch (Exception e) {
             request.setAttribute("erroTelaHorarioVolta", e.getMessage());
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
-            dispatcher.forward(request, response);
+
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorarioUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
+
         }
 
         int id = -1;
@@ -57,7 +66,14 @@ public class HorarioReservaVooVoltaServlet extends HttpServlet {
         }
 
         sessao.setAttribute("idVooVolta", id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaCliente.jsp");
-        dispatcher.forward(request, response);
+
+        if (singleton.getCargo().equals("Gerente")) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaCliente.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaClienteUsuario.jsp");
+            dispatcher.forward(request, response);
+        }
+
     }
 }

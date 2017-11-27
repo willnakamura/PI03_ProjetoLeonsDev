@@ -6,6 +6,7 @@
 package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
+import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.ServicoAssentos;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.Assento;
 import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoVoos;
@@ -38,6 +39,7 @@ public class TrocaTelaClienteReservaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        SingletonLogin singleton = SingletonLogin.getInstance();
         HttpSession sessao = request.getSession();
 
         Voos voo = new Voos();
@@ -49,7 +51,7 @@ public class TrocaTelaClienteReservaServlet extends HttpServlet {
             e.getMessage();
         }
 
-        ArrayList <Assento> assentos = null;
+        ArrayList<Assento> assentos = null;
         try {
             assentos = (ArrayList) ServicoAssentos.assentosDisponiveis(voo.getDataVoo(), voo.getNrVoo());
 
@@ -62,11 +64,21 @@ public class TrocaTelaClienteReservaServlet extends HttpServlet {
         String opcao = (String) sessao.getAttribute("opcaoIdaOuIdaVolta");
 
         if (opcao.equals("0")) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
-            dispatcher.forward(request, response);
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVoltaUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
         } else if (opcao.equals("1")) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-            dispatcher.forward(request, response);
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
         }
 
     }

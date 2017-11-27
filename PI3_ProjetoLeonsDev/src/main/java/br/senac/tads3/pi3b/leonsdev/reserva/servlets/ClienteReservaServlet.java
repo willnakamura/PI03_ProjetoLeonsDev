@@ -12,6 +12,7 @@ import br.senac.tads3.pi3b.leonsdev.cliente.classes.ServicoCliente;
 import br.senac.tads3.pi3b.leonsdev.exceptions.ClienteException;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
 import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionTelaSelecionaCliente;
+import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,58 +28,77 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "ClienteReservaServlet", urlPatterns = {"/ClienteReserva"})
 public class ClienteReservaServlet extends HttpServlet {
-     
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+
     }
 
-   //------------------------------------------------------------------
-    
+    //------------------------------------------------------------------
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
+        SingletonLogin singleton = SingletonLogin.getInstance();
         HttpSession sessao = request.getSession();
         Cliente cli = new Cliente();
         String buscaCli = request.getParameter("buscaCliente");
-        
+
         TelaSelecionaCliente tela = new TelaSelecionaCliente();
         tela.setCpf(buscaCli.trim());
-        
+
         try {
             ValidadorTelaSelecionaCliente.validar(tela);
         } catch (DataExceptions | ExceptionTelaSelecionaCliente e) {
             request.setAttribute("erroCampoBusca", e.getMessage());
-            
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaCliente.jsp");
-            dispatcher.forward(request, response);        
-        }
-        
-        
-        
-        try {
-            cli = ServicoCliente.procurarCliente(buscaCli);
-            
-            if(cli.getCpf().equals("") || cli.getCpf() == null){
-                request.setAttribute("erroSelecionaCli", "A pesquisa não troxe resultado para esta pesquisa.");
-            
+
+            if (singleton.getCargo().equals("Gerente")) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaCliente.jsp");
                 dispatcher.forward(request, response);
-            }else{
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaClienteUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
+
+        }
+
+        try {
+            cli = ServicoCliente.procurarCliente(buscaCli);
+
+            if (cli.getCpf().equals("") || cli.getCpf() == null) {
+                request.setAttribute("erroSelecionaCli", "A pesquisa não troxe resultado para esta pesquisa.");
+
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaCliente.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaClienteUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
+            } else {
                 request.setAttribute("sucessoSelecionaCli", "Pesquisa realizada com sucesso.");
             }
-            
+
             sessao.setAttribute("clienteSelectReserva", cli);
         } catch (ClienteException | DataExceptions e) {
             request.setAttribute("erroSelecionaCli", e.getMessage());
-            
+
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaCliente.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaClienteUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
+        }
+
+        if (singleton.getCargo().equals("Gerente")) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaCliente.jsp");
-            dispatcher.forward(request, response);        
-        }        
-        
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaCliente.jsp");
-            dispatcher.forward(request, response);        
+            dispatcher.forward(request, response);
+        } else {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaClienteUsuario.jsp");
+            dispatcher.forward(request, response);
+        }
     }
 }

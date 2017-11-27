@@ -86,134 +86,197 @@ id="menu_blockReserva" >Reserva</a></li>
                         <h5 class="opcao">resumo da compra</h5>
                         </div>
                         
-                        <div class="resumo">
+                       <div class="resumo">
                         <div >
                             <label class="resumo-form"> Status da Reserva: </label> 
                             <label class="resumo-form" id="result">Ativo</label>
 
                         </div>
                         <br>
-                        <div >
-                            <label class="resumo-form" id="tituloResumo">Voo</label>
 
-
+                        <div>
+                            <label class="resumo-form" id="tituloResumo">Voo de ida</label>
                         </div>
                         <br>
 
                         <div >
-                            <label class="resumo-form">Aeroporto de Origem:</label>
-                            <label class="resumo-form">Congonhas</label>
-                             
-                            
-                           
+                            <label class="resumo-form">Aeroporto de Origem: </label>
+                            <label class="resumo-form">${sessionScope.VooIdaReservaFinal.aeroportoPartida}</label>
                         </div>
 
                         <div>
                             <label class="resumo-form">Aeroporto de Destino:</label>
-                             <label class="resumo-form">Alagoinhas</label>
-                         
-
+                            <label class="resumo-form">${sessionScope.VooIdaReservaFinal.aeroportoChegada}</label>
                         </div>
+
                         <div>
                             <label class="resumo-form">Data de Origem:</label>
-                            <label class="resumo-form">11/12/2017</label>
-                            </div>
-                        <div>
+                            <label class="resumo-form">${sessionScope.VooIdaReservaFinal.dataVoo}</label>
+                        </div>
+                        <!--<div>
                             <label class="resumo-form">Data de Destino:</label>
                             <label class="resumo-form">20/12/2017</label>
-                            </div>    
-                        
-                        <div >
-                            <label class="resumo-form">Horário de ida:</label>
-                            <label class="resumo-form-2" id="result">11:30</label>
+                        </div>-->    
+                        <div>
+                            <label class="resumo-form">Horário de Partida:</label>
+                            <label class="resumo-form-2" id="result">${sessionScope.VooIdaReservaFinal.horaPartida}</label>
 
                         </div>
 
                         <div >
-                            <label class="resumo-form">Horário de volta:</label>
+                            <label class="resumo-form">Horário de Chegada:</label>
 
-                            <label class="resumo-form-2" id="result">13:00</label>   
+                            <label class="resumo-form-2" id="result">${sessionScope.VooIdaReservaFinal.horaChegada}</label>   
                         </div>
                         <br>
+
+                        <c:if test="${not empty sessionScope.VooVoltaReservaFinal}" >
+                             <div>
+                            <label class="resumo-form" id="tituloResumo">Voo de Volta</label>
+                        </div>
+                        <br>
+                            
+                            <div >
+                                <label class="resumo-form">Aeroporto de Origem: </label>
+                                <label class="resumo-form">${sessionScope.VooVoltaReservaFinal.aeroportoPartida}</label>
+                            </div>
+
+                            <div>
+                                <label class="resumo-form">Aeroporto de Destino:</label>
+                                <label class="resumo-form">${sessionScope.VooVoltaReservaFinal.aeroportoChegada}</label>
+                            </div>
+
+                            <div>
+                                <label class="resumo-form">Data de Origem:</label>
+                                <label class="resumo-form">${sessionScope.VooVoltaReservaFinal.dataVoo}</label>
+                            </div>
+                            <!--<div>
+                                <label class="resumo-form">Data de Destino:</label>
+                                <label class="resumo-form">20/12/2017</label>
+                            </div>-->    
+                            <div>
+                                <label class="resumo-form">Horário de Partida:</label>
+                                <label class="resumo-form-2" id="result">${sessionScope.VooVoltaReservaFinal.horaPartida}</label>
+
+                            </div>
+
+                            <div >
+                                <label class="resumo-form">Horário de Chegada:</label>
+                                <label class="resumo-form-2" id="result">${sessionScope.VooVoltaReservaFinal.horaChegada}</label>   
+                            </div>
+                            <br>
+                        </c:if>
+
+
+
                         <div>
                             <label class="resumo-form" id="tituloResumo">Dados dos Passageiros</label>
-
                         </div>
                         <br>
 
-                        <div >                      
+                        <c:if test="${not empty sessionScope.Passageiro1}">
+                            <div >                      
+                                <label class="resumo-form">Nome: </label>  
 
-                            <label class="resumo-form">Nome: </label>  
+                                <label class="resumo-form" id="result">${sessionScope.Passageiro1.nome} ${sessionScope.Passageiro1.sobrenome}</label>                                 
 
-                            <label class="resumo-form" id="result">Joaquim Barbosa Filho</label>                                 
+                            </div>
 
-                        </div>
+                            <div >   
+                                <label class="resumo-form">Assento do voo de ida: </label> 
+                                <label class="resumo-form" id="result">${sessionScope.assentoPass1}</label> 
+                            </div>
 
-                        <div >   
-                            <label class="resumo-form">Assentos de Origem: </label> 
-                            <label class="resumo-form" id="result">E06</label> 
-                        </div>
-                        <div >   
-                            <label class="resumo-form">Assentos de Destino: </label>
-                            <label class="resumo-form" id="result">B01</label> 
-                        </div>
-                        <div >  
-                            <label class="resumo-form">Bagagem: </label>
-                            <label class="resumo-form" id="result">5kg - R$ 20,90</label>
-                        </div>
-                        <br>
-                         
+                            <c:if test="${not empty sessionScope.assentoPass1Volta}">
+                                <div>   
+                                    <label class="resumo-form">Assento do voo de Volta: </label>
+                                    <label class="resumo-form" id="result">${sessionScope.assentoPass1Volta}</label> 
+                                </div>
+                            </c:if>
+                            <div>  
+                                <label class="resumo-form">Bagagem: </label>
+                                <label class="resumo-form" id="result">${sessionScope.Servico.extraBag} - R$ ${sessionScope.Servico.preco}</label>
+                            </div>
+                            <br>
+                        </c:if>
+                        <c:if test="${not empty sessionScope.Passageiro2}">
+                            <div >                      
+                                <label class="resumo-form">Nome: </label>  
 
-                        <div >                      
+                                <label class="resumo-form" id="result">${sessionScope.Passageiro2.nome} ${sessionScope.Passageiro2.sobrenome}</label>                                 
 
-                            <label class="resumo-form">Nome: </label>  
+                            </div>
 
-                            <label class="resumo-form" id="result">Stefano Santos Teixeira</label>                                 
+                            <div >   
+                                <label class="resumo-form">Assento do voo de ida: </label> 
+                                <label class="resumo-form" id="result">${sessionScope.assentoPass2}</label> 
+                            </div>
 
-                        </div>
+                            <c:if test="${not empty sessionScope.assentoPass2Volta}">
+                                <div>   
+                                    <label class="resumo-form">Assento do voo de Volta: </label>
+                                    <label class="resumo-form" id="result">${sessionScope.assentoPass2Volta}</label> 
+                                </div>
+                            </c:if>
+                            <div>  
+                                <label class="resumo-form">Bagagem: </label>
+                                <label class="resumo-form" id="result">${sessionScope.Servico.extraBag} - R$ ${sessionScope.Servico.preco}</label>
+                            </div>
+                            <br>
+                        </c:if>
+                        <c:if test="${not empty sessionScope.Passageiro3}">
+                            <div >                      
+                                <label class="resumo-form">Nome: </label>  
 
-                        <div >   
-                            <label class="resumo-form">Assentos de Origem: </label> 
-                            <label class="resumo-form" id="result">C25</label> 
-                        </div>
-                        <div >   
-                            <label class="resumo-form">Assentos de Destino: </label>
-                            <label class="resumo-form" id="result">H01</label> 
-                        </div>
-                        <div >  
-                            <label class="resumo-form">Bagagem: </label>
-                            <label class="resumo-form" id="result">20kg - R$ 79,90</label>
-                        </div>
-                        
-                        <br>
+                                <label class="resumo-form" id="result">${sessionScope.Passageiro3.nome} ${sessionScope.Passageiro3.sobrenome}</label>                                 
+
+                            </div>
+
+                            <div >   
+                                <label class="resumo-form">Assento do voo de ida: </label> 
+                                <label class="resumo-form" id="result">${sessionScope.assentoPass3}</label> 
+                            </div>
+
+                            <c:if test="${not empty sessionScope.assentoPass3Volta}">
+                                <div>   
+                                    <label class="resumo-form">Assento do voo de Volta: </label>
+                                    <label class="resumo-form" id="result">${sessionScope.assentoPass3Volta}</label> 
+                                </div>
+                            </c:if>
+                            <div>  
+                                <label class="resumo-form">Bagagem: </label>
+                                <label class="resumo-form" id="result">${sessionScope.Servico.extraBag} - R$ ${sessionScope.Servico.preco}</label>
+                            </div>
+                            <br>
+                        </c:if>
+
+
 
                         <div>
-                            <label class="resumo-form" id="tituloResumo">Dados de Pagamento</label>
-
-
+                            <label class="resumo-form" id="tituloResumo">Dados do Cliente e de Pagamento</label>
                         </div>
                         <br>
 
 
                         <div>
 
-                            <label class="resumo-form">Nome Completo do Pagante:</label>
-                            <label class="resumo-form" id="result">Clebeson Vieira Lima</label>
+                            <label class="resumo-form">Nome Completo do Cliente</label>
+                            <label class="resumo-form" id="result">${sessionScope.ReservaFinal.cliente.nome} ${sessionScope.ReservaFinal.cliente.sobrenome}</label>
 
 
                         </div>
 
                         <div >
                             <label class="resumo-form">Forma de Pagamento: </label>
-                              <label class="resumo-form" id="result">Boleto bancário</label>
+                            <label class="resumo-form" id="result">${sessionScope.ReservaFinal.formaPgto}</label>
 
 
                         </div>
 
 
                         <div>
-                            <label class="resumo-form">Nivel da Milhagem: </label>
-                             <label class="resumo-form" id="result">Cliente Pombo </label>
+                            <label class="resumo-form">Nivel do Cliente: </label>
+                            <label class="resumo-form" id="result">${sessionScope.ReservaFinal.cliente.nivel}</label>
 
 
                         </div>
@@ -221,15 +284,18 @@ id="menu_blockReserva" >Reserva</a></li>
                         <div >
 
                             <label class="resumo-form">Valor Total: </label>
-                            <label class="resumo-form" id="result"> R$ 400,00</label>
+                            <label class="resumo-form" id="result"> R$ ${sessionScope.ReservaFinal.custoTotal}</label>
 
                         </div>
-
-                        <div >
-
+                            
+                        <div>
+                            <label class="resumo-form">Desconto: </label>
+                            <label class="resumo-form" id="result">${sessionScope.desconto}</label>
+                        </div>    
+                            
+                        <div>
                             <label class="resumo-form">Pontos: </label>
-                            <label class="resumo-form" id="result">50</label>
-
+                            <label class="resumo-form" id="result">${sessionScope.ReservaFinal.cliente.pontos}</label>
                         </div>
                     </div>
 
@@ -242,15 +308,11 @@ id="menu_blockReserva" >Reserva</a></li>
 
 
                     <form class="signup" action="#" method="post">
-                        
-                        
-                       
+
+
+
                         <div class="form-footer">
-
-                            <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
-                            
-
-
+                            <button class="botoes">HOME<span class="fa fa-ban"></span></button>
                         </div>
 
                     </form>
