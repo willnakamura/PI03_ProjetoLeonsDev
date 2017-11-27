@@ -65,7 +65,6 @@ public class VooReservaServlet extends HttpServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVooUsuario.jsp");
                 dispatcher.forward(request, response);
             }
-
         }
 
         Date dataIdaVoo = null;
@@ -100,11 +99,16 @@ public class VooReservaServlet extends HttpServlet {
 
         try {
             ValidadorTelaVoo.validar(tela);
+
         } catch (ExceptionTelaVoo e) {
             request.setAttribute("erroTelaVoo", e.getMessage());
+            request.setAttribute("telaVooRepreencher", tela);
+            request.setAttribute("bagagemRepreencher", bagagem);
+            
             if (singleton.getCargo().equals("Gerente")) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
                 dispatcher.forward(request, response);
+
             } else {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVooUsuario.jsp");
                 dispatcher.forward(request, response);
@@ -147,7 +151,7 @@ public class VooReservaServlet extends HttpServlet {
             try {
                 voo1 = ServicoVoos.buscarVooEspecial(voo.getDataVoo(), ida.substring(0, 3), chegada.substring(0, 3));
                 if (voo1 == null || voo1.isEmpty()) {
-                    request.setAttribute("erroTelaVoo", "Não temos voo para esta origem e este destino.");
+                    request.setAttribute("erroTelaVoo", "Não temos voo para esta origem e este destino, ou ele não está disponível para essa data.");
                     if (singleton.getCargo().equals("Gerente")) {
                         RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
                         dispatcher.forward(request, response);
@@ -169,7 +173,7 @@ public class VooReservaServlet extends HttpServlet {
             try {
                 vooVolta = ServicoVoos.buscarVooEspecial(voo2.getDataVoo(), ida2.substring(0, 3), chegada2.substring(0, 3));
                 if (vooVolta == null || vooVolta.isEmpty()) {
-                    request.setAttribute("erroTelaVoo", "Não temos voo para esta origem e este destino.");
+                    request.setAttribute("erroTelaVoo", "Não temos voo para esta origem e este destino, ou ele não está disponível para essa data.");
                     if (singleton.getCargo().equals("Gerente")) {
                         RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
                         dispatcher.forward(request, response);

@@ -59,8 +59,8 @@
                         <div class="clear"></div>
                     </div>
                 </div>
-                      
-                            
+
+
                 <div class="grid_12">
                     <div id="logo">
                         <a  href="#">
@@ -97,67 +97,107 @@
                                     <p class="error"><c:out value="${requestScope.erroTelaVoo}"/></p>
                                 </c:if>
                             </div>
-                            
+
                             <div class="row">
-                                <!--<input type="text" name="origem-voo" placeholder="Aeroporto de Origem" />-->
 
                                 <select class="aeroportoFormat" name="origemVoo">
-                                    <option>Selecione o aeroporto de origem</option>
+
+                                    <c:choose>
+                                        <c:when test="${not empty requestScope.telaVooRepreencher.origem}">
+                                            <option value="${requestScope.telaVooRepreencher.origem}">${requestScope.telaVooRepreencher.origem}</option>
+                                        </c:when>
+
+                                        <c:otherwise>
+                                            <option>Selecione o aeroporto de origem</option> 
+                                        </c:otherwise>
+                                    </c:choose>
+
                                     <c:forEach items="${sessionScope.ListaAeroportos}" var="aeroportos">
                                         <option>${aeroportos}</option>
                                     </c:forEach>
+
                                 </select>
                             </div> 
+
                             <div class="row">
-                                <!--<input type="text" name="destino-voo" placeholder="Aeroporto de Destino" />-->
+
                                 <select class="aeroportoFormat" name="destinoVoo">
-                                    <option>Selecione o aeroporto de destino</option>
+
+                                    <c:choose>
+                                        <c:when test="${not empty requestScope.telaVooRepreencher.destino}">
+                                            <option value="${requestScope.telaVooRepreencher.destino}">${requestScope.telaVooRepreencher.destino}</option>
+                                        </c:when>
+
+                                        <c:otherwise>
+                                            <option>Selecione o aeroporto de destino</option> 
+                                        </c:otherwise>
+                                    </c:choose>
+
                                     <c:forEach items="${sessionScope.ListaAeroportos}" var="aeroportos">
                                         <option>${aeroportos}</option>
                                     </c:forEach>
+
                                 </select>
                             </div>
+
                             <div class="row">
                                 <input  type="radio" id="IdaeVolta" onclick="mostrar()" value="0" name="opcao" />
                                 <label >Ida e Volta</label>
                                 <input  type="radio" id="SoIda" onclick="ocultar()" value="1" name="opcao"/>
                                 <label >Só Ida</label>
                             </div>
-                            <br><br>                           
-
-                            
-
+                            <br><br>          
 
                             <div class="row" >
 
                                 <input type="date"  name="data-ida-voo" max="2999-12-31" id="dataidavoo"  class="dataidavoo" />
-                                
+
                                 <input type="date" id="ocultarData" max="2999-12-31" name="data-volta-voo" class="datavoltavoo"/>
-                                
+
                             </div>
                             <div class="row">                       
 
                                 <select id="formatar"  name="qtdpax">
-                                    <option>Quantidade de Passageiros</option>
+
+                                    <c:choose>
+                                        <c:when test="${not empty requestScope.telaVooRepreencher.qtdPass}">
+                                            <option value="${requestScope.telaVooRepreencher.qtdPass}">${requestScope.telaVooRepreencher.qtdPass}</option>
+                                        </c:when>
+
+                                        <c:otherwise>
+                                            <option>Quantidade de Passageiros</option>
+                                        </c:otherwise>
+                                    </c:choose>
+
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
+
                                 </select>
-                                
+
                                 <select id="formatar" class="bagagem" name="bagagem-voo">
-                                    <option value="0Kg">Selecione Bagagem</option>
+
+                                    <c:choose>
+                                        <c:when test="${not empty requestScope.bagagemRepreencher.bagagem}">
+                                            <option value="${requestScope.bagagemRepreencher.bagagem}">${requestScope.bagagemRepreencher.bagagem}</option>
+                                        </c:when>
+
+                                        <c:otherwise>
+                                            <option value="0Kg">Selecione Bagagem</option>
+                                        </c:otherwise>
+                                    </c:choose>
+
                                     <option value="5Kg">5kg - R$ 20,90</option>
                                     <option value="10Kg">10kg - R$ 39,90 </option>
                                     <option value="20Kg">20kg - R$ 79,90</option>
+
                                 </select>
 
                             </div>
 
                             <div class="form-footer">
 
-                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
                                 <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
-
 
                             </div>
 
