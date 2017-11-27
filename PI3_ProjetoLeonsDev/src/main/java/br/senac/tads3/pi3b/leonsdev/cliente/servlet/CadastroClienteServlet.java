@@ -29,7 +29,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "ClienteServlet", urlPatterns = {"/cadastro-cliente"})
 public class CadastroClienteServlet extends HttpServlet {
 
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -57,11 +56,11 @@ public class CadastroClienteServlet extends HttpServlet {
 //        RequestDispatcher dispatcher = request.getRequestDispatcher(destino);
 //        dispatcher.forward(request, response);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         SimpleDateFormat dataForm = new SimpleDateFormat("yyyy-MM-dd");
         HttpSession sessao = request.getSession();
 
@@ -69,14 +68,20 @@ public class CadastroClienteServlet extends HttpServlet {
         String sobNome = request.getParameter("sobreNome-cli");
         String cpf = request.getParameter("cpf-cli");
         String sexo = request.getParameter("sexo-cli");
-        
+
         String dataNascString = request.getParameter("dtNasc-cli");
+
+        if (dataNascString.equals("")) {
+            request.setAttribute("erroCadastro", "Favor informar uma data de nascimento válida");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarCliente.jsp");
+            dispatcher.forward(request, response);
+        }
+
         Date dataNasc = null;
-        
+
         try {
 
             dataNasc = dataForm.parse(dataNascString);
-            
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -111,19 +116,16 @@ public class CadastroClienteServlet extends HttpServlet {
             request.setAttribute("cliRepreenche", cli);
         }
         sessao.setAttribute("cli", cli);
-
         
         SingletonLogin singleton = SingletonLogin.getInstance();
+        
         if(singleton.getCargo().equals("Gerente")){
             RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarCliente.jsp");
             dispatcher.forward(request, response);
+            
         }else{
             RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarClienteUsuario.jsp");
             dispatcher.forward(request, response);
         }
-        
-        
-        
     }
-
 }
