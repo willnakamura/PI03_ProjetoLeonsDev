@@ -38,7 +38,7 @@ public class ServicoCliente {
     }
 
     public static Cliente procurarCliente(String cpf) throws ClienteException, DataExceptions {
-
+        
         try {
             return DaoClientes.procurar(cpf);
 

@@ -33,28 +33,6 @@ public class CadastroClienteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-//        String destino;
-//
-//        HttpSession sessao = request.getSession();
-//        
-//        sessao.getAttribute("cli");
-//        
-//        if (sessao.getAttribute("cli") != null) {
-//            request.setAttribute("cli", sessao.getAttribute("cli"));
-//            // Remove o atributo da sessao para usuario nao ficar preso na tela de resultados
-//            sessao.removeAttribute("cli");
-//
-//            request.setAttribute("disponivel", sessao.getAttribute("disponivel"));
-//            // Remove o atributo da sessao para usuario nao ficar preso na tela de resultados
-//            sessao.removeAttribute("disponivel");
-//
-//            destino = "/cadastrarCliente.jsp";
-//        } else {
-//            destino = "/cadastrarCliente.jsp";
-//        }
-//
-//        RequestDispatcher dispatcher = request.getRequestDispatcher(destino);
-//        dispatcher.forward(request, response);
     }
 
     @Override
@@ -111,6 +89,7 @@ public class CadastroClienteServlet extends HttpServlet {
         try {
             ServicoCliente.CadastrarCliente(cli);
             request.setAttribute("sucessCadastro", "Cadastro realizado com sucesso.");
+            
         } catch (ClienteException | DataExceptions e) {
             request.setAttribute("erroCadastro", e.getMessage());
             request.setAttribute("cliRepreenche", cli);

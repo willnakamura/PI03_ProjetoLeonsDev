@@ -271,10 +271,8 @@ public class PassageirosReservaServlet extends HttpServlet {
                     sessao.setAttribute("desconto", desconto);
                     reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - serv.getPreco());
                 }
-
             }
             //----------------------------------------
-            //-----------------------------------------
 
             sessao.setAttribute("ReservaFinal", reserva);
             sessao.setAttribute("ServicoReservaFinal", serv);
@@ -285,12 +283,12 @@ public class PassageirosReservaServlet extends HttpServlet {
             String nomePagador = cliente.getNome() + " " + cliente.getSobrenome();
             sessao.setAttribute("nomePagador", nomePagador);
             sessao.setAttribute("custoTotal", reserva.getCustoTotal());
-            //---------------------------------------------------------------------------------------------
 
+            //---------------------------------------------------------------------------------------------
             if (qntPass == 1) {
                 sessao.setAttribute("Passageiro1", pass);
                 sessao.setAttribute("PassageiroVoo1", passVoos);
-                sessao.setAttribute("assentoPass1", passVoos.getAssento());
+                sessao.setAttribute("c", passVoos.getAssento());
                 sessao.setAttribute("assentoPass1Volta", passVoosVolta.getAssento());
 
                 if (singleton.getCargo().equals("Gerente")) {
@@ -305,12 +303,40 @@ public class PassageirosReservaServlet extends HttpServlet {
                 sessao.setAttribute("Passageiro2", pass);
                 sessao.setAttribute("assentoPass2", passVoos.getAssento());
                 sessao.setAttribute("assentoPass2Volta", passVoosVolta.getAssento());
+
+                request.setAttribute("nPassPag", 2);
+
+                String assentoIdaPass1 = (String) sessao.getAttribute("assentoPass1");
+                String assentoIdaPass2 = (String) sessao.getAttribute("assentoPass2");
+
+                String assentoVoltaPass1 = (String) sessao.getAttribute("assentoPass1Volta");
+                String assentoVoltaPass2 = (String) sessao.getAttribute("assentoPass2Volta");
+
+                if (assentoIdaPass1.equals(assentoIdaPass2)) {
+                    request.setAttribute("erroPassageiro", "Assento de ida já selecionado.");
+                    if (singleton.getCargo().equals("Gerente")) {
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
+                        dispatcher.forward(request, response);
+                    } else {
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVoltaUsuario.jsp");
+                        dispatcher.forward(request, response);
+                    }
+
+                } else if (assentoVoltaPass1.equals(assentoVoltaPass2)) {
+                    request.setAttribute("erroPassageiro", "Assento de volta já selecionado.");
+                    if (singleton.getCargo().equals("Gerente")) {
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
+                        dispatcher.forward(request, response);
+                    } else {
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVoltaUsuario.jsp");
+                        dispatcher.forward(request, response);
+                    }
+                }
+
                 qntPass--;
                 String qtdPax = Integer.toString(qntPass);
                 sessao.setAttribute("qtdpax", qtdPax);
 
-                request.setAttribute("nPassPag", 2);
-//                sessao.setAttribute("assentoPass2", assento);
                 if (singleton.getCargo().equals("Gerente")) {
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
                     dispatcher.forward(request, response);
@@ -324,11 +350,40 @@ public class PassageirosReservaServlet extends HttpServlet {
                 sessao.setAttribute("assentoPass3", passVoos.getAssento());
                 sessao.setAttribute("assentoPass3Volta", passVoosVolta.getAssento());
 
+                request.setAttribute("nPassPag", 3);
+
+                String assentoIdaPass1 = (String) sessao.getAttribute("assentoPass1");
+                String assentoIdaPass2 = (String) sessao.getAttribute("assentoPass2");
+                String assentoIdaPass3 = (String) sessao.getAttribute("assentoPass3");
+
+                String assentoVoltaPass1 = (String) sessao.getAttribute("assentoPass1Volta");
+                String assentoVoltaPass2 = (String) sessao.getAttribute("assentoPass2Volta");
+                String assentoVoltaPass3 = (String) sessao.getAttribute("assentoPass3Volta");
+
+                if (assentoIdaPass1.equals(assentoIdaPass3) || assentoIdaPass2.equals(assentoIdaPass3)) {
+                    request.setAttribute("erroPassageiro", "Assento de ida já selecionado.");
+                    if (singleton.getCargo().equals("Gerente")) {
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
+                        dispatcher.forward(request, response);
+                    } else {
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVoltaUsuario.jsp");
+                        dispatcher.forward(request, response);
+                    }
+
+                } else if (assentoVoltaPass1.equals(assentoVoltaPass3) || assentoVoltaPass2.equals(assentoVoltaPass3)) {
+                    request.setAttribute("erroPassageiro", "Assento de volta já selecionado.");
+                    if (singleton.getCargo().equals("Gerente")) {
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
+                        dispatcher.forward(request, response);
+                    } else {
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVoltaUsuario.jsp");
+                        dispatcher.forward(request, response);
+                    }
+                }
+
                 qntPass--;
                 String qtdPax = Integer.toString(qntPass);
                 sessao.setAttribute("qtdpax", qtdPax);
-                request.setAttribute("nPassPag", 3);
-//                sessao.setAttribute("assentoPass3", assento);
 
                 if (singleton.getCargo().equals("Gerente")) {
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
@@ -338,7 +393,6 @@ public class PassageirosReservaServlet extends HttpServlet {
                     dispatcher.forward(request, response);
                 }
             }
-            //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
 
         } else if (opcao.equals("1")) {
 
@@ -457,23 +511,75 @@ public class PassageirosReservaServlet extends HttpServlet {
                 sessao.setAttribute("PassageiroVoo1", passVoos);
                 sessao.setAttribute("assentoPass1", passVoos.getAssento());
 
-                if (singleton.getCargo().equals("Gerente")) {
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
-                    dispatcher.forward(request, response);
-                } else {
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamentoUsuario.jsp");
-                    dispatcher.forward(request, response);
+                String assentoPass1 = (String) sessao.getAttribute("assentoPass1");
+                String assentoPass2 = (String) sessao.getAttribute("assentoPass2");
+                String assentoPass3 = (String) sessao.getAttribute("assentoPass3");
+
+                if (assentoPass3 != null) {
+                    if (assentoPass1.equals(assentoPass3) || assentoPass1.equals(assentoPass2)) {
+                        request.setAttribute("erroPassageiro", "Assento já selecionado.");
+                        request.setAttribute("nPassPag", 3);
+
+                        if (singleton.getCargo().equals("Gerente")) {
+                            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+                            dispatcher.forward(request, response);
+                        } else {
+                            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosUsuario.jsp");
+                            dispatcher.forward(request, response);
+                        }
+                    } else {
+                        if (singleton.getCargo().equals("Gerente")) {
+                            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
+                            dispatcher.forward(request, response);
+                        } else {
+                            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamentoUsuario.jsp");
+                            dispatcher.forward(request, response);
+                        }
+                    }
+                } else if (assentoPass2 != null) {
+                    if (assentoPass1.equals(assentoPass2)) {
+                        request.setAttribute("erroPassageiro", "Assento já selecionado.");
+                        request.setAttribute("nPassPag", 3);
+
+                        if (singleton.getCargo().equals("Gerente")) {
+                            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+                            dispatcher.forward(request, response);
+                        } else {
+                            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosUsuario.jsp");
+                            dispatcher.forward(request, response);
+                        }
+                    } else {
+                        if (singleton.getCargo().equals("Gerente")) {
+                            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
+                            dispatcher.forward(request, response);
+                        } else {
+                            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamentoUsuario.jsp");
+                            dispatcher.forward(request, response);
+                        }
+                    }
                 }
 
             } else if (qntPass == 2) {
                 sessao.setAttribute("Passageiro2", pass);
                 sessao.setAttribute("PassageiroVoo2", passVoos);
-                qntPass--;
-                String qtdPax = Integer.toString(qntPass);
-                sessao.setAttribute("qtdpax", qtdPax);
 
-                request.setAttribute("nPassPag", 2);
                 sessao.setAttribute("assentoPass2", passVoos.getAssento());
+
+                String assentoPass2 = (String) sessao.getAttribute("assentoPass2");
+                String assentoPass3 = (String) sessao.getAttribute("assentoPass3");
+
+                if (assentoPass3 != null) {
+                    if (assentoPass3.equals(assentoPass2)) {
+                        request.setAttribute("erroPassageiro", "Assento já selecionado.");
+                        request.setAttribute("nPassPag", 2);
+
+                    } else {
+                        qntPass--;
+                        String qtdPax = Integer.toString(qntPass);
+                        sessao.setAttribute("qtdpax", qtdPax);
+                        request.setAttribute("nPassPag", 3);
+                    }
+                }
 
                 if (singleton.getCargo().equals("Gerente")) {
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
@@ -486,12 +592,12 @@ public class PassageirosReservaServlet extends HttpServlet {
             } else if (qntPass == 3) {
                 sessao.setAttribute("Passageiro3", pass);
                 sessao.setAttribute("PassageiroVoo3", passVoos);
+                sessao.setAttribute("assentoPass3", passVoos.getAssento());
 
                 qntPass--;
                 String qtdPax = Integer.toString(qntPass);
                 sessao.setAttribute("qtdpax", qtdPax);
-                request.setAttribute("nPassPag", 3);
-                sessao.setAttribute("assentoPass3", passVoos.getAssento());
+                request.setAttribute("nPassPag", qtdPax);
 
                 if (singleton.getCargo().equals("Gerente")) {
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
@@ -501,7 +607,6 @@ public class PassageirosReservaServlet extends HttpServlet {
                     dispatcher.forward(request, response);
                 }
             }
-            //reserva.setCustoTotal((vooIda.getTarifa() * qtdPassReserva) + serv.getPreco());
         }
     }
 }

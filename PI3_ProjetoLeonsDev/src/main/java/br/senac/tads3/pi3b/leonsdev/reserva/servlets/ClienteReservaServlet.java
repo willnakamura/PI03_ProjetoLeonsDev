@@ -65,8 +65,8 @@ public class ClienteReservaServlet extends HttpServlet {
 
         try {
             cli = ServicoCliente.procurarCliente(buscaCli);
-
-            if (cli.getCpf().equals("") || cli.getCpf() == null) {
+             
+            if (cli.getCpf() == null) {
                 request.setAttribute("erroSelecionaCli", "A pesquisa não troxe resultado para esta pesquisa.");
 
                 if (singleton.getCargo().equals("Gerente")) {

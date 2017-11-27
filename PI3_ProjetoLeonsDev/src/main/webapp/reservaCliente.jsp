@@ -124,8 +124,6 @@
                                 </div>  
                                 <div class="row">
                                     <input type="number"  placeholder="cpf*" value="${sessionScope.clienteSelectReserva.cpf}"  name="cpf-cli-selecionar" readonly="readonly">
-
-
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Email*" value="${sessionScope.clienteSelectReserva.email}" name="email-cli-selecionar" readonly="readonly">
