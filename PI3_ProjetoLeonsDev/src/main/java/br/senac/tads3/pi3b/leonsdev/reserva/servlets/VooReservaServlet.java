@@ -89,6 +89,7 @@ public class VooReservaServlet extends HttpServlet {
         sessao.setAttribute("opcaoIdaOuIdaVolta", opcao);
 
         String bagagem = request.getParameter("bagagem-voo");
+        
 
         tela.setAeroportoDestino(destino);
         tela.setAeroportoOrigem(origem);
@@ -103,7 +104,7 @@ public class VooReservaServlet extends HttpServlet {
         } catch (ExceptionTelaVoo e) {
             request.setAttribute("erroTelaVoo", e.getMessage());
             request.setAttribute("telaVooRepreencher", tela);
-            request.setAttribute("bagagemRepreencher", bagagem);
+            
             
             if (singleton.getCargo().equals("Gerente")) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
@@ -135,6 +136,7 @@ public class VooReservaServlet extends HttpServlet {
 
             //verificar operação com a bagagem....
             sessao.setAttribute("bagagem", bagagem);
+            request.setAttribute("bagagemRepreencher", bagagem);
 
             voo.setAeroportoPartida(origem);
             voo.setAeroportoChegada(destino);
@@ -203,6 +205,7 @@ public class VooReservaServlet extends HttpServlet {
             sessao.setAttribute("qtdPassageirosReserva", qtdPass);
 
             sessao.setAttribute("bagagem", bagagem);
+            request.setAttribute("bagagemRepreencher", bagagem);
 
             voo.setAeroportoPartida(origem);
             voo.setAeroportoChegada(destino);
