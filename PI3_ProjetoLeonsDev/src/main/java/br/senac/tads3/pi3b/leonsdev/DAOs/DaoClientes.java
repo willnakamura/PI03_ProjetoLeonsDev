@@ -149,7 +149,7 @@ public class DaoClientes {
 
     public static List<Cliente> listar()
             throws SQLException, Exception {
-        String sql = "SELECT C.*, F.Nivel FROM Clientes C "
+        String sql = "SELECT C.*, F.Nivel, F.MilhasSaldo FROM Clientes C "
                 + "INNER JOIN Fidelidade F ON F.Cliente_ID = C.Cliente_ID "
                 + "WHERE (C.Ativo=?)";
 
@@ -193,6 +193,7 @@ public class DaoClientes {
                 cliente.setSobrenome(result.getString("Sobrenome"));
                 cliente.setDataCadastro(result.getDate("DataCadastro"));
                 cliente.setNivel(result.getString("Nivel"));
+                cliente.setPontos(result.getInt("MilhasSaldo"));
 
                 //Adiciona a instância na lista
                 listaClientes.add(cliente);
@@ -218,8 +219,8 @@ public class DaoClientes {
     public static Cliente procurar(String valor)
             throws SQLException, Exception {
 
-        String sql = "SELECT C.*, F.Nivel FROM Clientes C "
-                + "INNER JOIN Fidelidade F ON F.Cliente_ID = F.Cliente_ID"
+        String sql = "SELECT C.*, F.Nivel, F.MilhasSaldo FROM Clientes C "
+                + "INNER JOIN Fidelidade F ON F.Cliente_ID = C.Cliente_ID"
                 + " WHERE C.CPF=? AND C.Ativo=? limit 1";
 
         Cliente cliente = new Cliente();
@@ -258,6 +259,7 @@ public class DaoClientes {
                 cliente.setSobrenome(result.getString("Sobrenome"));
                 cliente.setDataCadastro(result.getDate("DataCadastro"));
                 cliente.setNivel(result.getString("Nivel"));
+                cliente.setPontos(result.getInt("MilhasSaldo"));
             }
         } finally {
             //Se o result ainda estiver aberto, realiza seu fechamento

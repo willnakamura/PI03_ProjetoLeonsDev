@@ -22,7 +22,6 @@
 
 
 
-
         <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery-migrate-1.2.1.js"></script>
         <script src="${pageContext.request.contextPath}/js/script.js"></script>

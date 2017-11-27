@@ -10,11 +10,9 @@ import br.senac.tads3.pi3b.leonsdev.Telas.classes.ValidadorTelaPassageiro;
 import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
 import br.senac.tads3.pi3b.leonsdev.exceptions.ExceptionTelaPassageiro;
-import br.senac.tads3.pi3b.leonsdev.exceptions.PassageirosException;
 import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.Passageiros;
 import br.senac.tads3.pi3b.leonsdev.passageiros.classes.PassageirosVoos;
-import br.senac.tads3.pi3b.leonsdev.passageiros.classes.ValidadorPassageiros;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
 import br.senac.tads3.pi3b.leonsdev.servico.classes.Servico;
 import br.senac.tads3.pi3b.leonsdev.usuario.classes.ServicoUsuario;
@@ -51,6 +49,7 @@ public class PassageirosReservaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        SingletonLogin singleton = SingletonLogin.getInstance();
         HttpSession sessao = request.getSession();
         Passageiros pass = new Passageiros();
         PassageirosVoos passVoos = new PassageirosVoos();
@@ -76,8 +75,14 @@ public class PassageirosReservaServlet extends HttpServlet {
 
         if (dataNascString.equals("")) {
             request.setAttribute("erroPassageiro", "Favor informar uma data de nascimento válida");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-            dispatcher.forward(request, response);
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
+
         }
 
         Date dataNasc = null;
@@ -107,7 +112,6 @@ public class PassageirosReservaServlet extends HttpServlet {
         reserva.setDataReserva(calendario.getTime());
 
         Usuario usu = new Usuario();
-        SingletonLogin singleton = SingletonLogin.getInstance();
 
         try {
             usu = ServicoUsuario.ObterUsuario(singleton.getFunc_id());
@@ -126,20 +130,23 @@ public class PassageirosReservaServlet extends HttpServlet {
             precoBag = 20.9d;
             serv.setExtraBag(bagagem);
             serv.setPreco(precoBag);
+            sessao.setAttribute("Servico", serv);
 
         } else if (bagagem.equals("10Kg")) {
             precoBag = 39.9d;
             serv.setExtraBag(bagagem);
             serv.setPreco(precoBag);
-
+            sessao.setAttribute("Servico", serv);
         } else if (bagagem.equals("20Kg")) {
             precoBag = 79.9d;
             serv.setExtraBag(bagagem);
             serv.setPreco(precoBag);
+            sessao.setAttribute("Servico", serv);
         } else if (bagagem.equals("0Kg")) {
             precoBag = 0.0d;
             serv.setExtraBag(bagagem);
             serv.setPreco(precoBag);
+            sessao.setAttribute("Servico", serv);
         }
 
         Voos vooIda = new Voos();
@@ -167,8 +174,13 @@ public class PassageirosReservaServlet extends HttpServlet {
             } catch (ExceptionTelaPassageiro e) {
                 request.setAttribute("erroPassageiro", e.getMessage());
 
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-                dispatcher.forward(request, response);
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
 
             }
 
@@ -193,86 +205,139 @@ public class PassageirosReservaServlet extends HttpServlet {
 //                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
 //                dispatcher.forward(request, response);
 //            }
-
             pass.setpassVoos(passVoos);
             pass.setpassVoos(passVoosVolta);
 
             int quantidadePass = qtdPassReserva;
-            
-            if(reserva.getCliente().getNivel().equals("Pelicano")){
-                if(passVoos.getAssento().equals("1A") || passVoos.getAssento().equals("1B")
-                        || passVoos.getAssento().equals("1E")||passVoos.getAssento().equals("1F")||
-                        passVoos.getAssento().equals("2A") || passVoos.getAssento().equals("2B")
-                        || passVoos.getAssento().equals("2E")||passVoos.getAssento().equals("2F")||
-                        passVoos.getAssento().equals("3A") || passVoos.getAssento().equals("3B")
-                        || passVoos.getAssento().equals("3E")||passVoos.getAssento().equals("3F")||
-                        passVoos.getAssento().equals("4A") || passVoos.getAssento().equals("4B")
-                        || passVoos.getAssento().equals("4E")||passVoos.getAssento().equals("4F")){
-                    
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass) - 30.0);
-                    
-                }else if(!passVoos.getAssento().equals("1A") || !passVoos.getAssento().equals("1B")
-                        || !passVoos.getAssento().equals("1E")||!passVoos.getAssento().equals("1F")||
-                        !passVoos.getAssento().equals("2A") || !passVoos.getAssento().equals("2B")
-                        || !passVoos.getAssento().equals("2E")||!passVoos.getAssento().equals("2F")||
-                        !passVoos.getAssento().equals("3A") || !passVoos.getAssento().equals("3B")
-                        || !passVoos.getAssento().equals("3E")||!passVoos.getAssento().equals("3F")||
-                        !passVoos.getAssento().equals("4A") || !passVoos.getAssento().equals("4B")
-                        || !passVoos.getAssento().equals("4E")||!passVoos.getAssento().equals("4F")){
-                    
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
+
+            //-----------desconto----------
+            //----------------------------
+            if (reserva.getCliente().getNivel().equals("Pelicano")) {
+                if (passVoos.getAssento().contains("30.0")) {
+                    Double desconto = (Double) sessao.getAttribute("desconto");
+                    if (desconto == null) {
+                        desconto = 0.0;
+                    }
+                    desconto = desconto + 30.0;
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto + serv.getPreco());
+
+                } else {
+                    Double desconto = (Double) sessao.getAttribute("desconto");
+                    if (desconto == null) {
+                        desconto = 0.0;
+                    }
+                    desconto = 0.0;
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto + serv.getPreco());
                 }
                 //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
-            }else if(reserva.getCliente().getNivel().equals("Aguia")){
-                if(passVoos.getAssento().equals("1A") || passVoos.getAssento().equals("1B")
-                        || passVoos.getAssento().equals("1E")||passVoos.getAssento().equals("1F")||
-                        passVoos.getAssento().equals("2A") || passVoos.getAssento().equals("2B")
-                        || passVoos.getAssento().equals("2E")||passVoos.getAssento().equals("2F")||
-                        passVoos.getAssento().equals("3A") || passVoos.getAssento().equals("3B")
-                        || passVoos.getAssento().equals("3E")||passVoos.getAssento().equals("3F")||
-                        passVoos.getAssento().equals("4A") || passVoos.getAssento().equals("4B")
-                        || passVoos.getAssento().equals("4E")||passVoos.getAssento().equals("4F")){
-                    
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - 30.0 - serv.getPreco());
-                    
-                }else if(!passVoos.getAssento().equals("1A") || !passVoos.getAssento().equals("1B")
-                        || !passVoos.getAssento().equals("1E")||!passVoos.getAssento().equals("1F")||
-                        !passVoos.getAssento().equals("2A") || !passVoos.getAssento().equals("2B")
-                        || !passVoos.getAssento().equals("2E")||!passVoos.getAssento().equals("2F")||
-                        !passVoos.getAssento().equals("3A") || !passVoos.getAssento().equals("3B")
-                        || !passVoos.getAssento().equals("3E")||!passVoos.getAssento().equals("3F")||
-                        !passVoos.getAssento().equals("4A") || !passVoos.getAssento().equals("4B")
-                        || !passVoos.getAssento().equals("4E")||!passVoos.getAssento().equals("4F")){
-                    
+            } else if (reserva.getCliente().getNivel().equals("Aguia")) {
+                if (passVoos.getAssento().contains("30.0")) {
+                    Double desconto = (Double) sessao.getAttribute("desconto");
+                    if (desconto == null) {
+                        desconto = 0.0;
+                    }
+                    desconto = desconto + 30.0 + serv.getPreco();
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
+
+                } else {
+                    Double desconto = (Double) sessao.getAttribute("desconto");
+                    if (desconto == null) {
+                        desconto = 0.0;
+                    }
+                    desconto = desconto + serv.getPreco();
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
+                }
+                //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
+            } else if (reserva.getCliente().getNivel().equals("Pombo")) {
+                if (passVoos.getAssento().contains("30.0")) {
+                    Double desconto = (Double) sessao.getAttribute("desconto");
+                    if (desconto == null) {
+                        desconto = 0.0;
+                    }
+                    desconto = 0.0;
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) + 30.0 + serv.getPreco());
+
+                } else {
+                    Double desconto = (Double) sessao.getAttribute("desconto");
+                    if (desconto == null) {
+                        desconto = 0.0;
+                    }
+                    desconto = 0.0;
+                    sessao.setAttribute("desconto", desconto);
                     reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - serv.getPreco());
                 }
-                //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
-            }else if(reserva.getCliente().getNivel().equals("Pombo")){
-                if(passVoos.getAssento().equals("1A") || passVoos.getAssento().equals("1B")
-                        || passVoos.getAssento().equals("1E")||passVoos.getAssento().equals("1F")||
-                        passVoos.getAssento().equals("2A") || passVoos.getAssento().equals("2B")
-                        || passVoos.getAssento().equals("2E")||passVoos.getAssento().equals("2F")||
-                        passVoos.getAssento().equals("3A") || passVoos.getAssento().equals("3B")
-                        || passVoos.getAssento().equals("3E")||passVoos.getAssento().equals("3F")||
-                        passVoos.getAssento().equals("4A") || passVoos.getAssento().equals("4B")
-                        || passVoos.getAssento().equals("4E")||passVoos.getAssento().equals("4F")){
-                    
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) + 30.0 + serv.getPreco());
-                    
-                }else if(!passVoos.getAssento().equals("1A") || !passVoos.getAssento().equals("1B")
-                        || !passVoos.getAssento().equals("1E")||!passVoos.getAssento().equals("1F")||
-                        !passVoos.getAssento().equals("2A") || !passVoos.getAssento().equals("2B")
-                        || !passVoos.getAssento().equals("2E")||!passVoos.getAssento().equals("2F")||
-                        !passVoos.getAssento().equals("3A") || !passVoos.getAssento().equals("3B")
-                        || !passVoos.getAssento().equals("3E")||!passVoos.getAssento().equals("3F")||
-                        !passVoos.getAssento().equals("4A") || !passVoos.getAssento().equals("4B")
-                        || !passVoos.getAssento().equals("4E")||!passVoos.getAssento().equals("4F")){
-                    
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) + serv.getPreco());
-                }
-                
+
             }
-            
+            //----------------------------------------
+            //-----------------------------------------
+
+            sessao.setAttribute("ReservaFinal", reserva);
+            sessao.setAttribute("ServicoReservaFinal", serv);
+            sessao.setAttribute("VooIdaReservaFinal", vooIda);
+            sessao.setAttribute("VooVoltaReservaFinal", vooVolta);
+
+            Cliente cliente = (Cliente) sessao.getAttribute("clienteSelectReserva");
+            String nomePagador = cliente.getNome() + " " + cliente.getSobrenome();
+            sessao.setAttribute("nomePagador", nomePagador);
+            sessao.setAttribute("custoTotal", reserva.getCustoTotal());
+            //---------------------------------------------------------------------------------------------
+
+            if (qntPass == 1) {
+                sessao.setAttribute("Passageiro1", pass);
+                sessao.setAttribute("PassageiroVoo1", passVoos);
+                sessao.setAttribute("assentoPass1", passVoos.getAssento());
+                sessao.setAttribute("assentoPass1Volta", passVoosVolta.getAssento());
+
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamentoUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
+
+            } else if (qntPass == 2) {
+                sessao.setAttribute("Passageiro2", pass);
+                sessao.setAttribute("assentoPass2", passVoos.getAssento());
+                sessao.setAttribute("assentoPass2Volta", passVoosVolta.getAssento());
+                qntPass--;
+                String qtdPax = Integer.toString(qntPass);
+                sessao.setAttribute("qtdpax", qtdPax);
+
+                request.setAttribute("nPassPag", 2);
+//                sessao.setAttribute("assentoPass2", assento);
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVoltaUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
+
+            } else if (qntPass == 3) {
+                sessao.setAttribute("Passageiro3", pass);
+                sessao.setAttribute("assentoPass3", passVoos.getAssento());
+                sessao.setAttribute("assentoPass3Volta", passVoosVolta.getAssento());
+
+                qntPass--;
+                String qtdPax = Integer.toString(qntPass);
+                sessao.setAttribute("qtdpax", qtdPax);
+                request.setAttribute("nPassPag", 3);
+//                sessao.setAttribute("assentoPass3", assento);
+
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVolta.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosIdaVoltaUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
+            }
             //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
 
         } else if (opcao.equals("1")) {
@@ -287,8 +352,14 @@ public class PassageirosReservaServlet extends HttpServlet {
             } catch (ExceptionTelaPassageiro e) {
                 request.setAttribute("erroPassageiro", e.getMessage());
 
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-                dispatcher.forward(request, response);
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
+
             }
 
             try {
@@ -307,53 +378,130 @@ public class PassageirosReservaServlet extends HttpServlet {
 
             int quantidadePass = qtdPassReserva;
 
-            reserva.setCustoTotal((vooIda.getTarifa() * qtdPassReserva) + serv.getPreco());
-        }
+            if (reserva.getCliente().getNivel().equals("Pelicano")) {
+                if (passVoos.getAssento().contains("30.0")) {
+                    Double desconto = (Double) sessao.getAttribute("desconto");
+                    if (desconto == null) {
+                        desconto = 0.0;
+                    }
+                    desconto = 30.0;
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto + serv.getPreco());
 
-        sessao.setAttribute("ReservaFinal", reserva);
-        sessao.setAttribute("ServicoReservaFinal", serv);
-        sessao.setAttribute("VooIdaReservaFinal", vooIda);
-        sessao.setAttribute("VooVoltaResrvaFinal", vooVolta);
+                } else {
+                    Double desconto = (Double) sessao.getAttribute("desconto");
+                    if (desconto == null) {
+                        desconto = 0.0;
+                    }
+                    desconto = 0.0;
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto + serv.getPreco());
+                }
+                //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
+            } else if (reserva.getCliente().getNivel().equals("Aguia")) {
+                if (passVoos.getAssento().contains("30.0")) {
+                    Double desconto = (Double) sessao.getAttribute("desconto");
+                    if (desconto == null) {
+                        desconto = 0.0;
+                    }
 
-        Cliente cliente = (Cliente) sessao.getAttribute("clienteSelectReserva");
-        String nomePagador = cliente.getNome() + " " + cliente.getSobrenome();
-        sessao.setAttribute("nomePagador", nomePagador);
-        sessao.setAttribute("custoTotal", reserva.getCustoTotal());
-        //---------------------------------------------------------------------------------------------
+                    desconto = desconto + 30 + serv.getPreco();
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
 
-        if (qntPass == 1) {
-            sessao.setAttribute("Passageiro1", pass);
-            sessao.setAttribute("PassageiroVoo1", passVoos);
-            sessao.setAttribute("assentoPass", assento);
+                } else {
+                    Double desconto = (Double) sessao.getAttribute("desconto");
+                    if (desconto == null) {
+                        desconto = 0.0;
+                    }
+                    desconto = desconto + serv.getPreco();
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
+                }
+                //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
+            } else if (reserva.getCliente().getNivel().equals("Pombo")) {
+                if (passVoos.getAssento().contains("30.0")) {
+                    Double desconto = (Double) sessao.getAttribute("desconto");
+                    if (desconto == null) {
+                        desconto = 0.0;
+                    }
+                    desconto = 0.0;
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) + 30.0 + serv.getPreco());
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
-            dispatcher.forward(request, response);
+                } else {
+                    Double desconto = (Double) sessao.getAttribute("desconto");
+                    if (desconto == null) {
+                        desconto = 0.0;
+                    }
+                    desconto = 0.0;
+                    sessao.setAttribute("desconto", desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - serv.getPreco());
+                }
 
-        } else if (qntPass == 2) {
-            sessao.setAttribute("Passageiro2", pass);
-            sessao.setAttribute("PassageiroVoo2", passVoos);
-            qntPass--;
-            String qtdPax = Integer.toString(qntPass);
-            sessao.setAttribute("qtdpax", qtdPax);
+            }
 
-            request.setAttribute("nPassPag", 2);
-            sessao.setAttribute("assentoPass", assento);
+            sessao.setAttribute("ReservaFinal", reserva);
+            sessao.setAttribute("ServicoReservaFinal", serv);
+            sessao.setAttribute("VooIdaReservaFinal", vooIda);
+            sessao.setAttribute("VooVoltaResrvaFinal", vooVolta);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-            dispatcher.forward(request, response);
+            Cliente cliente = (Cliente) sessao.getAttribute("clienteSelectReserva");
+            String nomePagador = cliente.getNome() + " " + cliente.getSobrenome();
+            sessao.setAttribute("nomePagador", nomePagador);
+            sessao.setAttribute("custoTotal", reserva.getCustoTotal());
+            //---------------------------------------------------------------------------------------------
 
-        } else if (qntPass == 3) {
-            sessao.setAttribute("Passageiro3", pass);
-            sessao.setAttribute("PassageiroVoo3", passVoos);
+            if (qntPass == 1) {
+                sessao.setAttribute("Passageiro1", pass);
+                sessao.setAttribute("PassageiroVoo1", passVoos);
+                sessao.setAttribute("assentoPass1", passVoos.getAssento());
 
-            qntPass--;
-            String qtdPax = Integer.toString(qntPass);
-            sessao.setAttribute("qtdpax", qtdPax);
-            request.setAttribute("nPassPag", 3);
-            sessao.setAttribute("assentoPass", assento);
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamentoUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
-            dispatcher.forward(request, response);
+            } else if (qntPass == 2) {
+                sessao.setAttribute("Passageiro2", pass);
+                sessao.setAttribute("PassageiroVoo2", passVoos);
+                qntPass--;
+                String qtdPax = Integer.toString(qntPass);
+                sessao.setAttribute("qtdpax", qtdPax);
+
+                request.setAttribute("nPassPag", 2);
+                sessao.setAttribute("assentoPass2", passVoos.getAssento());
+
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
+
+            } else if (qntPass == 3) {
+                sessao.setAttribute("Passageiro3", pass);
+                sessao.setAttribute("PassageiroVoo3", passVoos);
+
+                qntPass--;
+                String qtdPax = Integer.toString(qntPass);
+                sessao.setAttribute("qtdpax", qtdPax);
+                request.setAttribute("nPassPag", 3);
+                sessao.setAttribute("assentoPass3", passVoos.getAssento());
+
+                if (singleton.getCargo().equals("Gerente")) {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageiros.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPassageirosUsuario.jsp");
+                    dispatcher.forward(request, response);
+                }
+            }
+            //reserva.setCustoTotal((vooIda.getTarifa() * qtdPassReserva) + serv.getPreco());
         }
     }
 }

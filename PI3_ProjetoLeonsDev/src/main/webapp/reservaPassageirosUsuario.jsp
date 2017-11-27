@@ -10,14 +10,14 @@
 <html>
     <head>
 
-        <title>Pagamento</title>
+        <title>Passageiros</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
         <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_1.css">
 
 
 
@@ -31,6 +31,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery.equalheights.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+        <script src="${pageContext.request.contextPath}/js/limitarCampos.js"></script>
 
         <script>
             $(document).ready(function () {
@@ -44,21 +45,21 @@
         <header>
             <div class="container_12">
                 <div class="grid_12">
-                    <div class="menu_block">
+                    <div class="menu_block" id="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
-                            <ul class="sf-menu">
-                                <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuário</a></li>
-                                <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
-                                <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
+                            <ul class="sf-menu" id="menu_blockul">
+                                <li class="current" id="menu_blockHome"><a href="${pageContext.request.contextPath}/homeUsuario.jsp">HOME</a></li>                                
+                                <li id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarUsuaroUsuario.jsp">Cliente</a></li>                                
+                              
+                                 <li class="current"><a href="${pageContext.request.contextPath}/reservaVooUsuario.jsp" id="menu_blockReserva">Reserva</a></li>
+                               
                             </ul>
                         </nav>
                         <div class="clear"></div>
                     </div>
                 </div>
-                <div class="grid_12">
-                    <div id="logo">
+              <div class="grid_12">
+                   <div id="logo">
                         <a  href="#">
                             <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
                         </a>
@@ -82,50 +83,59 @@
                 <div class="grid_8">
 
                     <div class="tituloCliente">
-                        <h5 class="opcao">PAGAMENTO </h5>
+                        <h5 class="opcao">CADASTRO DE PASSAGEIRO ${requestScope.nPassPag} </h5>
                     </div>
 
                     <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/PagamentoReserva" method="post">
-                            
-                            <div class="row">
-                                <c:if test="${not empty requestScope.erroPagamento}">
-                                    <p class="error"><c:out value="${requestScope.erroPagamento}"/></p>
+                        <form class="signup" action="${pageContext.request.contextPath}/PassageirosReserva" method="post">
+                             <div class="row">
+                                <c:if test="${not empty requestScope.erroPassageiro}">
+                                    <p class="error"><c:out value="${requestScope.erroPassageiro}"/></p>
                                 </c:if>
-                            </div>
-                            
-                            <div class="busca">
-                                <input type="text" id="pagador" name="nomePagador" readonly="readonly" value="${sessionScope.nomePagador}">
                             </div>
 
                             <div class="form-body">
                                 <div class="row">
-                                    <select class="pagamento" name="pagamento">  
-                                        <option value="Selecione">Forma de Pagamento</option>
-                                        <option value="credito">crédito</option>
-                                        <option value="Debito">Débito</option>
-                                        <option value="Dinheiro">Dinheiro</option>
-                                    </select>
-                                </div>  
-
+                                    <input type="text" placeholder="Nome*" name="nome-pass-selecionar">
+                                    <input type="text" placeholder="Sobrenome*" name="sobreNome-pass-selecionar">
+                                </div>
+                                
                                 <div class="row">
-                                    <input type="text" name="total" value="${sessionScope.custoTotal}" readonly="readonly">
+                                    <input type="number" placeholder="cpf*" id="validadorCpf" onkeydown="limita(this);" onkeyup="limita(this);"  name="cpf-pass-selecionar">
+                                    <input type="date" max="2999-12-31" placeholder="" name="dtNasc-pass-selecionar"> 
                                 </div>
 
+                                <div class="row">
+                                    <input type="text" placeholder="Email*" name="email-pass-selecionar">     
+                                </div>
+                                
+                                <div class="row">
+                                    <select class="assentos" name="assentosPassageiro">           
+                                        <option value="selecione">Selecione o assento!</option>
+                                        <c:forEach items="${sessionScope.assentosLista}" var="a">
+                                            <option>${a.nAssento} - R$ ${a.preco}</option>                                            
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                               
+                            </div>
+                             
+                            <div class="imagem">
+                                <label class="txtDescricao">assentos das fileiras 1, 2, 3 e 4 custam R$30. Exceto para clientes Pelicano e Águia </label>
+                                <br><br>
+                                <img id="imagemMapa" src="${pageContext.request.contextPath}/images/mapa.png" >
                             </div>
 
                             <div class="form-footer">
+
                                 <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
-                                <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
+                                <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
 
-                            </div>
-
+                            </div> 
                         </form>
 
                     </div>
                 </div>
-
-
             </div>
 
 

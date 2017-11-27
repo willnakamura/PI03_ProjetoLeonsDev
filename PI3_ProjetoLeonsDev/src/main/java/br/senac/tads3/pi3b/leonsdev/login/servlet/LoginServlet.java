@@ -15,6 +15,8 @@ import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoAeroportos;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -48,8 +50,6 @@ public class LoginServlet extends HttpServlet {
         HttpSession sessao = request.getSession();
         //------------pre operações para carregamento de dropBox---------
 
-        ArrayList aeroportos = new ArrayList();
-
         //-------------operaçoes de login----------------------------------
         // Pega o class="user" e atribui á uma variavel
         String username = request.getParameter("user");
@@ -68,26 +68,46 @@ public class LoginServlet extends HttpServlet {
 
             RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/index.jsp");
-            dispatcher.forward(request, response);
         } catch (DataExceptions ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         if ("não logado".equals(SingletonLogin.getInstance().getNome())) {
+
             request.setAttribute("erroLogin", "Usuário e/ou senha inválido");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
 
         } else {
-            if (aeroportos.isEmpty() || aeroportos == null) {
+            if (SingletonLogin.getInstance().getCargo().equals("Gerente")) {
+                ArrayList aeroportos = null;
+
                 try {
                     aeroportos = ServicoAeroportos.obterAeroporto();
+                    Set<String> hs = new HashSet<>();
+                    hs.addAll(aeroportos);
+                    aeroportos.clear();
+                    aeroportos.addAll(hs);
                 } catch (DataExceptions | SQLException ex) {
                     ex.getMessage();
                 }
                 sessao.setAttribute("ListaAeroportos", aeroportos);
+                response.sendRedirect(request.getContextPath() + "/Protegido/resultado");
+            }else{
+                ArrayList aeroportos = null;
+                
+                try {
+                    aeroportos = ServicoAeroportos.obterAeroporto();
+                    Set<String> hs = new HashSet<>();
+                    hs.addAll(aeroportos);
+                    aeroportos.clear();
+                    aeroportos.addAll(hs);
+                } catch (DataExceptions | SQLException ex) {
+                    ex.getMessage();
+                }
+                sessao.setAttribute("ListaAeroportos", aeroportos);
+                response.sendRedirect(request.getContextPath() + "/Protegido/resultadoFunc");
             }
-            response.sendRedirect(request.getContextPath() + "/Protegido/resultado");
 
         }
 

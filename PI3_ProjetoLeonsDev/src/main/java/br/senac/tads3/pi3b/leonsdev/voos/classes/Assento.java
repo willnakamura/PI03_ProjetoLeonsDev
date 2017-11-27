@@ -3,34 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.senac.tads3.pi3b.leonsdev.reserva.classes;
+package br.senac.tads3.pi3b.leonsdev.voos.classes;
 
 /**
  *
  * @author Rafael
  */
-public class Assentos {
-    private Integer id;
-    private String assentos;
+public class Assento {
+    private String nAssento;
     private Double preco;
 
-    public Assentos() {
+    public Assento(String nAssento, Double preco) {
+        this.nAssento = nAssento;
+        this.preco = preco;
     }
 
-    public Integer getId() {
-        return id;
+    public Assento() {
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public String getnAssento() {
+        return nAssento;
     }
 
-    public String getAssentos() {
-        return assentos;
-    }
-
-    public void setAssentos(String assentos) {
-        this.assentos = assentos;
+    public void setnAssento(String nAssento) {
+        this.nAssento = nAssento;
     }
 
     public Double getPreco() {

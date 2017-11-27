@@ -10,18 +10,14 @@
 <html>
     <head>
 
-        <title>Pagamento</title>
+        <title>Horario</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
         <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-
-
-
-
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_1.css">
 
         <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery-migrate-1.2.1.js"></script>
@@ -44,14 +40,17 @@
         <header>
             <div class="container_12">
                 <div class="grid_12">
-                    <div class="menu_block">
+                    <div class="menu_block" id="menu_block" >
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
-                            <ul class="sf-menu">
-                                <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuário</a></li>
-                                <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
-                                <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
+                            <ul class="sf-menu" id="menu_blockul">
+                                <li id="menu_blockHome"><a href="${pageContext.request.contextPath}/homeUsuario.jsp">HOME</a></li>                                
+                                <li 
+                                    id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarClienteUsuario.jsp" >Cliente</a></li>                                
+
+
+                                <li class="current"><a href="${pageContext.request.contextPath}/reservaVooUsuario.jsp" 
+                                                       id="menu_blockReserva">Reserva</a></li>
+
                             </ul>
                         </nav>
                         <div class="clear"></div>
@@ -82,52 +81,61 @@
                 <div class="grid_8">
 
                     <div class="tituloCliente">
-                        <h5 class="opcao">PAGAMENTO </h5>
+                        <h5 class="opcao" >Horário Voo Ida</h5>
                     </div>
 
                     <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/PagamentoReserva" method="post">
-                            
-                            <div class="row">
-                                <c:if test="${not empty requestScope.erroPagamento}">
-                                    <p class="error"><c:out value="${requestScope.erroPagamento}"/></p>
+                        <form class="signup" action="${pageContext.request.contextPath}/HorarioReservaVoo" method="post">
+
+                            <div id="bg">
+                                <c:if test="${not empty requestScope.erroTelaHorarioIda}">
+                                    <p class="error"><c:out value="${requestScope.erroTelaHorarioIda}"/></p>
                                 </c:if>
                             </div>
-                            
-                            <div class="busca">
-                                <input type="text" id="pagador" name="nomePagador" readonly="readonly" value="${sessionScope.nomePagador}">
-                            </div>
 
-                            <div class="form-body">
-                                <div class="row">
-                                    <select class="pagamento" name="pagamento">  
-                                        <option value="Selecione">Forma de Pagamento</option>
-                                        <option value="credito">crédito</option>
-                                        <option value="Debito">Débito</option>
-                                        <option value="Dinheiro">Dinheiro</option>
-                                    </select>
-                                </div>  
+                            <table>
 
-                                <div class="row">
-                                    <input type="text" name="total" value="${sessionScope.custoTotal}" readonly="readonly">
-                                </div>
+                                <tr>
+                                    <th></th>
+                                    <th>Nº Voo</th>
+                                    <th>Aeroporto de Origem</th>
+                                    <th>Aeroporto de Destino</th>
+                                    <th>Data do Voo</th>
+                                    <th>Hora Partida</th>    
+                                    <th>Hora Chegada</th>
+                                    <th style="visibility: hidden">ID</th>
 
-                            </div>
+                                </tr>  
+                                <c:forEach var="voo" items="${sessionScope.VooIda}">    
+                                    <tr>
+                                        <td><input type="radio" value="${voo.id}" name="seleciona" /></td>
+                                        <td>${voo.nrVoo}</td>
+                                        <td>${voo.aeroportoPartida}</td>
+                                        <td>${voo.aeroportoChegada}</td>
+                                        <td>${voo.dataVoo}</td>
+                                        <td>${voo.horaPartida}</td>
+                                        <td>${voo.horaChegada}</td>
+                                        <td style="visibility: hidden">${voo.id}</td>
+                                    </tr>
+                                </c:forEach>
+
+                            </table>
 
                             <div class="form-footer">
+
                                 <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
-                                <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
+                                <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
+
 
                             </div>
 
                         </form>
 
                     </div>
+
                 </div>
 
-
             </div>
-
 
         </div>
         <!--==============================footer=================================-->

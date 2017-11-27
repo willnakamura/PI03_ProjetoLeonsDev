@@ -67,12 +67,10 @@
                 </div>
 
             </div>
-                         <form>
+              <form action="${pageContext.request.contextPath}/Logout" method="post">
                 <div class="form-footer" id="logout">
 
-
                     <button class="botoesLogout" type="submit">logout</button>
-
 
                 </div>
             </form>
@@ -86,172 +84,213 @@
 
                     <div class="tituloCliente">
                         <h5 class="opcao">resumo da compra</h5>
+                        </div>
+                        
+                        <div class="resumo">
+                        <div >
+                            <label class="resumo-form"> Status da Reserva: </label> 
+                            <label class="resumo-form" id="result">Ativo</label>
+
+                        </div>
+                        <br>
+                        <div >
+                            <label class="resumo-form" id="tituloResumo">Voo</label>
+
+
+                        </div>
+                        <br>
+
+                        <div >
+                            <label class="resumo-form">Aeroporto de Origem:</label>
+                            <label class="resumo-form">Congonhas</label>
+                             
+                            
+                           
+                        </div>
+
+                        <div>
+                            <label class="resumo-form">Aeroporto de Destino:</label>
+                             <label class="resumo-form">Alagoinhas</label>
+                         
+
+                        </div>
+                        <div>
+                            <label class="resumo-form">Data de Origem:</label>
+                            <label class="resumo-form">11/12/2017</label>
+                            </div>
+                        <div>
+                            <label class="resumo-form">Data de Destino:</label>
+                            <label class="resumo-form">20/12/2017</label>
+                            </div>    
+                        
+                        <div >
+                            <label class="resumo-form">Horário de ida:</label>
+                            <label class="resumo-form-2" id="result">11:30</label>
+
+                        </div>
+
+                        <div >
+                            <label class="resumo-form">Horário de volta:</label>
+
+                            <label class="resumo-form-2" id="result">13:00</label>   
+                        </div>
+                        <br>
+                        <div>
+                            <label class="resumo-form" id="tituloResumo">Dados dos Passageiros</label>
+
+                        </div>
+                        <br>
+
+                        <div >                      
+
+                            <label class="resumo-form">Nome: </label>  
+
+                            <label class="resumo-form" id="result">Joaquim Barbosa Filho</label>                                 
+
+                        </div>
+
+                        <div >   
+                            <label class="resumo-form">Assentos de Origem: </label> 
+                            <label class="resumo-form" id="result">E06</label> 
+                        </div>
+                        <div >   
+                            <label class="resumo-form">Assentos de Destino: </label>
+                            <label class="resumo-form" id="result">B01</label> 
+                        </div>
+                        <div >  
+                            <label class="resumo-form">Bagagem: </label>
+                            <label class="resumo-form" id="result">5kg - R$ 20,90</label>
+                        </div>
+                        <br>
+                         
+
+                        <div >                      
+
+                            <label class="resumo-form">Nome: </label>  
+
+                            <label class="resumo-form" id="result">Stefano Santos Teixeira</label>                                 
+
+                        </div>
+
+                        <div >   
+                            <label class="resumo-form">Assentos de Origem: </label> 
+                            <label class="resumo-form" id="result">C25</label> 
+                        </div>
+                        <div >   
+                            <label class="resumo-form">Assentos de Destino: </label>
+                            <label class="resumo-form" id="result">H01</label> 
+                        </div>
+                        <div >  
+                            <label class="resumo-form">Bagagem: </label>
+                            <label class="resumo-form" id="result">20kg - R$ 79,90</label>
+                        </div>
+                        
+                        <br>
+
+                        <div>
+                            <label class="resumo-form" id="tituloResumo">Dados de Pagamento</label>
+
+
+                        </div>
+                        <br>
+
+
+                        <div>
+
+                            <label class="resumo-form">Nome Completo do Pagante:</label>
+                            <label class="resumo-form" id="result">Clebeson Vieira Lima</label>
+
+
+                        </div>
+
+                        <div >
+                            <label class="resumo-form">Forma de Pagamento: </label>
+                              <label class="resumo-form" id="result">Boleto bancário</label>
+
+
+                        </div>
+
+
+                        <div>
+                            <label class="resumo-form">Nivel da Milhagem: </label>
+                             <label class="resumo-form" id="result">Cliente Pombo </label>
+
+
+                        </div>
+
+                        <div >
+
+                            <label class="resumo-form">Valor Total: </label>
+                            <label class="resumo-form" id="result"> R$ 400,00</label>
+
+                        </div>
+
+                        <div >
+
+                            <label class="resumo-form">Pontos: </label>
+                            <label class="resumo-form" id="result">50</label>
+
+                        </div>
                     </div>
 
 
-                    <div class="card-form">
-                        <form class="buscaCli" action="#" method="#">
-                            <div class="busca"><input type="text" id="busca1ResumoCompra" placeholder="Localizador" name="locazador"> <button id="botoesBusca" type="submit">BUSCAR</button>
-                            </div>
 
-                        </form>
-                    </div>
-
-                    <br><br>
-
-
-                    <div class="card-form">
+                    <br>
 
 
 
-                        <form class="signup" action="#" method="post">
-
-                            <div class="row">
-                                <input class="status" type="text" name="statusReserva" placeholder="Status da Reserva" readonly="readonly"/>
-
-                            </div>
-                            <br><br>
-                            <div class="row">
-                                <label >Dados do Voo</label>
 
 
-                            </div>
+                    <form class="signup" action="#" method="post">
+                        
+                        
+                       
+                        <div class="form-footer">
 
-                            <br>
-
-                            <div class="row">
-                                <input type="text" name="origem-voo" placeholder="Aeroporto de Origem" readonly="readonly"/>
-                                <input type="text"  name="dataOrigem" placeholder="Data de Origem" readonly="readonly"/>
-
-                            </div> 
-                            <div class="row">
-                                <input type="text" name="destino-voo" placeholder="Aeroporto de Destino" readonly="readonly"/>
-                                <input type="text"  name="dataDestino" placeholder="Data de Destino" readonly="readonly"/>
-
-                            </div>
-
-                            <br>                           
-
-                            <div class="row">
-                                <label >Horário de ida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-
-                                <label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Horário de volta</label>
-                            </div>
+                            <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
+                            
 
 
-                            <div class="row">
+                        </div>
 
-                                <input type="text"  name="data-ida-voo" placeholder="11:30" readonly="readonly"/>
-                                <input type="text"  name="data-volta-voo" placeholder="13:00" readonly="readonly"/>    
-                            </div>
-                            <br>
-                            <br>
-                            <div class="row">
-                                <label >Dados dos Passageiros</label>
-
-
-                            </div>
-
-                            <div class="row">                       
-
-                                <table class="tabelaResumo">
-                                    <tr>
-
-                                        <th>Nome</th>                                
-                                        <th>Assentos de Origem</th>       
-                                        <th>Assentos de Destino</th>
-                                        <th>Bagagem</th>
-
-                                    </tr>    
-                                    <tr>
-                                        <td>Felipe</td>
-                                        <td>E12</td>
-                                        <td>B7</td>
-                                        <td>5kg - R$ 20,90</td>
-                                    </tr>
-
-
-
-                                </table>
-
-                            </div>
-                            <br><br>
-                            <div class="row">
-                                <label >Dados dos Passageiros</label>
-
-
-                            </div>
-
-                            <br>
-                            <div class="row">
-
-                                <input type="text"  name="nomePagante" placeholder="Nome Completo do Pagante" readonly="readonly"/>
-
-
-                            </div>
-
-                            <div class="row">
-                                <input type="text"  name="formaPagamento" placeholder="FormadePagamento" readonly="readonly"/>
-                                <input type="text"  name="valorTotal" placeholder="Valor Total" readonly="readonly"/>
-
-
-                            </div>
-
-                            <div class="row">
-                                <input type="text"  name="nivelMilhagem" placeholder="Nivel da Milhagem" readonly="readonly"/>
-                                <input type="text"  name="pontos" placeholder="Pontos" readonly="readonly"/>
-
-                            </div>
-                            <br>
-
-
-
-                            <div class="form-footer">
-
-                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
-                                <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
-
-
-                            </div>
-
-                        </form>
-                    </div>
+                    </form>
                 </div>
-
-
-
-
-
-
             </div>
 
 
 
 
+
+
         </div>
+
+
 
 
     </div>
-    <!--==============================footer=================================-->
-    <footer>
-        <div class="container_12">
-            <div class="grid_12">
-                <div class="socials">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-google-plus"></a>
-                </div>
-                <div class="copy">
-                    Your Trip (c) 2017 | <a href="#">Privacy Policy</a>
-                </div>
+
+
+</div>
+<!--==============================footer=================================-->
+<footer>
+    <div class="container_12">
+        <div class="grid_12">
+            <div class="socials">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-google-plus"></a>
+            </div>
+            <div class="copy">
+                Your Trip (c) 2017 | <a href="#">Privacy Policy</a>
             </div>
         </div>
-    </footer>
-    <script>
-        $(function () {
-            $('#bookingForm').bookingForm({
-                ownerEmail: '#'
-            });
+    </div>
+</footer>
+<script>
+    $(function () {
+        $('#bookingForm').bookingForm({
+            ownerEmail: '#'
         });
-    </script>
+    });
+</script>
 </body>
 </html>

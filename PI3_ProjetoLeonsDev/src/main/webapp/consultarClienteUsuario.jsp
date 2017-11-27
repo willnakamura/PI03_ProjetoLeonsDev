@@ -17,7 +17,7 @@
 
         <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_1.css">
 
 
 
@@ -42,14 +42,14 @@
         <header>
             <div class="container_12">
                 <div class="grid_12">
-                    <div class="menu_block">
+                    <div class="menu_block" id="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
-                            <ul class="sf-menu">
-                                <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li class="current"><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
-                                <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
-                                <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
+                            <ul class="sf-menu" id="menu_blockul">
+                                <li id="menu_blockHome"><a href="${pageContext.request.contextPath}/homeUsuario.jsp">HOME</a></li>                                
+                                <li class="current" id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarClienteUsuario.jsp">Cliente</a></li>                                
+                          
+                                <li><a href="${pageContext.request.contextPath}/reservaVooUsuario.jsp" id="menu_blockReserva">Reserva</a></li>
+                                
                             </ul>
                         </nav>
                         <div class="clear"></div>
@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="busca">
-                            <input type="text" maxlength="11" id="busca1" placeholder="Digite o CPF" name="buscaCliente">
+                            <input type="text" id="busca1" maxlength="11"  placeholder="Digite o CPF" name="buscaCliente">
                             <button id="botoesBusca" type="submit">BUSCAR</button>
                         </div>
 
@@ -175,7 +175,7 @@
                     <h5 class="opcao">Opção </h5>
                     <ul class="list">
 
-                        <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cadastrar</a></li>
+                        <li><a href="${pageContext.request.contextPath}/cadastrarClienteUsuario.jsp">Cadastrar</a></li>
                         <li><a href="#">Consultar</a></li>
 
                     </ul>

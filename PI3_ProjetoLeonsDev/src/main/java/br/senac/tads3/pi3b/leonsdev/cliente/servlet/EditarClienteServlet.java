@@ -9,6 +9,7 @@ import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
 import br.senac.tads3.pi3b.leonsdev.cliente.classes.ServicoCliente;
 import br.senac.tads3.pi3b.leonsdev.exceptions.ClienteException;
 import br.senac.tads3.pi3b.leonsdev.exceptions.DataExceptions;
+import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,6 +26,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "EditarClienteServlet", urlPatterns = {"/EditarCliente"})
 public class EditarClienteServlet extends HttpServlet {
 //
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -52,11 +54,17 @@ public class EditarClienteServlet extends HttpServlet {
 
             sessao.setAttribute("cliente", cliente);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/editarCliente.jsp");
-            dispatcher.forward(request, response);
+            SingletonLogin singleton = SingletonLogin.getInstance();
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/editarCliente.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/editarClienteUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
 
         } else if (btnExcluir != null) {
-            
+
             try {
                 cliente = ServicoCliente.procurarCliente(cpfCli);
                 ServicoCliente.excluirCliente(cliente.getId());
@@ -65,7 +73,13 @@ public class EditarClienteServlet extends HttpServlet {
 
             }
 
-            response.sendRedirect(request.getContextPath() + "/consultarCliente.jsp");
+            SingletonLogin singleton = SingletonLogin.getInstance();
+            if (singleton.getCargo().equals("Gerente")) {
+                response.sendRedirect(request.getContextPath() + "/consultarCliente.jsp");
+            } else {
+                response.sendRedirect(request.getContextPath() + "/consultarClienteUsuario.jsp");
+            }
+
         }
     }
 

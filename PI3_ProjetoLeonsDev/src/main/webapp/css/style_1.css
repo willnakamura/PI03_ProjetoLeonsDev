@@ -14,7 +14,29 @@ p.error{
     color: red;
 }
 
+#menu_block{
+    width: 600px;
+    margin-left: 17%;
+}
 
+#menu_blockul{
+   padding-right:100px;
+}
+
+#menu_blockHome{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#menu_blockCliente{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#menu_blockReserva{
+    padding-left: 70px;
+    padding-right: 50px;
+}
 
 p.sucess{
     color: green;
@@ -491,6 +513,7 @@ ul {
     padding: 0;
     margin: 0;
     list-style: none;
+   
 }
 
 ul.list {
@@ -500,16 +523,19 @@ ul.list {
 
 ul.list+h3.head1 {
     padding-top: 79px;
+     
 }
 
 ul.list li {
     font-size: 18px;
     padding-left: 21px;
     background: url(../images/marker.png) 0 6px no-repeat;
+     
 }
 
 ul.list li+li {
     margin-top: 10px;
+   
 }
 
 ul.list + a.link1 {

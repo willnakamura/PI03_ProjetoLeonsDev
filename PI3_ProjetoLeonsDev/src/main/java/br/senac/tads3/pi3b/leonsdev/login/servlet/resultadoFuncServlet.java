@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.senac.tads3.pi3b.leonsdev.Logout.Servlets;
+package br.senac.tads3.pi3b.leonsdev.login.servlet;
 
-import br.senac.tads3.pi3b.leonsdev.login.classes.SingletonLogin;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,18 +12,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Rafael
  */
-@WebServlet(name = "LogoutServlet", urlPatterns = {"/Logout"})
-public class LogoutServlet extends HttpServlet {
+@WebServlet(name = "resultadoFuncServlet", urlPatterns = {"/Protegido/resultadoFunc"})
+public class resultadoFuncServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Quando a validação for TRUE ele redireciona para a page /homeUsuario.jsp
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/homeUsuario.jsp");
+        dispatcher.forward(request, response);
 
     }
 
@@ -32,18 +33,5 @@ public class LogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession sessao = request.getSession();
-        
-        SingletonLogin singleton = SingletonLogin.getInstance();
-       
-        singleton.setCargo(null);
-        singleton.setFunc_id(-1);
-        singleton.setLogin(null);
-        singleton.setNome(null);
-        
-        
-        sessao.invalidate();
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-        dispatcher.forward(request, response);
     }
 }

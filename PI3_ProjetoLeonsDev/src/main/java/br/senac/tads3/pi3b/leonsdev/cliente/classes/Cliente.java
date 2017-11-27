@@ -14,7 +14,15 @@ import java.util.Date;
 public class Cliente {
 
     //
-    private int id;
+    private int id, pontos;
+
+    public int getPontos() {
+        return pontos;
+    }
+
+    public void setPontos(int pontos) {
+        this.pontos = pontos;
+    }
     private String nome, sobrenome, cpf, email, celular, estado, genero, cidade, endereco, cep;
     private Date dataNascimento, dataCadastro;
     private String nivel;

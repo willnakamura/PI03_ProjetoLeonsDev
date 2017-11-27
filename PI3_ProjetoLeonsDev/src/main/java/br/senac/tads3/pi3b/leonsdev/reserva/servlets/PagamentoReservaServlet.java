@@ -5,7 +5,6 @@
  */
 package br.senac.tads3.pi3b.leonsdev.reserva.servlets;
 
-import br.senac.tads3.pi3b.leonsdev.DAOs.DaoFazerReserva;
 import br.senac.tads3.pi3b.leonsdev.Telas.classes.TelaPagamento;
 import br.senac.tads3.pi3b.leonsdev.Telas.classes.ValidadorTelaPagamento;
 import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
@@ -17,14 +16,8 @@ import br.senac.tads3.pi3b.leonsdev.passageiros.classes.PassageirosVoos;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.ServicoReserva;
 import br.senac.tads3.pi3b.leonsdev.servico.classes.Servico;
-import br.senac.tads3.pi3b.leonsdev.usuario.classes.ServicoUsuario;
-import br.senac.tads3.pi3b.leonsdev.usuario.classes.Usuario;
-import br.senac.tads3.pi3b.leonsdev.voos.classes.ServicoVoos;
-import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
 import java.io.IOException;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -49,7 +42,7 @@ public class PagamentoReservaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        SingletonLogin singleton = SingletonLogin.getInstance();
         Calendar calendario = Calendar.getInstance();
         HttpSession sessao = request.getSession();
 
@@ -62,8 +55,15 @@ public class PagamentoReservaServlet extends HttpServlet {
             ValidadorTelaPagamento.validar(tela);
         } catch (DataExceptions | ExceptionTelaPagamento e) {
             request.setAttribute("erroPagamento", e.getMessage());
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/resrvaPagamento.jsp");
-            dispatcher.forward(request, response);
+
+            if (singleton.getCargo().equals("Gerente")) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamentoUsuario.jsp");
+                dispatcher.forward(request, response);
+            }
+
         }
 
         String qtdPassString = (String) sessao.getAttribute("qtdPassageirosReserva");
@@ -108,6 +108,7 @@ public class PagamentoReservaServlet extends HttpServlet {
         }
         r = (Reserva) sessao.getAttribute("ReservaFinal");
         r.setFormaPgto(pagamento);
+        sessao.setAttribute("ReservaFinal", r);
         Servico servico = new Servico();
         servico = (Servico) sessao.getAttribute("ServicoReservaFinal");
         Cliente cli = new Cliente();
@@ -120,7 +121,14 @@ public class PagamentoReservaServlet extends HttpServlet {
             erro = e.getMessage();
             e.printStackTrace();
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompra.jsp");
-        dispatcher.forward(request, response);
+
+        if (singleton.getCargo().equals("Gerente")) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompraNOVO.jsp");
+            dispatcher.forward(request, response);
+        }else{
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompraUsuario.jsp");
+            dispatcher.forward(request, response);
+        }
+
     }
 }

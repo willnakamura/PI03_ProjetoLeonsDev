@@ -49,8 +49,8 @@
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
                                 <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuário</a></li>
+                                <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jps">Usuário</a></li>
                                  <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
                                 <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
                             </ul>
@@ -113,7 +113,7 @@
                                     <select class="assentos" name="assentosPassageiro">           
                                         <option value="selecione">Selecione o assento da Ida</option>
                                         <c:forEach items="${sessionScope.assentosLista}" var="a">
-                                            <option>${a}</option>                                            
+                                            <option>${a.nAssento} - R$ ${a.preco}</option>                                            
                                         </c:forEach>
                                     </select>
                                     
@@ -121,7 +121,7 @@
                                     <select class="assentos" name="assentosPassageiroVolta">           
                                         <option value="selecione">Selecione o assento da Volta</option>
                                         <c:forEach items="${sessionScope.assentosLista}" var="a">
-                                            <option>${a}</option>                                            
+                                            <option>${a.nAssento} - R$ ${a.preco}</option>                                            
                                         </c:forEach>
                                     </select>
                                     
