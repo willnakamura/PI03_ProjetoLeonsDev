@@ -146,6 +146,16 @@ public class VooReservaServlet extends HttpServlet {
             List<Voos> voo1 = null;
             try {
                 voo1 = ServicoVoos.buscarVooEspecial(voo.getDataVoo(), ida.substring(0, 3), chegada.substring(0, 3));
+                if (voo1 == null || voo1.isEmpty()) {
+                    request.setAttribute("erroTelaVoo", "Não temos voo para esta origem e este destino.");
+                    if (singleton.getCargo().equals("Gerente")) {
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
+                        dispatcher.forward(request, response);
+                    } else {
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVooUsuario.jsp");
+                        dispatcher.forward(request, response);
+                    }
+                }
             } catch (DataExceptions | SQLException e) {
                 e.getMessage();
             }
@@ -158,6 +168,16 @@ public class VooReservaServlet extends HttpServlet {
             List<Voos> vooVolta = null;
             try {
                 vooVolta = ServicoVoos.buscarVooEspecial(voo2.getDataVoo(), ida2.substring(0, 3), chegada2.substring(0, 3));
+                if (vooVolta == null || vooVolta.isEmpty()) {
+                    request.setAttribute("erroTelaVoo", "Não temos voo para esta origem e este destino.");
+                    if (singleton.getCargo().equals("Gerente")) {
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
+                        dispatcher.forward(request, response);
+                    } else {
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVooUsuario.jsp");
+                        dispatcher.forward(request, response);
+                    }
+                }
             } catch (DataExceptions | SQLException e) {
                 e.getMessage();
             }
@@ -167,7 +187,7 @@ public class VooReservaServlet extends HttpServlet {
             if (singleton.getCargo().equals("Gerente")) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
                 dispatcher.forward(request, response);
-            }else{
+            } else {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorarioUsuario.jsp");
                 dispatcher.forward(request, response);
             }
@@ -188,6 +208,16 @@ public class VooReservaServlet extends HttpServlet {
             try {
                 voo1 = ServicoVoos.buscarVooEspecial(voo.getDataVoo(),
                         voo.getAeroportoPartida().substring(0, 3), voo.getAeroportoChegada().substring(0, 3));
+                if (voo1 == null || voo1.isEmpty()) {
+                    request.setAttribute("erroTelaVoo", "Não temos voo para esta origem e este destino.");
+                    if (singleton.getCargo().equals("Gerente")) {
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
+                        dispatcher.forward(request, response);
+                    } else {
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVooUsuario.jsp");
+                        dispatcher.forward(request, response);
+                    }
+                }
             } catch (DataExceptions | SQLException e) {
                 e.getMessage();
             }
@@ -197,11 +227,10 @@ public class VooReservaServlet extends HttpServlet {
             if (singleton.getCargo().equals("Gerente")) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorario.jsp");
                 dispatcher.forward(request, response);
-            }else{
+            } else {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaHorarioUsuario.jsp");
                 dispatcher.forward(request, response);
             }
-
 
         }
     }

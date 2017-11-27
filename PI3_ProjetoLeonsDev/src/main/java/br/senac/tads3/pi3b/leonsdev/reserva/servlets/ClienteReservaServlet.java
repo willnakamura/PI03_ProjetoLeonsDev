@@ -65,7 +65,7 @@ public class ClienteReservaServlet extends HttpServlet {
 
         try {
             cli = ServicoCliente.procurarCliente(buscaCli);
-             
+
             if (cli.getCpf() == null) {
                 request.setAttribute("erroSelecionaCli", "A pesquisa não troxe resultado para esta pesquisa.");
 
