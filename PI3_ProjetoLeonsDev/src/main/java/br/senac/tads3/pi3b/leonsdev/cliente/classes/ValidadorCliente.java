@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package br.senac.tads3.pi3b.leonsdev.cliente.classes;
-
 import br.senac.tads3.pi3b.leonsdev.exceptions.ClienteException;
-
 import java.util.Calendar;
 
 /**
