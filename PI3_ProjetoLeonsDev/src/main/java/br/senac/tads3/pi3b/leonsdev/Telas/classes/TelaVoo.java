@@ -12,7 +12,7 @@ import java.util.Date;
  * @author Rafael
  */
 public class TelaVoo {
-    private String AeroportoOrigem, AeroportoDestino, opcaoIdaVolta;
+    private String aeroportoOrigem, aeroportoDestino, opcaoIdaVolta;
     private Date dataIda, dataVolta;
     private String qtdPass;
 
@@ -20,19 +20,19 @@ public class TelaVoo {
     }
 
     public String getAeroportoOrigem() {
-        return AeroportoOrigem;
+        return aeroportoOrigem;
     }
 
-    public void setAeroportoOrigem(String AeroportoOrigem) {
-        this.AeroportoOrigem = AeroportoOrigem;
+    public void setAeroportoOrigem(String aeroportoOrigem) {
+        this.aeroportoOrigem = aeroportoOrigem;
     }
 
     public String getAeroportoDestino() {
-        return AeroportoDestino;
+        return aeroportoDestino;
     }
 
-    public void setAeroportoDestino(String AeroportoDestino) {
-        this.AeroportoDestino = AeroportoDestino;
+    public void setAeroportoDestino(String aeroportoDestino) {
+        this.aeroportoDestino = aeroportoDestino;
     }
 
     public String getOpcaoIdaVolta() {

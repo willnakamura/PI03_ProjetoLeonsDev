@@ -69,8 +69,8 @@ public class DaoRelatorios {
                 
                 venda.setDataReserva(result.getDate("Data_Criado"));
                 venda.setTicketCode(result.getString("Ticket"));
-                venda.setPrimeiroNome_Passageiro(result.getString("Nome"));
-                venda.setUltimoNome_Passageiro(result.getString("Sobrenome"));
+                venda.setPrimeiroNome_Passageiro(result.getString("Primeiro_Nome"));
+                venda.setUltimoNome_Passageiro(result.getString("Ultimo_Nome"));
                 venda.setDataPartida(result.getDate("Data_Voo"));
                 venda.setNr_Voo(result.getInt("Nr_Voo"));
                 venda.setHoraVoo(result.getTime("HoraPartida"));

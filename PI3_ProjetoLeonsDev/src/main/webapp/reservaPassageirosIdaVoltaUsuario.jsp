@@ -50,8 +50,7 @@
                             <ul class="sf-menu" id="menu_blockul" >
                                 <li id="menu_blockHome"  class="current"><a href="${pageContext.request.contextPath}/homeUsuario.jsp">HOME</a></li>                                
                                 <li id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarClienteUsuario.jsp">Cliente</a></li>                                
-                               
-                                 <li id="menu_blockReserva" class="current"><a href="${pageContext.request.contextPath}/reservaVooUsuario.jsp">Reserva</a></li>
+                                <li  class="current"><a href="${pageContext.request.contextPath}/reservaVooUsuario.jsp" id="menu_blockReserva">Reserva</a></li>
                            
                             </ul>
                         </nav>
