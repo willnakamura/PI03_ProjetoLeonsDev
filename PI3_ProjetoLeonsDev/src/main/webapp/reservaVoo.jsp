@@ -103,8 +103,8 @@
                                 <select class="aeroportoFormat" name="origemVoo">
 
                                     <c:choose>
-                                        <c:when test="${not empty requestScope.telaVooRepreencher.origem}">
-                                            <option value="${requestScope.telaVooRepreencher.origem}">${requestScope.telaVooRepreencher.origem}</option>
+                                        <c:when test="${not empty requestScope.telaVooRepreencher.aeroportoOrigem}">
+                                            <option>${requestScope.telaVooRepreencher.aeroportoOrigem}</option>
                                         </c:when>
 
                                         <c:otherwise>
@@ -124,8 +124,8 @@
                                 <select class="aeroportoFormat" name="destinoVoo">
 
                                     <c:choose>
-                                        <c:when test="${not empty requestScope.telaVooRepreencher.destino}">
-                                            <option value="${requestScope.telaVooRepreencher.destino}">${requestScope.telaVooRepreencher.destino}</option>
+                                        <c:when test="${not empty requestScope.telaVooRepreencher.aeroportoDestino}">
+                                            <option>${requestScope.telaVooRepreencher.aeroportoDestino}</option>
                                         </c:when>
 
                                         <c:otherwise>
@@ -178,8 +178,8 @@
                                 <select id="formatar" class="bagagem" name="bagagem-voo">
 
                                     <c:choose>
-                                        <c:when test="${not empty requestScope.bagagemRepreencher.bagagem}">
-                                            <option value="${requestScope.bagagemRepreencher.bagagem}">${requestScope.bagagemRepreencher.bagagem}</option>
+                                        <c:when test="${not empty sessionScope.bagagemRepreencher.bagagem}">
+                                            <option value="${sessionScope.bagagemRepreencher.bagagem}">${sessionScope.bagagemRepreencher.bagagem}</option>
                                         </c:when>
 
                                         <c:otherwise>

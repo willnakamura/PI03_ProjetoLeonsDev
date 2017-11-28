@@ -229,8 +229,10 @@ public class PassageirosReservaServlet extends HttpServlet {
                     if (desconto == null) {
                         desconto = 0.0;
                     }
-                    desconto = desconto + 30.0 + serv.getPreco();
-                    sessao.setAttribute("desconto", desconto);
+                    Double desconto2 = serv.getPreco();
+                    desconto = desconto + 30.0;
+                    
+                    sessao.setAttribute("desconto", desconto + desconto2);
                     reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
 
                 } else {
@@ -238,7 +240,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                     if (desconto == null) {
                         desconto = 0.0;
                     }
-                    desconto = desconto + serv.getPreco();
+                    desconto = serv.getPreco();
                     sessao.setAttribute("desconto", desconto);
                     reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
                 }
@@ -469,9 +471,9 @@ public class PassageirosReservaServlet extends HttpServlet {
                     if (desconto == null) {
                         desconto = 0.0;
                     }
-
-                    desconto = desconto + 30 + serv.getPreco();
-                    sessao.setAttribute("desconto", desconto);
+                    Double desconto2 = serv.getPreco();
+                    desconto = desconto + 30;
+                    sessao.setAttribute("desconto", desconto + desconto2);
                     reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
 
                 } else {
@@ -479,7 +481,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                     if (desconto == null) {
                         desconto = 0.0;
                     }
-                    desconto = desconto + serv.getPreco();
+                    desconto = serv.getPreco();
                     sessao.setAttribute("desconto", desconto);
                     reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
                 }
