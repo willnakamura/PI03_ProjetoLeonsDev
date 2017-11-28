@@ -47,9 +47,7 @@ public class TrocaTelaClienteReservaServlet extends HttpServlet {
 
         String qtdPax = (String) sessao.getAttribute("qtdpax");
 
-        if (qtdPax.equals("1")) {
-            sessao.setAttribute("nPassPag", "");
-        }
+        sessao.setAttribute("nPassPag", "");
 
         try {
             voo = ServicoVoos.obterVoo(id);

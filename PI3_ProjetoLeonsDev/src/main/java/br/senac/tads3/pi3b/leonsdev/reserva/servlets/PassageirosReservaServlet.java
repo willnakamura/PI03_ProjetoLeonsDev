@@ -231,7 +231,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                     }
                     Double desconto2 = serv.getPreco();
                     desconto = desconto + 30.0;
-                    
+
                     sessao.setAttribute("desconto", desconto + desconto2);
                     reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
 
@@ -368,7 +368,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                         String qtdPax = Integer.toString(qntPass);
                         sessao.setAttribute("qtdpax", qtdPax);
                         sessao.setAttribute("nPassPag", 3);
-                        
+
                     }
                 } else {
                     sessao.setAttribute("nPassPag", 2);
@@ -600,6 +600,11 @@ public class PassageirosReservaServlet extends HttpServlet {
                         sessao.setAttribute("qtdpax", qtdPax);
                         sessao.setAttribute("nPassPag", 3);
                     }
+                } else {
+                    sessao.setAttribute("nPassPag", 2);
+                    qntPass--;
+                    String qtdPax = Integer.toString(qntPass);
+                    sessao.setAttribute("qtdpax", qtdPax);
                 }
 
                 if (singleton.getCargo().equals("Gerente")) {
