@@ -45,6 +45,12 @@ public class TrocaTelaClienteReservaServlet extends HttpServlet {
         Voos voo = new Voos();
         Integer id = (Integer) sessao.getAttribute("idVooIda");
 
+        String qtdPax = (String) sessao.getAttribute("qtdpax");
+
+        if (qtdPax.equals("1")) {
+            sessao.setAttribute("nPassPag", "");
+        }
+
         try {
             voo = ServicoVoos.obterVoo(id);
         } catch (DataExceptions e) {
@@ -60,7 +66,6 @@ public class TrocaTelaClienteReservaServlet extends HttpServlet {
         }
 
         sessao.setAttribute("assentosLista", assentos);
-
         String opcao = (String) sessao.getAttribute("opcaoIdaOuIdaVolta");
 
         if (opcao.equals("0")) {
@@ -80,6 +85,5 @@ public class TrocaTelaClienteReservaServlet extends HttpServlet {
                 dispatcher.forward(request, response);
             }
         }
-
     }
 }

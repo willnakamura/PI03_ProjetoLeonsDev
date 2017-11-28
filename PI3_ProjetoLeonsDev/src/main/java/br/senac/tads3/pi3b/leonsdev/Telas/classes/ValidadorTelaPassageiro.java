@@ -16,6 +16,8 @@ public class ValidadorTelaPassageiro {
 
     public static void validar(TelaPassageiro telaPass, String opcao) throws ExceptionTelaPassageiro {
         Calendar calendar = Calendar.getInstance();
+        int cal = calendar.getTime().getYear();
+        int dtNasc = telaPass.getDtNasc().getYear();
 
         if (telaPass == null) {
             throw new ExceptionTelaPassageiro("Passageiro inválido");
@@ -46,10 +48,10 @@ public class ValidadorTelaPassageiro {
         }
 
         //--
-        if (telaPass.getDtNasc().after(calendar.getTime()) || telaPass.getDtNasc() == null) {
+        if (telaPass.getDtNasc().after(calendar.getTime()) || telaPass.getDtNasc() == null || cal == dtNasc) {
             throw new ExceptionTelaPassageiro("Informe uma data de nascimento válida.");
         }
-
+        
         //--
         if (telaPass.getEmail().length() > 50) {
             throw new ExceptionTelaPassageiro("Email inválido.");
@@ -64,7 +66,7 @@ public class ValidadorTelaPassageiro {
             if (telaPass.getAssentoVolta().equals("Selecione o assento da Volta")) {
                 throw new ExceptionTelaPassageiro("Selecione um assento da volta");
             }
-            
+
         } else if (opcao.equals("1")) {
             if (telaPass.getAssentoIda().equals("Selecione o assento!") || telaPass.getAssentoIda().equals("Selecione o assento da Ida")) {
                 throw new ExceptionTelaPassageiro("Selecione um assento de ida");
