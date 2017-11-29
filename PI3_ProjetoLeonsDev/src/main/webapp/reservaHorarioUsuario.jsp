@@ -103,6 +103,7 @@
                                     <th>Data do Voo</th>
                                     <th>Hora Partida</th>    
                                     <th>Hora Chegada</th>
+                                    <th>Tarifa</th>
                                     <th style="visibility: hidden">ID</th>
 
                                 </tr>  
@@ -115,6 +116,7 @@
                                         <td>${voo.dataVoo}</td>
                                         <td>${voo.horaPartida}</td>
                                         <td>${voo.horaChegada}</td>
+                                        <td>${voo.tarifa}</td>
                                         <td style="visibility: hidden">${voo.id}</td>
                                     </tr>
                                 </c:forEach>
