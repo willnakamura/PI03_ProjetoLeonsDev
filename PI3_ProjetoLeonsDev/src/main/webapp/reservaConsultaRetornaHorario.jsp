@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Horario</title>
+        <title>Cliente</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -18,6 +18,8 @@
         <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+
+
 
         <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery-migrate-1.2.1.js"></script>
@@ -45,10 +47,9 @@
                             <ul class="sf-menu">
                                 <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
                                 <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuário</a></li>
-
+                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
                                 <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
-                                <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
+                                <li ><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
                             </ul>
                         </nav>
                         <div class="clear"></div>
@@ -63,88 +64,98 @@
                 </div>
 
             </div>
-              <form action="${pageContext.request.contextPath}/Logout" method="post">
+             <form action="${pageContext.request.contextPath}/Logout" method="post">
                 <div class="form-footer" id="logout">
 
                     <button class="botoesLogout" type="submit">logout</button>
 
                 </div>
             </form>
+                        
         </header>
-        <!--==============================Content=================================-->
-        <div class="content">
+
+        <div class="content"><div class="ic"></div>
 
             <div class="container_12">
-
                 <div class="grid_8">
-
                     <div class="tituloCliente">
-                        <h5 class="opcao" >Horário Voo Ida</h5>
-                    </div>
 
-                    <div class="card-form">
-                        <form class="signup" action="${pageContext.request.contextPath}/HorarioReservaVoo" method="post">
+                        <h5 class="">CONSULTAR RESERVA</h5>
 
-                            <div id="bg">
-                                <c:if test="${not empty requestScope.erroTelaHorarioIda}">
-                                    <p class="error"><c:out value="${requestScope.erroTelaHorarioIda}"/></p>
-                                </c:if>
-                            </div>
+                    </div>                    
 
-                            <table>
+                    <form class="buscaCliente" action="${pageContext.request.contextPath}/RelatorioReserva" method="post">
+                        
 
-                                <tr>
-                                    <th></th>
-                                    <th>Nº Voo</th>
-                                    <th>Aeroporto de Origem</th>
-                                    <th>Aeroporto de Destino</th>
-                                    <th>Data do Voo</th>
-                                    <th>Hora Partida</th>    
-                                    <th>Hora Chegada</th>
-                                    <th style="visibility: hidden">ID</th>
+                        <div class="row">
 
-                                </tr>  
-                                <c:forEach var="voo" items="${sessionScope.VooIda}">    
+                            <div class="busca"><input type="text"  id="busca1" placeholder="informe o codigo de busca" name="buscaCodigo"> <button id="botoesBusca" type="submit">BUSCAR</button></div>
+                        </div>
+                      
+                        
+                    </form>
+
+                    <form class="editCli" action="#" method="post">
+
+                        <div id="bg"></div>
+                        <table>
+                            <tr>
+                                
+                                <th>Data Reserva</th>                                
+                                <th>TickerCode</th>       
+                                <th>Nome do Passageiro</th>
+                                <th>Ultimo Nome do Passageiro</th>
+                                <th>Data de Partida</th>
+                                <th>Nº Voo</th>                                
+                                <th>Hora Voo</th>
+                                <th>Aeroporto Origem</th>
+                                <th>Aeroporto Destino</th>
+                                <th>Assento</th>
+                            </tr> 
+                            
+                            
+                                <c:forEach var="reservaConsultaRetornaVoo" items="#">    
                                     <tr>
-                                        <td><input type="radio" value="${voo.id}" name="seleciona" /></td>
-                                        <td>${voo.nrVoo}</td>
-                                        <td>${voo.aeroportoPartida}</td>
-                                        <td>${voo.aeroportoChegada}</td>
-                                        <td>${voo.dataVoo}</td>
-                                        <td>${voo.horaPartida}</td>
-                                        <td>${voo.horaChegada}</td>
-                                        <td style="visibility: hidden">${voo.id}</td>
+                                        <td><input type="radio" value="#" name="selecionarRes" /></td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> </td>
                                     </tr>
                                 </c:forEach>
 
-                            </table>
+                        </table>
+                        
+                          <div class="form-footer">
 
-                            <div class="form-footer">
+                                <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
+                                <button class="botoes" type="submit">EXCLUIR<span class="fa fa-ban"></span></button>
 
-                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
-                                <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
+                         </div>
 
-
-                            </div>
-
-                        </form>
-
-                    </div>
-
+                    </form>
                 </div>
-                        <div class="grid_3 prefix_1">
-                    <h5 class="opcao">Opção </h5>
+                <div class="grid_3 prefix_1">
+                    <h5 class="opcao">Opção</h5>
                     <ul class="list">
-                        <li><a href="#">Reserva</a></li>
-                        <li><a href="${pageContext.request.contextPath}/reservaConsultaRetornaHorario.jsp">Consultar</a></li>
+                        <li><a href="${pageContext.request.contextPath}/reservaHorario.jsp">Reserva</a></li>
+                        <li  class="current"><a href="#">Consultar</a></li>
 
                     </ul>
-            </div>
+                </div>
+
 
             </div>
-
         </div>
+
         <!--==============================footer=================================-->
+
         <footer>
             <div class="container_12">
                 <div class="grid_12">
