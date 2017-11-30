@@ -137,15 +137,7 @@
                     </div>
                 </div>
                             
-                         <div class="grid_3 prefix_1">
-                    <h5 class="opcao">Opção </h5>
-                    <ul class="list">
-                        <li><a href="#">Reserva</a></li>
-                        <li><a href="${pageContext.request.contextPath}/reservaConsultarRetornaPassageiroUsuario.jsp">Consultar</a></li>
-
-                    </ul>
-</div>   
-                            
+                                                    
             </div>
 
 
