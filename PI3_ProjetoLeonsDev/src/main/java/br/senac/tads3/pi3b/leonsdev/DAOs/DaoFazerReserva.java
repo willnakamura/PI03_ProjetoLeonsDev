@@ -86,7 +86,6 @@ public class DaoFazerReserva {
 
                 for (int j = 0; j < passageiro[i].getpassVoos().size(); j++) {
                     preparedStatement3 = connection.prepareStatement(sql3);
-
                     preparedStatement3.setInt(1, rs2.getInt(1));
                     preparedStatement3.setInt(2, passageiro[i].getpassVoos().get(j).getIdVoo());
                     preparedStatement3.setString(3, "Default");
