@@ -383,6 +383,7 @@ public class DaoVoos {
                 voos.setHoraPartida(result.getTime("HoraPartida"));
                 voos.setNrVoo(result.getInt("Nr_Voo"));
                 voos.setOperadora(result.getString("Operadora"));
+                voos.setTarifa(result.getDouble("Tarifa"));
                 //Adiciona a instância na lista
                 listaVoos.add(voos);
             }
