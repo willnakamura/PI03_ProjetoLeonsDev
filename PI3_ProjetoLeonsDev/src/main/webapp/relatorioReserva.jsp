@@ -109,7 +109,7 @@
                             <tr>
                                 
                                 <th>Data Reserva</th>                                
-                                <th>TickerCode</th>       
+                                <th>Ticket</th>       
                                 <th>Nome do Passageiro</th>
                                 <th>Ultimo Nome do Passageiro</th>
                                 <th>Data de Partida</th>

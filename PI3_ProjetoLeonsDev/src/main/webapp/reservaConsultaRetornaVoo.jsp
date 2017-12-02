@@ -113,7 +113,7 @@
                             <tr>
                                 <th></th>
                                 <th>Data Reserva</th>                                
-                                <th>TickerCode</th>       
+                                <th>Ticket</th>       
                                 <th>Nome do Passageiro</th>
                                 <th>Ultimo Nome do Passageiro</th>
                                 <th>Data de Partida</th>
@@ -143,8 +143,8 @@
                                         </c:if>
                                         <c:if test="${not loop.first}">
                                             <td></td>
-                                            <td>${l.dataReserva} </td>
-                                            <td>${l.ticketCode} </td>
+                                            <td></td>
+                                            <td></td>
                                             <td>${l.nome} </td>
                                             <td>${l.sobrenome} </td>
                                             <td>${l.dataPartida} </td>
