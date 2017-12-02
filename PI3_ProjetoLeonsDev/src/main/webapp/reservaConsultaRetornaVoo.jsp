@@ -6,7 +6,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -129,29 +128,19 @@
                             <c:if test="${empty sessionScope.listaConsulta}">
                                 <c:forEach var="l" items="${sessionScope.listaConsulta}">            
                                     <tr>
-                                        <c:choose>
-
-                                            <c:when test="${fn:length(l) == 1}">
-                                                <td><input type="radio" value="${l.reservaID}" name="selecionarRes" /></td>
-                                                </c:when>
-                                                <c:otherwise>
-
-                                                <td>${l.dataReserva} </td>
-                                                <td>${l.ticketCode} </td>
-                                                <td>${l.nome} </td>
-                                                <td>${l.sobrenome} </td>
-                                                <td>${l.dataPartida} </td>
-                                                <td>${l.nVoo} </td>
-                                                <!--<td> </td>-->
-                                                <td>${l.origem} </td>
-                                                <td>${l.destino} </td>
-                                                <td>${l.assento} </td>
-                                                <td style="visibility: hidden">${l.reservaID}</td>
-                                            </c:otherwise>
-                                        </c:choose>
-
+                                        <td><input type="radio" value="${l.reservaID}" name="selecionarRes" /></td>
+                                        <td>${l.dataReserva} </td>
+                                        <td>${l.ticketCode} </td>
+                                        <td>${l.nome} </td>
+                                        <td>${l.sobrenome} </td>
+                                        <td>${l.dataPartida} </td>
+                                        <td>${l.nVoo} </td>
+                                        <!--<td> </td>-->
+                                        <td>${l.origem} </td>
+                                        <td>${l.destino} </td>
+                                        <td>${l.assento} </td>
+                                        <td style="visibility: hidden">${l.reservaID}</td>
                                     </tr>
-
                                 </c:forEach>
                             </c:if>
 

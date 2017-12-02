@@ -211,7 +211,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                     }
                     desconto = desconto + 30.0;
                     sessao.setAttribute("desconto", desconto);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto + serv.getPreco());
+                    reserva.setCustoTotal(((vooIda.getTarifa() + vooVolta.getTarifa())*quantidadePass) - desconto + serv.getPreco());
 
                 } else {
                     Double desconto = (Double) sessao.getAttribute("desconto");
@@ -220,7 +220,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                     }
                     desconto = 0.0;
                     sessao.setAttribute("desconto", desconto);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto + serv.getPreco());
+                    reserva.setCustoTotal(((vooIda.getTarifa() +vooVolta.getTarifa()) * quantidadePass) - desconto + serv.getPreco());
                 }
                 //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
             } else if (reserva.getCliente().getNivel().equals("Aguia")) {
@@ -233,7 +233,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                     desconto = desconto + 30.0;
                     
                     sessao.setAttribute("desconto", desconto + desconto2);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
+                    reserva.setCustoTotal(((vooIda.getTarifa() + vooVolta.getTarifa())* quantidadePass) - desconto);
 
                 } else {
                     Double desconto = (Double) sessao.getAttribute("desconto");
@@ -242,7 +242,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                     }
                     desconto = serv.getPreco();
                     sessao.setAttribute("desconto", desconto);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
+                    reserva.setCustoTotal(((vooIda.getTarifa() + vooVolta.getTarifa())* quantidadePass)  - desconto);
                 }
                 //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
             } else if (reserva.getCliente().getNivel().equals("Pombo")) {
@@ -253,7 +253,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                     }
                     desconto = 0.0;
                     sessao.setAttribute("desconto", desconto);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) + 30.0 + serv.getPreco());
+                    reserva.setCustoTotal(((vooIda.getTarifa() + vooVolta.getTarifa())* quantidadePass) + 30.0 + serv.getPreco());
 
                 } else {
                     Double desconto = (Double) sessao.getAttribute("desconto");
@@ -262,7 +262,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                     }
                     desconto = 0.0;
                     sessao.setAttribute("desconto", desconto);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - serv.getPreco());
+                    reserva.setCustoTotal(((vooIda.getTarifa() + vooVolta.getTarifa())* quantidadePass) + serv.getPreco());
                 }
             }
             //----------------------------------------
@@ -453,7 +453,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                     }
                     desconto = 30.0;
                     sessao.setAttribute("desconto", desconto);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto + serv.getPreco());
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) - desconto + serv.getPreco());
 
                 } else {
                     Double desconto = (Double) sessao.getAttribute("desconto");
@@ -462,7 +462,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                     }
                     desconto = 0.0;
                     sessao.setAttribute("desconto", desconto);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto + serv.getPreco());
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) - desconto + serv.getPreco());
                 }
                 //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
             } else if (reserva.getCliente().getNivel().equals("Aguia")) {
@@ -474,7 +474,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                     Double desconto2 = serv.getPreco();
                     desconto = desconto + 30;
                     sessao.setAttribute("desconto", desconto + desconto2);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) - desconto);
 
                 } else {
                     Double desconto = (Double) sessao.getAttribute("desconto");
@@ -483,7 +483,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                     }
                     desconto = serv.getPreco();
                     sessao.setAttribute("desconto", desconto);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - desconto);
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) - desconto);
                 }
                 //reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco() + (vooVolta.getTarifa() * quantidadePass));
             } else if (reserva.getCliente().getNivel().equals("Pombo")) {
@@ -494,7 +494,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                     }
                     desconto = 0.0;
                     sessao.setAttribute("desconto", desconto);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) + 30.0 + serv.getPreco());
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + 30.0 + serv.getPreco());
 
                 } else {
                     Double desconto = (Double) sessao.getAttribute("desconto");
@@ -503,7 +503,7 @@ public class PassageirosReservaServlet extends HttpServlet {
                     }
                     desconto = 0.0;
                     sessao.setAttribute("desconto", desconto);
-                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + (vooVolta.getTarifa() * quantidadePass) - serv.getPreco());
+                    reserva.setCustoTotal((vooIda.getTarifa() * quantidadePass) + serv.getPreco());
                 }
 
             }
