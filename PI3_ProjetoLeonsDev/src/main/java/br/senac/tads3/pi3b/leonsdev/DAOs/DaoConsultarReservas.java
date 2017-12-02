@@ -39,7 +39,6 @@ public class DaoConsultarReservas {
             preparedStatement = connection.prepareStatement(sql);
             //Configura os parâmetros do "PreparedStatement"
             preparedStatement.setString(1, valor);
-            preparedStatement.setBoolean(2, true);
 
             //Executa a consulta SQL no banco de dados
             result = preparedStatement.executeQuery();
