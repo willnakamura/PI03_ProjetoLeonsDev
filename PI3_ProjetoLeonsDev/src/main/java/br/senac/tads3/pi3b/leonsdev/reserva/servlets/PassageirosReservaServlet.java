@@ -281,10 +281,10 @@ public class PassageirosReservaServlet extends HttpServlet {
             if (qntPass == 1) {
                 sessao.setAttribute("Passageiro1", pass);
                 sessao.setAttribute("PassageiroVoo1", passVoos);
-                sessao.setAttribute("c", passVoos.getAssento());
+                sessao.setAttribute("assentoPass1", passVoos.getAssento());
                 sessao.setAttribute("assentoPass1Volta", passVoosVolta.getAssento());
 
-                String assentoIdaPass1 = (String) sessao.getAttribute("c");
+                String assentoIdaPass1 = (String) sessao.getAttribute("assentoPass1");
                 String assentoIdaPass2 = (String) sessao.getAttribute("assentoPass2");
                 String assentoIdaPass3 = (String) sessao.getAttribute("assentoPass3");
 

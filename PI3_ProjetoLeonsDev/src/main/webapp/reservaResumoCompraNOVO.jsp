@@ -130,6 +130,9 @@
                         </div>
                         <br>
 
+
+
+
                         <c:if test="${not empty sessionScope.VooVoltaReservaFinal}" >
                             <div>
                                 <label class="resumo-form" id="tituloResumo">Voo de Volta</label>
@@ -169,10 +172,16 @@
 
 
 
+
+
+
                         <div>
                             <label class="resumo-form" id="tituloResumo">Dados dos Passageiros</label>
                         </div>
                         <br>
+
+
+
 
                         <c:if test="${not empty sessionScope.Passageiro1}">
                             <div >                      
@@ -218,6 +227,12 @@
 
                             <br>
                         </c:if>
+
+
+
+
+
+
                         <c:if test="${not empty sessionScope.Passageiro3}">
                             <div >                      
                                 <label class="resumo-form">Nome: </label>  
@@ -240,6 +255,10 @@
 
                             <br>
                         </c:if>
+
+
+
+
 
 
 
@@ -271,10 +290,12 @@
 
 
                         </div>
+
                         <div>  
-                            <label class="resumo-form">Valor da Bagagem: </label>
+                            <label class="resumo-form">Bagagem: </label>
                             <label class="resumo-form" id="result">${sessionScope.Servico.extraBag} - R$ ${sessionScope.Servico.preco}</label>
                         </div>
+
                         <div >
 
                             <label class="resumo-form">Valor Total: </label>
@@ -286,8 +307,6 @@
                             <label class="resumo-form">Desconto: </label>
                             <label class="resumo-form" id="result">${sessionScope.desconto}</label>
                         </div>    
-
-
 
                         <div>
                             <label class="resumo-form">Pontos: </label>
