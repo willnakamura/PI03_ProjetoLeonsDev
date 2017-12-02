@@ -43,7 +43,7 @@ public class ConsultaReservaServlet extends HttpServlet {
         String ticket = request.getParameter("buscaCodigo");
 
         if (ticket == null || ticket.trim().equals("")) {
-            request.setAttribute("erroConsulta", "Informe um parametro para a pesquisa.");
+            request.setAttribute("erroConsulta", "Informe o ticket da reserva para a pesquisa.");
             if (singleton.getCargo().equals("Gerente")) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaConsultaRetornaVoo.jsp");
                 dispatcher.forward(request, response);
@@ -71,7 +71,7 @@ public class ConsultaReservaServlet extends HttpServlet {
                 return;
             }
         }
-        if (consulta == null) {
+        if (consulta == null || consulta.isEmpty()) {
             request.setAttribute("erroConsulta", "Não houve resultado.");
             if (singleton.getCargo().equals("Gerente")) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaConsultaRetornaVoo.jsp");
