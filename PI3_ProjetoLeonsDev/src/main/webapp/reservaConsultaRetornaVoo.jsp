@@ -29,7 +29,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery.equalheights.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
-
+        
         <script>
             $(document).ready(function () {
                 $().UItoTop({easingType: 'easeOutQuart'});
@@ -125,31 +125,43 @@
                                 <th style="visibility: hidden">ID</th>
                             </tr> 
 
-                            <c:if test="${empty sessionScope.listaConsulta}">
-                                <c:forEach var="l" items="${sessionScope.listaConsulta}">            
+                                <c:forEach var="l" items="${sessionScope.listaConsulta}" varStatus="loop">            
                                     <tr>
-                                        <td><input type="radio" value="${l.reservaID}" name="selecionarRes" /></td>
-                                        <td>${l.dataReserva} </td>
-                                        <td>${l.ticketCode} </td>
-                                        <td>${l.nome} </td>
-                                        <td>${l.sobrenome} </td>
-                                        <td>${l.dataPartida} </td>
-                                        <td>${l.nVoo} </td>
-                                        <!--<td> </td>-->
-                                        <td>${l.origem} </td>
-                                        <td>${l.destino} </td>
-                                        <td>${l.assento} </td>
-                                        <td style="visibility: hidden">${l.reservaID}</td>
+                                        <c:if test="${loop.first}">
+                                            <td><input type="radio" value="${l.reservaID}" name="selecionarRes" /></td>
+                                            <td>${l.dataReserva} </td>
+                                            <td>${l.ticketCode} </td>
+                                            <td>${l.nome} </td>
+                                            <td>${l.sobrenome} </td>
+                                            <td>${l.dataPartida} </td>
+                                            <td>${l.nVoo} </td>
+                                            <!--<td> </td>-->
+                                            <td>${l.origem} </td>
+                                            <td>${l.destino} </td>
+                                            <td>${l.assento} </td>
+                                            <td style="visibility: hidden">${l.reservaID}</td>
+                                        </c:if>
+                                        <c:if test="${not loop.first}">
+                                            <td></td>
+                                            <td>${l.dataReserva} </td>
+                                            <td>${l.ticketCode} </td>
+                                            <td>${l.nome} </td>
+                                            <td>${l.sobrenome} </td>
+                                            <td>${l.dataPartida} </td>
+                                            <td>${l.nVoo} </td>
+                                            <!--<td> </td>-->
+                                            <td>${l.origem} </td>
+                                            <td>${l.destino} </td>
+                                            <td>${l.assento} </td>
+                                            <td style="visibility: hidden">${l.reservaID}</td>
+                                        </c:if>
                                     </tr>
                                 </c:forEach>
-                            </c:if>
 
                         </table>
 
                         <div class="form-footer">
-
-                            <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
-                            <button class="botoes" type="submit">EXCLUIR<span class="fa fa-ban"></span></button>
+                            <button class="botoes" type="submit">CANCELAR RESERVA<span class="fa fa-ban" onclick="submitForm()"></span></button>
 
                         </div>
 
