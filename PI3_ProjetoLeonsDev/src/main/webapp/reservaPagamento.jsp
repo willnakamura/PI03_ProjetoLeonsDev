@@ -102,7 +102,7 @@
                                 <div class="row">
                                     <select class="pagamento" name="pagamento">  
                                         <option value="Selecione">Forma de Pagamento</option>
-                                        <option value="credito">crédito</option>
+                                        <option value="credito">Crédito</option>
                                         <option value="Debito">Débito</option>
                                         <option value="Dinheiro">Dinheiro</option>
                                     </select>
