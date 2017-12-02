@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -64,14 +65,14 @@
                 </div>
 
             </div>
-             <form action="${pageContext.request.contextPath}/Logout" method="post">
+            <form action="${pageContext.request.contextPath}/Logout" method="post">
                 <div class="form-footer" id="logout">
 
                     <button class="botoesLogout" type="submit">logout</button>
 
                 </div>
             </form>
-                        
+
         </header>
 
         <div class="content"><div class="ic"></div>
@@ -84,60 +85,84 @@
 
                     </div>                    
 
-                    <form class="buscaCliente" action="${pageContext.request.contextPath}/RelatorioReserva" method="post">
-                        
+                    <form class="buscaCliente" action="${pageContext.request.contextPath}/ConsultaReserva" method="post">
+
 
                         <div class="row">
-
                             <div class="busca"><input type="text"  id="busca1" placeholder="informe o codigo de busca" name="buscaCodigo"> <button id="botoesBusca" type="submit">BUSCAR</button></div>
                         </div>
-                      
-                        
+
+                        <div class="row">
+                            <c:if test="${not empty requestScope.erroConsulta}">
+                                <p class="error"><c:out value="${requestScope.erroConsulta}"/></p>
+                            </c:if>
+                        </div>
+
+
                     </form>
 
-                    <form class="editCli" action="#" method="post">
+                    <form class="editCli" action="${pageContext.request.contextPath}/DeletarReserva" method="post">
+
+                        <div class="row">
+                            <c:if test="${not empty requestScope.erroCancelamento}">
+                                <p class="error"><c:out value="${requestScope.erroCancelamento}"/></p>
+                            </c:if>
+                        </div>
 
                         <div id="bg"></div>
                         <table>
                             <tr>
-                                
+                                <th></th>
                                 <th>Data Reserva</th>                                
                                 <th>TickerCode</th>       
                                 <th>Nome do Passageiro</th>
                                 <th>Ultimo Nome do Passageiro</th>
                                 <th>Data de Partida</th>
                                 <th>Nº Voo</th>                                
-                                <th>Hora Voo</th>
+                                <!--<th>Hora Voo</th>-->
                                 <th>Aeroporto Origem</th>
                                 <th>Aeroporto Destino</th>
                                 <th>Assento</th>
+                                <th style="visibility: hidden">ID</th>
                             </tr> 
-                            
-                            
-                                <c:forEach var="reservaConsultaRetornaVoo" items="#">    
+
+                            <c:if test="${empty sessionScope.listaConsulta}">
+                                <c:forEach var="l" items="${sessionScope.listaConsulta}">            
                                     <tr>
-                                        <td><input type="radio" value="#" name="selecionarRes" /></td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
+                                        <c:choose>
+
+                                            <c:when test="${fn:length(l) == 1}">
+                                                <td><input type="radio" value="${l.reservaID}" name="selecionarRes" /></td>
+                                                </c:when>
+                                                <c:otherwise>
+
+                                                <td>${l.dataReserva} </td>
+                                                <td>${l.ticketCode} </td>
+                                                <td>${l.nome} </td>
+                                                <td>${l.sobrenome} </td>
+                                                <td>${l.dataPartida} </td>
+                                                <td>${l.nVoo} </td>
+                                                <!--<td> </td>-->
+                                                <td>${l.origem} </td>
+                                                <td>${l.destino} </td>
+                                                <td>${l.assento} </td>
+                                                <td style="visibility: hidden">${l.reservaID}</td>
+                                            </c:otherwise>
+                                        </c:choose>
+
                                     </tr>
+
                                 </c:forEach>
+                            </c:if>
 
                         </table>
-                        
-                          <div class="form-footer">
 
-                                <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
-                                <button class="botoes" type="submit">EXCLUIR<span class="fa fa-ban"></span></button>
+                        <div class="form-footer">
 
-                         </div>
+                            <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
+                            <button class="botoes" type="submit">EXCLUIR<span class="fa fa-ban"></span></button>
+
+                        </div>
 
                     </form>
                 </div>

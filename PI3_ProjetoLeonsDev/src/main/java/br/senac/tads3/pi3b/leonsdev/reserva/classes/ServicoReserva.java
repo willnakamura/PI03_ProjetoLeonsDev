@@ -5,6 +5,7 @@
  */
 package br.senac.tads3.pi3b.leonsdev.reserva.classes;
 
+import br.senac.tads3.pi3b.leonsdev.DAOs.DaoConsultarReservas;
 import br.senac.tads3.pi3b.leonsdev.DAOs.DaoFazerReserva;
 import br.senac.tads3.pi3b.leonsdev.DAOs.DaoReservas;
 import br.senac.tads3.pi3b.leonsdev.cliente.classes.Cliente;
@@ -98,4 +99,6 @@ public class ServicoReserva {
             e.printStackTrace();
         }
     }
+    
+   
 }

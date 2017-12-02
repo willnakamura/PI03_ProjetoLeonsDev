@@ -14,7 +14,7 @@ import java.util.Date;
  */
 public class ReservaConsultar {
     private Date dataReserva, dataPartida;
-    private String ticketCode, nome, sobrenome, Origem, Destino, Assento;
+    private String ticketCode, nome, sobrenome, origem, destino, assento;
     private int nVoo, reservaID;
 
     public int getReservaID() {
@@ -67,27 +67,27 @@ public class ReservaConsultar {
     }
 
     public String getOrigem() {
-        return Origem;
+        return origem;
     }
 
-    public void setOrigem(String Origem) {
-        this.Origem = Origem;
+    public void setOrigem(String origem) {
+        this.origem = origem;
     }
 
     public String getDestino() {
-        return Destino;
+        return destino;
     }
 
     public void setDestino(String Destino) {
-        this.Destino = Destino;
+        this.destino = Destino;
     }
 
     public String getAssento() {
-        return Assento;
+        return assento;
     }
 
-    public void setAssento(String Assento) {
-        this.Assento = Assento;
+    public void setAssento(String assento) {
+        this.assento = assento;
     }
 
     public int getnVoo() {
