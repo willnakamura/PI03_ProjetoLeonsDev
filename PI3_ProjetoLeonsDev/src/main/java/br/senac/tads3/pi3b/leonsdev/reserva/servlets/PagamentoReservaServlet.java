@@ -134,14 +134,16 @@ public class PagamentoReservaServlet extends HttpServlet {
                             dispatcher.forward(request, response);
                         }
                     } else {
-                        ServicoReserva.inserirVendaMilhas(r, passVetor, passVoosVetor, servico, cli, totalMilhas);
+                        String ticket = ServicoReserva.inserirVendaMilhas(r, passVetor, passVoosVetor, servico, cli, totalMilhas);
+                        sessao.setAttribute("ticketResumo", ticket);
                         int pontos = totMilhas.intValue();
                         int pontos2 = cli.getPontos() - pontos;
                         sessao.setAttribute("pontosCli", pontos2);
                     }
                 }
             } else {
-                ServicoReserva.inserirVenda(r, passVetor, passVoosVetor, servico, cli);
+                String ticket = ServicoReserva.inserirVenda(r, passVetor, passVoosVetor, servico, cli);
+                sessao.setAttribute("ticketResumo", ticket);
             }
 
         } catch (Exception e) {

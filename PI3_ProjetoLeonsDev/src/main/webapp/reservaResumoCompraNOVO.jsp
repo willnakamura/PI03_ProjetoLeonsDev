@@ -90,7 +90,11 @@
                         <div >
                             <label class="resumo-form"> Status da Reserva: </label> 
                             <label class="resumo-form" id="result">Ativo</label>
-
+                        </div>
+                        
+                        <div >
+                            <label class="resumo-form"> Ticket da Reserva: </label> 
+                            <label class="resumo-form" id="result">${sessionScope.ticketResumo}</label>
                         </div>
                         <br>
 
@@ -123,7 +127,7 @@
 
                         </div>
 
-                        <div >
+                        <div>
                             <label class="resumo-form">Horário de Chegada:</label>
 
                             <label class="resumo-form-2" id="result">${sessionScope.VooIdaReservaFinal.horaChegada}</label>   
@@ -270,7 +274,7 @@
 
                         <div>
 
-                            <label class="resumo-form">Nome Completo do Cliente</label>
+                            <label class="resumo-form">Nome Completo do Cliente: </label>
                             <label class="resumo-form" id="result">${sessionScope.ReservaFinal.cliente.nome} ${sessionScope.ReservaFinal.cliente.sobrenome}</label>
 
 
