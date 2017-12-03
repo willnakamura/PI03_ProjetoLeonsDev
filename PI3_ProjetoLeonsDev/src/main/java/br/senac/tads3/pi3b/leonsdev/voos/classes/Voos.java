@@ -14,14 +14,23 @@ import java.util.Date;
  * @author Rafael Rodrigues
  */
 public class Voos {
+
     private int id, distanciaMilhas, Aeronave_ID;
-    private double tarifa;
+    private double tarifa, tarifaMilhas;
     private Integer nrVoo;
     private String aeroportoPartida, aeroportoChegada, Operadora;
     private Time horaPartida, horaChegada;
     private Date DataVoo;
     private Aeronave aeronave;
     private Boolean ativo;
+
+    public double getTarifaMilhas() {
+        return tarifaMilhas;
+    }
+
+    public void setTarifaMilhas(double tarifaMilhas) {
+        this.tarifaMilhas = tarifaMilhas;
+    }
 
     public double getTarifa() {
         return tarifa;
@@ -54,9 +63,9 @@ public class Voos {
     public void setAeronave(Aeronave aeronave) {
         this.aeronave = aeronave;
     }
-    
-    public Voos (){
-        
+
+    public Voos() {
+
     }
 
     public Voos(int id, int distanciaMilhas, Integer nrVoo, String aeroportoPartida, String aeroportoChegada, String Operadora, Time horaPartida, Time horaChegada, Date DataVoo) {
@@ -81,25 +90,20 @@ public class Voos {
         this.horaChegada = horaChegada;
         this.DataVoo = DataVoo;
     }
-    
-    
-    
-    
-    
-    
+
     //metodos
     public int getId() {
         return id;
     }
-    
+
     public void setId(int id) {
         this.id = id;
     }
-    
+
     public void setNrVoo(Integer nrVoo) {
         this.nrVoo = nrVoo;
     }
-    
+
     public Integer getNrVoo() {
         return nrVoo;
     }
@@ -159,4 +163,4 @@ public class Voos {
     public void setDataVoo(Date DataVoo) {
         this.DataVoo = DataVoo;
     }
- }
+}

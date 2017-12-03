@@ -309,6 +309,7 @@ public class DaoVoos {
                 voos.setNrVoo(result.getInt("Nr_Voo"));
                 voos.setOperadora(result.getString("Operadora"));
                 voos.setTarifa(result.getDouble("Tarifa"));
+                voos.setTarifaMilhas(result.getDouble("TarifaPontos"));
                 //Retorna o resultado
                 return voos;
             }
