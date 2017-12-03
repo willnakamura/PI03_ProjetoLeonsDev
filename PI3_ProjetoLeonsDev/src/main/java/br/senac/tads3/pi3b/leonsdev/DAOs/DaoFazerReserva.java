@@ -25,7 +25,7 @@ import java.sql.Timestamp;
  */
 public class DaoFazerReserva {
 
-    public static void inserirVenda(Reserva reserva, Passageiros[] passageiro, Servico servico, Cliente cliente) throws SQLException, Exception {
+    public static String inserirVenda(Reserva reserva, Passageiros[] passageiro, Servico servico, Cliente cliente) throws SQLException, Exception {
         //Monta a string de inserção dos dados no BD,
         String sql1 = "insert into Reservas (Data_Criado, Status, Vendedor, Forma_Pagto, Custo_Total, Cliente_ID, Ativo, Ticket) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -48,6 +48,7 @@ public class DaoFazerReserva {
         PreparedStatement preparedStatement3 = null;
         PreparedStatement preparedStatement4 = null;
 
+        String ticket = TicketCode.randomString(6);
         try {
             //Abre uma conexão com o banco de dados
             connection = ConnectionUtils.getConnection();
@@ -61,7 +62,7 @@ public class DaoFazerReserva {
             preparedStatement.setDouble(5, reserva.getCustoTotal());
             preparedStatement.setInt(6, cliente.getId());
             preparedStatement.setBoolean(7, true);
-            preparedStatement.setString(8, TicketCode.randomString(6));
+            preparedStatement.setString(8, ticket);
 
             //Executa o comando no banco de dados
             preparedStatement.execute();
@@ -121,8 +122,9 @@ public class DaoFazerReserva {
                 connection.close();
             }
         }
+        return ticket;
     }
-    public static void inserirVendaComMilhas(Reserva reserva, Passageiros[] passageiro, Servico servico, Cliente cliente, Double milhas) throws SQLException, Exception {
+    public static String inserirVendaComMilhas(Reserva reserva, Passageiros[] passageiro, Servico servico, Cliente cliente, Double milhas) throws SQLException, Exception {
         //Monta a string de inserção dos dados no BD,
         String sql1 = "insert into Reservas (Data_Criado, Status, Vendedor, Forma_Pagto, Custo_Total, Cliente_ID, Ativo, Ticket) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -148,6 +150,8 @@ public class DaoFazerReserva {
         PreparedStatement preparedStatement4 = null;
         PreparedStatement preparedStatement5 = null;
 
+        String ticket = TicketCode.randomString(6);
+        
         try {
             //Abre uma conexão com o banco de dados
             connection = ConnectionUtils.getConnection();
@@ -161,7 +165,7 @@ public class DaoFazerReserva {
             preparedStatement.setDouble(5, reserva.getCustoTotal());
             preparedStatement.setInt(6, cliente.getId());
             preparedStatement.setBoolean(7, true);
-            preparedStatement.setString(8, TicketCode.randomString(6));
+            preparedStatement.setString(8, ticket);
 
             //Executa o comando no banco de dados
             preparedStatement.execute();
@@ -229,5 +233,6 @@ public class DaoFazerReserva {
                 connection.close();
             }
         }
+        return ticket;
     }
 }
