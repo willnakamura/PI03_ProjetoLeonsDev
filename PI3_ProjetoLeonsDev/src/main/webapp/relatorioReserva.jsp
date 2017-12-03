@@ -104,7 +104,7 @@
 
                     <form class="editCli" action="#" method="post">
 
-                        <div id="tabela">
+                        <div id="tabelaRelatorio">
                         <table>
                             <tr>
                                 
