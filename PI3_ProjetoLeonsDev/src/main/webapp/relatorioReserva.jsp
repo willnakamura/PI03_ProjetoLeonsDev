@@ -110,8 +110,8 @@
                                 
                                 <th>Data Reserva</th>                                
                                 <th>Ticket</th>       
-                                <th>Nome do Passageiro</th>
-                                <th>Ultimo Nome do Passageiro</th>
+                                <th>Nome Passageiro</th>
+                                <th>Sobrenome Passageiro</th>
                                 <th>Data de Partida</th>
                                 <th>Nº Voo</th>                                
                                 <th>Hora Voo</th>

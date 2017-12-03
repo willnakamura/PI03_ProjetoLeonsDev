@@ -29,7 +29,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery.equalheights.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
-        
+
         <script>
             $(document).ready(function () {
                 $().UItoTop({easingType: 'easeOutQuart'});
@@ -125,6 +125,7 @@
                                 <th style="visibility: hidden">ID</th>
                             </tr> 
 
+                            <c:if test="${not empty sessionScope.listaConsulta}">
                                 <c:forEach var="l" items="${sessionScope.listaConsulta}" varStatus="loop">            
                                     <tr>
                                         <c:if test="${loop.first}">
@@ -157,12 +158,25 @@
                                         </c:if>
                                     </tr>
                                 </c:forEach>
+                            </c:if>
+                            
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td> </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <!--<td> </td>-->
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="visibility: hidden"></td>
 
                         </table>
 
                         <div class="form-footer">
-                            <button class="botoes" type="submit">CANCELAR RESERVA<span class="fa fa-ban" onclick="submitForm()"></span></button>
-
+                            <button class="botoes" type="submit">CANCELAR RESERVA<span class="fa fa-ban"></span></button>
                         </div>
 
                     </form>

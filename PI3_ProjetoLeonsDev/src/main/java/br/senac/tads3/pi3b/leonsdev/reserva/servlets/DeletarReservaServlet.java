@@ -69,6 +69,8 @@ public class DeletarReservaServlet extends HttpServlet {
             }
         }
         
+        sessao.setAttribute("listaConsulta", null);
+        
         if (singleton.getCargo().equals("Gerente")) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaConsultaRetornaVoo.jsp");
                 dispatcher.forward(request, response);

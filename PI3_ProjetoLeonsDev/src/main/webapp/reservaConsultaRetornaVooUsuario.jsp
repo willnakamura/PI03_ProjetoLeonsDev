@@ -84,67 +84,107 @@
 
                     </div>                    
 
-                    <form class="buscaCliente" action="${pageContext.request.contextPath}/RelatorioReserva" method="post">
-                        
+                    <form class="buscaCliente" action="${pageContext.request.contextPath}/ConsultaReserva" method="post">
+
 
                         <div class="row">
-
                             <div class="busca"><input type="text"  id="busca1" placeholder="informe o codigo de busca" name="buscaCodigo"> <button id="botoesBusca" type="submit">BUSCAR</button></div>
                         </div>
-                      
-                        
+
+                        <div class="row">
+                            <c:if test="${not empty requestScope.erroConsulta}">
+                                <p class="error"><c:out value="${requestScope.erroConsulta}"/></p>
+                            </c:if>
+                        </div>
+
+
                     </form>
 
-                    <form class="editCli" action="#" method="post">
+                    <form class="editCli" action="${pageContext.request.contextPath}/DeletarReserva" method="post">
+
+                        <div class="row">
+                            <c:if test="${not empty requestScope.erroCancelamento}">
+                                <p class="error"><c:out value="${requestScope.erroCancelamento}"/></p>
+                            </c:if>
+                        </div>
 
                         <div id="bg"></div>
                         <table>
                             <tr>
-                                
+                                <th></th>
                                 <th>Data Reserva</th>                                
-                                <th>TickerCode</th>       
+                                <th>Ticket</th>       
                                 <th>Nome do Passageiro</th>
                                 <th>Ultimo Nome do Passageiro</th>
                                 <th>Data de Partida</th>
                                 <th>Nº Voo</th>                                
-                                <th>Hora Voo</th>
+                                <!--<th>Hora Voo</th>-->
                                 <th>Aeroporto Origem</th>
                                 <th>Aeroporto Destino</th>
                                 <th>Assento</th>
+                                <th style="visibility: hidden">ID</th>
                             </tr> 
-                            
-                            
-                                <c:forEach var="reservaConsultaRetornaVoo" items="#">    
+
+                            <c:if test="${not empty sessionScope.listaConsulta}">
+                                <c:forEach var="l" items="${sessionScope.listaConsulta}" varStatus="loop">            
                                     <tr>
-                                        <td><input type="radio" value="#" name="selecionarRes" /></td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
-                                        <td> </td>
+                                        <c:if test="${loop.first}">
+                                            <td><input type="radio" value="${l.reservaID}" name="selecionarRes" /></td>
+                                            <td>${l.dataReserva} </td>
+                                            <td>${l.ticketCode} </td>
+                                            <td>${l.nome} </td>
+                                            <td>${l.sobrenome} </td>
+                                            <td>${l.dataPartida} </td>
+                                            <td>${l.nVoo} </td>
+                                            <!--<td> </td>-->
+                                            <td>${l.origem} </td>
+                                            <td>${l.destino} </td>
+                                            <td>${l.assento} </td>
+                                            <td style="visibility: hidden">${l.reservaID}</td>
+                                        </c:if>
+                                        <c:if test="${not loop.first}">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>${l.nome} </td>
+                                            <td>${l.sobrenome} </td>
+                                            <td>${l.dataPartida} </td>
+                                            <td>${l.nVoo} </td>
+                                            <!--<td> </td>-->
+                                            <td>${l.origem} </td>
+                                            <td>${l.destino} </td>
+                                            <td>${l.assento} </td>
+                                            <td style="visibility: hidden">${l.reservaID}</td>
+                                        </c:if>
                                     </tr>
                                 </c:forEach>
+                            </c:if>
+                            
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td> </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <!--<td> </td>-->
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="visibility: hidden"></td>
 
                         </table>
-                        
-                          <div class="form-footer">
 
-                                <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
-                                <button class="botoes" type="submit">EXCLUIR<span class="fa fa-ban"></span></button>
-
-                         </div>
+                        <div class="form-footer">
+                            <button class="botoes" type="submit">CANCELAR RESERVA<span class="fa fa-ban"></span></button>
+                        </div>
 
                     </form>
                 </div>
                 <div class="grid_3 prefix_1">
                     <h5 class="opcao">Opção</h5>
                     <ul class="list">
-                        <li><a href="${pageContext.request.contextPath}/reservaVooUsuario.jsp">Reserva</a></li>
+                        <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
                         <li  class="current"><a href="#">Consultar</a></li>
 
                     </ul>
