@@ -102,6 +102,7 @@
                                     <th>Hora Partida</th>    
                                     <th>Hora Chegada</th>
                                     <th>Tarifa</th>
+                                    <th>Custo Milhas</th>
                                     <th style="visibility: hidden">ID</th>
 
                                 </tr>  

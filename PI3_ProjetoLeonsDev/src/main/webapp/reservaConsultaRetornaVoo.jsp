@@ -125,44 +125,58 @@
                                 <th style="visibility: hidden">ID</th>
                             </tr> 
 
-                            <c:forEach var="l" items="${sessionScope.listaConsulta}" varStatus="loop">            
-                                <tr>
-                                    <c:if test="${loop.first}">
-                                        <td><input type="radio" value="${l.reservaID}" name="selecionarRes" /></td>
-                                        <td>${l.dataReserva} </td>
-                                        <td>${l.ticketCode} </td>
-                                        <td>${l.nome} </td>
-                                        <td>${l.sobrenome} </td>
-                                        <td>${l.dataPartida} </td>
-                                        <td>${l.nVoo} </td>
-                                        <!--<td> </td>-->
-                                        <td>${l.origem} </td>
-                                        <td>${l.destino} </td>
-                                        <td>${l.assento} </td>
-                                        <td style="visibility: hidden">${l.reservaID}</td>
-                                    </c:if>
-                                    <c:if test="${not loop.first}">
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>${l.nome} </td>
-                                        <td>${l.sobrenome} </td>
-                                        <td>${l.dataPartida} </td>
-                                        <td>${l.nVoo} </td>
-                                        <!--<td> </td>-->
-                                        <td>${l.origem} </td>
-                                        <td>${l.destino} </td>
-                                        <td>${l.assento} </td>
-                                        <td style="visibility: hidden">${l.reservaID}</td>
-                                    </c:if>
-                                </tr>
-                            </c:forEach>
+                            <c:if test="${not empty sessionScope.listaConsulta}">
+                                <c:forEach var="l" items="${sessionScope.listaConsulta}" varStatus="loop">            
+                                    <tr>
+                                        <c:if test="${loop.first}">
+                                            <td><input type="radio" value="${l.reservaID}" name="selecionarRes" /></td>
+                                            <td>${l.dataReserva} </td>
+                                            <td>${l.ticketCode} </td>
+                                            <td>${l.nome} </td>
+                                            <td>${l.sobrenome} </td>
+                                            <td>${l.dataPartida} </td>
+                                            <td>${l.nVoo} </td>
+                                            <!--<td> </td>-->
+                                            <td>${l.origem} </td>
+                                            <td>${l.destino} </td>
+                                            <td>${l.assento} </td>
+                                            <td style="visibility: hidden">${l.reservaID}</td>
+                                        </c:if>
+                                        <c:if test="${not loop.first}">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>${l.nome} </td>
+                                            <td>${l.sobrenome} </td>
+                                            <td>${l.dataPartida} </td>
+                                            <td>${l.nVoo} </td>
+                                            <!--<td> </td>-->
+                                            <td>${l.origem} </td>
+                                            <td>${l.destino} </td>
+                                            <td>${l.assento} </td>
+                                            <td style="visibility: hidden">${l.reservaID}</td>
+                                        </c:if>
+                                    </tr>
+                                </c:forEach>
+                            </c:if>
+                            
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td> </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <!--<td> </td>-->
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="visibility: hidden"></td>
 
                         </table>
 
                         <div class="form-footer">
-                            <button class="botoes" type="submit">CANCELAR RESERVA<span class="fa fa-ban" onclick="submitForm()"></span></button>
-
+                            <button class="botoes" type="submit">CANCELAR RESERVA<span class="fa fa-ban"></span></button>
                         </div>
 
                     </form>
