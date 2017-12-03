@@ -103,6 +103,7 @@
                     <form class="editCli" action="${pageContext.request.contextPath}/EditarCliente" method="post">
 
                         <div id="bg"></div>
+                        <div id="tabelaConsultaCliente">
                         <table>
                             <tr>
                                 <th></th>
@@ -161,6 +162,7 @@
 
 
                         </table>
+                            </div>
 
                         <div class="form-footer">
                             <button class="botoes" name="btnExluir" value="exluirCli">EXCLUIR<span class="fa fa-ban"></span></button>

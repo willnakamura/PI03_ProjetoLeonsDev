@@ -100,7 +100,7 @@
                             </c:if>
                         </div>
                         
-                        <div id="tabela">
+                        <div id="tabelaRelatorio">
                         <table>
                             <tr>
                                 <th>Data Cadastro</th>                                
