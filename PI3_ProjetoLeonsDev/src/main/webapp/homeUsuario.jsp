@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Home</title>
+        <title>Home Usuário</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
