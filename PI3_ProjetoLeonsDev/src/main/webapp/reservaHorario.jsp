@@ -116,6 +116,7 @@
                                         <td>${voo.horaPartida}</td>
                                         <td>${voo.horaChegada}</td>
                                         <td>${voo.tarifa}</td>
+                                        <td>${voo.tarifaMilhas}</td>
                                         <td style="visibility: hidden">${voo.id}</td>
                                     </tr>
                                 </c:forEach>

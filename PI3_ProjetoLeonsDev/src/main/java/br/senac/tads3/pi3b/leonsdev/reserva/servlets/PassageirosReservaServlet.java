@@ -179,6 +179,9 @@ public class PassageirosReservaServlet extends HttpServlet {
             try {
                 vooIda = ServicoVoos.obterVoo(idIda);
                 vooVolta = ServicoVoos.obterVoo(idVolta);
+                sessao.setAttribute("vooIdaMilhas", vooIda);
+                sessao.setAttribute("vooVoltaMilhas", vooVolta);
+                 sessao.setAttribute("valorTotalMilha", (vooIda.getTarifaMilhas() + vooVolta.getTarifaMilhas()) * qtdPassReserva);
 
             } catch (DataExceptions ex) {
                 ex.getMessage();
@@ -431,6 +434,8 @@ public class PassageirosReservaServlet extends HttpServlet {
 
             try {
                 vooIda = ServicoVoos.obterVoo(idIda);
+                sessao.setAttribute("vooIdaMilhas", vooIda);
+                sessao.setAttribute("valorTotalMilha", (vooIda.getTarifaMilhas() * qtdPassReserva));
 
             } catch (DataExceptions ex) {
                 ex.getMessage();

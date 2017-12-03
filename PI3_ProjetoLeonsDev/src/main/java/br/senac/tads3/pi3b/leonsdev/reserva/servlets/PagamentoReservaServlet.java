@@ -16,6 +16,7 @@ import br.senac.tads3.pi3b.leonsdev.passageiros.classes.PassageirosVoos;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.Reserva;
 import br.senac.tads3.pi3b.leonsdev.reserva.classes.ServicoReserva;
 import br.senac.tads3.pi3b.leonsdev.servico.classes.Servico;
+import br.senac.tads3.pi3b.leonsdev.voos.classes.Voos;
 import java.io.IOException;
 import java.util.Calendar;
 import javax.servlet.RequestDispatcher;
@@ -65,6 +66,7 @@ public class PagamentoReservaServlet extends HttpServlet {
             }
 
         }
+        sessao.setAttribute("tipoPag", pagamento);
 
         String qtdPassString = (String) sessao.getAttribute("qtdPassageirosReserva");
         int qtdPass = Integer.parseInt(qtdPassString);
@@ -113,19 +115,40 @@ public class PagamentoReservaServlet extends HttpServlet {
         servico = (Servico) sessao.getAttribute("ServicoReservaFinal");
         Cliente cli = new Cliente();
         cli = (Cliente) sessao.getAttribute("clienteSelectReserva");
-        String erro;
 
         try {
-            ServicoReserva.inserirVenda(r, passVetor, passVoosVetor, servico, cli);
+            if (pagamento.equals("Milhas")) {
+//                String totMilhasString = (String) 
+                Double totMilhas = (Double) sessao.getAttribute("valorTotalMilha");
+                
+                Double totalMilhas = 0.0;
+                if (totMilhas != null || !totMilhas.equals("")) {
+                    totalMilhas = totMilhas;
+                    if (cli.getPontos() < totalMilhas) {
+                        request.setAttribute("erroPagamento", "Seus pontos não são suficientes para efetuar esta compra.");
+                        if (singleton.getCargo().equals("Gerente")) {
+                            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamento.jsp");
+                            dispatcher.forward(request, response);
+                        } else {
+                            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaPagamentoUsuario.jsp");
+                            dispatcher.forward(request, response);
+                        }
+                    } else {
+                        ServicoReserva.inserirVendaMilhas(r, passVetor, passVoosVetor, servico, cli, totalMilhas);
+                    }
+                }
+            } else {
+                ServicoReserva.inserirVenda(r, passVetor, passVoosVetor, servico, cli);
+            }
+
         } catch (Exception e) {
-            erro = e.getMessage();
-            e.printStackTrace();
+            e.getMessage();
         }
 
         if (singleton.getCargo().equals("Gerente")) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompraNOVO.jsp");
             dispatcher.forward(request, response);
-        }else{
+        } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompraUsuario.jsp");
             dispatcher.forward(request, response);
         }

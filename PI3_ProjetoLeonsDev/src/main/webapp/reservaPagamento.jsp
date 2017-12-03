@@ -87,13 +87,13 @@
 
                     <div class="card-form">
                         <form class="signup" action="${pageContext.request.contextPath}/PagamentoReserva" method="post">
-                            
+
                             <div class="row">
                                 <c:if test="${not empty requestScope.erroPagamento}">
                                     <p class="error"><c:out value="${requestScope.erroPagamento}"/></p>
                                 </c:if>
                             </div>
-                            
+
                             <div class="busca">
                                 <input type="text" id="pagador" name="nomePagador" readonly="readonly" value="${sessionScope.nomePagador}">
                             </div>
@@ -102,15 +102,23 @@
                                 <div class="row">
                                     <select class="pagamento" name="pagamento">  
                                         <option value="Selecione">Forma de Pagamento</option>
-                                        <option value="credito">Crédito</option>
+                                        <option value="Credito">Crédito</option>
                                         <option value="Debito">Débito</option>
                                         <option value="Dinheiro">Dinheiro</option>
+                                        <option value="Milhas">Milhas</option>
                                     </select>
                                 </div>  
+
 
                                 <div class="row">
                                     <input type="text" name="total" value="${sessionScope.custoTotal}" readonly="readonly">
                                 </div>
+
+                                <c:if test="${not empty sessionScope.valorTotalMilha}">
+                                    <div class="row">
+                                        <input type="text" name="total" value="${sessionScope.valorTotalMilha}" readonly="readonly">
+                                    </div>
+                                </c:if>
 
                             </div>
 
@@ -124,7 +132,7 @@
 
                     </div>
                 </div>
-                   
+
 
             </div>
 

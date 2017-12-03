@@ -100,5 +100,14 @@ public class ServicoReserva {
         }
     }
     
+    public static void inserirVendaMilhas(Reserva reserva, Passageiros[] passageiro, PassageirosVoos[] pvoos, Servico servico, Cliente cliente, Double milhas) throws SQLException, Exception {
+        try {
+            DaoFazerReserva.inserirVendaComMilhas(reserva, passageiro, servico, cliente, milhas);
+        } catch (Exception e) {
+            e.getMessage();
+            e.printStackTrace();
+        }
+    }
+    
    
 }
