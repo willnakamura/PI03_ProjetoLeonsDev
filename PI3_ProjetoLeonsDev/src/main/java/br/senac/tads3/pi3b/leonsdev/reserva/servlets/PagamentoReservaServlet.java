@@ -135,6 +135,9 @@ public class PagamentoReservaServlet extends HttpServlet {
                         }
                     } else {
                         ServicoReserva.inserirVendaMilhas(r, passVetor, passVoosVetor, servico, cli, totalMilhas);
+                        int pontos = totMilhas.intValue();
+                        int pontos2 = cli.getPontos() - pontos;
+                        sessao.setAttribute("pontosCli", pontos2);
                     }
                 }
             } else {

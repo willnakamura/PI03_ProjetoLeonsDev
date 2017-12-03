@@ -294,8 +294,8 @@ id="menu_blockReserva" >Reserva</a></li>
                         </div>    
                             
                         <div>
-                            <label class="resumo-form">Pontos: </label>
-                            <label class="resumo-form" id="result">${sessionScope.ReservaFinal.cliente.pontos}</label>
+                            <label class="resumo-form">Saldo em Milhas: </label>
+                            <label class="resumo-form" id="result">${sessionScope.pontosCli}</label>
                         </div>
                     </div>
 
