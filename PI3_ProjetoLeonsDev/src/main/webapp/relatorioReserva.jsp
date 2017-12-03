@@ -104,7 +104,7 @@
 
                     <form class="editCli" action="#" method="post">
 
-                        <div id="bg"></div>
+                        <div id="tabela">
                         <table>
                             <tr>
                                 
@@ -138,7 +138,7 @@
 
                         </table>
                         
-                        
+                        </div>
 
                     </form>
                 </div>

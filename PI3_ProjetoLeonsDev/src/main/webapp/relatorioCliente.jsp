@@ -100,7 +100,7 @@
                             </c:if>
                         </div>
                         
-                        <div id="bg"></div>
+                        <div id="tabela">
                         <table>
                             <tr>
                                 <th>Data Cadastro</th>                                
@@ -131,7 +131,7 @@
                             
                         </table>
 
-                        
+                        </div>
                     </form>
                 </div>
             <div class="grid_3 prefix_1">

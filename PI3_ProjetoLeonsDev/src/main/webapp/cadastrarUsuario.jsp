@@ -32,7 +32,8 @@
         <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
         <script src="${pageContext.request.contextPath}/js/limitarCampos.js"></script>
-
+        <script src="${pageContext.request.contextPath}/js/limitarCamposOitoDigitos.js"></script>
+        
         <script>
             $(document).ready(function () {
                 $().UItoTop({easingType: 'easeOutQuart'});
@@ -129,7 +130,7 @@
                                 </div>
                                 <div class="row">
                                     <input type="text" value="${requestScope.usuRepreenche.login}" placeholder="Login*" name="login-usua">
-                                    <input type="text" value="${requestScope.usuRepreenche.senha}" placeholder="Senha*" name="senha-usua"> 
+                                    <input type="text" value="${requestScope.usuRepreenche.senha}" placeholder="Senha*" onkeydown="limitaOitoDigitos(this);" onkeyup="limitaOitoDigitos(this);" name="senha-usua"> 
                                 </div>  
 
 

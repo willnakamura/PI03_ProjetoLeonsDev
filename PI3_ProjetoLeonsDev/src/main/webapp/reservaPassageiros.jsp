@@ -49,8 +49,8 @@
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
                                 <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuário</a></li>
+                                <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuário</a></li>
                                  <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
                                 <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
                             </ul>
@@ -128,7 +128,7 @@
 
                             <div class="form-footer">
 
-                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
+                               
                                 <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
 
                             </div> 
