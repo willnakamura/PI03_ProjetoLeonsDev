@@ -150,6 +150,7 @@ public class DaoRelatorios {
                 clientela.setEmail(result.getString("Email"));
                 clientela.setNivel(result.getString("Nivel"));
                 clientela.setMilhasTotal(result.getInt("MilhasTotal"));
+                clientela.setMilhasSaldo(result.getInt("MilhasSaldo"));
                 clientela.setQtdReservas(result.getInt("TotalReservas"));
                 clientela.setDataUltimaCompra(result.getDate("UltimaReserva"));
                 //Adiciona a instância na lista
