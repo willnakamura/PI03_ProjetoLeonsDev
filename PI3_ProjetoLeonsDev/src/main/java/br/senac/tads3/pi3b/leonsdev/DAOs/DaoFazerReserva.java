@@ -136,7 +136,7 @@ public class DaoFazerReserva {
         String sql4 = "insert into Servicos (Preco, Reserva_ID, ExtraBag, Ativo) "
                 + "VALUES (?, ?, ?, ?)";
         
-        String sql5 = "UPDATE Fidelidade set MilhasSaldo = MilhasSaldo - ?";
+        String sql5 = "UPDATE Fidelidade set MilhasSaldo = MilhasSaldo - ? WHERE Cliente_ID = ?";
 
         //Conexão para abertura e fechamento
         Connection connection = null;
@@ -204,6 +204,7 @@ public class DaoFazerReserva {
             
             preparedStatement5 = connection.prepareStatement(sql5);
             preparedStatement5.setDouble(1, milhas);
+            preparedStatement5.setInt(2, cliente.getId());
             preparedStatement5.execute();
 
         } finally {
