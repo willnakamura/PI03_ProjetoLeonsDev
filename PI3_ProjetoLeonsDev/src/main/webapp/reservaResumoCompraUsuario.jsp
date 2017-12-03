@@ -49,10 +49,10 @@
                             <ul class="sf-menu" id="menu_blockul">
                                 <li id="menu_blockHome"><a href="${pageContext.request.contextPath}/homeUsuario.jsp">HOME</a></li>                                
                                 <li id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarClienteUsuario.jsp">Cliente</a></li>                                
-                                
+
                                 <li class="current"><a href="${pageContext.request.contextPath}/reservaVooUsuario.jsp" 
-id="menu_blockReserva" >Reserva</a></li>
-                               
+                                                       id="menu_blockReserva" >Reserva</a></li>
+
                             </ul>
                         </nav>
                         <div class="clear"></div>
@@ -67,7 +67,7 @@ id="menu_blockReserva" >Reserva</a></li>
                 </div>
 
             </div>
-              <form action="${pageContext.request.contextPath}/Logout" method="post">
+            <form action="${pageContext.request.contextPath}/Logout" method="post">
                 <div class="form-footer" id="logout">
 
                     <button class="botoesLogout" type="submit">logout</button>
@@ -84,13 +84,18 @@ id="menu_blockReserva" >Reserva</a></li>
 
                     <div class="tituloCliente">
                         <h5 class="opcao">resumo da compra</h5>
-                        </div>
-                        
-                       <div class="resumo">
+                    </div>
+
+                    <div class="resumo">
                         <div >
                             <label class="resumo-form"> Status da Reserva: </label> 
                             <label class="resumo-form" id="result">Ativo</label>
 
+                        </div>
+
+                        <div >
+                            <label class="resumo-form"> Ticket da Reserva: </label> 
+                            <label class="resumo-form" id="result">${sessionScope.ticketResumo}</label>
                         </div>
                         <br>
 
@@ -131,11 +136,11 @@ id="menu_blockReserva" >Reserva</a></li>
                         <br>
 
                         <c:if test="${not empty sessionScope.VooVoltaReservaFinal}" >
-                             <div>
-                            <label class="resumo-form" id="tituloResumo">Voo de Volta</label>
-                        </div>
-                        <br>
-                            
+                            <div>
+                                <label class="resumo-form" id="tituloResumo">Voo de Volta</label>
+                            </div>
+                            <br>
+
                             <div >
                                 <label class="resumo-form">Aeroporto de Origem: </label>
                                 <label class="resumo-form">${sessionScope.VooVoltaReservaFinal.aeroportoPartida}</label>
@@ -260,7 +265,7 @@ id="menu_blockReserva" >Reserva</a></li>
 
                         <div>
 
-                            <label class="resumo-form">Nome Completo do Cliente</label>
+                            <label class="resumo-form">Nome Completo do Cliente: </label>
                             <label class="resumo-form" id="result">${sessionScope.ReservaFinal.cliente.nome} ${sessionScope.ReservaFinal.cliente.sobrenome}</label>
 
 
@@ -287,12 +292,12 @@ id="menu_blockReserva" >Reserva</a></li>
                             <label class="resumo-form" id="result"> R$ ${sessionScope.ReservaFinal.custoTotal}</label>
 
                         </div>
-                            
+
                         <div>
                             <label class="resumo-form">Desconto: </label>
                             <label class="resumo-form" id="result">${sessionScope.desconto}</label>
                         </div>    
-                            
+
                         <div>
                             <label class="resumo-form">Saldo em Milhas: </label>
                             <label class="resumo-form" id="result">${sessionScope.pontosCli}</label>
@@ -317,7 +322,7 @@ id="menu_blockReserva" >Reserva</a></li>
 
                     </form>
                 </div>
-                       
+
             </div>
 
 

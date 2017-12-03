@@ -91,22 +91,26 @@ public class ServicoReserva {
         }
     }
     
-    public static void inserirVenda(Reserva reserva, Passageiros[] passageiro, PassageirosVoos[] pvoos, Servico servico, Cliente cliente) throws SQLException, Exception {
+    public static String inserirVenda(Reserva reserva, Passageiros[] passageiro, PassageirosVoos[] pvoos, Servico servico, Cliente cliente) throws SQLException, Exception {
+        String ticket = null;
         try {
-            DaoFazerReserva.inserirVenda(reserva, passageiro, servico, cliente);
+            ticket = DaoFazerReserva.inserirVenda(reserva, passageiro, servico, cliente);
         } catch (Exception e) {
             e.getMessage();
             e.printStackTrace();
         }
+        return ticket;
     }
     
-    public static void inserirVendaMilhas(Reserva reserva, Passageiros[] passageiro, PassageirosVoos[] pvoos, Servico servico, Cliente cliente, Double milhas) throws SQLException, Exception {
+    public static String inserirVendaMilhas(Reserva reserva, Passageiros[] passageiro, PassageirosVoos[] pvoos, Servico servico, Cliente cliente, Double milhas) throws SQLException, Exception {
+        String ticket = null;
         try {
-            DaoFazerReserva.inserirVendaComMilhas(reserva, passageiro, servico, cliente, milhas);
+            ticket = DaoFazerReserva.inserirVendaComMilhas(reserva, passageiro, servico, cliente, milhas);
         } catch (Exception e) {
             e.getMessage();
             e.printStackTrace();
         }
+        return ticket;
     }
     
    

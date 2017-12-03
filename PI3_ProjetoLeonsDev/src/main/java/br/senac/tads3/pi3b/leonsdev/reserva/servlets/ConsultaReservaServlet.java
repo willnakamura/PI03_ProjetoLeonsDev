@@ -40,7 +40,7 @@ public class ConsultaReservaServlet extends HttpServlet {
         HttpSession sessao = request.getSession();
         SingletonLogin singleton = SingletonLogin.getInstance();
 
-        String ticket = request.getParameter("buscaCodigo");
+        String ticket = request.getParameter("buscaCodigo").trim();
 
         if (ticket == null || ticket.trim().equals("")) {
             request.setAttribute("erroConsulta", "Informe o ticket da reserva para a pesquisa.");

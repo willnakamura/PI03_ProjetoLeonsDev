@@ -75,7 +75,7 @@ public class RelatorioReservaServlet extends HttpServlet {
             e.getMessage();
         }
 
-        if (relatorioVenda.isEmpty() || relatorioVenda == null) {
+        if (relatorioVenda == null) {
             request.setAttribute("erroRelatorio", "A pesquisa não trouxe resultados.");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/relatorioReserva.jsp");
             dispatcher.forward(request, response);
