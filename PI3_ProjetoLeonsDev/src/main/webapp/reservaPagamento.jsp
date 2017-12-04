@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Pagamento</title>
+        <title>Reserva Pagamento</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -47,9 +47,9 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuário</a></li>
+                                <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuário</a></li>
                                 <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
                                 <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
                             </ul>
@@ -87,13 +87,13 @@
 
                     <div class="card-form">
                         <form class="signup" action="${pageContext.request.contextPath}/PagamentoReserva" method="post">
-                            
+
                             <div class="row">
                                 <c:if test="${not empty requestScope.erroPagamento}">
                                     <p class="error"><c:out value="${requestScope.erroPagamento}"/></p>
                                 </c:if>
                             </div>
-                            
+
                             <div class="busca">
                                 <input type="text" id="pagador" name="nomePagador" readonly="readonly" value="${sessionScope.nomePagador}">
                             </div>
@@ -102,20 +102,28 @@
                                 <div class="row">
                                     <select class="pagamento" name="pagamento">  
                                         <option value="Selecione">Forma de Pagamento</option>
-                                        <option value="credito">crédito</option>
+                                        <option value="Credito">Crédito</option>
                                         <option value="Debito">Débito</option>
                                         <option value="Dinheiro">Dinheiro</option>
+                                        <option value="Milhas">Milhas</option>
                                     </select>
                                 </div>  
+
 
                                 <div class="row">
                                     <input type="text" name="total" value="${sessionScope.custoTotal}" readonly="readonly">
                                 </div>
 
+                                <c:if test="${not empty sessionScope.valorTotalMilha}">
+                                    <div class="row">
+                                        <input type="text" name="total" value="${sessionScope.valorTotalMilha}" readonly="readonly">
+                                    </div>
+                                </c:if>
+
                             </div>
 
                             <div class="form-footer">
-                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
+                               
                                 <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
 
                             </div>

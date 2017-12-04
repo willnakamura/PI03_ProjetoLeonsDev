@@ -8,7 +8,23 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans:600);
 @import url(//fonts.googleapis.com/css?family=PT+Sans+Narrow);
 
+#tabelaConsultaCliente{
+margin-left: -190px;    
+padding-left: 280px; 
+width: 1030px;
+height: 600px;
+overflow: scroll;
+overflow-x: hidden;   
+}
 
+#tabelaHorario{
+margin-left: -190px;    
+padding-left: 280px; 
+width: 1030px;
+height: 600px;
+overflow: scroll;
+overflow-x: hidden;   
+} 
 
 p.error{
     color: red;

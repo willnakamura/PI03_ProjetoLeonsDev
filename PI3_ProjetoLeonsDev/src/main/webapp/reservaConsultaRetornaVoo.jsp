@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Relatório Reserva</title>
+        <title>Consulta Reserva</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -48,8 +48,8 @@
                                 <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
                                 <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
                                 <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
-                                <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
-                                <li class="current"><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
+                                <li ><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
                             </ul>
                         </nav>
                         <div class="clear"></div>
@@ -64,14 +64,14 @@
                 </div>
 
             </div>
-             <form action="${pageContext.request.contextPath}/Logout" method="post">
+            <form action="${pageContext.request.contextPath}/Logout" method="post">
                 <div class="form-footer" id="logout">
 
                     <button class="botoesLogout" type="submit">logout</button>
 
                 </div>
             </form>
-                        
+
         </header>
 
         <div class="content"><div class="ic"></div>
@@ -80,64 +80,105 @@
                 <div class="grid_8">
                     <div class="tituloCliente">
 
-                        <h5 class="opcao">RELATÓRIO DE RESERVAS </h5>
+                        <h5 class="">CONSULTAR RESERVA</h5>
 
                     </div>                    
 
-                    <form class="buscaCliente" action="${pageContext.request.contextPath}/RelatorioReserva" method="post">
+                    <form class="buscaCliente" action="${pageContext.request.contextPath}/ConsultaReserva" method="post">
+
+
                         <div class="row">
-                            <c:if test="${not empty requestScope.erroRelatorio}">
-                                <p class="error"><c:out value="${requestScope.erroRelatorio}"/></p>
+                            <div class="busca"><input type="text"  id="busca1" placeholder="informe o codigo de busca" name="buscaCodigo"> <button id="botoesBusca" type="submit">BUSCAR</button></div>
+                        </div>
+
+                        <div class="row">
+                            <c:if test="${not empty requestScope.erroConsulta}">
+                                <p class="error"><c:out value="${requestScope.erroConsulta}"/></p>
                             </c:if>
                         </div>
 
-                        <div class="row">
-
-                            <input type="date" max="2999-12-31" name="data-inicio" />
-                            <input type="date" max="2999-12-31" name="data-fim"/> 
-                            <button id="botoesBusca" type="submit">BUSCAR</button>
-                        </div>
-                      
-                        
 
                     </form>
 
-                    <form class="editCli" action="#" method="post">
+                    <form class="editCli" action="${pageContext.request.contextPath}/DeletarReserva" method="post">
 
+                        <div class="row">
+                            <c:if test="${not empty requestScope.erroCancelamento}">
+                                <p class="error"><c:out value="${requestScope.erroCancelamento}"/></p>
+                            </c:if>
+                        </div>
+
+                        <div id="bg"></div>
                         <div id="tabelaRelatorio">
                         <table>
                             <tr>
-                                
+                                <th></th>
                                 <th>Data Reserva</th>                                
                                 <th>Ticket</th>       
-                                <th>Nome Passageiro</th>
-                                <th>Sobrenome Passageiro</th>
+                                <th>Nome do Passageiro</th>
+                                <th>Ultimo Nome do Passageiro</th>
                                 <th>Data de Partida</th>
                                 <th>Nº Voo</th>                                
-                                <th>Hora Voo</th>
+                                <!--<th>Hora Voo</th>-->
                                 <th>Aeroporto Origem</th>
                                 <th>Aeroporto Destino</th>
                                 <th>Assento</th>
+                                <th style="visibility: hidden">ID</th>
                             </tr> 
-                            
-                            
-                                <c:forEach var="relatorio" items="${sessionScope.ListaReservaRelatorio}">    
+
+                            <c:if test="${not empty sessionScope.listaConsulta}">
+                                <c:forEach var="l" items="${sessionScope.listaConsulta}" varStatus="loop">            
                                     <tr>
-                                        <td>${relatorio.dataReserva}</td>
-                                        <td>${relatorio.ticketCode}</td>
-                                        <td>${relatorio.primeiroNome_Passageiro}</td>
-                                        <td>${relatorio.ultimoNome_Passageiro}</td>
-                                        <td>${relatorio.dataPartida}</td>
-                                        <td>${relatorio.nr_Voo}</td>
-                                        <td>${relatorio.horaVoo}</td>
-                                        <td>${relatorio.aeroportoOrigem}</td>
-                                        <td>${relatorio.aeroportoDestino}</td>
-                                        <td>${relatorio.assento}</td>
+                                        <c:if test="${loop.first}">
+                                            <td><input type="radio" value="${l.reservaID}" name="selecionarRes" /></td>
+                                            <td>${l.dataReserva} </td>
+                                            <td>${l.ticketCode} </td>
+                                            <td>${l.nome} </td>
+                                            <td>${l.sobrenome} </td>
+                                            <td>${l.dataPartida} </td>
+                                            <td>${l.nVoo} </td>
+                                            <!--<td> </td>-->
+                                            <td>${l.origem} </td>
+                                            <td>${l.destino} </td>
+                                            <td>${l.assento} </td>
+                                            <td style="visibility: hidden">${l.reservaID}</td>
+                                        </c:if>
+                                        <c:if test="${not loop.first}">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>${l.nome} </td>
+                                            <td>${l.sobrenome} </td>
+                                            <td>${l.dataPartida} </td>
+                                            <td>${l.nVoo} </td>
+                                            <!--<td> </td>-->
+                                            <td>${l.origem} </td>
+                                            <td>${l.destino} </td>
+                                            <td>${l.assento} </td>
+                                            <td style="visibility: hidden">${l.reservaID}</td>
+                                        </c:if>
                                     </tr>
                                 </c:forEach>
+                            </c:if>
+                            
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td> </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <!--<td> </td>-->
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="visibility: hidden"></td>
 
                         </table>
-                        
+                            </div>
+
+                        <div class="form-footer">
+                            <button class="botoes" type="submit">CANCELAR RESERVA<span class="fa fa-ban"></span></button>
                         </div>
 
                     </form>
@@ -145,9 +186,8 @@
                 <div class="grid_3 prefix_1">
                     <h5 class="opcao">Opção</h5>
                     <ul class="list">
-                        <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Reserva</a></li>
-                        <li  class="current"><a href="${pageContext.request.contextPath}/relatorioCliente.jsp">Cliente</a></li>
-
+                        <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
+                        <li  class="current"><a href="#">Consultar</a></li>
 
                     </ul>
                 </div>

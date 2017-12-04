@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Cliente</title>
+        <title>Relatório Cliente</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -100,7 +100,7 @@
                             </c:if>
                         </div>
                         
-                        <div id="bg"></div>
+                        <div id="tabelaRelatorio">
                         <table>
                             <tr>
                                 <th>Data Cadastro</th>                                
@@ -108,7 +108,8 @@
                                 <th>Sobrenome</th>
                                 <th>CPF</th>
                                 <th>E-mail</th>
-                                <th>Nível</th>                                
+                                <th>Nível</th>                               
+                                <th>Milhas Saldo</th> 
                                 <th>Milhas Total</th>
                                 <th>Qtd Reservas</th>
                                 <th>Data Ultima Compra</th>
@@ -121,6 +122,7 @@
                                         <td>${relatorio.cpf}</td>
                                         <td>${relatorio.email}</td>
                                         <td>${relatorio.nivel}</td>
+                                        <td>${relatorio.milhasSaldo}</td>
                                         <td>${relatorio.milhasTotal}</td>
                                         <td>${relatorio.qtdReservas}</td>
                                         <td>${relatorio.dataUltimaCompra}</td>
@@ -129,7 +131,7 @@
                             
                         </table>
 
-                        
+                        </div>
                     </form>
                 </div>
             <div class="grid_3 prefix_1">

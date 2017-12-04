@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Voo</title>
+        <title>Reserva Voo</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -204,7 +204,14 @@
                         </form>
                     </div>
                 </div>
+<div class="grid_3 prefix_1">
+                    <h5 class="opcao">Opção </h5>
+                    <ul class="list">
+                        <li><a href="#">Reserva</a></li>
+                        <li><a href="${pageContext.request.contextPath}/reservaConsultaRetornaVoo.jsp">Consultar</a></li>
 
+                    </ul>
+</div>
             </div>
         </div>
         <!--==============================footer=================================-->

@@ -20,7 +20,8 @@
             <div class="login-container">
                 <div id="output"></div>
                 <div class="avatar">
-
+                    <img src="images/logoIndex.jpg" id="centro" />
+                    
                 </div>
                 <div class="form-box">
                     <form action="${pageContext.request.contextPath}/login" method="post">

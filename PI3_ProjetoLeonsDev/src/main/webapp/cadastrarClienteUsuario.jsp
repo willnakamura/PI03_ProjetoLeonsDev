@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Cliente</title>
+        <title>Cadastrar cliente usuário</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -32,7 +32,8 @@
         <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
         <script src="${pageContext.request.contextPath}/js/limitarCampos.js"></script>
-
+        <script src="${pageContext.request.contextPath}/js/limitarCamposOitoDigitos.js"></script>
+        
         <script>
             $(document).ready(function () {
                 $().UItoTop({easingType: 'easeOutQuart'});
@@ -52,11 +53,10 @@
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu" id="menu_blockul">
                                 <li id="menu_blockHome"><a href="${pageContext.request.contextPath}/homeUsuario.jsp">HOME</a></li>                                
-                                <li class="current" id="menu_blockHome"><a href="${pageContext.request.contextPath}/cadastrarClienteUsuario.jsp">Cliente</a></li>                                
+                                <li class="current" id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarClienteUsuario.jsp">Cliente</a></li>                                
                                 
                                 <li><a href="${pageContext.request.contextPath}/reservaVooUsuario.jsp" id="menu_blockReserva">Reserva</a></li>
-                                
-                                
+                                                                
 
                             </ul>
                         </nav>
@@ -192,7 +192,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <input type="number" placeholder="CEP*" value="${requestScope.cliRepreenche.cep}" name="cep-cli">
+                                    <input type="number" placeholder="CEP*" value="${requestScope.cliRepreenche.cep}"  onkeydown="limitaOitoDigitos(this);" onkeyup="limitaOitoDigitos(this);" name="cep-cli">
                                 </div>
                                 <div class="row">
                                     <input type="text" placeholder="Endereço*" value="${requestScope.cliRepreenche.endereco}" name="end-cli">

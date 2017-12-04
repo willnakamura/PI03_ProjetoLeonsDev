@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Pagamento</title>
+        <title>Reserva pagamento usuário</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -103,7 +103,7 @@ id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarClie
                                 <div class="row">
                                     <select class="pagamento" name="pagamento">  
                                         <option value="Selecione">Forma de Pagamento</option>
-                                        <option value="crédito">crédito</option>
+                                        <option value="crédito">Crédito</option>
                                         <option value="Débito">Débito</option>
                                         <option value="Dinheiro">Dinheiro</option>
                                     </select>
@@ -116,7 +116,7 @@ id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarClie
                             </div>
 
                             <div class="form-footer">
-                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
+                                
                                 <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
 
                             </div>
@@ -125,7 +125,8 @@ id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarClie
 
                     </div>
                 </div>
-
+                                
+                     
 
             </div>
 

@@ -14,7 +14,15 @@ import java.sql.Date;
 public class RelatorioClientes {
     private Date dataCadastro, 	dataUltimaCompra;
     private String nome, sobrenome, cpf, email, nivel;
-    private int milhasTotal, qtdReservas;
+    private int milhasTotal, milhasSaldo, qtdReservas;
+
+    public int getMilhasSaldo() {
+        return milhasSaldo;
+    }
+
+    public void setMilhasSaldo(int milhasSaldo) {
+        this.milhasSaldo = milhasSaldo;
+    }
 
     public RelatorioClientes() {
     }

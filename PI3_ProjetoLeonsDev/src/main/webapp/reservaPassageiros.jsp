@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Passageiros</title>
+        <title>Reserva Passageiros</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -49,8 +49,8 @@
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
                                 <li class="current"><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cliente-cadastrar.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/usuario-cadastrar.jps">Usuário</a></li>
+                                <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuário</a></li>
                                  <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
                                 <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
                             </ul>
@@ -113,7 +113,7 @@
                                     <select class="assentos" name="assentosPassageiro">           
                                         <option value="selecione">Selecione o assento!</option>
                                         <c:forEach items="${sessionScope.assentosLista}" var="a">
-                                            <option>${a.nAssento} - R$ ${a.preco}</option>                                            
+                                            <option value="${a.nAssento}" >${a.nAssento} - R$ ${a.preco}</option>                                            
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -121,14 +121,14 @@
                             </div>
                              
                             <div class="imagem">
-                                <label class="txtDescricao">assentos das fileiras 1, 2, 3 e 4 custam R$30. Exceto para clientes Pelicano e Águia </label>
+                                <label class="txtDescricao">Os assentos das fileiras 1, 2, 3 e 4 custam R$30. Clientes Pelicano e Águia são isentos. </label>
                                 <br><br>
                                 <img id="imagemMapa" src="${pageContext.request.contextPath}/images/mapa.png" >
                             </div>
 
                             <div class="form-footer">
 
-                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
+                               
                                 <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
 
                             </div> 
@@ -136,6 +136,8 @@
 
                     </div>
                 </div>
+                 
+                            
             </div>
 
 

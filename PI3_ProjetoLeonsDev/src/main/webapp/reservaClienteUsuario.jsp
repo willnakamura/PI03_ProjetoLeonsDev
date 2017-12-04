@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Selecionar Cliente</title>
+        <title>Selecionar cliente usuário</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -158,7 +158,7 @@
 
                             <div class="form-footer">
 
-                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
+                                
                                 <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
 
 

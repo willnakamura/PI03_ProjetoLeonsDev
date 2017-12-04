@@ -14,7 +14,41 @@ p.error{
     color: red;
 }
 
+#tabelaRelatorio{
+margin-left: -190px;    
+padding-left: 280px; 
+width: 1070px;
+height: 600px;
+overflow: scroll;
+overflow-x: hidden;   
+}
 
+#tabelaHorario{
+margin-left: -190px;    
+padding-left: 280px; 
+width: 1030px;
+height: 600px;
+overflow: scroll;
+overflow-x: hidden;   
+} 
+
+#tabelaConsultaCliente{
+margin-left: -190px;    
+padding-left: 280px; 
+width: 1030px;
+height: 600px;
+overflow: scroll;
+overflow-x: hidden;   
+}
+
+#tabelaConsultaUsuario{
+margin-left: -190px;    
+padding-left: 280px; 
+width: 1030px;
+height: 600px;
+overflow: scroll;
+overflow-x: hidden;   
+}
 
 p.sucess{
     color: green;

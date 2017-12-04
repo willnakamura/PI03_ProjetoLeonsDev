@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Horario</title>
+        <title>Reserva Horario Usuário</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -92,7 +92,7 @@
                                     <p class="error"><c:out value="${requestScope.erroTelaHorarioIda}"/></p>
                                 </c:if>
                             </div>
-
+                            <div id="tabelaHorario">
                             <table>
 
                                 <tr>
@@ -103,6 +103,8 @@
                                     <th>Data do Voo</th>
                                     <th>Hora Partida</th>    
                                     <th>Hora Chegada</th>
+                                    <th>Tarifa</th>
+                                    <th>Custo Milhas</th>
                                     <th style="visibility: hidden">ID</th>
 
                                 </tr>  
@@ -115,15 +117,18 @@
                                         <td>${voo.dataVoo}</td>
                                         <td>${voo.horaPartida}</td>
                                         <td>${voo.horaChegada}</td>
+                                        <td>${voo.tarifa}</td>
+                                        <td>${voo.tarifaMilhas}</td>
                                         <td style="visibility: hidden">${voo.id}</td>
                                     </tr>
                                 </c:forEach>
 
                             </table>
+                                </div>
 
                             <div class="form-footer">
 
-                                <button class="botoes">VOLTAR<span class="fa fa-ban"></span></button>
+                                
                                 <button class="botoes" type="submit">PROXIMO<span class="fa fa-thumbs-o-up"></span></button>
 
 
@@ -134,6 +139,7 @@
                     </div>
 
                 </div>
+                         
 
             </div>
 
