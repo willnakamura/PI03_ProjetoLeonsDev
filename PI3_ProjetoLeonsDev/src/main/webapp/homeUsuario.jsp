@@ -107,20 +107,20 @@
             <div id="camera_wrap" class="">
                 <div data-src="${pageContext.request.contextPath}/images/slide.jpg">
                     <div class="caption fadeIn">
-                        <h2>LONDON</h2>
+                        
 
                     </div>
                 </div>
                 <div data-src="${pageContext.request.contextPath}/images/slide1.jpg">
                     <div class="caption fadeIn">
-                        <h2>Maldives</h2>
+                       
 
 
                     </div>
                 </div>
                 <div data-src="${pageContext.request.contextPath}/images/slide2.jpg">
                     <div class="caption fadeIn">
-                        <h2>Venice</h2>
+                       
 
                     </div>
                 </div>

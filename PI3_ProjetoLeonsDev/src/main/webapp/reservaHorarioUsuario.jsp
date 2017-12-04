@@ -92,7 +92,7 @@
                                     <p class="error"><c:out value="${requestScope.erroTelaHorarioIda}"/></p>
                                 </c:if>
                             </div>
-                            <div id="tabelaHorario">
+                            
                             <table>
 
                                 <tr>
@@ -124,7 +124,7 @@
                                 </c:forEach>
 
                             </table>
-                                </div>
+                              
 
                             <div class="form-footer">
 
