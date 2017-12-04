@@ -108,7 +108,7 @@
                             </c:if>
                         </div>
 
-                        <div id="bg"></div>
+                        
                         <table>
                             <tr>
                                 <th></th>

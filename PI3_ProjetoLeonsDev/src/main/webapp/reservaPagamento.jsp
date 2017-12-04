@@ -95,7 +95,7 @@
                             </div>
 
                             <div class="busca">
-                                <input type="text" id="pagador" name="nomePagador" readonly="readonly" value="${sessionScope.nomePagador}">
+                                <label name="nomePagador">${sessionScope.nomePagador}</label>
                             </div>
 
                             <div class="form-body">
@@ -111,12 +111,12 @@
 
 
                                 <div class="row">
-                                    <input type="text" name="total" value="${sessionScope.custoTotal}" readonly="readonly">
+                                    <label>${sessionScope.custoTotal}</label>
                                 </div>
 
                                 <c:if test="${not empty sessionScope.valorTotalMilha}">
                                     <div class="row">
-                                        <input type="text" name="total" value="${sessionScope.valorTotalMilha}" readonly="readonly">
+                                        <label name="total">Milhas: value="${sessionScope.valorTotalMilha}</label>
                                     </div>
                                 </c:if>
 
