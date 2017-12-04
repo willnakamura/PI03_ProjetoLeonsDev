@@ -31,6 +31,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery.equalheights.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+        <script src="${pageContext.request.contextPath}/js/limitarCamposOnze.js"></script>
 
         <script>
             $(document).ready(function () {
@@ -96,7 +97,7 @@ id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarClie
                             </div>
                             
                             <div class="busca">
-                                <input type="text" id="pagador" name="nomePagador" readonly="readonly" value="${sessionScope.nomePagador}">
+                             <label name="nomePagador">${sessionScope.nomePagador}</label>
                             </div>
 
                             <div class="form-body">
@@ -110,8 +111,14 @@ id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarClie
                                 </div>  
 
                                 <div class="row">
-                                    <input type="text" name="total" value="${sessionScope.custoTotal}" readonly="readonly">
+                                     <label>R$ ${sessionScope.custoTotal}</label>
                                 </div>
+                                
+                                <c:if test="${not empty sessionScope.valorTotalMilha}">
+                                    <div class="row">
+                                        <label name="total">Milhas: value="${sessionScope.valorTotalMilha}</label>
+                                    </div>
+                                </c:if>
 
                             </div>
 

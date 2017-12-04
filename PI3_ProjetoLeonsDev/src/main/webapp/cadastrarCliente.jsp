@@ -32,6 +32,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
         <script src="${pageContext.request.contextPath}/js/limitarCampos.js"></script>
         <script src="${pageContext.request.contextPath}/js/limitarCamposOitoDigitos.js"></script>
+         <script src="${pageContext.request.contextPath}/js/limitarCamposOnze.js"></script>
 
         <script>
             $(document).ready(function () {
@@ -118,7 +119,7 @@
                                     <input type="text" placeholder="Email*" value="${requestScope.cliRepreenche.email}" name="email-cli">
                                 </div>
                                 <div class="row">
-                                    <input type="number" placeholder="()Celular*" value="${requestScope.cliRepreenche.celular}" name="celular-cli">       
+                                    <input type="number" placeholder="Inisira o Celular com DD" value="${requestScope.cliRepreenche.celular}"  onkeydown="limitaOnzeDigitos(this);" onkeyup="limitaOnzeDigitos(this);" name="celular-cli">       
                                 </div>
 
                                 <div class="row">

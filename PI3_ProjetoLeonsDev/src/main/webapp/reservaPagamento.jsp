@@ -111,7 +111,7 @@
 
 
                                 <div class="row">
-                                    <label>${sessionScope.custoTotal}</label>
+                                    <label>R$ ${sessionScope.custoTotal}</label>
                                 </div>
 
                                 <c:if test="${not empty sessionScope.valorTotalMilha}">
