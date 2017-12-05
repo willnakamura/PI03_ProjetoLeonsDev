@@ -95,7 +95,7 @@
                             </div>
 
                             <div class="busca">
-                                <label name="nomePagador">${sessionScope.nomePagador}</label>
+                                <input type="text" id="pagador" name="nomePagador" readonly="readonly" value="${sessionScope.nomePagador}">
                             </div>
 
                             <div class="form-body">
@@ -108,15 +108,21 @@
                                         <option value="Milhas">Milhas</option>
                                     </select>
                                 </div>  
-
+                                <div clas="row" id="Total">
+                                    <label>Custo total R$ </label>
+                                 </div>
 
                                 <div class="row">
-                                    <label>R$ ${sessionScope.custoTotal}</label>
+                                    <input type="text" name="total" value="${sessionScope.custoTotal}" readonly="readonly">
                                 </div>
-
+                                
                                 <c:if test="${not empty sessionScope.valorTotalMilha}">
+                                    <div clas="row" id="Total">
+                                    <label>Custo em milhas R$ </label>
+                                    </div>
+                                    
                                     <div class="row">
-                                        <label name="total">Milhas: value="${sessionScope.valorTotalMilha}</label>
+                                        <input type="text" name="total" value="${sessionScope.valorTotalMilha}" readonly="readonly">
                                     </div>
                                 </c:if>
 
@@ -124,9 +130,13 @@
 
                             <div class="form-footer">
                                
-                                <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
+                                <a class="botoes" href="home.jsp">HOME<span class="fa fa-thumbs-o-up"></span></a>
 
                             </div>
+
+                        </form>
+
+                    </div>
 
                         </form>
 

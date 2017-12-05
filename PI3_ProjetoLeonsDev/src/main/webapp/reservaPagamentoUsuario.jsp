@@ -89,42 +89,50 @@ id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarClie
 
                     <div class="card-form">
                         <form class="signup" action="${pageContext.request.contextPath}/PagamentoReserva" method="post">
-                            
+
                             <div class="row">
                                 <c:if test="${not empty requestScope.erroPagamento}">
                                     <p class="error"><c:out value="${requestScope.erroPagamento}"/></p>
                                 </c:if>
                             </div>
-                            
+
                             <div class="busca">
-                             <label name="nomePagador">${sessionScope.nomePagador}</label>
+                                <input type="text" id="pagador" name="nomePagador" readonly="readonly" value="${sessionScope.nomePagador}">
                             </div>
 
                             <div class="form-body">
                                 <div class="row">
                                     <select class="pagamento" name="pagamento">  
                                         <option value="Selecione">Forma de Pagamento</option>
-                                        <option value="crédito">Crédito</option>
-                                        <option value="Débito">Débito</option>
+                                        <option value="Credito">Crédito</option>
+                                        <option value="Debito">Débito</option>
                                         <option value="Dinheiro">Dinheiro</option>
+                                        <option value="Milhas">Milhas</option>
                                     </select>
                                 </div>  
+                                <div clas="row" id="Total">
+                                    <label>Custo total R$ </label>
+                                 </div>
 
                                 <div class="row">
-                                     <label>R$ ${sessionScope.custoTotal}</label>
+                                    <input type="text" name="total" value="${sessionScope.custoTotal}" readonly="readonly">
                                 </div>
                                 
                                 <c:if test="${not empty sessionScope.valorTotalMilha}">
+                                    <div clas="row" id="Total">
+                                    <label>Custo em milhas R$ </label>
+                                    </div>
+                                    
                                     <div class="row">
-                                        <label name="total">Milhas: value="${sessionScope.valorTotalMilha}</label>
+                                        <input type="text" name="total" value="${sessionScope.valorTotalMilha}" readonly="readonly">
                                     </div>
                                 </c:if>
 
                             </div>
 
                             <div class="form-footer">
-                                
-                                <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
+                               
+                                <a class="botoes" href="homeUsuario.jsp">HOME<span class="fa fa-thumbs-o-up"></span></a>
 
                             </div>
 

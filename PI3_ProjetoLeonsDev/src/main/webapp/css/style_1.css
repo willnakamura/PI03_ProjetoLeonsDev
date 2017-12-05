@@ -8,6 +8,11 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans:600);
 @import url(//fonts.googleapis.com/css?family=PT+Sans+Narrow);
 
+
+#Total{
+    margin-left: 30px;
+    
+}
 #tabelaConsultaCliente{
 margin-left: -190px;    
 padding-left: 280px; 

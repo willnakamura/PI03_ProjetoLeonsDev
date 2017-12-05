@@ -1,4 +1,4 @@
-window.addEventListener("load",limita);
+window.addEventListener("load",limitaOnzeDigitos);
 
 function limitaOnzeDigitos(numero){
     
