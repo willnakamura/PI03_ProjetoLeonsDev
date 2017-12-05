@@ -214,7 +214,7 @@ public class VooReservaServlet extends HttpServlet {
             try {
                 voo1 = ServicoVoos.buscarVooEspecial(voo.getDataVoo(),
                         voo.getAeroportoPartida().substring(0, 3), voo.getAeroportoChegada().substring(0, 3));
-                if (voo1 == null || voo1.isEmpty()) {
+                if (voo1 == null) {
                     request.setAttribute("erroTelaVoo", "Não temos voo para esta origem e este destino.");
                     if (singleton.getCargo().equals("Gerente")) {
                         RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");

@@ -126,7 +126,7 @@
 
                                     <c:choose>
                                         <c:when test="${not empty requestScope.telaVooRepreencher.aeroportoDestino}">
-                                            <option value="${requestScope.telaVooRepreencher.destino}">${requestScope.telaVooRepreencher.aeroportoDestino}</option>
+                                            <option value="${requestScope.telaVooRepreencher.aeroportoDestino}">${requestScope.telaVooRepreencher.aeroportoDestino}</option>
                                         </c:when>
 
                                         <c:otherwise>
@@ -182,8 +182,8 @@
                                 <select id="formatar" class="bagagem" name="bagagem-voo">
 
                                     <c:choose>
-                                        <c:when test="${not empty requestScope.bagagemRepreencher.bagagem}">
-                                            <option value="${requestScope.bagagemRepreencher.bagagem}">${requestScope.bagagemRepreencher.bagagem}</option>
+                                        <c:when test="${not empty requestScope.bagagemRepreencher}">
+                                            <option value="${requestScope.bagagemRepreenche}">${requestScope.bagagemRepreencher}</option>
                                         </c:when>
 
                                         <c:otherwise>
