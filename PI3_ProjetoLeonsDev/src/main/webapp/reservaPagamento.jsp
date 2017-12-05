@@ -108,13 +108,19 @@
                                         <option value="Milhas">Milhas</option>
                                     </select>
                                 </div>  
-
+                                <div clas="row" id="Total">
+                                    <label>Custo total R$ </label>
+                                 </div>
 
                                 <div class="row">
                                     <input type="text" name="total" value="${sessionScope.custoTotal}" readonly="readonly">
                                 </div>
-
+                                
                                 <c:if test="${not empty sessionScope.valorTotalMilha}">
+                                    <div clas="row" id="Total">
+                                    <label>Custo em milhas R$ </label>
+                                    </div>
+                                    
                                     <div class="row">
                                         <input type="text" name="total" value="${sessionScope.valorTotalMilha}" readonly="readonly">
                                     </div>
@@ -124,9 +130,13 @@
 
                             <div class="form-footer">
                                
+                                
                                 <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
-
                             </div>
+
+                        </form>
+
+                    </div>
 
                         </form>
 

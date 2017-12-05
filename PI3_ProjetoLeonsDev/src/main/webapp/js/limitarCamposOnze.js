@@ -1,13 +1,14 @@
-window.addEventListener("load",limita);
+window.addEventListener("load",limitaOnzeDigitos);
 
-function limita(numero){
+function limitaOnzeDigitos(numero){
     
-  var max_numeros = 11;
+  var max_numeros = 15;
   
   if(numero.value.length > max_numeros) {
-      
+    
     numero.value = numero.value.substr(0, max_numeros);
   }
+  
 }
 
 

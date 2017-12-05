@@ -135,7 +135,7 @@
 
 
                                 <div class="form-footer">
-                                    <button class="botoes">CANCELAR<span class="fa fa-ban"></span></button>
+                                    
                                     <button class="botoes" type="submit">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
                                 </div>
 

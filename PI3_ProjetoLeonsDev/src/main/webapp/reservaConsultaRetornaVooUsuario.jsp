@@ -46,9 +46,9 @@
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu" id="menu_blockul">
                                 <li id="menu_blockHome"><a href="${pageContext.request.contextPath}/homeUsuario.jsp">HOME</a></li>                                
-                                <li id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
+                                <li id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarClienteUsuario.jsp">Cliente</a></li>                                
                                 
-                                <li class="current"><a href="${pageContext.request.contextPath}/reservaVoo.jsp" id="menu_blockReserva">Reserva</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/reservaVooUsuario.jsp" id="menu_blockReserva">Reserva</a></li>
                                
                             </ul>
                         </nav>
@@ -108,7 +108,7 @@
                             </c:if>
                         </div>
 
-                        <div id="bg"></div>
+                        
                         <table>
                             <tr>
                                 <th></th>
@@ -184,7 +184,7 @@
                 <div class="grid_3 prefix_1">
                     <h5 class="opcao">Opção</h5>
                     <ul class="list">
-                        <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
+                        <li><a href="${pageContext.request.contextPath}/reservaVooUsuario.jsp">Reserva</a></li>
                         <li  class="current"><a href="#">Consultar</a></li>
 
                     </ul>

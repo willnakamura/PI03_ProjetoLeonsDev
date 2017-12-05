@@ -109,7 +109,7 @@
                         </div>
 
                         <div id="bg"></div>
-                        <div id="tabelaRelatorio">
+                       
                         <table>
                             <tr>
                                 <th></th>
@@ -175,7 +175,7 @@
                             <td style="visibility: hidden"></td>
 
                         </table>
-                            </div>
+                            
 
                         <div class="form-footer">
                             <button class="botoes" type="submit">CANCELAR RESERVA<span class="fa fa-ban"></span></button>

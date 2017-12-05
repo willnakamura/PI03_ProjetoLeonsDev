@@ -171,7 +171,7 @@
 
                             <div class="form-footer">
 
-                                <button class="botoes"><a href="${pageContext.request.contextPath}/consultarCliente.jsp">CANCELAR</a><span class="fa fa-ban"></span></button>
+                                <button type="button" class="botoes"><a href="${pageContext.request.contextPath}/consultarCliente.jsp">CANCELAR</a><span class="fa fa-ban"></span></button>
 
                                 <button class="botoes" type="submit">SALVAR<span class="fa fa-thumbs-o-up"></span></button>
 

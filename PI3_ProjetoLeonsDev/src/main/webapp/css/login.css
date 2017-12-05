@@ -14,10 +14,10 @@ and open the template in the editor.
     color: red;
 }
 
-body{background: #eee url(https://content.ieltsonlinetests.com/fileman/Uploads/11/12/flight_resized.jpg);}
+body{background-image: url(http://www.publicdomainpictures.net/pictures/190000/velka/travel-background-1469438406Duy.jpg); background-repeat: no-repeat; background-size: cover;}
 html,body{
     position: relative;
-    height: 100%;
+    height: 80%;
 }
 
 .login-container{

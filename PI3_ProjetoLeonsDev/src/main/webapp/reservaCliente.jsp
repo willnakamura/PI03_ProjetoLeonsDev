@@ -119,37 +119,37 @@
 
                             <div class="form-body">
                                 <div class="row">
-                                    <input type="text" placeholder="Nome*" value="${sessionScope.clienteSelectReserva.nome}" name="nome-cli-selecionar" readonly="readonly">
-                                    <input type="text" placeholder="Sobrenome*" value="${sessionScope.clienteSelectReserva.sobrenome}" name="sobreNome-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Nome*" value="${requestScope.Cliente.nome}" name="nome-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Sobrenome*" value="${requestScope.Cliente.sobrenome}" name="sobreNome-cli-selecionar" readonly="readonly">
                                 </div>  
                                 <div class="row">
-                                    <input type="number"  placeholder="cpf*" value="${sessionScope.clienteSelectReserva.cpf}"  name="cpf-cli-selecionar" readonly="readonly">
+                                    <input type="number"  placeholder="cpf*" value="${requestScope.Cliente.cpf}"  name="cpf-cli-selecionar" readonly="readonly">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Email*" value="${sessionScope.clienteSelectReserva.email}" name="email-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Email*" value="${requestScope.Cliente.email}" name="email-cli-selecionar" readonly="readonly">
                                 </div>
                                 <div class="row">
-                                    <input type="number" placeholder="()Celular*" value="${sessionScope.clienteSelectReserva.celular}" name="celular-cli-selecionar" readonly="readonly">       
-                                </div>
-
-                                <div class="row">
-                                    <input type="text" placeholder="Sexo" value="${sessionScope.clienteSelectReserva.genero}"  name="sexo-cli-selecionar" readonly="readonly">   
-                                    <input type="text" placeholder="data de Nascimento" value="${sessionScope.clienteSelectReserva.dataNascimento}" name="dtNasc-cli-selecionar" readonly="readonly">   
-
+                                    <input type="number" placeholder="()Celular*" value="${requestScope.Cliente.celular}" name="celular-cli-selecionar" readonly="readonly">       
                                 </div>
 
                                 <div class="row">
+                                    <input type="text" placeholder="Sexo" value="${requestScope.Cliente.genero}"  name="sexo-cli-selecionar" readonly="readonly">   
+                                    <input type="text" placeholder="data de Nascimento" value="${requestScope.Cliente.dataNascimento}" name="dtNasc-cli-selecionar" readonly="readonly">   
 
-
-                                    <input type="text" placeholder="Estado*" value="${sessionScope.clienteSelectReserva.estado}"  name="estado-cli-selecionar" readonly="readonly">
-                                    <input type="text" placeholder="Cidade*" value="${sessionScope.clienteSelectReserva.cidade}"  name="cidade-cli-selecionar" readonly="readonly">
                                 </div>
 
                                 <div class="row">
-                                    <input type="number" placeholder="CEP*" value="${sessionScope.clienteSelectReserva.cep}"  name="cep-cli-selecionar" readonly="readonly">
+
+
+                                    <input type="text" placeholder="Estado*" value="${requestScope.Cliente.estado}"  name="estado-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Cidade*" value="${requestScope.Cliente.cidade}"  name="cidade-cli-selecionar" readonly="readonly">
+                                </div>
+
+                                <div class="row">
+                                    <input type="number" placeholder="CEP*" value="${requestScope.Cliente.cep}"  name="cep-cli-selecionar" readonly="readonly">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Endereço" value="${sessionScope.clienteSelectReserva.endereco}"  name="end-cli-selecionar" readonly="readonly">
+                                    <input type="text" placeholder="Endereço" value="${requestScope.Cliente.endereco}"  name="end-cli-selecionar" readonly="readonly">
                                 </div>
 
                             </div>

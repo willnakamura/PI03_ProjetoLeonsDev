@@ -317,7 +317,7 @@
 
 
                         <div class="form-footer">
-                            <button class="botoes">HOME<span class="fa fa-ban"></span></button>
+                            <a class="botoes" href="homeUsuario.jsp">HOME<span class="fa fa-thumbs-o-up"></span></a>
                         </div>
 
                     </form>
