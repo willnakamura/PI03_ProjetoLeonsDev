@@ -144,6 +144,7 @@ public class PagamentoReservaServlet extends HttpServlet {
             } else {
                 String ticket = ServicoReserva.inserirVenda(r, passVetor, passVoosVetor, servico, cli);
                 sessao.setAttribute("ticketResumo", ticket);
+                sessao.setAttribute("pontosCli", cli.getPontos());
             }
 
         } catch (Exception e) {
@@ -151,7 +152,7 @@ public class PagamentoReservaServlet extends HttpServlet {
         }
 
         if (singleton.getCargo().equals("Gerente")) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompraNOVO.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompra.jsp");
             dispatcher.forward(request, response);
         } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaResumoCompraUsuario.jsp");
