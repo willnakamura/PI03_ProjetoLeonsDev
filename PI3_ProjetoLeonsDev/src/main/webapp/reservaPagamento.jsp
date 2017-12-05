@@ -130,8 +130,8 @@
 
                             <div class="form-footer">
                                
-                                <a class="botoes" href="home.jsp">HOME<span class="fa fa-thumbs-o-up"></span></a>
-
+                                
+                                <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
                             </div>
 
                         </form>

@@ -132,7 +132,7 @@ id="menu_blockCliente"><a href="${pageContext.request.contextPath}/cadastrarClie
 
                             <div class="form-footer">
                                
-                                <a class="botoes" href="homeUsuario.jsp">HOME<span class="fa fa-thumbs-o-up"></span></a>
+                                <button class="botoes" type="submit">FINALIZAR<span class="fa fa-thumbs-o-up"></span></button>
 
                             </div>
 
