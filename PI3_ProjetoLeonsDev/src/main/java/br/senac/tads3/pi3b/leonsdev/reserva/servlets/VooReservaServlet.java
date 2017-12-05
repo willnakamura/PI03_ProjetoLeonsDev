@@ -89,30 +89,29 @@ public class VooReservaServlet extends HttpServlet {
         sessao.setAttribute("opcaoIdaOuIdaVolta", opcao);
 
         String bagagem = request.getParameter("bagagem-voo");
-        
 
         tela.setAeroportoDestino(destino);
         tela.setAeroportoOrigem(origem);
         tela.setDataIda(dataIdaVoo);
         tela.setDataVolta(dataVoltaVoo);
-
         tela.setQtdPass(qtdPass);
 
+        request.setAttribute("telaVooRepreencher", tela);
         try {
             ValidadorTelaVoo.validar(tela);
 
         } catch (ExceptionTelaVoo e) {
             request.setAttribute("erroTelaVoo", e.getMessage());
-            request.setAttribute("telaVooRepreencher", tela);
-            
-            
+
             if (singleton.getCargo().equals("Gerente")) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");
                 dispatcher.forward(request, response);
+                return;
 
             } else {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVooUsuario.jsp");
                 dispatcher.forward(request, response);
+                return;
             }
         }
 

@@ -125,8 +125,8 @@
                                 <select class="aeroportoFormat" name="destinoVoo">
 
                                     <c:choose>
-                                        <c:when test="${not empty requestScope.telaVooRepreencher.AeroportoDestino}">
-                                            <option value="${requestScope.telaVooRepreencher.destino}">${requestScope.telaVooRepreencher.AeroportoDestino}</option>
+                                        <c:when test="${not empty requestScope.telaVooRepreencher.aeroportoDestino}">
+                                            <option value="${requestScope.telaVooRepreencher.destino}">${requestScope.telaVooRepreencher.aeroportoDestino}</option>
                                         </c:when>
 
                                         <c:otherwise>
