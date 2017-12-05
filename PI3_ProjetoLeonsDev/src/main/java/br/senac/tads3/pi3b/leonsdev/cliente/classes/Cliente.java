@@ -52,7 +52,9 @@ public class Cliente {
         this.id = id;
     }
 
-    public Cliente(int id, String nome, String sobrenome, String cpf, String email, String celular, String estado, String genero, String cidade, String endereco, String cep, Date dataNascimento, boolean ativo) {
+    public Cliente(int id, String nome, String sobrenome, String cpf, String email, 
+            String celular, String estado, String genero, String cidade, String endereco, 
+            String cep, Date dataNascimento, boolean ativo) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;

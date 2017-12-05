@@ -66,7 +66,8 @@ public class AtualizarClienteServlet extends HttpServlet {
         String celular = request.getParameter("celular-cli");
         String email = request.getParameter("email-cli");
 
-        Cliente cli = new Cliente(id_vdd, nome, sobNome, cpf, email, celular, estado, endereco, cidade, endereco, cep, dataNasc, true);
+        Cliente cli = new Cliente(id_vdd, nome, sobNome, cpf, email, celular,
+                estado, sexo, cidade, endereco, cep, dataNasc, true);
 
         try {
             ServicoCliente.atualizarCliente(cli);

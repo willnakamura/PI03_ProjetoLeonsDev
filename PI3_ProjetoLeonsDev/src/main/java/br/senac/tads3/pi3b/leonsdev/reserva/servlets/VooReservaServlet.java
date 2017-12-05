@@ -173,7 +173,7 @@ public class VooReservaServlet extends HttpServlet {
             List<Voos> vooVolta = null;
             try {
                 vooVolta = ServicoVoos.buscarVooEspecial(voo2.getDataVoo(), ida2.substring(0, 3), chegada2.substring(0, 3));
-                if (vooVolta == null || vooVolta.isEmpty()) {
+                if (vooVolta == null) {
                     request.setAttribute("erroTelaVoo", "Não temos voo para esta origem e este destino, ou ele não está disponível para essa data.");
                     if (singleton.getCargo().equals("Gerente")) {
                         RequestDispatcher dispatcher = request.getRequestDispatcher("/reservaVoo.jsp");

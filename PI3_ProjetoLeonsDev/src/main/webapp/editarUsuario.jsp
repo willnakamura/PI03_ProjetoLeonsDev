@@ -104,18 +104,18 @@
                                 <div class="row">
                                     <input type="number" id="validadorCpf" placeholder="cpf*"  id="validadorCpf" onkeydown="limita(this);" onkeyup="limita(this);" name="cpf-usua" value="${sessionScope.usuario.cpf}">
                                  <select id="format-slc-usua" name="cargo-usua">
-                                    <option value="0">Selecione o cargo</option>
-                                    <option value="1">Gerente</option>
-                                    <option value="2">Vendedor</option>
+                                    <option >Selecione o cargo</option>
+                                    <option >Gerente</option>
+                                    <option >Vendedor</option>
                                                                        
                                 </select>
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Email*" name="email-usua"value="${sessionScope.usuario.email}">
+                                    <input type="text" placeholder="Email*" name="email-usua" value="${sessionScope.usuario.email}">
                                 </div>
                                 <div class="row">
-                                    <input type="text" placeholder="Login*" name="login-usua"value="${sessionScope.usuario.login}">
-                                     <input type="text" placeholder="Senha*" name="senha-usua"value="${sessionScope.usuario.senha}"> 
+                                    <input type="text" placeholder="Login*" name="login-usua"  value="${sessionScope.usuario.login}">
+                                     <input type="text" placeholder="Senha*" name="senha-usua" value="${sessionScope.usuario.senha}"> 
                                 </div>   
                                 
                                 <div class="row">
