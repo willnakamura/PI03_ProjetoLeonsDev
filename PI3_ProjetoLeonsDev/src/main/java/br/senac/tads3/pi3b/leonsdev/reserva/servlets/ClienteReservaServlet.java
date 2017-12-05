@@ -81,6 +81,7 @@ public class ClienteReservaServlet extends HttpServlet {
             }
 
             sessao.setAttribute("clienteSelectReserva", cli);
+            request.setAttribute("Cliente", cli);
         } catch (ClienteException | DataExceptions e) {
             request.setAttribute("erroSelecionaCli", e.getMessage());
 
